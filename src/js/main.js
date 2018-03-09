@@ -14,16 +14,10 @@ $(document).ready(function(){
     }
 
     $('.scroll').click(function() {
-        $('body').animate({
-            scrollTop: eval($('#' + $(this).attr('target')).offset().top - 270)
-        }, 1000);
-    });
-
-    // Also can pass in optional settings block
-    var rellax = new Rellax('.rellax', {
-        speed: -2,
-        center: false,
-        round: true,
+        var hash = $(this).attr('target');
+        $('html, body').animate({
+            scrollTop: $('#' + hash).offset().top - 50
+        }, 1300);
     });
 
 });
@@ -37,12 +31,14 @@ var webApp = {
             if($(document).scrollTop() > scroll_distance ) {
                 if(transparent) {
                     transparent = false;
-                    $('.navbar[color-on-scroll]').addClass('light');
+                    $('header').addClass('op0');
+                    $('.overlay').addClass('screen');
                 }
             } else {
                 if( !transparent ) {
                     transparent = true;
-                    $('.navbar[color-on-scroll]').removeClass('light');
+                    $('.overlay').removeClass('screen');
+                    $('header').removeClass('op0');
                 }
             }
     }, 17),
