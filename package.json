@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack",
     "production": "NODE_ENV=production webpack",
-    "watch": "npm run dev -- --watch"
+    "watch": "npm run dev -- --watch",
+    "deploy": "npm run production&&gh-pages -d dist"
   },
   "keywords": [],
   "author": "cs76",
@@ -33,6 +34,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.0.0",
+    "gh-pages": "^1.1.0",
     "jquery": "^3.2.1",
     "popper.js": "^1.12.5"
   }
