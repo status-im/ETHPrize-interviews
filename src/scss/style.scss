@@ -183,10 +183,9 @@ header{
   position: fixed;
   top: 0;
   left: 0;
-  width: 96vw;
-  height: 92vh;
+  width: 100vw;
+  height: 100vh;
   z-index: -1;
-  margin: 4vh 2vw;
   background-color: #0C143A;
 
   -webkit-transition: all 0.3s ease;
@@ -225,7 +224,7 @@ header{
   background-image: url("../img/about-side.png");
   background-repeat: no-repeat;
   background-position: top left;
-  background-size: 51.5% auto;
+  background-size: 50% auto;
 }
 
 .block-content h3{
@@ -378,8 +377,7 @@ header{
   }
 
   .screen{
-    height: 98vh;
-    margin: 1vh 2vw;
+    height: 100vh;
   }
 
   .about-block{
