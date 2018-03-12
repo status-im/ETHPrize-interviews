@@ -136,7 +136,7 @@ header{
 }
 
 .wrapper{
-  background-image: url("../img/bg-image.png");
+  background-image: url("../img/bg-image.jpg");
   background-repeat: no-repeat;
   background-position: top right;
   background-attachment: fixed;
@@ -149,8 +149,8 @@ header{
 }
 
 .wrapper.hide {
-  -webkit-mask: url(../img/sprite.png);
-          mask: url(../img/sprite.png);
+  -webkit-mask: url(../img/sprite.gif);
+          mask: url(../img/sprite.gif);
   -webkit-mask-size: 7500% 100%;
           mask-size: 7500% 100%;
   -webkit-animation: mask-play 1.5s steps(74) forwards;
@@ -221,7 +221,7 @@ header{
 }
 
 .about-wrapper{
-  background-image: url("../img/about-side.png");
+  background-image: url("../img/about-side.jpg");
   background-repeat: no-repeat;
   background-position: top left;
   background-size: 50% auto;
@@ -245,7 +245,7 @@ header{
 }
 
 .side-image{
-  background-image: url("../img/about-side.png");
+  background-image: url("../img/about-side.jpg");
   background-size: 100% auto;
   background-repeat: no-repeat;
 }
