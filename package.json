@@ -7,7 +7,7 @@
     "dev": "webpack",
     "production": "NODE_ENV=production webpack",
     "watch": "npm run dev -- --watch",
-    "deploy": "npm run production&&gh-pages -d dist"
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "cs76",
