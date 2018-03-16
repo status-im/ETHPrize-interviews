@@ -136,7 +136,7 @@ header{
 }
 
 .wrapper{
-  background-image: url("../img/bg-image.jpg");
+  background-image: url("/img/bg-image.jpg");
   background-repeat: no-repeat;
   background-position: top right;
   background-attachment: fixed;
@@ -221,7 +221,7 @@ header{
 }
 
 .about-wrapper{
-  background-image: url("../img/about-side.jpg");
+  background-image: url("/img/about-side.jpg");
   background-repeat: no-repeat;
   background-position: top left;
   background-size: 50% auto;
@@ -245,7 +245,7 @@ header{
 }
 
 .side-image{
-  background-image: url("../img/about-side.jpg");
+  background-image: url("/img/about-side.jpg");
   background-size: 100% auto;
   background-repeat: no-repeat;
 }
