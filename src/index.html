@@ -32,7 +32,7 @@
 <link rel="shortcut icon" href="/favicon.ico" />
 
 <!-- Roboto font import -->
-<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400" rel="stylesheet">
 
 <!-- meta tags @ seo -->
 <meta name="keywords" content="">
@@ -186,50 +186,266 @@
                 <div class="about-block block1 mb20">
                     <div class="block-content">
                         <h3>
-                         ETHPM Package Manager 
-                        </h3>
-                        <h5>
-                             Bounty: $250,000 USD (in crypto) 
-                        </h5>
-                        <p class="content mt50">
-                            Piper Merriam has done significant work on this already, but needs help to finish the project. He will serve as adviser to a team of developers from Truffle who will complete the development work.
+                           ETHPM Package Manager 
+                       </h3>
+                       <h5>
+                           Bounty: $250,000 USD (in crypto) 
+                       </h5>
+                       <p class="content mt50 description">
+                        Piper Merriam has done significant work on this already, but needs help to finish the project. He will serve as adviser to a team of developers from Truffle who will complete the development work.
+                    </p>
+                    <p class="content mt50">
+                        Timeline: 4-6 months <br><br>
+                    </p>
+                    <a class="btn btn-primary mt50" data-toggle="modal" data-target="#bounty1">
+                        LEARN MORE
+                    </a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="bounty1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header modal-header1">
+                            <span>
+                                <h2 class="modal-title">ETHPM (Package Manager)</h2>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="modal-subtitle">
+                                            $250,000 USD (in eth) <br>
+                                            <span class="modal-tag">
+                                                BOUNTY
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="modal-subtitle">
+                                            4-6 months <br>
+                                            <span class="modal-tag">
+                                                TIMELINE
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <p class="modal-customcontent">
+                                    Piper Merriam has done significant work on this already, but needs help to finish the project. He will serve as adviser to a team of developers from Truffle who will complete the development work.
+                                </p>
+                            </span>
+                                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                              </button> -->
+                          </div>
+                          <div class="modal-body">
+                            <p class="modal-subtitle">
+                                <b>SPEC</b>
+                            </p>
+                            <p class="modal-customcontent">
+                                <b>Detailed Spec from Truffle team to be found here</b><br>
+                                <ol class="root">
+                                    <li>
+                                        Finish V2 of the spec, including examples, documentation and basic implementers guide.  Remaining to-do this week on the spec:
+                                        <ol type="a">
+                                          <li>Examples need to be re-generated, probably from the existing list of example packages.  Documentation and implementers guides to this item will be added as well because I think that’s really needed for people to be able to understand the specification.</li>
+                                      </ol>
+                                  </li>
+                                  <li>
+                                    Reference implementation of an ethpm library.  To be done in javascript.  We already started one in python here: <br>
+                                    <a href="https://github.com/pipermerriam/py-ethpm">https://github.com/pipermerriam/py-ethpm</a>
+                                    <ol>
+                                        <li>
+                                            This would be a library that *understands* the packaging specification, knows how to do all of the various types of validation that are needed, and has some level of integration with web3.  Also, it would implement ways to *install* packages to disk as well as load packages that have already been installed to disk.  (see next point for specifying how things get installed to disk)
+                                        </li>
+                                        <li>GitHub
+                                            <ol type="i">
+                                                <li>pipermerriam/py-ethpm</li>
+                                                <li>py-ethpm - ERC190 package abstraction for python</li>
+                                            </ol>
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    ERC for writing ethpm packages to disk.  This should be a really simple spec that outlines how package data is written to disk so that we’re sure to be compatible across different implementations in different languages.  (package installed with truffle/js should be able to be loaded with the python implementation).
+                                </li>
+                                <li>
+                                    Reference implementation of a package registry.  This should be very close to your original implementation of the package registry.  Something that is as simple as possible for the use case of a single developer deploying their own package registry.
+                                    <ol>
+                                        <li>Integration with #2 would be part of this so that the ethpm-js library could interface with package registries and maybe even deploy a package registry for the user and wire it up to an ENS name.</li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    ERC to define the package registry API.  This would just be an ERC like ERC20 but for the package registry contract from #4
+                                </li>
+                                <li>
+                                    Web3js integration for ethpm-js (#2)
+                                </li>
+                            </ol>
                         </p>
-                        <p class="content mt50">
-                            Timeline: 4-6 months
-                        </p>
-                        <a class="btn btn-primary mt100">
-                            LEARN MORE
-                        </a>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-5">
-                <div class="about-block block2 mb20">
-                    <div class="block-content">
-                        <h3>
-                         Open-source block explorer
-                        </h3>
-                        <h5>
-                            Bounty: $250,000 USD (in crypto) 
-                        </h5>
-                        <p class="content mt50">
-                            POA network have been working on this as they need it internally, and intend to release their block explorer as an open source tool for the community.  At full release, this open source block explorer will include full transaction history, data export, interaction with smart contracts, and many more features.
-                        </p>
-                        <p class="content mt50">
-                            Timeline: 1 month remaining to initial launch.
-                        </p>
-                        <a class="btn btn-primary mt100">
-                            LEARN MORE
-                        </a>
+                    <div class="modal-footer">
+                        <span>
+                            <h2>TEAM</h2>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <p class="modal-subtitle">
+                                        <b>Piper Merriam</b> <br>
+                                        <span class="modal-tag">
+                                            ADVISOR
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p class="modal-subtitle">
+                                        <b>Not required</b> <br>
+                                        <span class="modal-tag">
+                                            RECRUITER
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p class="modal-subtitle">
+                                        <b>Tim Coulter</b> <span class="source">from Truffle</span> <br>
+                                        <span class="modal-tag">
+                                            PROJECT MANAGER
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="col-12">
+                                    <p class="modal-subtitle">
+                                        <b>Christopher Gewecke + Nick D’Andrea</b> <span class="source">from Truffle</span> <br>
+                                        <span class="modal-tag">
+                                            DEVELOPERS
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row justify-content-center mt50">
-        <a class="btn btn-primary btn-custom btt">
-            SHOW MORE
+</div>
+</div>
+<div class="col-md-5">
+    <div class="about-block block2 mb20">
+        <div class="block-content">
+            <h3>
+               Open-source block explorer
+           </h3>
+           <h5>
+            Bounty: $250,000 USD (in crypto) 
+        </h5>
+        <p class="content mt50 description">
+            POA network have been working on this as they need it internally, and intend to release their block explorer as an open source tool for the community.  At full release, this open source block explorer will include full transaction history, data export, interaction with smart contracts, and many more features.
+        </p>
+        <p class="content mt50">
+            Timeline: 1 month remaining to initial launch.
+        </p>
+        <a class="btn btn-primary mt50" data-toggle="modal" data-target="#bounty2">
+            LEARN MORE
         </a>
+        <!-- Modal -->
+        <div class="modal fade" id="bounty2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header modal-header2">
+                <span>
+                    <h2 class="modal-title">Open-Source Block Explorer</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="modal-subtitle">
+                                $250,000 USD (in eth) <br>
+                                <span class="modal-tag">
+                                    BOUNTY
+                                </span>
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="modal-subtitle">
+                                1 month<br>
+                                <span class="modal-tag">
+                                    TIMELINE
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="modal-customcontent">
+                        POA network have been working on this as they need it internally, and intend to release their block explorer as an open source tool for the community.  At full release, this open source block explorer will include full transaction history, data export, interaction with smart contracts, and many more features. <br><br>
+                        POA has had 6 full-time resources working on this item.  V1.0 release will include full transaction history and will be available for use in early April. V2.0 will have full interaction of smart contracts and tokens.
+                    </p>
+                </span>
+            </div>
+            <div class="modal-body">
+                <p class="modal-subtitle">
+                    <b>SPEC</b>
+                </p>
+                <p class="modal-customcontent">
+                    <b>Feature-parity w/ etherscan to be confirmed by advisors - POA to open-source library on March 10th</b><br><br>
+                    <ol class="root">
+                        <li>
+                            The explorer open-source code is located here: <br>
+                            <a href="https://github.com/poanetwork/poa-explorer">https://github.com/poanetwork/poa-explorer</a>
+                        </li>
+                        <li>
+                            User Stories can be found here: <br> 
+                            <a href="https://github.com/poanetwork/poa-explorer/issues">https://github.com/poanetwork/poa-explorer/issues</a>
+                        </li>
+                        <li>
+                         Staging Version of Explorer <br>
+                         <a href="https://explorer-sokol.poa.network/en">https://explorer-sokol.poa.network/en</a>
+                     </li>
+                 </ol>
+             </p>
+         </div>
+         <div class="modal-footer">
+            <span>
+                <h2>TEAM</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p class="modal-subtitle">
+                            <b>TBA</b> <br>
+                            <span class="modal-tag">
+                                ADVISOR
+                            </span>
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="modal-subtitle">
+                            <b>No recruiter</b> <br>
+                            <span class="modal-tag">
+                                RECRUITER
+                            </span>
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="modal-subtitle">
+                            <b>POA</span> <br>
+                                <span class="modal-tag">
+                                    PROJECT MANAGER
+                                </span>
+                            </p>
+                        </div>
+                        <div class="col-12">
+                            <p class="modal-subtitle">
+                                <b>POA</b> <br>
+                                <span class="modal-tag">
+                                    DEVELOPERS
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </span>
+            </div>
+        </div>
     </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row justify-content-center mt50">
+    <a class="btn btn-primary btn-custom btt">
+        SHOW MORE
+    </a>
+</div>
 </section>
 <section id="partners" class="container mt50">
     <div class="row justify-content-center">
@@ -269,42 +485,42 @@
     </div>
 </section>
 <section id="partners" class="container mt50">
-        <div class="row justify-content-center">
-            <div class="col-md-6 col-12 mb100">
-                <img src="img/funding_partners.png" class="img-fluid">
-            </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-12 mb100">
+            <img src="img/funding_partners.png" class="img-fluid">
         </div>
-        <div class="row justify-content-center">
-            <div class="col-md-3">
-                <div class="partner-block vc" style="cursor: pointer;" onclick="window.location='https://0xproject.com/';">
-                    <div class="block-content">
-                        <img src="img/0x_logo_with_text.png">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="partner-block vc" style="cursor: pointer;" onclick="window.location='https://status.im';">
-                    <div class="block-content">
-                        <img src="img/logo1.png">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="partner-block vc" style="cursor: pointer;" onclick="window.location='https://ecf.network/';">
-                    <div class="block-content ">
-                        <img src="img/ecf.png">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="partner-block vc" style="cursor: pointer;" onclick="window.location='https://www.toshi.org/';">
-                    <div class="block-content ">
-                        <img src="img/toshi.png">
-                    </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-3">
+            <div class="partner-block vc" style="cursor: pointer;" onclick="window.location='https://0xproject.com/';">
+                <div class="block-content">
+                    <img src="img/0x_logo_with_text.png">
                 </div>
             </div>
         </div>
-    </section>
+        <div class="col-md-3">
+            <div class="partner-block vc" style="cursor: pointer;" onclick="window.location='https://status.im';">
+                <div class="block-content">
+                    <img src="img/logo1.png">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="partner-block vc" style="cursor: pointer;" onclick="window.location='https://ecf.network/';">
+                <div class="block-content ">
+                    <img src="img/ecf.png">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="partner-block vc" style="cursor: pointer;" onclick="window.location='https://www.toshi.org/';">
+                <div class="block-content ">
+                    <img src="img/toshi.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <section id="contact" class="container mt50">
     <div class="row justify-content-center">
         <div class="col-md-3 col-8 mb100">
