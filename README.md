@@ -12,3 +12,5 @@
 
 ###### Build the code  - Production (Uglify and minimise)
 ```>$ npm run production ```
+
+Fixes #6 [Figma](https://www.figma.com/file/FCakALK84WSxZB5QhvaV213e/ETHPrize)
