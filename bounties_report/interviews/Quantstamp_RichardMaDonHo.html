@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Richard Ma & Don Ho</h2>
+
+<p>
+Sina on 1/11/2018.
+</p><ol>
+
+<li><strong>What type of apps do you build?</strong> <ol>
+
+ <li>Focused on the security aspect of Ethereum. 3 main challenges for going mainstream:  <ol>
+
+  <li>1) security, 2) scalability, 3) usability.
+ <li>Too many projects; audit talent is in low supply;   <ol>
+
+  <li>System to allow anyone to get a high-quality audit for teams.
+ <li>Components:  <ol>
+
+  <li>Payment smart contract: deals w upgrades; governance
+  <li>Verification node: software to verify smart contracts
+  <li>Software library: formal verification, static analysis checks
+<li><strong>Try to remember the last time you developed a feature for ethereum and you ran into some unexpected obstacle. What was it? How did you feel?</strong>  <ol>
+
+  <li>Running the client:   <ol>
+
+   <li>Language support across different clients is problematic. We've been focused on the software verification libraries for now.
+<li><span class="bounties">Other bounties:</span> <ol>
+
+ <li>IDEs:  <ol>
+
+  <li>Remix is probably the best one. No support for quick-fixes (like you have in IDEs).
+  <li>Better support for projects.   <ol>
+
+   <li>Manage dependencies.
+  <li>Code coverage tools, to see how good your tests are. Integration would be good.   <ol>
+
+   <li>Existing tool: run this as a separate command & get results in a web ui.    <ol>
+
+    <li>Solidity-coverage.
+  <li>Has some static analysis tools – more would be better.
+  <li>Notes:   <ol>
+
+   <li>Web UI is weird. We don't use it, because of lack of project support.    <ol>
+
+    <li>We use sublime text / IntelliJ.
+   <li>Better syntax coloring like Remix would be good.    <ol>
+
+    <li>Bounty for solidity support in Vim and/or Sublime.
+ <li>Debugging  <ol>
+
+  <li>Half the time is always spent debugging.
+  <li>Debugging with truffle & node-js is horrible.   <ol>
+
+   <li>Have to debug the JS and contract parts separately.    <ol>
+
+    <li>Different environments.
+  <li>We do iterative development; somewhat test-driven; We're aiming for very good coverage.
+  <li>What I'm envisioning: putting a breakpoint into the smart contract or Javascript. Ideally, one breakpoint can step through all code.
+ <li>Testrpc  <ol>
+
+  <li>Usable blockchain explorer for testrpc – to explore local data.
+  <li>Would be great for learning as well.
+ <li>Streamlining code export for Etherscan verification during contract deployment  <ol>
+
+  <li>Typically, you have to flatten all your imported contracts, it's a pain in the ass.
+  <li>Would be good to have a place to do this. Assures that the version is consistent.
+ <li>Sometimes you need update your contract –  <ol>
+
+  <li>Tools to evolve your old contract into your new one. Only deploy the additions.
+  <li>We had this issue in their ICO: we wanted to change the end-date for the ICO.
+  <li>There's a valuable data in the old contract.
+  <li>Could run into problems with consistency.
+  <li>More than "library driven development", would be good to have tools that generate this for you.
+  <li>My vision: refactorings like in Eclipse; pick refactorings (e.g. can split the class, etc). This would tie into the IDE.
+ <li>Developer education programs  <ol>
+
+  <li>Lesson plans. Get each company to do one session
+  <li>We went to a meetup for people who like to learn Ethereum. It was way oversubscribed.
+  <li>Could be good for recruiting / onboarding.
+<li><strong>Who are other people you think we should talk to?</strong> <ol>
+
+ <li>NuCypher.
+ <li>Keep network.
+<li><strong>Misc</strong> <ol>
+
+ <li>We're putting together a "minimum security standard" after interviewing all auditing teams.  <ol>
+
+  <li>Existing auditing tools for Solidity are poor.
+  <li>Read our Solidity analyzer: <a href="https://github.com/quantstamp/solidity-analyzer">https://github.com/quantstamp/solidity-analyzer</a> </li>  </ol>

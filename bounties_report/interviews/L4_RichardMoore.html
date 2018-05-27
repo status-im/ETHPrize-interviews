@@ -1,0 +1,85 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>RICHARD MOORE</h2>
+
+<ol>
+
+<li><strong>What is most frustrating about developing on ETH?</strong>   <ol>
+
+  <li>Documentation is a huge problem   <ol>
+
+   <li>A lot of documentation is simply missing, or its not good
+   <li>It's all outdated! It seems authoritative, but then I find it's wrong. People don't always do a good job of this. Ethers is only non-solidity implementation of solidity's S3 that works correctly. 
+   <li>If you read the docs, it's just wrong!!</li>   </ol>
+</li>   </ol>
+</li>   </ol>
+<ol>
+
+<li><strong>Brief walk through of the tools you use daily</strong>  <ol>
+
+  <li>I use all my own stuff, mainly
+  <li>Ethers.js
+  <li>ethers.cli
+  <li><span class="bounties">Ethers.build</span>
+  <li>Parity
+  <li>Node.js</li>  </ol>
+</li>  </ol>
+<ol>
+
+<li><strong>How do you test things which interact with the blockchain?</strong>  <ol>
+
+  <li>Automated testing? How do the facilitate manual testing?
+  <li>Ethers.build   <ol>
+
+   <li>Automated
+   <li>Also facilitates manual testing
+   <li>Rudimentary debugging
+<li><strong>What isn't possible with current tools, but would be nice</strong> <ol>
+
+ <li>Events!!   <ol>
+
+  <li>There's definitely missing features of what ethereum actually stores in its DB. 
+  <li>I would love if infura enabled the trace API, which is hugely expensive, that's probably why they haven't, but for now there is no way to give it an address and find all the transaction (or even a transaction) from that address. 
+  <li>Would be great if you could just tell me the first tx hash that a given address ever made. Obviously this vastly increases cost of an ethereum node to run, but would be useful.
+ <li>Events are just wildly unreliable. This is why ENS stores things on chain. Events don't work well enough to do what you need to do. If I need to look this up, I can't.  <ol>
+
+  <li>The main reason is if you indexed all that stuff all the time, it would constitute a huge load. So most people aren't doing that. Scarce details of how they aren't is the problem...
+  <li>[Greg is working on something that will do this] <ol>
+
+<li><strong>Are you running into problems with any of the following:</strong> <ol>
+
+ <li>Gas limit  <ol>
+
+  <li>No
+ <li>Off-chain computation  <ol>
+
+  <li>A little bit? But mainly for CK-type stuff. My solutions involve more of a plasma-style solution than they do a truebit style solution. 
+ <li>State Channels  <ol>
+
+  <li>They are interesting but not a focus
+<li><strong>What applications or dev tools are you most excited about in the near term (ie. what do you think will be working soon)</strong> <ol>
+
+ <li>0x is cool. Rufflet is neat! I like the idea of having introspection tools in the system. 
+ <li>Also: <a href="https://www.withpragma.com/logging/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d">https://www.withpragma.com/logging/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d</a> 
+ <li>Debuggers are super important and I want them! Martin Swende demoed one, but needs some other stuff… his thing focuses on monitoring the EVM code and state changes its performing, as opposed to solidity. I want to be able to step through my solidity code line by line and see the changes that it is making on the blockchain. 
+ <li>The sourcemap is not super reliable. Because once you compile, it might reorder operations, and certain ops span lines, it starts becoming non-obcious what the correct thing to point to is.
+<li><strong>What process do you use for validating the security of your smart contracts?</strong> <ol>
+
+ <li>Extensive testing!   <ol>
+
+  <li>Using ethers.build etc. code audits are usually from Yuet. 
+  <li>Usually just have someone else look it over. 
+  <li>More careful with blockchain-things esp once my money is in there. 
+<li><strong>What was the hardest part about learning to develop with Ethereum</strong> <ol>
+
+ <li>Install and setup and configure and run and sync your own chain is ridiculous. 
+ <li>Libraries like web3 which have big problems. 
+ <li>Web3 feels weird given how javascript is used and behaves. 
+<li><strong>What would be the hardest part of teaching somebody to build a dapp?</strong> <ol>
+
+ <li>Mainly just the idea of how blockchains work. People tend to misunderstand what the blockchain part can and should do.
+ <li>It's very easy for a person to write a terrible contract. Even if you write a terrible MVP, it's easy to release the non-terrible version later. But with this, if you make a bad mistake, it's a huge problem - more like hardware, you can't always change it on the fly. 
+ <li>And the documentation sucks.
+<li><strong>Who are other people you think we should talk to (alternative:  Who is the best best developer you know) </strong> <ol>
+
+ <li>Yuet Loo </li> </ol>

@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Fabian Vogelsteller</h2>
+
+
+<p>
+5/7/2018
+</p><ol>
+
+<li><strong>What type of apps do you build?</strong> <ol>
+
+ <li>My future project: Lukso blockchain: EVM-based blockchain.
+ <li>Working on industry-specific blockchains.
+<li><strong>Your background?</strong> <ol>
+
+ <li>Built the Mist browser and Ethereum Wallet(worked with Alex van de Sande, who came up with the idea / design, and Fabian built it).
+ <li>Works on web3.js. Proposed ERC20, ERC725/735 identity standard.
+ <li>Joined Jan 2015 before mainnet. First person to make the user-facing / developer-facing tools intuitive. Simplified the RPC API.
+ <li>My main focus now: half-time: web3.js & half-time: Lukso.
+<li><strong>Web3.js</strong> <ol>
+
+ <li>History:  <ol>
+
+  <li>Initially, it was built by Jeffrey Wilke.
+  <li>Then Marek was working on it. Then I joined.
+  <li>After Marek left, I took over. I've been on it on my own for the last and a half year.
+ <li>Did a full refactor. I changed everything to be more intuitive, simple, how I thought it should be.
+ <li>Changed to a Pub/Sub model – can currently subscribe for logs, transactions, block headers. In the future, you should be able to subscribe to state changes, account balance changes, or anything else. 
+ <li>It's harder now to make global changes across Ethereum – because of different clients, agreements take time  <ol>
+
+  <li>E.g. Parity has the Pub/Sub model, and a parity-Pub/Sub model.
+ <li>A lot of work around promises resolving based on conditions
+ <li>Better documentation.
+ <li>Account generation, key generation, signing, …
+ <li>ABI Encoding, decoding, all are exposed.
+ <li>Going forward: the API is good now, so someone should simplify the internals.   <ol>
+
+  <li>e.g. scrypt package is super large.
+ <li>We hired a new person who starts in July.
+ <li>The security model: either the person developing web3 is trusted, or you need a lot of people looking at it.
+ <li>Would love to at some point decentralize & bountify the project.
+ <li>The project doesn't need too many more people. The main work is done, but future addition could take more work.
+ <li>There are two groups around the identity profile now:  <ol>
+
+  <li>Put it off-chain: for privacy etc.
+  <li>Put it on-chain: ERC725.
+<li><strong>Potential bounties?</strong> <ol>
+
+ <li>Need good IDEs:  <ol>
+
+  <li>Remix is good, but has problems.
+  <li><span class="bounties">Omkara – Remix for Atom. Sophisticated Solidity IDE for the Atom browser</span>   <ol>
+
+   <li>This project can get a lot bigger. Could add debugging.
+ <li><span class="bounties">Formal verification</span>  <ol>
+
+  <li>Write specifications for smart contract implementations, generated proofs that can be tested against EVM code. 
+  <li>Smart contract security / best practices   <ol>
+
+   <li>Also comes down to an editor – gives you recommendations, formatting, etc.
+ <li>More examples in the Solidity documentation  <ol>
+
+  <li>There's someone at the EF working on documentation now.
+ <li><span class="bounties">Unit-testing for Solidity contracts</span>  <ol>
+
+  <li>Dapple: a tool for testing Solidity contracts using Solidity contracts – unmaintained for 2 years now.
+  <li>How is it that we don't have unit-testing for Solidity contracts?!
+  <li>OpenZeppelin works on these audited pieces.
+<li><strong>Ideas:</strong>  <ol>
+
+ <li>"Results-based" bounties.
+ <li>having smaller tasks, having a lot of eyes on the project and setting smaller bounties.
+ <li>Incentive structure for the reviewers & maintainers.
+<li><span class="bounties">Idea: standing bug-bounties for large ecosystem projects & contracts, funded by EF.</span>

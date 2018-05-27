@@ -1,0 +1,99 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Andy Milenius</h2>
+
+
+<p>
+3/14/2018 - Robbie, Andy
+</p><ol>
+
+<li><strong>What type of apps do you build?</strong> <ol>
+
+ <li>DappHub:
+ <li>Working on dev tools since I got into the space in 2015. There were no tools at all; we wanted to create them in a holistic way from first principles.
+ <li>Made tools to make use of Solidity compiler & make Ethereum API & EVM simpler in general.
+ <li>Formal verifications & contract safety.
+<li><strong>Pain points:</strong> <ol>
+
+ <li>Ethereum relies heavily on Javascript dev tools; "that node modules way of life".
+ <li>Javascript: its polarizing; you either love it or hate it.  <ol>
+
+  <li>The fact that there's a JS tool for something doesn't mean that it doesn't need to exist otherwise.
+ <li>Examples:  <ol>
+
+  <li>Piper's python tools 
+  <li>(would like to see C++)
+  <li>Maker's bash tools
+  <li>Some dapphub Haskell tools
+ <li>EF should put money into language ecosystems; replicate what we have (more front-end library systems!)  <ol>
+
+  <li>Second layer tools - the Ethereum API is a huge pain point. 
+  <li>RPC - if you're on the command line, it's a pain in the ass.
+  <li>High-level access into the Ethereum API; more granular than the REST API
+  <li>In JS this is: Web3.py; in python its web3.js   <ol>
+
+   <li>Small drop in solutions for talking to a client
+ <li>Why is there not a good robust solution for caching the blockchain in a normal database?  <ol>
+
+  <li>Maker has funded this.
+  <li>VulcanizeDB done by Rick Dudley; Maker is funding
+  <li>When you talk to Infura, the Ethereum API, is mostly via HTTP. Need sockets.   <ol>
+
+   <li>If you want to query events, it'll probably time out.
+  <li>It will be cool if EF runs archive nodes, cached data.
+  <li>Feels bad about Metamask:    <ol>
+
+   <li>If you only used them to write to blockchain, then it would be so much simpler for them.
+   <li>Metamask just pipes all the requests to Infura; costs around 100k a month.
+  <li>The reason why everyone uses Metamask, is because there's no other robust solution. If EF funded a solution, it'll be helpful   <ol>
+
+   <li>Metamask is customer support for the entire Ethereum ecosystem.
+ <li>Event querying  <ol>
+
+  <li>Make it so that it's not scanning for the whole blockchain.
+ <li>Light clients  <ol>
+
+  <li>Everyone's trying to build the perfect architecture. Metamask is trying to build something that works.
+  <li>Metamask's version:   <ol>
+
+   <li>An awesome intermediate step:     <ol>
+
+    <li>Infura publishes a block onto IPFS using pubsub
+    <li>All the metamask nodes gossip it to each other.
+   <li>Could EF support this.
+  <li>There is someone publishing all blocks from all blockchains on IPFS, into a meta-blockchain, called Braid.
+ <li>Whisper & Swarm:  <ol>
+
+  <li>There's other people still working on these outside of ETH
+  <li>Swarm is similar to IPFS.
+  <li>Does ETH need p2p messaging 
+  <li>There's systems that work:   <ol>
+
+   <li>DAT protocol / secure scuttlebut (1,000s of people on these networks)
+   <li>Ask the Secure Scuttlebut ecosystem what their issues are
+   <li>Dfinity gave a grant to secure scuttlebut
+  <li>It would improve the Ethereum community image if we're working with others.
+ <li>Identify other projects that are good; trim the fat from our ecosystem; and then build a relationship with them.  <ol>
+
+  <li>"Living life on hard mode" – people who don't do ICOs.
+ <li>Other ecosystems that are good: show commitment to Protocol Labs  <ol>
+
+  <li>Libp2p
+  <li>IPLD   <ol>
+
+   <li>More formal partnership -- integrating properly 
+ <li>Devp2p is bad  <ol>
+
+  <li>Less than 1% of requests you make are Ethereum mainnet.
+  <li>You contact other nodes without knowing if they're on Kovan, Mainnet etc   <ol>
+
+   <li>Super inefficient; all these handshakes.
+  <li>Main bottleneck in Geth -- every ETH node talks on Devp2p
+  <li>Gotta switch to libp2p!
+ <li>Are Geth team dynamics good?
+ <li>Idea: a parallel IPFS pinning service; as a hedge against Filecoin not working.
+<li><strong>Questions we should be asking?</strong> <ol>
+
+ <li>How can Ethereum create more cultural norms and lead by example? 
+ <li>Take a more leadership role to say nice things about other ecosystems, languages etc. 
+ <li>Ethereum Comm's department.

@@ -1,0 +1,148 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Alex Beregszazzi & Pawel Bylica</h2>
+
+
+<p>
+3/14/2018
+</p><ol>
+
+<li><strong>What type of apps do you build?</strong> <ol>
+
+ <li>Pawel - focused on VM in general, spent a lot of time designing / optimizing the EVM for the future.  <ol>
+
+  <li>Experimenting with new ways to make the VM faster for future upgrades   <ol>
+
+   <li>Classic code optimization - added some small features to EVM (like Revert / Return Data Buffer / Shift Operators)
+  <li>Works mostly with Alex -- changes in Byzantium were with Christian
+  <li>Joined 2-3 months ago 
+  <li>Maintained C++ code base for Ethereum client -- experience with EVM
+ <li>Alex   <ol>
+
+  <li>Started with building dApps, contracts, UIs – everything was broken in 2015.
+  <li>Then jumped into proposing things and fixing things;   <ol>
+
+   <li>Solidity    <ol>
+
+    <li>Testing
+   <li>Javascript    <ol>
+
+    <li>Led to working on testrpc & ganache-core
+    <li>Worked on Trezor, and build a dApp for it.
+  <li>Ended up with all these other issues: cpp-ethereum; testrpc; RPC methods.   <ol>
+
+   <li>Tried to raise issues, and sometimes they end up in improvements.
+  <li>Spends most of his time in Solidity design.
+  <li>eWASM – started 3 years ago for 6 months – then took a big break – then now working on it for 3-4 months (really started in Jan).
+<li><strong>Biggest pain points?</strong> <ol>
+
+ <li>Communication is bad within EF and within ecosystem in general
+ <li>People aren't aware of existing products / solutions
+ <li>Duplicate effort solving the same problems
+ <li>Not everyone agrees on the same communication channels –  <ol>
+
+  <li>People use different tools
+  <li>Seems to be fixed now with Gitter.
+ <li>Lack of resources  <ol>
+
+  <li>People jumping across projects
+ <li>Workflow on EVM / eWASM – problems (below):</li> </ol>
+<ol>
+
+<li><strong>Axic:</strong> <ol>
+
+ <li>Review process  <ol>
+
+  <li>On Solidity – they've grown 200%
+  <li>Some people are remote; a lot are part-time
+  <li>There's a lot of onboarding
+  <li>Because of onboarding – not everyone's review is equal, takes some people with experience and insight. 
+  <li>It's very easy to block people
+  <li>Github Projects kinda helped this process:   <ol>
+
+   <li>Organize features into versions.
+   <li>They had a label for breaking changes;
+  <li>Should be clear from the PR list.
+  <li>Backlog is really large and growing. There's too much that we don't have enough time to get setup project management process.
+  <li>For every PR, someone has to learn all the subsystems that are involved. Solidity is a big codebase.
+ <li>It's a complicated codebase; needs refactoring  <ol>
+
+  <li>Three ways of generating bytecode from AST:   <ol>
+
+   <li>Way 1: cpp stream of instructions, values, and comments
+   <li>Way 2: append inline assembly
+   <li>Way 3: compile Julia into bytecode
+   <li>Our focus is moving to Julia, and using that to generate bytecode.
+  <li>We've planned a full rewrite of the "code generator" subsection.   <ol>
+
+   <li>But they found a way to do it without a full rewrite.
+  <li>Julia:   <ol>
+
+   <li>Has an internal AST, a parser, a syntax for the parser.
+   <li>Backends: which generate bytecode from the AST->EVM, EVM15, eWASM.
+   <li>Transformation steps: things that happen on the AST; could be built independently.    <ol>
+
+    <li>These exist for EVM and EVM15.
+    <li>Building these for eWASM could be a task.     <ol>
+
+     <li>But they're good on-boarding work for new contributors.
+ <li>The external static analyzer:  <ol>
+
+  <li>Written in Javascript.
+  <li>Currently part of Remix.
+  <li>Try to use a number of options that the compiler gives you.   <ol>
+
+   <li>There's no option to turn off warnings.    <ol>
+
+    <li>Therefore: anything there is a warning, you should fix it.
+  <li>Delegating warning generation for things that are conventions to this external static analyzer.
+  <li>Two major things to be done for bounties re the static analyzer:   <ol>
+
+   <li><span class="bounties">Bounty #1) Separate it from Remix, and make it independent.</span>
+   <li><span class="bounties">Bounty #2) It uses the old AST format, that the compiler used to generate.</span>    <ol>
+
+    <li>In other words: the compiler parses, creates an AST (which is a big JSON object), which is then passed to the static analyzer
+    <li>The new AST JSON is much more compact –– but means that the static analyzer should be written.
+    <li>This could be more iterative.
+  <li>Mist has this notion that it has Solidity compilation built-in.   <ol>
+
+   <li>Considers "warnings" and "errors" the same –– so throws.
+   <li>The homepage has 1) old Solidity examples (which has errors), 2) recommends Mist (which throws errors for warnings).
+<li><strong>Pawel:</strong> <ol>
+
+ <li>Making cpp-ethereum more modular.  <ol>
+
+  <li>Started removing some parts, and moving it to different repos.
+  <li>Two things:   <ol>
+
+   <li><span class="bounties">A Proxy for JSON RPC.</span>    <ol>
+
+    <li>Maybe should write the Proxy in Go.
+    <li>What it is:     <ol>
+
+     <li>Previously, we had 1) an HTTP server to handle the requests, and 2) some Unix sockets to handle other incoming requests.
+     <li>The HTTP server is replaced by a simple Python script. Replaced the HTTP requests with a Unix socket requests, so same underlying system can be used.
+     <li>There's no reason for implementing all the transport layers in each client.
+    <li>This Python script only exists in cpp-ethereum, but should be included in other clients.
+    <li>Only complaint about Python: it's hard to ship an executable object of code.
+   <li><span class="bounties">A proxy for the p2p network stack</span>    <ol>
+
+    <li>Same as above, but for the networking layer.
+    <li>E.g. devp2p or libp2p protocols.
+    <li>Your application protocol (e.g. Ethereum or Swarm) connects to a new p2p layer.
+    <li>We should instead use the same p2p layer.
+    <li>Problem: duplicated effort of implementing the same things.
+    <li>Need a nice interface for inter-process communication.     <ol>
+
+     <li>Can combine different parts of the stack in different languages.
+ <li>EVM-C: C interface for EVM.  <ol>
+
+  <li>Should stay under Pawel's control.
+  <li><span class="bounties">Potential bounties: create EVM-C bindings for different languages.</span>   <ol>
+
+   <li>E.g. Python, Go.
+  <li>Could be useful to have a fast EVM implementation;
+  <li>Same idea for eWASM:   <ol>
+
+   <li>Use the same interface within go-ethereum to hook in eWASM.
+<li>Research for opcode gas costs

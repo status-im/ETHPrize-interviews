@@ -1,0 +1,95 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Yann Levreau</h2>
+
+
+<p>
+2/26/2018
+</p><ol>
+
+<li><strong>What type of apps do you build?</strong> <ol>
+
+ <li>Working on dev tools for the Foundation for the last 2 years.
+ <li>Working on Remix for the last 1.5 years.  <ol>
+
+  <li>Working alone for the last bit.
+  <li>Over the last 6 months, there are more developers. Team is 4-5 people now.
+  <li>Iuri Matias: dev of Embark –– he's on the Remix team.
+<li><strong>Main scopes of work:</strong> <ol>
+
+ <li>Improving the UX.  <ol>
+
+  <li>There's a Remix chat – some people were saying they were using in mainnet –– and I was shocked, since this was not the intended use-case initially.
+  <li>UX for people to use Remix and deploy contracts, and not make mistakes.
+ <li>Adding static analysis  <ol>
+
+  <li>There is a new tab-based layout.
+  <li>There are several modules.
+ <li>Splitting Remix into different modules  <ol>
+
+  <li>Can now write contracts, debug, deploy, do static analysis –– this used to be all in one app. Now it's modular, so you can use these pieces in different apps. E.g. can use static analysis in VSCode.   <ol>
+
+   <li>He was in touch with Roan Blanco, developer of VSCode –– he started to integrate the debugging part of Remix as a plugin. Might do the same for static analysis.    <ol>
+
+    <li>Road is adding the static analysis.
+<li><strong>Improving the UX:</strong> <ol>
+
+ <li>Remix is an entry point for users    <ol>
+
+   <li>But it's hard to use for beginners...
+   <li>It's hard to use if you don't know blockchain or the tech behind it.
+   <li>There's documentation and videos on youtube – still hard to use.
+   <li>Idea: do UX user interviews    <ol>
+
+    <li>take a beginner developer or new user, and let them use Remix (or other tools), check out what the main flows are, what are their main questions, 
+   <li>They have two people – who come from front-end dev. When they started 6 months ago, they didn't know blockchains, so their feedback was helpful.
+   <li>There are three kinds of blockchain users    <ol>
+
+    <li>1) front-end dev: wants to use the blockchain to build UI, but doesn't care about contracts.
+    <li>2) contract developer
+    <li>3) administrator: not writing code, but still needs to call contracts or send transactions to them.
+   <li>Remix is not focused on front-end devs right now. They're not targeting these people. They target contract developers or admins who "use" contracts.
+   <li>Is there a tutorial, or a beginner contract that it initializes:    <ol>
+
+    <li>Yes. There is a "ballot" contract – but it's kinda opaque and hard to understand.
+   <li>Docs: remix.readthedocs.io    <ol>
+
+    <li>Has a quick start page.
+   <li>Need to improve: onboarding for "administrator" users (above). So they can use Remix without making errors.    <ol>
+
+    <li><span class="bounties">Two bounties</span>     <ol>
+
+     <li>1) user testing for various blockchain-user personas (above).
+     <li>2) making tutorials or videos for beginners using Remix.
+ <li>Building the static analysis tab:  <ol>
+
+  <li>Need to add more modules.
+ <li>There will be a way to add plugins in Remix  <ol>
+
+  <li>Let's say you are an external contributor, you'll be able to add code, but the code won't be in the Remix github, but in its repo and it's added as a plugin.
+  <li>E.g. Solium integration.   <ol>
+
+   <li>We are architecting the plugin API with the Solium team.
+  <li>Another example: Oyente –– we're integrating it as a plugin.
+ <li>Potential bounty in the future:  <ol>
+
+  <li><span class="bounties">Writing good documentation around this. We're all super busy devs, and need people to help with documentation.</span>
+ <li>Last week – someone created an Electron app for Remix –– self-driven contributor; would be nice if they can post Github issues and have people contribute and get rewarded.
+<li><span class="bounties">Another bounty:</span> <ol>
+
+ <li>Hard to make links between tools.
+ <li>If you want to make a DAPP (truffle and remix, metamask for front-end), how can you aggregate all tools or write documentation?
+ <li>Swarm integration for Remix?  <ol>
+
+  <li>Currently if you "import", it imports from the Swarm gateway –- it's a basic integration, and can be improved to be really cool.
+ <li>Frustrated developing on Swarm. Building Swarm integration, but not usable in production.  
+ <li>Was trying to fix a bug in Remix - but related to how they import Swarm file -- had trouble fixing bug because emix used Swarm gateway which was offline.
+ <li>Swarm not in production environment yet -- looking forward to this.
+<li><strong>Web3 library</strong> <ol>
+
+ <li>In Web3 have send transaction method - no wrapper around it or other functions that people can use, and use more safely. Would like to see web3 safe send transaction (locate transaction in EVM to check if transaction passed. If its fine, transaction is sent, and if not there is a warning).
+ <li>"Wrapper around Send Transaction Function"
+ <li>Possible to develop transaction which fails. If you want to develop a transaction, you first have to send/execute it (but don't want to lose money). Execute transaction locally, wait for trace and then debug it. Think this is what Truffle is using.
+ <li>Contract's with specific values: in code, write maximums to revert transactions - can this be added in front-end (ie. limiting contracts values so when transaction is sent there is a check beforehand so you can be sure you don't make mistakes).  <ol>
+
+  <li>Would require changes in solidity to provide this functionality to web3 

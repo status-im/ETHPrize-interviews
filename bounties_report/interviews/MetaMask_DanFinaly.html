@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Dan Finlay </h2>
+
+<ol>
+
+<li><strong>What type of dapps do you build? </strong> <ol>
+
+ <li>User interface platform apps - Apps that enable other apps. 
+ <li>A few gateway apps. 
+ <li>First layer of education making it easier for users to interact with other apps.
+<li><strong>How do you test things which interact with the blockchain? </strong> <ol>
+
+ <li>Test network, mainchain, local test rpc, mocked user interface.
+<li><strong>Could you give me a walk through of the tools you use daily? </strong> <ol>
+
+ <li>React, gulp, javascript, browserify.
+ <li>Mocha for testing, build live reloading. 
+ <li>web3 api and rpc api. 
+ <li>sinon mocks. 
+ <li>Create a UI for smart contracts, run testrpc, deploy contracts, and query it.
+ <li><strong>If not already mentioned, are there any libraries you rely on regularly?</strong>  <ol>
+
+  <li>web3, eth-js, provider engine deprecating for json rpc engine, react.
+  <li>bip-39, web crypto libraries. 
+  <li>Currently developing eth-keyring-controller
+<li><strong>What isn't possible with current tools, but would be nice? </strong> <ol>
+
+ <li>The ability to make really lightweight user interfaces that subscribe to blockchain state. 
+ <li>Would prefer that json-rpc return promises. 
+ <li>json-rpc is unperformant, wish it was easier to contribute to.
+<li><strong>What is most frustrating about developing on ETH? </strong> <ol>
+
+ <li>Ultimately these things are not usable yet, because blockchain isn't scalable, and blockchain hasn't scaled. This is not a pleasant way to build applications. 
+ <li>Also, a lot of patterns aren't defined yet.   <ol>
+
+  <li>For example, in CryptoKitties when you lock a kitty, another user might retry kitty. 
+ <li>In general, conveying to the user [who is interacting with a smart contract] what's happening under the hood is frustrating. 
+ <li>There is a big chasm between what people are used to with current application and blockchain applications, i.e. things like gas.
+ <li>Cryptokitties is great example of what developers are capable of creating on the blockchain. Established web design firm. What decisions did they make based on docs? 
+ <li>We need to address what constitutes a production grade app.
+ <li>Scaling is eventually a part of that. Plasma chain interaction might look like in a web app.
+<li><strong>What process do you use for validating the security of your smart contracts? </strong> <ol>
+
+ <li>Regularly TDD. Write a lot of tests. Truffle, dapphub etc. 
+ <li>eth-js or web3 to deploy contracts and write tests over to that. 
+ <li>Low-level js test. Thin wrapper around json-rpc, compile with solc, deploy straight to rpc. Used truffle v1 and they changed api, so truffle was behind. Switched to remix.
+ <li>On metamask we use tests and QA. Automated tests and user tests.
+<li><strong>What was the hardest part about learning to develop with Ethereum? </strong> <ol>
+
+ <li>Understanding the blockchain in the first place. 
+ <li>What's happening under the hood and why I would care. 
+ <li>A big challenge people hit the first time is reading from blockchain versus proposing a change.
+<li><strong>What was the first thing you built related to Ethereum, and when did you build it? </strong> <ol>
+
+ <li>Original "Hello, World" Greeter contract from <a href="http://ethereum.org">ethereum.org</a>. 
+ <li>Liked it so much I forked it. 
+ <li>Originally they had 3 tutorials: Greeter, Voting, and Crowd-funding - would be great to see that kept more up-to-date
+<li><strong>What applications are you most excited about in the near term? </strong> <ol>
+
+ <li>Looking forward to helping people access funding for opportunity they didn't have before. 
+ <li>Non-profit to voluntary social infrastructure, small businesses that would have. 
+ <li>Social token launches. Make it more accessible to launch and sell coins for small businesses. 
+ <li>WeTrust, Bancor, Circles, Curve token issuance, Puddle, Ripple's trust lines which is getting adopted by Raiden, Open Baazar Trusted, Keyva, Geo, Sherpal, Building Societies. 
+ <li>Also excited about remote keys stored as a service, i.e. some service to store consumer keys.
+<li><strong>Other Notes?</strong> <ol>
+
+ <li><a href="https://github.com/ethereum/EIPs/issues/719">EIP-719</a> would make a great bounty to make this. Contracts exposing a way to request a human readable. render approval screen. 
+ <li>Could make transaction process human readable. 
+ <li>Moonlay by Mist team is interesting and deserves more attention.
+ <li>Browser permissions. These require browser vendor cooperation. The only way to expose web3 is to require read/write access to all websites. But we actually only want to expose to a few participating websites.
+ <li>Web3 api
+<li><strong>Moar bounties?</strong> <ol>
+
+ <li><a href="https://ethereum-magicians.org/t/strange-loop-an-ethereum-governance-framework-proposal/268/24">https://ethereum-magicians.org/t/strange-loop-an-ethereum-governance-framework-proposal/268/24</a> 
+ <li>There's a road map that needs to be executed for this to work. If I had to guess, here's how it might unfold:
+ <li>A client team with incentive to encourage a hard fork might implement "accepting on-chain hard fork proposals with client parameters" as a way to make it easier to develop the hard fork, in a community-focused way that gives users the power of choosing future forks in general, not merely supporting their own interests.
+ <li>Once one client has implemented this, they should advertise their client as the client that gives the user the most control over the fork policy that their client uses, in hopes to either steal users to that client, or pressure other client developers to relinquish their own privileged decision making position by implementing support for the same.
+ <li>There will probably be a friction period, either where some client devs don't want to support this feature (either out of conviction or seeing it as a waste of time, since they may not want or need any hard forks), and so it might come down to people who have the most at stake (for example, people hoping for a funds recovery) to fund the development of this general feature for all clients.
+ <li>If core client developers aren't interested in supporting user-chosen hard fork policies, and refuse to review/merge these PRs, that might be a good reason to fork those clients, with hopes to merge after the changed version is proven stable.
+ <li>IMO, any client not favorable to a user configured fork choice rule is entrenching their own power, and informed users should flee from those clients as other alternatives emerge.

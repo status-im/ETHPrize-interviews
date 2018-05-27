@@ -1,0 +1,107 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Liam Horne</h2>
+
+
+<p>
+23/05/2018 - Andy
+</p><ol>
+
+<li><strong>Who are you and what do you do?</strong> <ol>
+
+ <li>Co-founder of L4 and Counterfactual.
+ <li>Two main things:  <ol>
+
+  <li>Leading the development of counterfactual: a generalised state channels framework and protocol. It's a simple, intuitive framework for developing DApps using state channels - so we do a lot of work on Solidity code and general work around EVM interactions.
+  <li>Co-founders of ETHGlobal - so I spend a bunch of time talking to hackers and making sure that these events represent genuine progress and that people aren't just stuck on bugs. The output to time ratio needs to be as high possible.
+<li><strong>What tools/libraries/frameworks do you use?</strong> <ol>
+
+ <li>Truffle suite.  <ol>
+
+  <li>Highest level comment: nice for specific use cases, but our use case does not match this. It's built for writing a bunch of contracts, deploying them and interacting.
+  <li>Our whole framework is based around off-chain interactions, for which Truffle is not well suited.
+  <li>The whole Truffle networks thing is kind of annoying. If you want to ship a simple build that you put in your browser and run, it doesn't work locally. You need to set up your own test environment.   <ol>
+
+   <li><span class="bounties">Would be great to have a tool that could put together a super minified version of your ganache DB so that we could test across the same data. </span>
+   <li>We did some of this, but it's not well known and not the default across the ecosystem.
+ <li>Use ethers.js a lot
+ <li>ABI encoder v2  <ol>
+
+  <li>Not supported by truffle.
+ <li>Ganache  <ol>
+
+  <li>Can be very unreliable for a lot of important things.
+  <li>E.g. bug in ecrecover on bytes (even if signed correctly) it will not return the correct address, It is just not implemented correctly, so we had to port over to Parity.
+  <li>However, the parity dev client doesn't throw errors on revert, it just logs them, and there is no option to change this.
+  <li>The fact that the behaviours are different between these two things is concerning and frustrating.
+ <li>Parity and Geth  <ol>
+
+  <li><span class="bounties">I don't understand why there isn't just one-click Ganache replacement. If I just went to parity.heroku.app with a big button to launch an instance, that'd be awesome. Seems like low hanging fruit that could really be quite easily worked on.</span>
+  <li>Getting around all the configuration details is such a headache.
+  <li>I just want to launch testnets, and even do so locally in a way that actually works in practice.
+ <li>Anything to do with solidity at all really.  <ol>
+
+  <li>Libraries and tools
+  <li>Remix
+ <li>Playing with rust for its ability to write once, run everywhere.
+ <li>Tonne of JS tools to quickly iterate
+ <li>Typescript  - state channels need to run in the client, you want to be able to have code client side to decide what to sign and whether it is safe, and this is easiest in typescript. Would be better in WASM, but it's not there yet.
+<li><strong>What are you biggest frustrations?</strong> <ol>
+
+ <li>Better UI testing. Would be awesome to have am MetaMask mock - wanna launch Chrome Canary, Safari, Moz and ganache will auto inject into the page some provider that could be used to test the full flow. We have also started work on this.
+ <li>We need more to more people working on ethers.js!!  <ol>
+
+  <li>It is the best library out there, especially for quick operations, and we need like 5 more people at least working on it,
+  <li>Web3 is too opinionated about exact use cases, whereas ethers is much more generic and simple and can have a lot of tools built on top of it.
+  <li>We have been hesitant to develop non JS stuff, and haven't yet because there is no ether.js equivalent. <span class="bounties">If there were an ethers equivalent in Rust that would be awesome.</span>
+ <li>In terms of solidity: ABI encode and decode (not written well yet, but will be super useful) are really game changing! It should be 0.3 or 0.4 or something!   <ol>
+
+  <li>Really bad documentation, especially around nuances to do with memory or storage objects etc.
+ <li>When things happen in solidity, what you can do with it is not explained well.  <ol>
+
+  <li>For instance, one thing you can do is now use returndatasize to get the output bytes from some call you make. The minimum amount of code you need is a few lines of assembly.   <ol>
+
+   <li>However, this is not well known or used. 
+   <li>Our whole system is based on off-chain contract, and the rules in there need to be enforced by on-chain contracts. So I need to be able to interpret arbitrary function calls based on arbitrary logic/user input. This is very hard…
+   <li>We do conditional payments, and these ensure that a bunch of things  are true, and then interpret the results of a bunch of functions and then take those outputs and pay people. All of these inputs, not contracts, and it gets complicated.
+ <li>There is a specific error called unimplemented_error which comes up in a few cases. The only way to figure this out is to google it and there are 3 or 4 options to pick from, which seems sloppy.   <ol>
+
+  <li>Error messages could be much more specific about WHAT is unimplemented.
+  <li>Would be great to see also in the docs WHY certain things are not yet implemented.
+ <li>There's some subtleties around exactly how libraries work in solidity. Will send through more details when editing.
+ <li>Would be nice to have a debug mode for events, so that they will trigger regardless of whether or not there was an error so that we can use that as a console.og  <ol>
+
+  <li>Also, there should just be a console.log ;)
+ <li>If you emit an event with a dynamic struct and pass it a dynamic struct, the whole thing doesn't make it back in the logs: it only shows the top of the event. It certainly doesn't show the whole thing.
+ <li>Whenever you hit gasLimits, you should be able to find out easily where it stopped and what line it is stopping at. 
+ <li>Better documentation on the assembly command sand specific example usage of them would be really good.
+ <li>Breakpoints with <strong>context</strong> - these are the variables and scope etc. I will sometimes play around with delegatecall and then I don't even know which context I am in anymore and this can block me for extended periods of time.
+ <li>There's a bunch of sneaky tactics: like keyless signatures. There is a way to generate a sig for an exact and specific kind of tx from an account whose nonce is 0, because then the create opcode gives back a deterministic address.  <ol>
+
+  <li>Please can we document this!? There should be a person on stuff who just plays around with this stuff and then documents it.
+  <li>This is very serious stuff, if there were a keyless-sig library, so many other things would also be available.
+ <li>Better google results for Ethereum!
+ <li>More literature on how Ethereum can be used to do the things people think other blockchains are better at.  <ol>
+
+  <li>Highlight ethresear.ch and some post sthere, like one from Vitalik about businesses paying gas fees for their uses, which is EOS' biggest argument.
+  <li>Even worse, explaining plasma, where it should be feasible to have no fees at all.
+<li><strong>What doesn't exist that you'd most like to see?</strong> <ol>
+
+ <li>WASM is likely most useful for us medium term. 
+ <li>State channels are very light in terms of the actual contract code. But the off-chain contract code is a lot more complicated. It would be nice if all of the things we're doing were easily runnable in the browser.
+ <li>We have this concept of a module, which is some software that wraps a particular state channel application. We need code running in the client that determines whether or not it is safe to sign the next transaction, and where you store it, if you show it to the user at all etc.
+ <li>We then have to implement a copy of what the contract does in JS and it would be way nicer if we just had a local environment to run some eWASM code because then we wouldn't need to worry about the node at all. We wanna have it work in any random browser and WASm enables that.
+ <li>Plasma and state channels require stripped and straight forward teams to work on this stuff that can build out all the tools we need.
+ <li>Truebit is exciting.
+<li><strong>Educational resources?</strong> <ol>
+
+ <li>I just read the code, man. What is the latest commit by ChrisEth on solidity? That is the best source.
+ <li>Otherwise, Richard Moore knows everything. Literally.
+<li><strong>Anything that was surprisingly easy?</strong> <ol>
+
+ <li>Ethers.js. Really, it is super simple to use.
+<li><strong>Other questions?</strong> <ol>
+
+ <li>It would be interesting to have a meta bounty for the most valuable stack overflow answers and that person gets a 1ETH reward.
+ <li>If that became a really legit place that people in the community took seriously, that would be really great and of high value.
+ <li>Getting a good mod on staff to manage this and then put it out!</li> </ol>

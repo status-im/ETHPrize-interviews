@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Mark Beylin</h2>
+
+<ol>
+
+<li><strong></strong>What type of apps do you build?</strong> <ol>
+
+ <li>Creator of the Bounties Network. Bounties on any task in any Ethereum token. Frontend that relies on Infura and IPFS.  <ol>
+
+  <li>Infura doesn't let you listen for events. They have websocket capabilities that may be in beta right now.
+ <li>Users use metamask for calls and transactions on it
+ <li>I am the only solidity developer working on the project currently.
+<li><strong>How do you test things which interact with the blockchain: </strong> <ol>
+
+ <li>Mocha tests using Truffle and testrpc.
+ <li>Also use Rinkeby for when deploying staging versions.
+<li><strong>Brief walk through of the tools you use daily</strong> <ol>
+
+ <li>I know and use the solium linter. 
+ <li>Use truffle, testrpc. I love Remix. 
+ <li>Use Remix for deployment. Feels like I can trust remix to work as it's meant to.
+ <li><strong>If not already mentioned, are there any libraries you rely on regularly?</strong>  <ol>
+
+  <li>Web3JS, BigNumber, site is built on React. 
+  <li>IPFS JS library. 
+  <li>Blockies react library.
+<li><strong>What isn't possible with current tools, but would be nice</strong> <ol>
+
+ <li>Better querying possibilities on the state of contracts. Better indexing to do this. Even something that will just shoot results into a SQL table.
+ <li>A good wiki that is endorsed by the foundation but curated by the community.  <ol>
+
+  <li>E.g. "How to do X"
+  <li>E.g. "What is X"
+  <li>People don't know what they don't know
+<li><strong>What is most frustrating about developing on ETH? (Specifically - talk about UI issues / scaling)</strong> <ol>
+
+ <li>Not being able to upgrade my contracts easily.
+ <li>Better ability to return data, specifically variable length data. Arrays of strings. Mappings of strings to data, etc.  <ol>
+
+  <li>Ability to just dump the whole state would be great.
+ <li><strong>Are you running into problems with any of the following:</strong>  <ol>
+
+  <li><strong>Gas limit:</strong>   <ol>
+
+   <li>Gas costs are high. Gas limit was a problem very briefly when trying to deploy a contract. But if your contract is running into the gas limit, it's probably too big.
+  <li><strong>Off-chain computation</strong>   <ol>
+
+   <li>No. Smart contract doesn't care about off chain. Stores stuff on IPFS and just stores the hash on-chain.
+  <li><strong>State Channels</strong>   <ol>
+
+   <li>Only read about them and researched how they could be used.
+<li><strong>What process do you use for validating the security of your smart contracts?</strong> <ol>
+
+ <li>Consensys diligence is an auditing team available for their teams.
+ <li>Argus (Berkeley audits chain)  <ol>
+
+  <li>Didn't find anything in our latest audit
+  <li>Diligence at Consensys later found a re-entrancy vulnerability
+  <li>Oyente also missed the re-entrancy bug(!!)
+ <li>Having bug bounties in general is a good standard
+<li><strong>What was the hardest part about learning to develop with Ethereum</strong> <ol>
+
+ <li>Didn't understand the stack. People don't understand what's in between dapp and the blockchain.
+ <li><span class="bounties">Really solid boilerplates would be very helpful for new people to see how easy it could be.</span>
+<li><strong>What was the first thing you built related to Ethereum, and when did you build it? (NEW)</strong> <ol>
+
+ <li>Early 2016. Fork of the remix debugger.
+<li><strong>What applications are you most excited about in the near term (ie. what do you think will be working soon)</strong> <ol>
+
+ <li>Sharding. That's all I want.
+ <li>uPort is getting ready for mainnet, feeling excited about that.
+<li><strong>Who are other people you think we should talk to (alternative:  Who is the best developer you know)</strong> <ol>
+
+ <li>Joseph Vander (learning the be a solidity developer right now)
+ <li>Kevin Owocki from gitcoin
+<li><strong>What other questions should we be asking?</strong> <ol>
+
+ <li>Curious to know about developer incentives. Assuming you can make the same amount of money, would you prefer to build your own project or work on other people's more established projects?  <ol>
+
+  <li>E.g. bounties for Augur vs building your own little dapp</li>  </ol>

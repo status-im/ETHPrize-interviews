@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Alvaro </h2>
+
+
+<p>
+1/23/2018 - Robbie, Sina, Vivek
+</p><ol>
+
+<li><strong>What type of apps do you build:</strong> <ol>
+
+ <li>VirtuePoker – offchain game, smart contracts to represent state of a poker game – offchain consensus of consensus, and submit to onchain.    <ol>
+
+   <li>Building poker with Ether, that can be played without an intermediary.
+   <li>When you leave the table, you cash out with the stake which you have left
+<li><strong>Try to remember the last time you developed a feature for ethereum and you ran into some unexpected obstacle. What was it? How did you feel?</strong> <ol>
+
+ <li>Whisper  <ol>
+
+  <li>Building a p2p game. We tried using Whisper for real-time communication – does not have receipts; we have discarded it right now.
+  <li>Read a Stackoverflow about Status' problems building on top of Whisper.
+  <li>The P2P is tough – need to be direct peers –– need to run neighbor nodes yourself.   <ol>
+
+   <li>Connecting the mesh is tough.
+   <li>SO post said that Whisper doesn't acknowledge receipt of messages.
+  <li>Running whisper on a geth node is optional.
+  <li>PROBLEM: whisper has low adoption.
+  <li>As a result, the game cannot be decentralized. All messages that are passed to each other between clients, are going through a centralized center.
+  <li>People use WebRTC with direct connections. But won't work for them because they don't want to reveal people's IP addresses.
+  <li>There's also a protocol called <a href="http://telehash.org/">Telehash</a>.
+  <li><a href="https://en.wikipedia.org/wiki/Distributed_hash_table">DHT</a>.
+ <li>Web3  <ol>
+
+  <li>Switching to new release soon – interface change is coming.
+  <li>Callbacks are annoying; should use promises.
+  <li>We promisify the functions themselves.
+  <li>We've only used web3.   <ol>
+
+   <li>A web3 alternative, <a href="https://medium.com/l4-media/announcing-ethers-js-a-web3-alternative-6f134fdd06f3">ether.js</a> (from L4) 
+ <li>Solidity  <ol>
+
+  <li>Why doesn't it have common data structures? e.g. a simple array; if you delete one item, you get a hole in the array.   <ol>
+
+   <li>Need a way to store data that is indexed and where it can be safely deleted. Manually doing this stuff is bad..    <ol>
+
+    <li>There are many implementations of this; but having a standard implementation would be really helpful.
+   <li>A lot of these things should be built into the language.
+  <li>SafeMath. I don't use a lot of libraries otherwise.
+  <li>EthPM? -> It worked, kinda?   <ol>
+
+   <li>Creating more low level libraries?
+  <li>I like Remix. It has improved a lot.   <ol>
+
+   <li>I had no problem with the UI.
+   <li>Like testing in Remix – though the debugger could be improved.
+  <li>Truffle is good, as well. 

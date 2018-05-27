@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Federico & Jaynti</h2>
+
+
+<p>
+1/23/2018 - Sina & Robbie
+</p><ol>
+
+<li><strong>What type of apps do you build?</strong>  <ol>
+
+  <li>Trying to work on Plasma – white paper is unspecified; it is not clear yet.
+  <li>Started Dagger project – to get events for our UI or backend.   <ol>
+
+   <li>Use cases:    <ol>
+
+    <li>If you want to send an email or notification to users.
+    <li>If your multisig wallet has incoming or outgoing transaction.
+    <li>UI for the front-end; a multisig wallet: sent a tx and see it real-time. Make UI/UX better in Ethereum.
+   <li>Websocket wasn't there. It's not customized. Interface is not that good in geth or parity.
+   <li>Has my own servers running – my own laptop as a node – very painful, switched to Infura.    <ol>
+
+    <li>Crawling Infura.
+    <li>Infura is unreliable – sometimes they miss the blockhash.
+   <li>Why not run my own node:    <ol>
+
+    <li>Too costly to run Digital Ocean.
+  <li>Web3.js – nobody can use it; very flaky. Talked to Fabian about it and offered help.   <ol>
+
+   <li>People are using, but not contributing.
+  <li>UI/UX:   <ol>
+
+   <li>Everything takes time; 15 seconds; 1 minute for confirmation. People are impatient.    <ol>
+
+    <li>Wait for notifications using Dagger.
+   <li>How to improve:    <ol>
+
+    <li>PoS will improve this finality. Still too long for users.
+    <li>Provide a notification to users; or email if it's about security. If you're buying cryptokitties, can send a follow-up email.     <ol>
+
+     <li>EthAlarm used by Decentraland –
+     <li>Status building decentralized notification system.
+  <li>Fede has been contributing to Solidity compiler itself for over a year now:   <ol>
+
+   <li>Mostly making the experience of working with Solidity more pleasant. Life is too short.
+   <li>Solidity is quite understaffed –– only two people who are committing, who can merge PRs.    <ol>
+
+    <li>Fund more developers?
+    <li>I've contributed, but would love to get paid for it.
+   <li>Not many people have the availability to take part-time or full-time work at EF (Solidity, Truffle, etc etc). But are available for several hours a week to contribute.
+  <li>Promote the people contributing -> funding.   <ol>
+
+   <li>EF has Dev Grants. Mostly geared towards bigger projects. E.g. porting Ethereum to mobile devices and wearables.    <ol>
+
+    <li>Also Scalability grants.
+    <li>Ongoing funding to ongoing contributor would be interesting.
+  <li>Better communications -> what different teams are building right now. e.g. with Plasma; there's different people around the world pushing forward different implementations.   <ol>
+
+   <li>Weekly core developers meeting – where one can participate. But how to scale that? Need different structure. There's multiple different teams. There's also the Gitter channels. There's ethereum.research forums; that's helped communications in research and fundamental infra problems.
+   <li>There's an issue of time; the valuable people don't have the time to work on these things.
+   <li>Someone watching all sources and compiles them into one place: so more people know what to work on. Proof of Work newsletter.
+   <li>The fragility of Solidity tools – lack of proper tooling; e.g. comparing language ecosystem between Java and Solidity:     <ol>
+
+    <li>Linters, refactoring code, working with modules, ...
+    <li>Debugging     <ol>
+
+     <li>This improved recently:      <ol>
+
+      <li>Latest truffle version includes an embedded debugger.
+      <li>Daphubb working on new EVM with debugger built in.
+  <li>Gas issues: we sent multiple wrong calls to wrong deployed functions – wasted lot of money   <ol>
+
+   <li>It doesn't tell you why your gas is so high – it doesn't say that you have a weird opcode
+   <li>People don't understand what is gasPrice and gasLimit properly.    <ol>
+
+    <li>Allow people to set one value – and set gasPrice and gasLimit interactively in the backend.
+<li><strong>Who are other people you think we should talk to?</strong> <ol>
+
+ <li>Patricio Paladino from Zeppelin.</li> </ol>

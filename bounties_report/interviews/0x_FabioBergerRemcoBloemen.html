@@ -1,0 +1,152 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Fabio Berger and Remco Bloemen </h2>
+
+<ol>
+
+<li><strong>What type of apps do you build?</strong> <ol>
+
+ <li>0x - Decentralized exchange protocol.
+ <li>Set of smart contracts
+ <li>Standard transactions for order format  <ol>
+
+  <li>Leads to shared liquidity
+ <li>What's exciting:  <ol>
+
+  <li>Increased security
+  <li>Network liquidity
+ <li>Launched network in August.  <ol>
+
+  <li>It works, but is V1. We are working on V2 which helps people build hybrid stations, support new token standards, make the contract more gas efficient.
+  <li>V1 only allows humans to create orders; V2 will allow new smart contract to create orders. This is HUGE.
+ <li>Notes:  <ol>
+
+  <li>We're building the protocol; designing the standard; building dev tools for anyone to build a decentralized exchange.
+ <li>Orders may become invalid for any reason:  <ol>
+
+  <li>Order being filled
+  <li>Griefing
+  <li>We've now built an OrderWatcher that keeps relayers updated on the state of orders.   <ol>
+
+   <li>We're using contract Events as a proxy for state changes.
+   <li>Can do a diff between state trees between block headers.
+<li><strong>Architecture:</strong> <ol>
+
+ <li>Set of smart contracts – settlement;   <ol>
+
+  <li>Everyone who wants to trade is setting allowances on a smart contract.   <ol>
+
+   <li>They want upgradability.
+ <li>Developer tools to interface with the smart contracts.
+ <li>Auxiliary tools and dev tools for ourselves.
+ <li>Our own deployer and migration tool.
+<li><strong>Smart contracts:</strong> <ol>
+
+ <li>Getting a simple experimental environment up is hard  <ol>
+
+  <li>Remix is there; but it's not enough.
+ <li>Tracing and profiling is not existent.  <ol>
+
+  <li>Remix does it, but can't do it locally.
+  <li>"Code coverage" tool exists but inserts console.logs in    <ol>
+
+   <li>Adding up gas costs per line of code.
+  <li>Need to do profiling, because gas costs depend on inputs.
+ <li>Solidity language itself:  <ol>
+
+  <li>Crashed the Solidity compiler twice today..   <ol>
+
+   <li>E.g. today – AbiEncoderV2 – external and public difference.
+  <li>The code that it produces is inefficient. Could be 
+  <li>Stack limit   <ol>
+
+   <li>All the variables are locally scoped.
+   <li>Un-intuitive as it is a curly braced language.
+   <li>Lifecycle value_of is within a function.
+   <li>Can only access top 16 slack slots. Including input and output.
+   <li>Implement graph coloring register allocator – to find what is the lifetime of the variables..    <ol>
+
+    <li>"This stack slot was used in the first half –– the second half you can use" 
+    <li>Or implement register splitting.
+  <li>Function inlining   <ol>
+
+   <li>E.g. SafeMath –– turns every operator into function call – which is a huge gas sink.
+  <li>How Solidity optimizes: focuses on the code size (which makes sense since it's minimizing the state tree); but sometimes you need to optimize size of tx gas (e.g. 0x needs optimized fillOrder call)
+  <li>ABI doesn't implement introspection   <ol>
+
+   <li>EIP 165    <ol>
+
+    <li>E.g. "does this contract implement ERC20, or ERC223?"
+   <li>Solidity should have this in-built.    <ol>
+
+    <li>Should be built into the API spec and compiler.
+  <li>Inheritance:   <ol>
+
+   <li>Interface or abstract contract – e.g. Solidity automatically creates getters for state functions –– collides with 
+   <li>Contract which implements an interface – public or external for abstract functions – they collide
+ <li>ERCs – there is not a formal way to describe the interface for contracts.  <ol>
+
+  <li>Have a standard repo –– this will lead to a canonical ABI definition –– can have semantic rules around this. Could run some specific unit tests against
+<li><strong>What kind've tools do you use?</strong> <ol>
+
+ <li>EthereumJS / truffle hardwallet provider / Typedoc (to generate documentation)
+ <li>We don't use Truffle anymore  <ol>
+
+  <li>Not reliable – can have race conditions;
+  <li>Artifacts don't allow you to have versions of the contract on different networks   <ol>
+
+   <li>You don't run into this stuff if you're just building a "hello world"
+  <li>Overwriting parts of the contracts; 
+ <li>We rolled their own. It's open-source but not documented. We have other things that are keeping us busy.
+ <li>The problem is that Truffle has too much functionality –– would like to see more of a Unix philosophy.
+ <li>Cannot support different versions of Solidity.  <ol>
+
+  <li>Version management doesn't exist.
+ <li>EthPM –– doesn't have versioning?? It's going through a big refactor, so we held off. We need the NPM package manager.
+<li><strong>Testing?</strong> <ol>
+
+ <li>Testrpc has gotten better ––   <ol>
+
+  <li>Increases the speed at which you can dev.
+ <li>Blockstream is really cool. Written by Mica (from Augur?), under the EthereumJS lib.
+ <li>Good dealing with block re-orgs and changes in state.
+<li><strong>Security?</strong> <ol>
+
+ <li>Code audits before deployment
+ <li>Want to add a formal verification tool to our deployment tool.  <ol>
+
+  <li>By analyzing the code, you can find patterns.
+ <li>I manually did an audit in v0 of 0x:  <ol>
+
+  <li>Make sure all functions have a "Read -> Write -> External Call" pattern, so you don't have any race conditions.
+<li><strong>CI?</strong> <ol>
+
+ <li>Doesn't really work for smart contracts.
+ <li>We just use testrpc.
+ <li>Neufund was different than 0x:  <ol>
+
+  <li>Neufund was a trustee for tokens –– it was centralized by definition.
+  <li>This made it simpler: I could create "open-ended" contracts –– a switch statement, that the default would send to another proxy contract.
+  <li>But wouldn't be able to do this with 0x –– e.g. if we wanted to add Shnorr signatures –– because it's a governance / security issues.
+<li><strong>Other bounties:</strong> <ol>
+
+ <li>Rest of the bounties from Remco
+ <li><span class="bounties">State-watching –– built-in diff'ing of state trees  <ol>
+
+  <li>Should be implemented in the Ethereum clients – Geth and Rust.
+  <li>They want this feature for OrderWatcher.</span>
+ <li>EIP process is suboptimal:  <ol>
+
+  <li>Lacks in consensus-building. There's vocal people who don't have good ideas; there's a lot of noise.
+  <li>To improve: commitee-based approach (reputable stakeholders from reputable projects who get together?).
+  <li>Problems are getting solved at the wrong abstraction level.   <ol>
+
+   <li>E.g. NFT standards.
+ <li>Neufund was largest Solidity project before –– tokenized equity.  <ol>
+
+  <li>You want a EuroToken. You don't want your company valuated in Ether.
+  <li>What if blockchain forks; which token is actually tied to the company?
+ <li>Bounty approach gives many different styles within the codebase.  <ol>
+
+  <li>This is a problem; e.g. OpenSSL codebase after Masters / PhDs.</li>  </ol>
+

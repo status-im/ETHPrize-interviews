@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Nick Johnson</h2>
+
+<ol>
+
+<li><strong>What type of apps do you build?</strong> <ol>
+
+ <li>ENS: documentation, smart contracts, UI's, 
+ <li>Auditing other smart contracts
+ <li>Other smart contracts
+ <li>Ether cards
+ <li>Offchain: dev tool, EVM static analysis tool, 
+<li><strong>How do you test things which interact with the blockchain? </strong> <ol>
+
+ <li>Truffle unit testing with mocha
+ <li>Added built in testrpc
+ <li>Testrpc still doesn't have big number support for certain signatures so we have to fire up a geth node
+<li><strong>Brief walk through of the tools you use daily</strong> <ol>
+
+ <li><strong>If not already mentioned, are there any libraries you rely on regularly?</strong>
+ <li>Open Zeppelin tools are increasingly good. But try to keep the smart contracts as small as possible
+ <li>Just web3 itself in terms of javascript
+ <li>ETH Gas station and etherscan are useful for different reasons
+<li><strong>What isn't possible with current tools, but would be nice</strong> <ol>
+
+ <li>Byzantium added return data size (prevents arbitrary return data size limits). Once solidity implements this, it will be possible to return strings and stuff.
+ <li>Automated updatable smart contract?
+<li><strong>What process do you use for validating the security of your smart contracts?</strong> <ol>
+
+ <li>Write a spec and define edge cases and corner cases
+ <li>Lots of unit tests
+ <li>Make a point of testing where you intentionally break
+ <li>Ultimately get it audited
+ <li>How will this get easier for beginners?  <ol>
+
+  <li>Open source solidity libraries so that less code needs to actually be written by beginners (just 10 lines of customization)
+  <li>Build some of these best practices into static analysis tools (linterns on steroids)
+  <li><span class="bounties">Solicit crowdfunding to pay for the audits of projects that the mainstream is interested in.</span>
+ <li>Open Zeppelin appears to be the best open source solidity library out there
+<li><strong>What was the hardest part about learning to develop with Ethereum</strong> <ol>
+
+ <li>Becoming familiar with the execution model
+ <li>You don't store the results on the blockchain, you store the invocations (because the computer is entirely deterministic)</li> </ol>

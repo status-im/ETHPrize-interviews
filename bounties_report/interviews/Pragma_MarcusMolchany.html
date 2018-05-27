@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Marcus Molchany</h2>
+
+<ol>
+
+<li><strong>What is most frustrating about developing on ETH?</strong> <ol>
+
+ <li>In general, project setup for the first time is difficult. 
+ <li>Didn't know if I needed geth or testrpc.
+ <li>Didn't know if I needed to download the entire blockchain.
+ <li>Also had problems with the documentation for solidity.
+<li><strong>Can you give us a brief walk through of the tools you use daily?</strong> <ol>
+
+ <li>Ethereum: Remix solidity, testrpc, truffle, web3 JS, Infura, Etherscan
+ <li>Web: React / redux, create-react-app
+<li><strong>What type of apps do you build?</strong> <ol>
+
+ <li>Made a few standalone contracts for fun. 
+ <li>More full-fledged projects are web frontend with blockchain backend. 
+ <li>Web apps use Metamask to interact with blockchain. Infura as provider if MetaMask not installed.
+ <li>We built <a href="www.hashheroes.com">www.hashheroes.com</a> as our first dive into Ethereum
+ <li><strong>How do you test things which interact with the blockchain: </strong>  <ol>
+
+  <li>For contracts, I use Remix Solidity with the Javascript VM. For unit tests, I write JS unit tests using truffle. Tried to write unit tests in solidity but it was difficult. Testrpc behaves strangely sometimes.
+  <li>When developing a contract, I will write extra events just to make sure the right thing happened, and then will delete the events when contract is in production.
+ <li><strong>Automated testing? How do the facilitate manual testing? </strong>  <ol>
+
+  <li>Included above. Automated is unit tests with truffle. Manual is event logging, usually in Remix.
+<li><strong>What isn't possible with current tools, but would be nice</strong> <ol>
+
+ <li>I really want a richer debugger. The one in remix is too hard to figure out.
+<li><strong>Are you running into problems with any of the following:</strong> <ol>
+
+ <li><strong>Gas limit:</strong>  <ol>
+
+  <li>I have run into gas limit issues locally using Truffle. Had to change the gas limit in truffle.js.
+ <li><strong>Off-chain computation</strong>  <ol>
+
+  <li>no
+ <li><strong>State Channels</strong>  <ol>
+
+  <li>no
+<li><strong>What applications are you most excited about in the near term (ie. what do you think will be working soon)</strong> <ol>
+
+ <li>More 0x relays!
+<li><strong>What process do you use for validating the security of your smart contracts?</strong> <ol>
+
+ <li>Warning messages from Remix or solc. 
+ <li>Reading through Consensys best practices and making sure I use them in my contracts. 
+ <li>Asking for code review in subreddits.
+<li><strong>What was the hardest part about learning to develop with Ethereum</strong> <ol>
+
+ <li>Slight paradigm shift about waiting for code to be run while transactions are mined. 
+ <li>Understanding how state was preserved in a contract. 
+ <li>Finding good teaching resources on Youtube and elsewhere.
+<li><strong>What would be the hardest part of teaching somebody to build a dapp?</strong> <ol>
+
+ <li>The paradigm itself.   <ol>
+
+  <li>The idea that when your code runs, it's running when a block is mined. 
+  <li>Calls to your contract don't execute instantly like in a normal web app. 
+  <li>Combination of needing to use different test nets while testing. 
+<li><strong>Who are other people you think we should talk to (alternative:  Who is the best developer you know) </strong> <ol>
+
+ <li>Fabio Berger from the 0x team</li> </ol>

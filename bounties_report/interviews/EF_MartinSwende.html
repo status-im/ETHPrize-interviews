@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Martin Swende</h2>
+
+
+<p>
+04/19/2018 - Andy, Robbie, Connor, Parker
+</p><ol>
+
+<li><strong>What type of apps do you build?</strong> <ol>
+
+ <li>I was a security professional, doing consulting, came into Ethereum a couple of years ago solving bounties for VMs.
+ <li>October 2016 - became Head of Security at The Foundation. 
+ <li>Monitoring mainnet.  <ol>
+
+  <li>Being able to react when there is a consensus flaw. Had an API call to geth, called getBadBlocks. Geth will save bad blocks and you can query node for it.
+  <li>So, we run geth and parity simultaneously. Ask parity node for last block, ask geth for bad blocks, If they match, can see more easily why and who might have acted badly.
+  <li>But can't do it vice versa - been nagging Parity to add that end point so we can do the same process in reverse.
+  <li>Geth client has a lot of metrics: how many i/o connections, db writes, block processing times, peer connects. Can export from geth and display in any charting you like. So, that's exactly what we do; get nice graphs about tx churn, how txes were rejected, queued, pooled.
+  <li>Optimizations in geth which made block processing faster in the past month. You can also monitor for performance, not just security...
+  <li>Shanghai attacks taught us that performance very much related to security.
+  <li>P2P network information, protocol dissector / analyzer -- if I can see what is happening on my node and what my peer capabilities are, what have they seen, etc.  Is there any one peer that is sending me transactions that I reject? That way, I can identify bad behaving or lying peers (more in-depth view of what people are telling me over the network)   <ol>
+
+   <li>Would be difficult as an add-on (need node keys, decrypt data, etc.),  Much simpler to do within a client.  Protocol layer in Geth.
+ <li>Build tools for analysis, especially when things are going wrong: hacks, network problems.  <ol>
+
+  <li>E.g. transaction propagation when network was overloaded with txes going back & forth between parity and Geth.
+  <li>Needs for lots of testing around hard forks as the existing tools were not sufficient to cover all cases.   <ol>
+
+   <li>Coverage guided fuzzing - generate code and run on instrumented version of Geth / Parity. This matches code coverage, generates new code and increases coverage using fuzz tactics to mutate inputs and can test geth and parity differentially. Do they have the exact same stuff in the stack, in memory etc.?
+   <li>Another fuzz testing tool based on EVM Lab that can generate tests for CPP ethereum and can cover py-ethereum etc by running in docker container with a switch that enables an output after every opcode and compare internal state differentially again. Run this 24/7.
+   <li>Caught 5-6 consensus issues with this. Last hard fork was a controversy as Parity had done a whole bunch of releases prior to the hardfork and the suggestion was to postpone, which would have caused its own issues and forced clients to update again.    <ol>
+
+    <li>If patched before hard fork - no problem. Beat the drums and tell everyone to upgrade.
+    <li>If you find a consensus issue on an existing client it is a bit more problematic.Telling everyone means giving people the chance to exploit it - tough to handle.
+    <li>Examples of consensus issues: make a tx which invokes a precompile like verify_signature and if that, in one case returns true and in another returns false, or if they cost different amounts of gas (i.e. x on geth and y on parity) then post-state will be different so they won't accept the same blocks and then we have a fork.
+    <li>There was a consensus issue that happened after Spurious Dragon when we implemented state cleaning. Chain split for 200 blocks, which were created on the wrong chain that were then abandoned. Block 2 600 000 or so. 
+    <li>Developers need to be alerted as soon as possible so they can fix it ASAP. People can lose money in the meantime, txes can be reverted. All exchanges need to be alerted to hold deposits and withdrawals.     <ol>
+
+     <li>Have built tools to detect this, so we consider it solved from a technical p.o.v.
+     <li>Recommend that exchanges run all clients, but not sure if they do. <span class="bounties">Could be standardised with docker containers that could be more streamlined. Documentation around best practices, automated tooling etc.</span>
+  <li>Building something like Ethstats but more detailed. If there is a consensus failure, you might want to see exactly which tx in which block caused it. Nice to see blocks, txes and intermediate root hashes between each tx. Then you can see different post-state hash, i.e. that is where we should start looking.   <ol>
+
+   <li>Need detailed traces of exactly what happened in every opcode of this transaction.
+   <li>One of the things I built in EVM Lab is a reproducer. Synthesises pre-state for that particular tx, then executes it and gives you a detailed trace from geth and parity that you can then compare.
+  <li>Not much active development on EVM Lab. Use it mainly for investigating certain condition or opcode or potential attack. Pretty easy to put together desired scenario in an EVM assembly-like way by setting genesis you want and then run & benchmark it.   <ol>
+
+   <li>It is usable right now and I have no immediate plans to do anything in the near term. Might need some updates and it is not so user friendly.
+ <li>One of core devs for go-ethereum.   <ol>
+
+  <li>We want to expand - have 2 interns now, but had to turn someone away recently too. Send interested developers to Peter.
+  <li>Working a lot with the signer, which was just merged in latest release. Standalone binary which can run off some secure enclave, USB armoury, parallel VM, some other machine on your network. Can be used for offline signing and has trusted UI. 
+  <li>Can be configured with particular rules written i.e. in JS. Definitely needs more work on the UI. has implemented one in python-qt and python-cleft. Can also be run in a console, with remote ports etc so you can decouple pvt keys from your daily computer.
+  <li>Hoping MetaMask will integrate with it directly. Has spoken with Dan and another guy called Jordan building a tool called (?) which has integrated it already.
+  <li>Hard problem: how to make it more secure for end users. Surf internet with unpatched browsers with 0 days and they get exploited. How can we improve upon that so that you have a <strong>sign what you see</strong> flow. Submit a tx, see the details of that tx when you approve it.
+  <li>Unlock feature is most horrible thing he has seen where it will sign every tx sent to it for a given period.
+ <li>Doesn't do too much DApp development, so not up to speed with capabilities of current tools and how they have matured over the last 6-8 months.
+ <li>Has heard there is a debugger out now which he remembers as being one of the main pain points.
+<li><strong>Other big problems?</strong> <ol>
+
+ <li>Definitely a need for more developers, either full time or for some scoped project. And not just people wanting to work on ethereum-js!!
+ <li><span class="bounties">Proper debugger would be easy enough to scope out. Built into geth VM, a standardised debugger with hooks so that it can be hooked to FireFox debugger etc.</span>
+ <li>Network visualisation analysis tool is also very NB.</li> </ol>

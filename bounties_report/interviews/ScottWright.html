@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Scott Wright  </h2>
+
+<ol>
+
+<li><strong>What type of apps do you build:</strong> <ol>
+
+ <li>Just simple stuff - proofs of concept.
+ <li>Working through course material.
+ <li>Building a token and a very minor escrow app.
+ <li>Timed auction. 
+<li><strong>How do you test things which interact with the blockchain?</strong>
+ <li>There's an IDE that I've used - Remix. Provides an interaction with Geth, create test accounts, and then I use that UI to launch a test application on testnet, play with it, see if it works… 
+ <li>I want an automated test suite, but nothing out there right now. <ol>
+
+<li><strong>Brief walk through of the tools you use daily?</strong> <ol>
+
+ <li>Remix
+ <li>Geth obviously
+ <li>SolC for compiling
+ <li>Yarn is (apparently) standard now for js
+ <li>If not already mentioned, are there any libraries you rely on regularly?  <ol>
+
+  <li>Web3
+<li><strong>What isn't possible with current tools, but would be nice?</strong> <ol>
+
+ <li>Automated testing - I want a testing suite, a whole tool that is entirely focussed TDD. The work really corresponds to that. Clientless work with many test iterations.
+ <li>A lot of uncertainty around how gas works.   <ol>
+
+  <li>What is it exactly, how does it get used, how do you optimize for it? 
+  <li>The basic idea is fine, but the details when you're building stuff are very hard to find out
+  <li>What are the best design patterns for dealing with it, the strategies?
+ <li>Also, you come up against issues when there's a withdrawal attack vector, where you try to send ether to them, and there's some sort of callback function and etc.
+ <li>There's a design pattern that works around that, but my level of knowledge is just that someone TOLD me that, but what other things do I need to be aware of? How can I find out more? These are open questions for me right now.
+ <li>Would love a list of things where I can go through check marks and say "OK, I've followed x and y" and I've watched out for the following 23 possible issues / attacks.
+<li><strong>What is most frustrating about developing on ETH? (Specifically - talk about UI issues / scaling)</strong> <ol>
+
+ <li>Hasn't happened across too much yet! Been working in solidity and I find it pretty easy. But how scoping works is confusing. 
+ <li>There was a situation where I was trying to refer back to something and it was doing something weird and I had to dig and find out that behaviour of memory depends on what SORT of memory its being stored to. 
+ <li>So, if you get a lot of JS developers, you need to explain how scoping works in JS and how solidity is different in that sense.   <ol>
+
+  <li>How much of those memory problems are a thing with solidity, or the EVM?
+ <li>A linter would be very useful!
+<li><strong>What was the hardest part about learning to develop with Ethereum</strong> <ol>
+
+ <li>Would have been that initial setup of the development environment, and beginning to build a mental model of what's going on. Just the setup. 
+<li><strong>What would be the hardest part of teaching a software engineer to build a dapp?</strong> <ol>
+
+ <li>First thing is a soft thing - understanding the difference between a distributed application vs a centralized server application. I've taught people some basic blockchain concepts - it doesn't always make sense to people right away.
+ <li>The action of calling methods externally on a contract - I kind of understand how that works, and then wait a cycle. There's a bunch of haziness around how calling methods works though.
+ <li>And then the exact amount/ability that a method has to change a contract - how much can it do? What are patterns where I could manipulate and kill the contract?
+ <li>Awesome thing - I love working with apps where there's no account or login, it just works.
+<li><strong>What applications are you most excited about in the near term?</strong> <ol>
+
+ <li>Vyper! 
+ <li>Have big hopes for truffle - has a lot of the build suite things that I need.
+ <li>Another thing that's missing right now is a better IDE, solidity based coding environment right there, so my workflow is that in terminal etc. </li> </ol>

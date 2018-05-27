@@ -1,0 +1,96 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Oleksii</h2>
+
+
+<p>
+5/17/2018 - Sina, Robbie, Andy
+</p><ol>
+
+<li>
+<li><strong>What is your story and what do you build?</strong> <ol>
+
+ <li>Started working with smart contracts in early 2016.  <ol>
+
+  <li>Started by writing tests using Truffle for other people's contracts.
+  <li>Then, started educating himself on Solidity, became a smart contract developer.
+<li><strong>How has working with Truffle been?</strong> <ol>
+
+ <li>Our original vision was to do everything – testing, deployment, etc - through Truffle.
+ <li>But, in reality, we've only used for testing.
+ <li>First version of truffle was using the testrpc snapshots for reverting – good for unit testing.  <ol>
+
+  <li>In second, third versions this was removed.
+ <li>Most companies use truffle for testing, on testrpc.
+ <li>We made our own helper to make snapshots and do reverts on testrpc before/after tests.
+ <li>Now, you can deploy the contracts from inside the tests; you'll have a freshly deployed contract.
+ <li>Truffle's designed to be used by a single project –– a fixed set of contracts that doesn't change much.  <ol>
+
+  <li>But most of their project, have different platforms, deploy different versions of their contracts over and over again. Deploy versions of their contracts.
+<li><strong>What do you do at Ambisafe?</strong> <ol>
+
+ <li>Do custom development for clients.
+ <li>Our own products: e.g. webhooks for contract calls.
+ <li>Scalable supernode solution – logic to make the node robust, etc
+ <li>Platform to issue tokens. Fixed set of contracts, but for every new token, they deploy a new contract as a gateway.  <ol>
+
+  <li>Gateway token contract – implements specific logic of different tokens. Fees, etc.
+ <li><span class="bounties">+ Toolkit for DevOps / deployment:  <ol>
+
+  <li>Javascript functions to solve common problems, tx propagation issues, …   <ol>
+
+   <li>Tx propagation issues: sometimes your node gets a tx, but doesn't propagate to any other ones. Mostly seen in Parity.
+  <li>Deployment scripts   <ol>
+
+   <li>Checking that the gas that's going to be spent; if enough gas is provided.
+   <li>Scripts to collect info from the blockchain, doing sanity checks to make sure it's all good before proceeding, then collecting data after etc. </span>
+ <li>Cloning of contracts.
+ <li>Most of their contracts don't copy any code anymore.
+<li><strong>More details on you data collection & devops tools (from above)?</strong> <ol>
+
+ <li>For it to be useful, it requires time for refactoring.  <ol>
+
+  <li>It's usable right now, but code could be improved.
+ <li>Making complex deployments possible.
+ <li>It won't be too complicated to build.
+ <li>Tool for: pulling balances of some tokens of some addresses
+ <li>Tool for: making airdrops cheaper to do. E.g. 20k addresses with batch deposits happening through a smart contract.
+<li><strong>Other frustrations?</strong> <ol>
+
+ <li>When Ethereum started being regularly congested  <ol>
+
+  <li>Built functions to overcome this – tool for: re-submitting transactions with higher gas prices when they don't get accepted.
+ <li>People don't track nonces correctly:
+ <li>Tool for: figuring which nonces were skipped, and creating transactions for them.
+<li><strong>Other great tools?</strong> <ol>
+
+ <li><span class="bounties">Ethercamp – a smart blockchain explorer:
+  <li>Heuristics while parsing and indexing the chain.
+  <li>Had a convenient interface to explore the storage of the contract; even without an ABI, the heuristics allowed you to see that e.g. "this key is this address". And then showed this stuff in a human-readable way.
+  <li>Then, they kind of stopped their resources.</span>
+<li><strong>Security / bugs / auditing?</strong> <ol>
+
+ <li>They check for compiler errors + static warnings in Remix.
+ <li>He hasn't used automated tools like Securify.
+ <li>Read the contract for as long as possible, so he understands the contract as if he wrote it himself.
+<li><strong>Static analysis tools? </strong> <ol>
+
+ <li>"variable is never used."
+ <li>Optimizations to improve gas usage –– e.g. read address value and store in memory before loop, then call into it.
+ <li>For contract address, for state variables, …
+<li><strong>LLL language?</strong> <ol>
+
+ <li>If you're using Solidity, you can't have the maximum optimization in your contract.
+ <li>Convenient way to write contracts in Assembly?
+ <li>He wrote bytecode by hand, for the contract they deployed a million times.
+ <li><span class="bounties">Having a better low-level language that compiles to bytecode.</span>
+<li><strong>The call trace in Ethereum?</strong> <ol>
+
+ <li>It doesn't currently provide you with any help.
+ <li>Using 4byte.io, you have the ABI of all the functions in the trace.
+ <li>You can build a human-readable layer above it, and see what's going on.
+ <li>Can have a real stack trace for function calls between contracts, with what values.
+<li><strong>Action items?</strong> <ol>
+
+ <li>Oleksii to outline needed features / requirements for smart deployment tool.
+ <li>Us: intro him to others interested in in collaborating on above & scoping out requirements.</li> </ol>

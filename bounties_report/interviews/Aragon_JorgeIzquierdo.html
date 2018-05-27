@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Jorge Izquierdo</h2>
+
+
+<p>
+1/30/2018 - Sina, Robbie, Matt.
+</p><ol>
+
+<li><strong>What type of apps do you build:</strong> <ol>
+
+ <li><strong>Aragon - Voting platform</strong>  <ol>
+
+  <li>We had a feeling that they had to go deeper into the stack to launch Aragon.
+  <li>What we've built:   <ol>
+
+   <li>We've built two different interpreters:    <ol>
+
+    <li>Language for ACLs
+    <li>Language for tx descriptions, similar to Natspec.     <ol>
+
+     <li>Allows you to do calls to smart contracts; but really basic stuff; 
+   <li>Built generic framework for interacting with their contracts. Our dApp changes; needs to integrate with 3rd party apps without allowing dApp developer to touch the database.    <ol>
+
+    <li>Ruby on Rails abstraction on-top of the data layer.
+    <li>Problem here: we don't have any servers, we are a real dApp. Every single user has to compute entire state of the dApp.     <ol>
+
+     <li>Backend protocol / caching protocol / event-processing.
+   <li>Upgradability stack.    <ol>
+
+    <li>Tooling to update storage etc correctly.
+   <li>Trustless signer: help people understand their tx before sending the tx.    <ol>
+
+    <li>Working with metamask on this.
+   <li>Our own CLI tooling
+   <li>We have a package manager – backend to our app store
+<li><strong>Getting deep into the EVM?</strong>  <ol>
+
+  <li>For tx descriptions –
+  <li>Natspec lets you evaluate functions within call – this is problematic security wise.   <ol>
+
+   <li>It's not turing complete at this moment
+   <li>No one describes what transactions are going to do; Radspec is the answer to this! Everyone use it, please. 
+   <li>Standard around commenting exactly what a transaction does.    <ol>
+
+    <li>Documenting what the source code does
+    <li>Solidity puts a hash of the code, at the end of bytecode.     <ol>
+
+     <li>This process of automating the comments could be automated; pulls comments from Solidity source code, add them as comments for devs
+<li><strong>Integrating dApps with blockchain?</strong>  <ol>
+
+  <li>Local caching in the browser; what are the block numbers; do a Reduce to see how an event impacts the state.
+  <li>Problem with the caching layer: the info not only comes from the Event, but data you get back from contract depends on the block number
+  <li>Performance is an issue:    <ol>
+
+   <li>Augur: ethereumjs-blockstream.
+<li><strong>Library-driven development & upgradability?</strong>  <ol>
+
+  <li><span class="bounties">If Solidity changes how variables to storage blocks, if it changes this, there'll be problems. We want to build a tool that does a sanity check that checks still works</span>    <ol>
+
+   <li>Tool to do a sanity check over the storage layout
+   <li>If new contract uses different version of Solidity, could get it easily.
+<li><strong>Other bounties?</strong> <ol>
+
+ <li><span class="bounties">Infura that is more decentralized.</span> A full-node infrastructure.
+ <li>An open-source explorer.</li> </ol>

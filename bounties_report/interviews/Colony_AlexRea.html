@@ -1,0 +1,94 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Alex Rea </h2>
+
+
+<p>
+04/19/2018 - Andy, Robbie
+</p><ol>
+
+<li><strong>What type of apps do you build?</strong> <ol>
+
+ <li>Primarily implementing Colony white paper I wrote with Jack and Aaron.  Been a lot of Solidity.  I have also done a lot of stuff with reputation mining, Patricia Trees and Proofs.
+ <li>All hash based - if anything is wrong, you are off by one - error is "just wrong"
+ <li>Forced me to be more critical of what every "line" is doing.  <ol>
+
+  <li>I work with Elena Dimitrova on Solidity stuff
+  <li>Less well positioned to talk about front-end stuff
+<li><strong>Let's go deeper into that white paper, because there are some interesting ideas there?</strong> <ol>
+
+ <li>Colony is a network of contracts. The hard part is reputation system -- people will earn reputation as they are paid out by Colony.  Reputation indicates familiarity and expertise with a project.  Reputation decays over time if you aren't interacting with project on regular basis  <ol>
+
+  <li>Editing reputation in real-time is a need we have. However, this can't be done on-chain. Every hour, root hash of reputation state is audited on-chain by reputation miners, and state can be challenged on-chain.   <ol>
+
+   <li>Does addition, subtraction, approximation of exponential
+ <li>We want everything to be upgradable going forward.  There will be a common colony responsible for updates and network as a whole.  Collective decision of that Colony will be under control of developers and external people.  <ol>
+
+  <li>Using EtherRouter and a resolver contract which has addresses of all functions that could be called. Address book can be switched out.
+  <li>Check out theColony blog post: uses DelegateCall, generic fallback function. We give the address of any fallback function that is being called -- if contract needs upgrading, this is pointed out entirely -- no limit on the size of contract that can be deployed   <ol>
+
+   <li>Can still be upgraded as one unit
+  <li>Mining stuff:  New contract deployed every hour   <ol>
+
+   <li>After reputation stuff has been agreed, don't care about history or log entries
+ <li>Solidity Coverage Tool -- Colony team at Devcon 2 and Alex built Solidity Coverage  <ol>
+
+  <li>Has been helpful -- but high performance overhead.  Double the amount of time to run tests if you're looking for coverage.  
+  <li>Re-implementation from ground up now that testrpc supports tracing transactions   <ol>
+
+   <li>Would like to see a better version of this tool
+  <li>0x code coverage tool -- need to buy into 0x whole stack to be able to use it   <ol>
+
+   <li>Does use tracing transactions but doesn't know what the overhead is
+   <li>For calls -- runs call again as a transaction and then traces transaction and reverts chain to where it is before transaction    <ol>
+
+    <li>No opcode is free - poor coverage could be problem that is unique to ETH
+ <li>Remix is the best debugging tool -- but it's web based  <ol>
+
+  <li>Mostly use it for when I find issue elsewhere, but will jump into Remix to find minimum reproducible example for whatever issue I encounter.
+  <li>If you could get both the source and also be talking to chain simultaneously. It's a real hassle to get everything you need into Remix. Usually problems in back end of a test that they are running through Truffle -- need Truffle to talk to back-end and port everything into Remix.
+  <li>Would be much easier if Truffle debug were better.    <ol>
+
+   <li>Quite often Truffle trace leads to comment block -- which doesn't make sense
+ <li>Better integration between everything is needed  <ol>
+
+  <li>Would like to see an IDE for Ethereum -- Remix is close, but I have an aversion to apps in the browser   <ol>
+
+   <li>Would like to wrap it all in Electron and be done with it.  Would prefer something that is closer to native.  Feels like I'm jumping through hoops to use these tools and not clear that it's worthwhile.  I often dismiss tools because it's tricky to get going.
+<li><strong>Tools you use?</strong> <ol>
+
+ <li>Using Solium Linter / Atom / Truffle for running test / Ganache for day to day development for most tests + Parity to make sure no RPC foibles for exclusively using RPC
+ <li>Run all tests on Circle (when we make a PR or commit, circle clones repo, spins up test environment and runs all test)   <ol>
+
+  <li>Circle changing everything, so will need to be in Docker containers   <ol>
+
+   <li>Docker containers of clients would be useful (may already be some ready)
+ <li>Using DSMaths library.
+ <li>Christian's implementation of Patricia Tree - Patricia Tree is stored off-chain, only proofs on chain.
+ <li>POC mining client does everything in ganache instance / didn't want two different implementations  <ol>
+
+  <li>Local client builds in state and stores in tree --- doesn't make sense to have ganache locally and run through EVM and then use more performant instance like Rust off-chain. In the first instance, we wanted one implementation that runs on EVM, even though Rust could be more performant
+<li><strong>Web3 1.0?</strong> <ol>
+
+ <li>0.2x upgrade process - OMG guys.  Ganache core switched to web 31.0 beta, but nothing else in the toolchain upgraded.  Our mining clients use ganache core, and it somehow caused problems with Truffle.  <ol>
+
+  <li>Very irritating - "chunky" fix.  Repatched all the bits that were affected.
+ <li>I had contributed to Ganache (when it was RPC) / Truffle
+ <li>Internally at Colony -- 1 key result is that we have raised issues / PR's for other tools in the community, so we are incentivized to report stuff and galvanize better documentation.
+<li><strong>Other problems?</strong> <ol>
+
+ <li>Not a huge amount of visible change in development environment in last 6 months.  Approve of things like Ethers.js (alternative to Web3 1.0). But it's not clear that this will make life easier for everybody.  <ol>
+
+  <li>Ethers.js subsumes web3 1.0 and Truffle contracts -- but tough to switch things out   <ol>
+
+   <li>On the hunt for a bug in Ethers
+<li><strong>Where did you learn about Ethereum?</strong> <ol>
+
+ <li>Been at Colony for 3 years -- picked it up through extensive reading of Solidity documentation  <ol>
+
+  <li>Often finds gitter useful 
+  <li>Google search will point there -- and better conversation -- google indexes gitter conversations
+  <li>Audits can also be helpful -- discuss implementations, but a rare gem can be found
+<li><strong>Do you have questions/comments for us?</strong> <ol>
+
+ <li>Bang your drum louder. Hadn't heard of you until now and definitely feel like I should have!

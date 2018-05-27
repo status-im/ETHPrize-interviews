@@ -1,0 +1,131 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Nicolay Wolf</h2>
+
+
+<p>
+2/26/2018
+</p><ol>
+
+<li><strong>What type of apps do you build?</strong> <ol>
+
+ <li>Not developing lots of dApps.
+ <li>Foundational work for WASM:  <ol>
+
+  <li>WASM interpreter
+  <li>Runtime environment – which allows to run wasm within any network.
+  <li>Forking Kovan – allowing wasm contracts to run
+  <li>Running wasm on private chains
+<li><strong>WASM interpreter:</strong> <ol>
+
+ <li>Main problem:   <ol>
+
+  <li>Making the Rust interpreter deterministic.
+  <li>WASM is not strictly deterministic –– need to narrow down to deterministic opcodes.   <ol>
+
+   <li>Need to ban several opcodes, e.g. floating points. Simple solution: just parse WASM and fail if there's any floating point opcodes.
+   <li>Other option: to canonicalize the NaN constant –– you need to bring all these flags under one definition.    <ol>
+
+    <li>One idea: you could check after each floating point opcode –– to see if its NaN and use canonical.
+    <li>BUT this is not worth the effort, because no blockchains apps will have floating point anyway.
+  <li>Other sources of determinism: deterministic stack for execution   <ol>
+
+   <li>WASM doesn't enforce size of the stack ––     <ol>
+
+    <li>When you get to JIT compilation of WASM, this compiles into using a register-machine specific to the hardware architecture; this process is actually deterministic.     <ol>
+
+     <li>But it's non-deterministic when you go to run it.
+    <li>E.g. when a function uses a lot of stack –– e.g. a recursive function that calls itself and itself –– it can fail when it hits the stack limit of the operating system.     <ol>
+
+     <li>This can fail at different times for different machines. So, it's non-deterministic.
+   <li>We're transforming existing WASM into this modified WASM that takes care of these issues.    <ol>
+
+    <li>Any WASM implementation that takes untrusted code from the network needs to have this stuff done.
+  <li>eWASM collaboration will be helpful ––    <ol>
+
+   <li>Mozilla has a Rust-WebAssembly group.
+ <li>Gas metering – not challenging but needs to be done  <ol>
+
+  <li>We have tools which transform WASM from free-form to gas-metered form.   <ol>
+
+   <li>Includes how much opcodes cost.
+  <li>eWASM has this also –– we're taking a more scientific approach to this.   <ol>
+
+   <li>Parity simply uses the eWASM table.
+   <li>Don't need to be super precise, just need to protect against malicious users.
+   <li>Memory also costs gas.    <ol>
+
+    <li>Simple way is to charge for memory linearly.
+    <li>The original idea is to charge for extra memory quadratically more given how much memory was allocated before – but you don't need to do this anymore, because there's new ways to allocate memory.
+  <li>Gas costs are embedded into the bytecode.
+ <li>Proving the correctness of implementation  <ol>
+
+  <li>Fuzz testing against various interpreters – spec implementation;   <ol>
+
+   <li>Fuzz test: allow the interpreter to run code; it should fail or do the same thing at exactly the same spots as other interpreters or existing codebases.
+  <li>The interpreter should not panic in any case –– otherwise, malicious actor could crash certain nodes   <ol>
+
+   <li>We use cargo-fuzz for rust
+   <li>There are also fuzzing tools for WebAssembly: which can generate randomized wasm modules –– can take this; put it into your implementation and the reference implementation; and see that they do the same thing.
+<li><strong>Pain points in building wasm that could be bounties:</strong> <ol>
+
+ <li><span class="bounties">Research for cost of running WASM on different architectures and machines.</span>  <ol>
+
+  <li>Scientific proofs on how this correlation works.
+  <li>Or also computational analysis?
+  <li>This will be used to assign costs to Opcodes, and also know exactly why.
+  <li>Parity is using eWASM's results for this currently.
+<li><strong>What is the difference between eWASM and parity-wasm?</strong> <ol>
+
+ <li>Parity works closely with WASM ––
+ <li>Parity uses the same endianness as EVM. But eWASM uses little-endian / WASM uses little-endian.
+ <li>How does eWASM callcode, because it depends on hardware architecture?
+ <li>Parity forbids some useless constructions, e.g. "internal memory" ––   <ol>
+
+  <li>Any WASM module can include private memory; according to wasm-spec it's not accessible at runtime; Parity forbids this.
+<li><strong>Projects working on WASM:</strong> <ol>
+
+ <li>Parity, eWASM, Dfinity, Bitfury  <ol>
+
+  <li>Bitfury has Exonum – solution for enterprise blockchains with WASM runtime.
+<li><strong>Higher-level languages:</strong> Rust or anything else that compiles into WASM. <ol>
+
+ <li>We'll move away from Solidity. – good to have for backward compatibility (so someone making solidity-wasm compiler would be good) but not necessary.
+<li><strong>Standardizing WASM implementations:</strong> <ol>
+
+ <li>Can do renames to match eWASM or something like that. 
+<li><strong>Interoperability amongst WASM implementations:</strong> <ol>
+
+ <li>Will have a simple tool that can compile eWASM to parity-wasm to etc etc.
+<li><strong>WASM vs. EVM:</strong> <ol>
+
+ <li>WASM doesn't force you to use the 256-bit machine.  <ol>
+
+  <li>E.g. if your computations fit 32-bit, you don't have to deal with this inefficiency.
+ <li>WASM has strong teams behind it.  <ol>
+
+  <li>We've made a bet on WASM; so there will be resources behind it.
+  <li>Bugs will get fixed by the wider community.
+ <li>WASM can be targeted by mature languages: c++, Rust, Haskell is coming, etc
+<li><strong>Resources:</strong> <ol>
+
+ <li>Who's working on Parity-wasm:  <ol>
+
+  <li>Nicolay & Sergey.    <ol>
+
+   <li>Nicolay is moving to part-time on this stuff since there's lots of other work to do.
+ <li>There will be another meeting about Ethereum sharding & wasm.  <ol>
+
+  <li>Thailand, end of March.
+ <li>Our libraries:  <ol>
+
+  <li>Parity-wasm: serialization & deserialization library – for changing / transforming the wasm module.
+  <li>Wasmi: the actual wasm interpreter   <ol>
+
+   <li><a href="https://pepyakin.github.io/wasmi/wasmi/index.html">https://pepyakin.github.io/wasmi/wasmi/index.html</a>
+   <li><a href="https://github.com/pepyakin/wasmi">https://github.com/pepyakin/wasmi</a>
+<li><strong>What's left to do with parity-wasm:</strong> <ol>
+
+ <li>Need good libraries – Rust-specific – to interact with blockchain storage  <ol>
+
+  <li>Solidity gives you this out-of-the-box – but we need to build it for Rust

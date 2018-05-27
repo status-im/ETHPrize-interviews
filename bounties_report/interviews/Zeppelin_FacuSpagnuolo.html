@@ -1,0 +1,119 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Facu Spagnuolo</h2>
+
+
+<p>
+23/05/2018 - Andy
+</p><ol>
+
+<li><strong>What is your background and what kind of things do you build?</strong> <ol>
+
+ <li>I studied Computer Engineering and am a full stack dev. I started my career by programming web stuff and distributed systems.
+ <li>A year ago I had heard a lot about BTC and "blockchain", so I got involved.
+ <li>My life goal is to build the technologies that will make people's lives easier and more free.
+ <li>Cryptocurrencies clearly can do this, but Ethereum specifically - because of the community, and the fully functional VM on a chain - is clearly the best platform we have so far.
+ <li>I knew Manuel from before, and so got together with him and decided to start building some tutorials and interaction guides to walk people through the same forests I was exploring. Started contributing to Zeppelin as a security researcher, because that is the major focus at the company.
+ <li>This gave a lot of background as I really had to grasp how thing happen in the EVM. You have to be incredibly conscious and attentive about the stuff you're programming.
+ <li>Auditing well-known projects also really helped me grow my knowledge of how the whole ecosystems works and what the best practices are.
+ <li>I am now building Zeppelin OS - upgradable smart contracts, with a scheduler, and on chain standard libraries.  <ol>
+
+  <li>It's a huge challenge to build this on Ethereum currently, so I became a core member and we are releasing our first version today!!
+<li><strong>What tools/libraries/frameworks are you using?</strong> <ol>
+
+ <li> Truffle - I don't really like it, but have to use it.  <ol>
+
+  <li>We can improve a lot of things here and build some more things on top of it.
+  <li>Testing your contracts easily across any network and setting your own defaults through the console is not as easy as it should be.
+  <li>Truffle scripts allow you to deploy your application, but the truffle environment itself is very difficult to manage, especially if you need to modify it to fit your specific project. You can lose days trying to do that. 
+  <li>We should start thinking about providing an interface that can be consumed, extended and used by other cmd line tools, and things like zeppelin_OS.
+  <li>The testing environment is really good, but could still provide some extra features (like better debugging and changing variable easily between tests without needing to recompile everything).
+  <li>I haven't yet found one chance to run the debugger properly - but we really need that and it really needs to be easy to use.   <ol>
+
+   <li>When I try to debug my contracts on the network, I start logging events on the smart contract to see what is happening. This is really slow, it is a waste of gas and is not the way I want to handle things in the future.
+  <li>We also use open zeppelin a lot in our own projects: i.e. DApps we build ourselves, and zeppelin_OS - an on chain version that can be used as a standard library for zeppelin OS.   <ol>
+
+   <li>Currently you have to deploy manually the smart contracts from our libraries that you want to use. But now, with zeppelin_OS, everyone can build a standard library that can be linked to a project that is using zeppelin_OS and everyone can use the same source code.
+   <li>Say goodbye to all those deploy-time issues ;)
+  <li>We use many small helper libraries: e.g. to do tricky things like testing low level calls, crafted transactions where you need to specify very small things to do with the data as an array of byte or whatever. Truffle provides no friendly way to do this, so you have to start playing with buffers of bytes and hashes and all sorts of nonsense.   <ol>
+
+   <li>Ethereumjs-abi, ethereumjs-utils etc.
+  <li>Web3 is a great library. It's very simple, though it's been a long time that they have been promising a stable 1.0 version.
+  <li>MetaMask is also really useful - makes life easier in so many ways.
+  <li>We use both geth and parity as we have our own nodes to test things.
+  <li>Remix is really cool and it works really well. I encourage people to use it and look forward to new releases from them.   <ol>
+
+   <li>Sharing sets/suites of contracts easily can be improved.
+<li><strong>How do you handle testing and verification?</strong> <ol>
+
+ <li>We use Travis CI.
+ <li>Coverall for coverage tests, also for solidity coverage using solcoverage as a plugin. Super useful to us.
+ <li>Write plain mocha tests (integration and unit) and we aim for 100% coverage always.
+ <li>When working on DApps we usually have standard paths to test how the UI works.  <ol>
+
+  <li><span class="bounties">This is another developer tool that is missing: a tool to test UIs when signing transactions.</span>
+<li><strong>Biggest frustrations with the tools above?</strong> <ol>
+
+ <li>Speed of testing in Truffle is taking ~15min and it should be 1-2 at most. We need to speed that cycle up badly.
+ <li>Ropsten is really slow when we need to test something in a "real" network. We have needed to cancel manually our own transactions and follow many rabbits down many different holes to figure out what happened. We need a better, more realistic testnet, for all our contracts.
+ <li>You can't set breakpoints when debugging contracts, or end-to-end transactions on the network and this can cause you to lose the whole day when you miss something as simple as a flag or a param in a contract etc.
+ <li>No easy way to log things in Solidity, which makes missing the stuff above much easier than it should be.
+ <li>The linter tools also take too long. It should just be possible to install and run these sorts of things without needing to do any config of your own, which is not currently the case.  <ol>
+
+  <li>Solcoverage has to be set up manually, and the docs kind of suck around this. It took us a long time to figure it all out for ourselves.
+ <li>Plain solidity console/interpreter to test your contracts where you can play with the types, variables and scopes without needing to recompile everything. 
+<li><strong>Upgradable smart contracts?</strong> <ol>
+
+ <li>We've been exploring many different approaches over the last year, all of them using proxies: i.e a contract using a delegateCall opcode to make things happen.
+ <li>Biggest problem: we had to store information about 2 different domains, 1 of them being the proxy information and the other the contract that needs to be upgraded.  <ol>
+
+  <li>Proxy information: delegates each call to implementation contract. Storage in proxy contract, logic elsewhere, so not something new (Parity also uses this pattern).
+  <li>We don't see how upgradability works without some kind of mechanism for governance: the proxy needs to ask someone/something if the contract can/should be upgraded. This information needs to be stored as well: the "owner" and the implementation details.
+  <li>The way solidity manages storage, the contract that was going to be upgraded needed to follow the storage slots where the proxy was saving the relevant information because it is important not to overwrite them.
+  <li>We found a final approach that manages this very elegantly: using inline assembly to store variable and bypass the way solidity performs its own checks. We are using storage slots that solidity will never be able to access, which is how we can ensure our approaches are really safe and that we can have upgradeable smart contracts that don't overwrite important information.
+ <li>Why should we even have upgradeable though, if immutability is such a big thing?  <ol>
+
+  <li>We really don't think upgradeability works without governance.
+  <li>We have storage in one place and logic in another. So the storage actually remains immutable and will never forget what is put into it. We can modify it, but that is part of the history and you can inspect those modifications easily if you like.
+  <li>We are not leaving immutability then, just handling it in a smarter way.
+  <li>The idea came from exploring the strategy Solidity itself uses for mapping of variables, but with some delta to make sure Solidity won't overwrite things.
+<li><strong>What kind of bounties would you like to see?</strong> <ol>
+
+ <li>For governance:  <ol>
+
+  <li>We are still exploring which models are better for upgradeability. How to take into account the community, dev team, investors etc. We need a governance pattern that works specifically for upgradeability decisions, which tend to be more focussed than larger governance questions and might lend themselves to specific, narrow mechanisms.
+  <li>It may be possible to modify the way the compiler maps state variable to storage, so that we can allow people to implement similar patterns to ours without all the inline assembly stuff. Might make a nice bounty - improving the compiler in general to allow new features specifically in terms of what you can do with the EVM.
+ <li>Having a scheduler implies huge gas costs, so we need to find scheduling mechanisms that will allow the community to run transactions in a feature for you and be rewarded with tokens or Eth or whatever. (see chronologic for this kind of stuff too)
+ <li>We are trying to see if there is anyway to use TCRs and token curation markets in order to handle on chain standard libraries and upgradeability too. The idea behind zeppelin OS is to encourage other teams to build their own on chain standard libraries and provide them through zeppelin OS to be used in other projects. We would love to see the community come forward with suggestions about how this could be best managed.
+<li><strong>Best educational resources?</strong> <ol>
+
+ <li>People in zeppelin are the best resources I have!
+ <li>One of the things I love most about Ethereum in general is the community, so we try to get to know as many other projects as we can and collaborate with them. This is a great way of finding quick answers to hard questions and getting an overview of the best current tools available.
+ <li>Google, ethereum stack exchange too. But the community is the best resource we have.
+<li><strong>What are you most excited about in short term?</strong> <ol>
+
+ <li>Zeppelin OS!!
+ <li>Really excited to see a lot of projects on mainnet.   <ol>
+
+  <li>Decentraland, Aragon and Status are the most exciting.
+ <li>Interested by Cardano: they have a really different way of writing smart contracts on a  blockchain and we can learn a lot from them. They also have a really good team, which is always a good lense for me to assess projects through.
+ <li>Neo is another interesting project. Haven't used it yet, but met them at a conference and they were really focussed and clear about what they are going to be doing over the next little while.
+ <li>Cosmos is really interesting! It's really huge, but I am excited to see what happens there.
+ <li>Plasma, eWASM, state channels - all these things are going to be exciting to explore more.
+<li><strong>Other people to talk to?</strong> <ol>
+
+ <li>Fran Giordano from Zeppelin - knows a lot about the EVM especially.
+ <li>Alejo Salles from Zeppelin - worked with quantum physics, neuroscience and AI. Mind-blowing.
+<li><strong>Other frustrations?</strong> <ol>
+
+ <li>Volatility of the markets - really hard to convince people to join and use the currency because of this.
+ <li>Legal issues around launching companies and products are a real PITA. We need proper DAOs and soon.
+ <li>Came out of web dev industry, and it is really mature. They have a lot of methodologies for running projects and organising teams. Most people in Ethereum are very young and these sort of processes are generally a mess.  <ol>
+
+  <li>There's a lot of pressure on the back of the price, and this or that ICO and we need to make sure that the community supports and contributes to better, clearer, slower processes that actually achieve the desired goals rather than cutting corners to ship not-really-decentralized products.
+  <li>We need to figure out some new processes too unique to the problems we face in crypto.
+<li><strong>Other questions we should be asking?</strong> <ol>
+
+ <li>I would love to know how people got involved and how they managed to be where they are right now: i.e. what path did they walk to get to where they are now. 
+ <li>I would really like to know if we are all doing the same things to get to where we are, or if there are smarter ways to grow quickly without losing culture/vision. Sometimes it feels like we're all alone in the jungle, struggling to survive, and it would be awesome if not everyone had to feel this way going forward.
+ <li>Would also be helpful to see how other companies are organising themselves on a day-to-day basis and how they collaborate with other teams, with remote workers etc.</li> </ol>

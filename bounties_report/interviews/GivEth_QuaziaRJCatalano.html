@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<p>
+<strong>Quazia & RJ</strong>
+</p>
+<p>
+1/26/2018 - Sina & Robbie.
+</p><ol>
+
+<li><strong>What type of apps do you build?</strong> <ol>
+
+ <li>Giveth - Charity platform with three layers
+ <li>Fairly complex contracts on-chain. Pushes the limits of gas limit. Making transactions is relatively expensive.  <ol>
+
+  <li>Off-chain stuff. We cache everything; we store images and profiles offchain, will eventually be on IPFS.
+  <li>Some actions are not on-chain: "reviewing a milestone".
+<li><strong>How do you test things which interact with the blockchain?</strong> <ol>
+
+ <li>Offchain stuff is not dispute related.
+ <li>Gas limit issues:  <ol>
+
+  <li>Jordi wrote contracts to begin with – so WE had a good start.
+  <li>Multiple DELEGATE calls to the same contract are the same price each time; but this doesn't make sense. You've already loaded the contract in memory, so should be cheaper in consequent calls.   <ol>
+
+   <li>Abstracting – one key-value contract that stores pointers to data.
+   <li>Rest of data – stores all data. Mappings of hashes to boolean to structs / addresses / etc.
+   <li>Leads to upgradability of contracts. To the parameters used in the logic.
+   <li>Separate data from the application; let's you iterate. The data contract is owned by the business logic, ETC.
+  <li>Estimating gas / optimizing code:   <ol>
+
+   <li>To get gas limit: run it on testrpc. Easy.
+   <li>Debugging is hard, after you start adding assembly in there.    <ol>
+
+    <li>Remix is hard for large contracts. Multiple contracts.
+<li><strong>Brief walk through of the tools you use daily?</strong> <ol>
+
+ <li>Remix vs. your local dev environment:   <ol>
+
+   <li>Can write code, deploy, and debug in Remix.
+   <li>EVM Lab: written by Martin Swende; give it a tx hash; spits out opcodes, storage, memory.    <ol>
+
+    <li>RJ wrote source code mapping – doesn't work for complex contracts. Show your contract code along with the opcodes.
+    <li>We use it often. Simple CLI tools. Just need Web3 and a tx hash. Sounds AMAZING.
+    <li>To be improved: bugs with reproducing certain transactions.     <ol>
+
+     <li>E.g. couldn't recreate contract creations.
+     <li>Source mappings.
+<li><strong>How do you test things which interact with the blockchain?</strong> <ol>
+
+ <li>Testing flow:   <ol>
+
+   <li>We use Mocha + wrappers to generate contracts in Js.
+   <li>Needed: better errors. e.g. if testrpc spit out more useful messages.
+  <li>Deployment & CI:   <ol>
+
+   <li>They have Node scripts to do this. Async await. Pretty simple contract.    <ol>
+
+    <li>Jordi's tool compiles everything into a single file; <span style="text-decoration:underline;">makes verification on Etherscan simpler</span>.
+<li><span class="bounties">Bounties?</span>  <ol>
+
+  <li>A solid debugger – needs a rare breed of dev to build.
+  <li>Scaffolding tool for prototyping things –   <ol>
+
+   <li>To test a small contract before integrating with everything else.
+   <li>Think this will standardize over time.</li>   </ol>

@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Lane Rettig</h2>
+
+
+<p>
+06/05/2018 - Andy Tudhope
+</p><ol>
+
+<li><strong>What are you up to?</strong> <ol>
+
+ <li>Core developer for EWASM, but independent and works on a grant.
+ <li>Doing a lot of governance-related stuff lately, EIP0, Fellowship of Ethereum Magicians
+ <li>Runs a blockchain community and coworking space in NY called Crypto NYC (www.cryptonyc.org)
+ <li>New project called Odin Protocol, an open data marketplace
+<li><strong>Tools? Esp in context of EWASM</strong> <ol>
+
+ <li>Use vim, tmux and work way down in the protocols - no web3 etc.  <ol>
+
+  <li>Lots and lots of helpful vim plugins: various language syntax plugins, version control, etc.
+ <li>Writing web assembly itself (tests), Javascript and some C++: evm2wasm transpiler that can maintain backwards compatibility.
+<li><strong>Frustrations?</strong> <ol>
+
+ <li>Testing - "is a nightmare." The way it is done at the core level is very overcomplicated and confusing.  <ol>
+
+  <li>3 types of tests and completely separate tooling for each   <ol>
+
+   <li>State - honestly don't know, even after several months
+   <li>VM - lowest level, see what effect a tx has. Not documented well
+   <li>Blockchain - wait for blocks to be mined and stuff to happen.
+  <li>Historically made sense to do this. Each client has to pass all three types of tests so that we don't end up with consensus bugs.
+  <li>Documentation is non-existent and tooling sucks.
+  <li><span class="bounties">Would be great if there were a single command to run all the tests.</span>
+  <li>How do I run a single (VM) test easily? Or even just an arbitrary subset of tests? We use CI tools to run them instead (Travis, but are transitioning to Circle). It's all dockerized, so getting tests to run locally is very difficult.
+  <li>There is a tool called testeth, built in cpp-ethereum.   <ol>
+
+   <li>Test tooling should be in its own repo! Not maintained very well either.
+   <li>In order to run testeth, I have to download and compile cpp-ethereum.
+  <li>Worth having CI as its own separate point as it is the other biggest headache, along with testing.
+ <li>Communication tools in the EWASM team - use gitter currently. No threading, images etc, basic stuff that is missing.   <ol>
+
+   <li>EF uses Discord internally and there is an #ewasm channel there, but we have team members who are not part of the Ethereum Foundation and are not on Discord so we need another channel.    <ol>
+
+    <li>Setting up bridges is a possible solution that seems to be working quite well for other teams.
+  <li><span class="bounties">Testeth is a great place for bounties and should NOT BE A PART of cpp-ethereum.</span>
+  <li>Getting testnets up and running - there should be a test network in a box that we can just deploy at the press of the button It should not require a  devops engineer to handle this kind of stuff.
+  <li><span class="bounties">There is a half-baked interpreter for WASM in Go and C++, but we need one in python so that we can plug into Trinity (the new Python full node implementation that is being written from scratch and is the vehicle for research including sharding).</span>
+<li><strong>Tools that don't currently exist?</strong> <ol>
+
+ <li>Working on evm2wasm in JS - we need to be able to run all the tests using the new WASM infrastructure. I want something like a CI on my local machine, make a change, save the file and see whether the tests are passing or failing. Hot reloading for the whole test suite kind of thing. Local test harness that just works.
+<li><strong>Learning about Ethereum?</strong> <ol>
+
+ <li>Solidity tutorials on ethereum.org was the place I began. Needs to be updated and Hudson is working on that. It should be the definitive source in the sense that it's the first place people studying Ethereum often land.
+ <li>Has to be about pair programming for me when it comes to core dev. There is no documentation and it lives inside the heads of core developers. There is a repo for WASM stuff, but it is a moving target.
+<li><strong>Excited about stuff?</strong> <ol>
+
+ <li>WASM allows people to write contracts in non-EVM specific languages: C++, Rust, typescript etc.  <ol>
+
+  <li>Bring on an order of magnitude increase in the number of devs.
+ <li>Working so closely on Aragon because of the work being done by everyone on governance
+ <li>FOAM is going to open up the whole world if it works as they say it will.
+ <li>Truebit is amazing.
+ <li>TCRs
+<li><strong>Other questions we should be asking?</strong> <ol>
+
+ <li>Product management mindset is incredibly important. Ethereum full node software is quite clunky and is not user friendly. Would love to see projects further down the stack actually adopt this kind of mindset.  <ol>
+
+  <li>Do you know who your users are? What sort of feedback loops do you have with them? How do you talk with them? Have you done user needs analysis?
+ <li>Communication tools are interesting to dive deeper into - both internal and external.
+ <li>Governance and signals is very important to me - how do you get a sense for community consensus? Build things that reflect the collective will of the community, but we don't have access to that. What signals would you like to be able to get from your community and how?
+ <li>Concept in medicine called "practicing at the top of your degree" - doctors should not be scheduling or handling payments. Devs shouldn't be worried about devops, finances, scheduling.   <ol>
+
+  <li>What % of your time today are you spending practicing at the top of your degree/qualification? Talk about processes especially.</li>  </ol>

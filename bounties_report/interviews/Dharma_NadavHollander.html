@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<p>
+<strong>Nadav Hollander</strong>
+</p><ol>
+
+<li><strong>What type of apps do you build?</strong> <ol>
+
+ <li>Building Dharma - open protocol for tokenized debt
+ <li>Pretty much exclusively at the contract level, sometimes using stuff like libraries that wrap around contracts.
+<li><strong>How do you test things which interact with the blockchain??</strong> <ol>
+
+ <li>Truffle to write JS unit tests.
+ <li>** There are not good mocking libraries for solidity **  <ol>
+
+  <li>Had to roll my own mocking contracts for testing
+ <li><span class="bounties">A better native solidity testing framework with mocking would be awesome.</span>
+ <li>No manual testing.  <ol>
+
+  <li>It's still pretty painful to do this too
+<li><strong>Brief walk through of the tools you use daily</strong> <ol>
+
+ <li><strong>If not already mentioned, are there any libraries you rely on regularly?</strong>
+ <li>I like to use Typescript for testing.
+ <li>0x team built a great tool for generating typescript tests from ABI's
+ <li>Using truffle to test.
+<li><strong>What isn't possible with current tools, but would be nice</strong> <ol>
+
+ <li>Good logging and debugging
+ <li>Setting up your own side chain easily to test things on because it would be way faster
+<li><strong>What process do you use for validating the security of your smart contracts?</strong> <ol>
+
+ <li>Write down in plain text documents what the invariants are for the contracts. Just very clear human speak for how the contract should behave.
+ <li>Then write unit tests relentlessly.
+ <li>Ideally, there would be code review, but he is coding solo in his stuff write now.
+ <li>Finding an audit is a crappy process. No information on who is doing it, what prices look like, which auditors are good / have good reputations.  <ol>
+
+  <li>Talked to zeppelin
+  <li>Talked to Consensys diligence
+  <li>Talked to Quantstamp
+<li><strong>What was the hardest part about learning to develop with Ethereum</strong>
+<li><strong>What other questions should you be asking?</strong> <ol>
+
+ <li>"What is the thing that makes debugging solidity code the hardest?" (for me, it's that you can't log anything at all, and no working debuggers)
+<li><strong>What bounty would you create?</strong> <ol>
+
+ <li><span class="bounties">A GREAT SOLIDITY DEBUGGER!</span>
+ <li>A turnkey solution to the "trusted relay chain" thing. Just make it easy for people to spin up a side chain, run their programs on it, rewind history to a specific point in time, etc.
+ <li>Also let you set up rules on it like locking up deposits for a week between the side chain and the main chain.</li> </ol>

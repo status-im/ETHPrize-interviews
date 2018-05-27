@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Matt Condon</h2>
+
+<ol>
+
+<li><strong>What type of apps do you build:</strong> <ol>
+
+ <li>Solidity contracts. 
+ <li>Off-chain clients. 
+ <li>Frontend interfaces for blockchain-backed stuff.
+<li><strong>How do you test things which interact with the blockchain?</strong> <ol>
+
+ <li>Try not use truffle test. 
+ <li>Never written a solidity test, but written a lot of JS tests. 
+ <li>Also do some manual integration tests using Remix to deploy to Ganache or something. Using remix for this testing.
+<li><strong>Brief walk through of the tools you use daily</strong> <ol>
+
+ <li>Truffle, Infura, MetaMask, Etherscan, Remix, Solidity flattener.
+ <li><strong>If not already mentioned, are there any libraries you rely on regularly?</strong>  <ol>
+
+  <li>Web3, BigNum, moment, Numeral, Chai, Mocha
+<li><strong>What isn't possible with current tools, but would be nice?</strong> <ol>
+
+ <li>Truffle has a lot of rough edges (documented elsewhere)
+ <li>Gas profiling
+ <li>Interactive debugger that works
+<li><strong>What is most frustrating about developing on ETH?</strong> <ol>
+
+ <li>Iteration cycle is <strong>slow,</strong> especially compared to webdev
+ <li>No visibility into errors in solidity. No error logging, no line numbers. Complete black box.  <ol>
+
+  <li>People end up commenting out lines, deploying testing, re-editing just to figure out bugs.
+  <li>Needs to be fixed at the EVM level.
+ <li>Logging is undefined. don't really know how you're supposed to log even though I have read all the docs.
+ <li>The solidity inheritance interfaces are weird. Really likes Bamboo for this reason.
+ <li>Ganache fixed a lot of testrpc issues. But it doesn't support websockets so that's annoying. But at least you can actually use geth in dev mode now.
+ <li><strong>Are you running into problems with any of the following:</strong>  <ol>
+
+  <li><strong>Gas limit: </strong>Yes, in general.
+  <li><strong>Off-chain computation: </strong>Yes, open problem for TrueBit. There's gotta be some best practices for setting up state machines and stuff like this.
+  <li><strong>State Channels: </strong>Haven't used them.
+<li><strong>What process do you use for validating the security of your smart contracts?</strong> <ol>
+
+ <li>Nothing, no real process besides following best practices.
+ <li>Gets auditing. Should be running <a href="https://github.com/ConsenSys/mythril">Mythril</a> but hasn't set it up yet. They have a great blogpost on finding unchecked self-destruct.
+<li><strong>What was the hardest part about learning to develop with Ethereum</strong> <ol>
+
+ <li>Mental model of how blockchains work. Also mental model of how Ethereum works.
+ <li>I wrote an article called "<a href="https://medium.com/@mattcondon/getting-up-to-speed-on-ethereum-63ed28821bbe">Getting up to Speed on Ethereum</a>" that answers the vast majority of question I had when starting.
+ <li>Tokens are just numbers in a database with an API to add and subtract. Not some native object or something.
+ <li>Solidity the language, besides its quirks, is not hard to learn. The hard part is understanding the environment it's executed in, and what that means for your program
+<li><strong>What was the first thing you built related to Ethereum, and when did you build it?</strong> <ol>
+
+ <li>Built a raffle contract, but didn't ship it because he didn't want to deal with real money  <ol>
+
+  <li>Early 2017
+ <li>First thing I shipped was steak.network
+<li><strong>What would be the hardest part of teaching a software engineer to build a dapp?</strong> <ol>
+
+ <li>"Solidity is just like javascript" - THIS IS SO LOADED WITH WRONG IMPLICATIONS  <ol>
+
+  <li>People's understanding of web development doesn't really transfer
+  <li>Software engineering principles transfer, but it's not just web development.
+<li><strong>What applications are you most excited about in the near term (ie. what do you think will be working soon)</strong> <ol>
+
+ <li>Biggest hype tech is token-curated registries. Curate a set of things such that the resulting registry is more valuable than the sum of its parts. Use that to create economic incentives around rational behavior for the curation process.  <ol>
+
+  <li>E.g.: machine learning if you want to create public images for a dataset
+  <li>E.g. structure government as a token curated registry where laws are curated into a constitution. If someone thinks their expertise will increase the value of the constitution they can become a curator
+ <li>Mostly interested in 2nd layer projects that don't exist for crypto's sake
+<li><strong>Who are other people you think we should talk to?</strong> <ol>
+
+ <li>All of the people in Cape Town that I just met.</li> </ol>

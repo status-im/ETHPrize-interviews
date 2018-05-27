@@ -1,0 +1,82 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Matias Bargas</h2>
+
+
+<p>
+26/05/2018 - Andy
+</p><ol>
+
+<li><strong>Who are you you and what do you do?</strong> <ol>
+
+ <li>I used to be an investor, but came to crypto and Decentraland at the same time.
+ <li>I used to work with Juan and 2 other guys who all joined the team at the same time. I really wanted to leave enterprise companies and loved the team already there.
+ <li>It's about the open philosophy, and break down the walls around the 1% of the 1% and diffuse power into the hands of everyone.
+ <li>I was working on an online IDE for an in-house language at MuleSoft. Now the engineering manager at Decentraland.
+<li><strong>Tools/libraries/frameworks?</strong> <ol>
+
+ <li>The whole Ethereum stack, basically.
+ <li>Truffle  <ol>
+
+  <li>Integration with common developer tools is not fantastic. We need to start thinking about and building our tools in such a way that is easier for the guy/girl who comes after me to fix the issues that come up.
+  <li>If we are changing the world, why are we still thinking in narrow ways about how our tools should be used and by whom?
+ <li>VS Code
+ <li>React, typescript, nodejs
+ <li>Bablyon.js as an engine for VR
+ <li>Web3  <ol>
+
+  <li>One of team members rewrote web3 into typescript for EthBuenosAires and all the tests are passing! Will post a link here after the hackathon.
+  <li>There were typos there!
+  <li>There was functionality not working (and there are billions of $'s running on top of it!) 
+ <li>IPFS for decentralized deployments.  <ol>
+
+  <li>Scalability is a concern here. If we want to deploy the whole metaverse in IPFS, we actually can't. We need to replicate data in, I don't know, Amazon or something because we can't supply the level of connection we need to (just 100,000 users or so, not even in the millions). And even this will require bootstrapping nodes like crazy.
+  <li>The IPFS cluster is still in alpha and not as stable as we need it to be.
+  <li>We are waiting for scalability, but we don't have the tools to monitor and handle that amount of information anyway, and this is a concern for us.
+ <li>I haven't used this yet, but this seems to be an interesting tool: <a href="https://github.com/nomiclabs/buidler">https://github.com/nomiclabs/buidler</a> 
+<li><strong>Frustrations?</strong> <ol>
+
+ <li>Real monitoring information is tough to come by. I come from enterprise where this stuff just exists and the ability to fetch the data you want to fetch is never really in question.  <ol>
+
+  <li>Browsing through a node that has a huge list of unindexed transactions without all the information you need in an easily accessible place is hard.
+ <li>With our own tools, we are building our own framework in order to move tx information from the blockchain to the db and from the db to the app.  <ol>
+
+  <li>We need transformations between each layer (which wasn't that hard to build). But now we need a really generic way to do this and to publish it for people building DApps and using our SDK. And with a centralised DB, this is not possible.
+ <li>We are failing with dev tools in general.  <ol>
+
+  <li>Let's think about Java a bit. You have the JVM, a mature language and a complete set of IDEs. You also have a tonne of framework for building Java applications. There are also great monitoring tools.
+  <li>Logging systems are a great and practical example of this. How can I log failures from Solidity without using events in a way which they weren't really intended to be used? We need a Splunk equivalent.
+  <li>Terraform, <a href="https://www.appdynamics.com/java/">AppDynamics</a>, etc - these things don't exist for blockchains and really need to be built.
+  <li>We need to focus more on tech and shipping things and less on the people with money or how our token is performing.   <ol>
+
+   <li>We care about nothing but the tech we ship. We encourage others toward similar feelings ;) 
+<li><strong>Tools that don't exist?</strong> <ol>
+
+ <li>Starting from the infrastructure stuff: we need a new language to describe all the set of things that you need to do in order to deploy one or more contracts.  <ol>
+
+  <li>You have you application made up of a set of contracts that are all talking to each other: we need a decentralized logging system to make sure they are all still working properly and the events that are being dispatched by the nodes are correct.
+ <li>A complete set of tools for testing. Truffle is not adaptable enough.
+ <li>The work being done by Zeppelin on securing contracts and providing best practices around how to use audited contracts is great.
+<li><strong>What have you to be the best educational resources?</strong> <ol>
+
+ <li>I came from a strange backend doing tooling for languages for the last 6 years, so I don't have the right approach to learning for most, I think.  <ol>
+
+  <li>Should be readable, reliable and consistent. E.g. I prefer typescript over js because it behaves as expected and has been validated by the communicated. Java > python because it also behaves better and more in line with your expectations. I need a language with only one way to do things.
+  <li>If Solidity fulfilled this, why do we need to test it with javascript?
+ <li>I never did any course, I just read contracts and code that seemed interesting.  <ol>
+
+  <li>Started with Zeppelin's ERC20 and went from there through GitHub and started writing little tweaks and commits myself.
+ <li>I had also had some experience with React, so that set me up well for DApps.
+ <li>Having awesome and intelligent colleagues is such a bonus too!
+<li><strong>Was anything easier than expected?</strong> <ol>
+
+ <li>No, not really.
+ <li>Actually, extending the open zeppelin stuff was pretty easy.
+ <li>Someone tried to exploit Decentraland and because we validate with open zeppelin it was safe, and we got that for free!  <ol>
+
+  <li>It's great to see that security is taken seriously (though I still have a tonne of concerns about managing funds on public networks).
+<li><strong>What most excites you in the short term?</strong> <ol>
+
+ <li>The Decentraland client!! Woot woot.
+ <li>Something that helps me to generalised solve side channels.
+ <li>Status.

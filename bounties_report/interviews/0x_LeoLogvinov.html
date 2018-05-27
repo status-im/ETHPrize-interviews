@@ -1,0 +1,104 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Leo Logvinov</h2>
+
+
+<p>
+4/24/2018 - Robbie, Parker, Andy
+</p><ol>
+
+<li><strong>What do you do?</strong> <ol>
+
+ <li>Started in blockchain 2 years ago in Berlin, working on Ethereum devtools, building solidity plugin for IntelliJ, built by him and an Australian.
+ <li>Working on truffle, did some PRs, improving speed, usability, error handling.
+ <li>Started working on 0x, primary role: devtools team. 
+<li><strong>Your biggest frustrations?	</strong> <ol>
+
+ <li><span class="bounties">Some frustrations include:</span> <ol>
+
+  <li>Event watching - unreliable, no support for backfills etc.
+  <li>Build tool for statically typed contract (ABI gen that generates contracts), build out the statically typed libraries
+  <li>Negative experience with web3js team - unresponsive.
+  <li>Frustrated with truffle because it is hard to contribute with so many packages these days.   <ol>
+
+   <li>Hard to debug and understand it all - so needed a smaller truffle for the specific use cases.
+   <li>Need to standardise their artifact format (currently in talks about it).
+  <li>Solidity coverage tool: built at hackathon (at least the profiler which is not super useful), standardise on artifacts format so that it works across tools.   <ol>
+
+   <li>Which line of solidity is covered by tests?
+  <li>EIP712 - standardised signing for structured data, also helped finalise 721 at ETHDenver.
+ <li>Solidity plugin for IntelliJ IDE  <ol>
+
+  <li>One did not exist at the time. Did not have too much stuff in it really: simple formatting, definitions, highlighting. Not "a super interesting" project, but has 36 000 users (some duplicates).
+ <li>VMs  <ol>
+
+  <li>Been wanting to speed up tests recently. Bottleneck is code execution in Ganache VM (90%). We want to get down to 1-10s test runs.
+  <li>GAS PRICES ARE NOT THE SAME!!!! Arghhhhh!
+  <li>We need JIT compilation in more performant language (currently just executed in JS).
+  <li><span class="bounties">Project called EthJIT VM, transpiles to LLL, then optimizes contract so that it pre-compiles and then runs much faster.   <ol>
+
+   <li>Would be great to see that integrated in ganache (snapshots and time travel make this a nice tool than geth to use currently).
+   <li>Even better to have pluggable VMs, have spoken to the Foundation about this too.
+ <li>Prettier plugin for solidity. Amazing idea!</span>
+<li><strong>Experience working on EIPS? </strong> <ol>
+
+ <li>Working on EIP 712 - signing structured and typed data 
+ <li>Quite hard with monetary prospects and no established legislation process - need better ways of governing and enforcing the process.  <ol>
+
+  <li>Really helped to have everyone in one room at ETHDenver and align on angles of attack.
+  <li>Room at ETHDenver from commenting on a thread in GH. Started unstructured and moved into structured discussion by defining the interface, which helped identify all the different parties' motivations. This revealed some inertia on some teams' behalf, which was interesting to see.
+  <li>Lot of discussions about metadata (of tokens, which is also important for other parts of tokens)
+  <li>GH PRs are one single wall of text and the comments need to be better moderated, especially for trolls or tangential discussions/ideas (especially tangential ideas need to be collapsed).
+  <li>Creators need to moderate/create a TL;DR section to help people better and more easily grasp what they are working on. 
+<li><strong>Solidity code coverage - how does that work?</strong> <ol>
+
+ <li>Before each line calling eval, and modifying Eth and ganache code to read the events, much below the current block gas limit and working through everything that comes through.
+ <li>Take debug transaction with list of opcodes. Also have the source maps, which map back from opcodes to lines of solidity code, and can use that the work backwards from opcodes to understand exactly which line used how much gas.
+ <li>How do you get the trace after each tx?   <ol>
+
+  <li>We wrote our own provider, whenever call to eth_sendTransaction gone through provider it sends it and then gets the trace.
+ <li>Calls don't have traces though, so need to do a snapshot and then send the call as a tx, which gives you the trace back and then you can look at what happened in the call.
+ <li>Did look at other tools, but felt the performance and reliability of those tools just kinda sucked.
+<li><strong>Event Watching?</strong>  <ol>
+
+ <li>Lacking good open source project
+ <li>People don't have stateful nodes, you need to handle events client side
+ <li>Ethereum-js blockstream enables us to use stateless nodes after installing all filters. Still not a part of web3.  <ol>
+
+  <li>Working on something called order-watcher: track when the order becomes invalid. Which happens when the user manipulates things. You can validate reactively by watching for events, but you want to actually watch balance changes and events are just an imperfect proxy for this.
+  <li>People can mint and burn tokens and change balance without emitting events.
+  <li>Want to track changes in balances, not events. balanceOf() is view function that returns the balance, so we want to track the result of calling that.
+  <li>Might be inefficient to look at that directly, or we can register callbacks and recompute only when the state used by that function changes.
+  <li>But how do we know when state changes?
+  <li>Cannot rely on solidity, but can run function, get trace, see which storage slots the function is reading, and then you for sure know that this function will only change its value when one of those storage slots changes.
+  <li>Use Patricia tries somehow to watch these storage slots and state changes - allow you to watch efficiently changes on view and pure functions.
+  <li>Check out EIP 781: <a href="https://github.com/ethereum/EIPs/issues/781">https://github.com/ethereum/EIPs/issues/781</a> 
+<li><strong>ABI gen for statically typed contracts?</strong> <ol>
+
+ <li>Contracts need to be checked at compile times to ensure parameters etc (strong instead of number or something like that) and being statically typed is much easier to check this.
+ <li>Inspired by geth tooling, and there are also some JS ones (salt-size etc) but were all very opinionated and made all sorts of assumptions about how you wanted to use your contracts.
+ <li>With 0x tool: Consensys is using it, Sybil (journalism tools, also with typescript contracts).
+ <li>Using ethers.js for backend of contracts due to issues with web3 versions (classic).
+<li><strong>Typescript and inspiring the ecosystem?</strong> <ol>
+
+ <li>Yeah - we encourage everyone to use typescript! Ethers.js and Ganache, all the 0x districts etc. Some organic growth there would be awesome.
+<li><strong>What other tools aren't there but would be nice?</strong> <ol>
+
+ <li>Prettier type plugin for solidity. Doesn't have time to write it but it has a good API.
+<li><strong>Best ideas to have in a debugger?</strong> <ol>
+
+ <li>Not writing solidity actively at the moment and hasn't used one yet because it is such a high level tool (haha).
+ <li>Feels that this is quite a long way away right now.
+ <li>Need bytecode, source code, source maps, traces, interruptable VM etc.
+<li><strong>Signing data in Ethereum?</strong> <ol>
+
+ <li>Arbitrary string that people were supposed to sign, but then people figured that you could use it to send ETH, hence the weird prefix that got implemented - not an EIP, it is just a bugfix.
+ <li>If there is a way to display user data and get them to understand the transaction fully, then they would surely not sign. Prefix doesn't solve anything, it just postpones the problem.
+<li><strong>Your ideas for Solidity bounties?</strong> <ol>
+
+ <li>There is a limit on local variable numbers (have a limit of 16, which influences how you write the code).  <ol>
+
+  <li>Solidity doesn't push variables down the stack, so you can't go more than 16 deep. This is an implementation detail in current compiler that needs to be improved.
+ <li>ABIv2 - experimental feature for half a year or so - return structures and bus structures as parameters. 0x are planning to use it to make their code easier to audit especially.  <ol>
+
+  <li>C++ devs needed

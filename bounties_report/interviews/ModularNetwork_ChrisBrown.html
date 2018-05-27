@@ -1,0 +1,117 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Christopher Brown</h2>
+
+
+<p>
+05/11/2018 - Andy
+</p><ol>
+
+<li><strong>What kind of DApps do you build?</strong> <ol>
+
+ <li>Full stack web dev, working in finance and some other industries. Started in Eth after reading WSJ after Frontiers release.
+ <li>VM was interesting - run code in the blockchain is really interesting.
+ <li>Modular.network - working on a hybrid solution with Blossom.  <ol>
+
+  <li>Several microservices in AWS that are coordinating with SCs on the blockchains - all that talk to a frontend dashboard
+  <li>Token contracts
+  <li>More extensive libraries now - we have an open source repository for ETH contracts.   <ol>
+
+   <li>Math
+   <li>Token
+   <li>Crowdsale
+   <li>Array handlers
+   <li>Linked lists handlers
+  <li>Landed on Status repos first when looking at this stuff :)
+  <li>Looking at zeppelin's libraries and they didn't seem as organised as other strong OSS libraries.   <ol>
+
+   <li>All about documentation!! Seemed lacking and this is the focus at modular.network.
+   <li>Not deployed libraries you can link to.
+   <li>Modular deploys on all networks and you can link to them specifically using delegatecall.
+   <li>Take ERC20 - no reason to have 10000 Full implementations out there, just need contracts to hold their own storage and implement the right interface.
+ <li>Bridging tech is most important for foreseeable future due to efficiency concerns on chain.
+ <li>ETHPM required for graceful handling of libraries and packages, easily, securely etc. Really need to focus on that.   <ol>
+
+  <li>Have some thoughts about using on chain tests for upgradeability.
+<li><strong>What tools, frameworks and libraries do you use most frequently?</strong> <ol>
+
+ <li>Truffle for building, testing and compiling  <ol>
+
+  <li>Can be sketchy on deployments, though this has improved recently. Built our own deployment script to get around it though.   <ol>
+
+   <li>Test, compiling and running are cool, but none of them are linked very well.
+   <li>Being the devs of both ganache and truffle -putting the scripts together that would run the whole suite would be awesome.
+  <li>Needs easier integration with CI tools.
+ <li>Test scripts from zeppelin (in the sol libraries that pulls up testrpc, gives it a bunch of accounts and then executes whatever you have written).
+ <li>Dive into lower level Ethereum libraries a lot - ethjs-utils especially.  <ol>
+
+  <li>You have to understand what is going on and WHY you're doing it. This context is tough to get across and the libraries here are just not as well advertised, which is a pity.
+  <li>It's a maturity thing: early on you're just trying to attract people and get them to get their hands dirty. As the community matures, you need more forward-facing, lower-level libraries that are well documented available is absolutely key. You can only do so much with vanilla web3..
+  <li>One of their new implementations is a new multisig wallet, picking up some stuff from ERC 191, added some things to address security concerns.   <ol>
+
+   <li>None of that stuff is in web3, so using ecsign method from utils in order to avoid going onchain all the time to get info that is available elsewhere.
+   <li>More attention around lower level components is useful as we mature.
+ <li>Ethereumjs-tx, ethereumjs-wallet, solidity-sha3, to get identical hashes  <ol>
+
+  <li>Little bit more control to JS devs.
+ <li>Web3 1 looks good  <ol>
+
+  <li>Biggest mistake: made it default installer when web3 v1-beta came out and this is a crucial error!! 
+  <li>But scrypt is such a heavy package to deal with. We use that for local encryption/decryption now. Can it even be compiled into an Electron app for instance?
+  <li>Necessary because everyone running full nodes is never gonna happen.
+<li><strong>How do you handle testing?</strong> <ol>
+
+ <li>Just Truffle for tests  <ol>
+
+  <li>Mocha for unit and functional tests. Use mocha across the whole application base.
+ <li>Have run Mythril on some mission critical contracts  <ol>
+
+  <li>Was a pretty good experience
+ <li>Stay away from monolithic code bases, iterate and test as regularly as possible!  <ol>
+
+  <li>Applies especially to smart contracts
+  <li>Use event logging to debug contracts if possible
+ <li>Getting invalid opcodes as feedback when your code doesn't run is the single most frustrating thing in the world!  <ol>
+
+  <li>This has now improved a lot, which is awesome! Not just OOG errors in solidity anymore.
+  <li>Finished contracts a few months ago and now don't really want to touch them too much. However, solc moves on a lot and there is a tension there (especially after audits)   <ol>
+
+   <li>SC dev is much more like traditional application dev, not web dev. Updates are months apart and very purposeful, bundle a bunch of things etc.
+ <li>We like solidity, and most problems are related to VM not being as capable as people currently want.  <ol>
+
+  <li>There's a language called Jelly with very purposeful functions that are then linked together to create compound functions.
+  <li>Someone wanted trailing and leading 0's from contracts return data - seemed very easy to do in Jelly. Specifically, bytes are so valuable on the blockchain and we use more bytes than we need to.
+  <li>Room for optimisation with bytecode there.
+<li><strong>What tools don't exist at the moment?</strong> <ol>
+
+ <li>The community is doing a good job and a lot of the stuff we need is already being worked on by someone.
+ <li>ETHDenver and the gas visualisation tool that came out of that.  <ol>
+
+  <li>Became apparent that there are places where you see red and you can't change that and these sorts of insights are useful - do I really, really need to put this piece of data on chain etc.
+ <li>More visual tools that you could wrap around smart contract code (that doesn't get compiled).  <ol>
+
+  <li>Has there been any thought around wrapper code for SCs for developer-specific tools or libraries that give you the visuals you need to understand more of what is going in.
+  <li>Having a logger that works well and you get outputs similar to solidity-coverage and doesn't only point out errors, but also information - showing scope and which state variable it has access to etc.
+  <li>Think about in context of Parity issues we had: the fact they tried to structure a lib as a contract could have been picked up by something like this. 
+  <li>Or, in Ownable contracts, specifically printing out a report that says "The owner of this contract is the only one who can access this specific state, as opposed to other users" etc. Point out how to establish an owner (if not already set in initialisation function).
+<li><strong>Try to remember the last time you developed a feature for ethereum and you ran into some unexpected obstacle and where are the best educational resources?</strong> <ol>
+
+ <li>Solidity readthedocs is very good. Web3 v1 is much better documented too.  <ol>
+
+  <li>Disconnect between web3 v1 and latest geth: the way we were fetching tx receipts were not syncing correctly
+  <li>v1 websockets are still kinda screwy and not handled as well as they need to be.
+  <li>Ended up putting the service using the node in the same container and just ipc
+ <li>Resources themselves, you really need to dig for.
+ <li>Geth has resources that are very outdated and fragmented - please can we fix this!  <ol>
+
+  <li>Not having definitive resources and docs is a big problem in general.
+ <li>Search github and Reddit to find random answers that I need.
+<li><strong>Hardest part of learning how to dev on Ethereum?</strong> <ol>
+
+ <li>Having a sequential getting started stuff on ethereum.org is totally, absolutely necessary. 
+ <li>List of tools and resources and even an appendix-like structure of what things like Distributed Applications even mean.
+ <li>Defining use cases for those don't wanna be in blockchain is still really hard today.
+<li><strong>Most excited about?</strong> <ol>
+
+ <li>Proof of Stake overlays will be really interesting! Bring on the FFG!!
+ <li>Getting WASM out there will be really important (and finding a use case ;) )

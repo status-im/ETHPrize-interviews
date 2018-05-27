@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Phil Castonguay</h2>
+
+
+<p>
+06/05/2018 - Andy Tudhope
+</p><ol>
+
+<li><strong>What type of apps do you build?</strong> <ol>
+
+ <li>Used to work for 0x, now works as a SC dev and researcher independently.
+ <li>Was the developer relations manager at 0x.
+ <li>Focussing on state channels, signature-based improvements in general smart contracts, blockchain storage (utilising merkle trees and improving best practices).  <ol>
+
+  <li>Working with a gaming project that utilises state channels, unrelated to Raiden.
+  <li>A lot of things that could be done off-chain by simply using different signatures: for crowdsales instead of using on-chain whitelist, you send a signed message for every participant and then they need to pass that message along with sending their Ether. Used by Polymath to get around the gas costs (could cost up to $15 000 just to whitelist everyone).
+  <li>Working with chronologic on Ethereum Alarm Clock and other secondary markets, e.g. conditional execution where I want to make sure if x happens somewhere on chain, then do y. 
+  <li>Right now smart contracts don't listen to each other and require 3rd parties to watch the chain and inform them.
+<li><strong>What tools do you use most often?</strong> <ol>
+
+ <li>Using Truffle, Ganache, testrpc  <ol>
+
+  <li>Most of the tests are not run in parallel, under-utilising my compute resources, can't be adapted easily or extended.
+ <li>Remix for quick prototyping  <ol>
+
+  <li>Actually quite enjoy using the debugger - I find it fairly easy to use. Would be great to play with single function testing locally so that you don't have to run a full suite to test one or two things.
+ <li>Typescript (mostly for testing)  <ol>
+
+  <li>Mostly following 0x standards - transcribing from typescript to js that make it really easy to define statically-typed tests.
+ <li>Mocha, chai
+<li><strong>What doesn't exist right now, but you'd love to see?</strong> <ol>
+
+ <li>Nothing exists for state channels regarding how you pass messages and other p2p tools that allow different agents to communicate easily with each other.
+ <li>Not easy to document this.
+ <li>No easy way to test how peers are interacting with each other and you want to run simulations in state channels.
+ <li>Scheduled transactions: we need a queue to avoid race transactions, can help lower gas costs. But we need off-chain system for nodes to communicate in order to implement that.
+ <li>Easy to use and easy to test frameworks for this stuff is going to be super important.
+ <li>Would be awesome to have some kind of simulation tool for multi-agent networks of this kind (even relevant for whisper and other parts of the Ethereum network, like zeppelin doing token mechanics simulations and analysis, especially around bad agents). More of a research tool than developer specific.
+ <li><span class="bounties">Simulator for the cross-client, cross-account signature schemes and management - right now the only way to test these schemes are to actually plug in a ledger and then test. Would be great to be able to test this from one place!</span>  <ol>
+
+  <li>Couldn't make this work in Truffle, passing in byte code and passing. But then, using mycrypto or Remix, it failed because the <a href="https://github.com/ethereumjs/ethereumjs-abi/issues/63">encoding</a>, libraries and dependencies are different!!
+  <li>Very confusing how bytecode arrays are passed in different tools and how you can convert from one type to the other, how we could concatenate a range of arguments in a single contract and then vice versa. Figuring out how that works (argument encoding) is really difficult to get right.
+<li><strong>Testing stuff?</strong> <ol>
+
+ <li>I struggle with fuzzing: it's very useful for when different people are working on the same standards  - so we could easily run fuzzing between entirely different teams and see if the way they implement all the functions behave the same way and make sure the different implementations of the same standard are the same. Better standardisation is key.
+ <li>Writes unit tests myself and try for 100% coverage.  <ol>
+
+  <li>I uses Mythril and am looking forward to formal verification.
+  <li>Standards checking!! Here is a standard, put your contract next to it and check that it conforms to the standard implementation and then reuse a lot of the unit tests etc. that come with that standard.
+<li><strong>Hardest part of learning how to dev on Ethereum?</strong> <ol>
+
+ <li>Coming from a non web-dev background and more from data analytics meant that everything related to async was difficult to grasp. It's unintuitive.
+ <li>Solidity dev is not particularly difficult, but the best practices are extremely important and it is only really by experience that you learn the best and safest patterns. You need to know most edge cases and most potential attacks before you can write contracts that can actually be used.  <ol>
+
+  <li>Reading about past exploits really helps. Ethernauts is really great.
+  <li>Each opcode and how much gas it costs - there are tables online, but not updated and it takes some time to search properly the Yellow Paper. In fact, anything related to code optimisation could be really cool to see.
+  <li>Educational content focussed on code optimisation. Has not seen as much of it as he has of security and both are equally important. I.e. "Try to rewrite this contract in under 5000 gas" kind of thing. Who can achieve this, this and this with the least amount of gas.   <ol>
+
+   <li>Now implemented: <a href="https://g.solidity.cc/">https://g.solidity.cc/</a> 
+<li><strong>Most excited about?</strong> <ol>
+
+ <li>95% of the projects are not ready for the mainstream. Mass adoption necessarily requires state channels or plasma, or secondary consensus layer like a sidechain - so that is where we really need the most development as soon as possible. 
+ <li>Loom network etc. is also really exciting.
+ <li>Sharding comes later, and is really exciting, but the stuff above needs to happen first.
+<li><strong>Other questions that should be added?</strong> <ol>
+
+ <li>Mostly about tools and enhancing developers lives. Finding information and answers is also really important, so ask more about the docs if you can.

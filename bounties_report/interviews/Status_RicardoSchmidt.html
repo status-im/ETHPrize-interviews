@@ -1,0 +1,78 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Ricardo Guillerme Schmidt</h2>
+
+<ol>
+
+<li><strong>What type of apps do you build:</strong> <ol>
+
+ <li>Development of smart contracts for Status. 
+ <li>Can also do some web3 integration with javascript, but I have not really dug deeply into that. 
+ <li>I want to work on DAO's that have delegation proxies so that you can trust an expert to vote for you.   <ol>
+
+  <li>Oraclize but too expensive. 
+  <li>TrueBit but not available. 
+  <li>Zokrates or some other solution also a possibility.
+<li><strong>How do you test things which interact with the blockchain: </strong> <ol>
+
+ <li><strong>Automated testing? How do the facilitate manual testing?</strong>
+ <li>First develop the smart contract. 
+ <li>Manual test with Remix is the first step. 
+ <li>Ethercamp IDE was really good, but now it's too old. 
+ <li>The new tool for Eclipse might be good but it's only on Windows. 
+ <li>When it looks like it's working, write some truffle javascript unit tests. 
+ <li>Usually spotting bugs happens in manual tests and truffle unit tests are just for making sure it's good. 
+ <li>Remix debugger is very useful, but it's missing some features.
+<li><strong>Brief walk through of the tools you use daily</strong> <ol>
+
+ <li>Microsoft VS code, Git, Remix for manual tests, Truffle, Parity.chain for testing, Mist & Parity on Ropsten for development
+ <li>I gave up on Ganache - too much variability between that and live environments.
+ <li>If not already mentioned, are there any libraries you rely on regularly?  <ol>
+
+  <li>Not really, mostly backend.
+<li><strong>What isn't possible with current tools, but would be nice</strong> <ol>
+
+ <li>Would be very good if VScode had the same thing that remix had - i.e. an actually Integrated IDE. 
+ <li>Would use only remix, but it's horrible to use with multiple folders and things like that. Remix is only good at small projects but wants it for big projects. Connecting with RemixD can often mess up all your files.
+ <li>Solidity can't return arrays or variable length values. Knows there is some solution with assembly but it's too ugly.
+<li><strong>What is most frustrating about developing on ETH? (Specifically - talk about UI issues / scaling)</strong> <ol>
+
+ <li>Being unable to returns strings nicely. Regularly blocks me. 
+ <li>My project GitPivot connects git to the blockchain and generates tokens for commits. Needs to store git usernames, but can't. So instead has to store a hash. 
+ <li>But that means he has to ask the user for their username each time so he can check the hash, which is a bad user experience.
+ <li>Scaling!! Scaling is actually the biggest problem. If Ethereum nodes can't handle the state it will all become useless.
+ <li><strong>Are you running into problems with any of the following:</strong>  <ol>
+
+  <li>Gas limit:    <ol>
+
+   <li>Yes. Not for deploying, but when users are adding to big arrays it can get complicated. 
+  <li>Off-chain computation   <ol>
+
+   <li>Yes, same problem with arrays, with on-chain computation. Sokrates? Not sure if zkSnarks will be able to solve this.
+  <li>State Channels   <ol>
+
+   <li>Haven't used them before.
+<li><strong>What process do you use for validating the security of your smart contracts?</strong> <ol>
+
+ <li>No major process. "This function should do one thing. Only that. If it can be used to do anything else, that's a problem."
+ <li>I saw that the Parity library didn't have the owner set. But I think other developers should write the code so that this is impossible.
+<li><strong>What was the hardest part about learning to develop with Ethereum</strong> <ol>
+
+ <li>Not sure, not actually difficult. If you understand decentralization, it's easy. If you don't, then there's no reason to try it.
+ <li>Immutability makes you more cautious when going to production.
+<li><strong>What was the first thing you built related to Ethereum, and when did you build it?</strong> <ol>
+
+ <li>Contract called document-registry. Just claim that you made something by putting your name in a map with the hash of the contract. Can also transfer ownership of the hash.
+ <li>2nd project was JS for vanity addresses.
+<li><strong>What would be the hardest part of teaching somebody to build a dapp?</strong> <ol>
+
+ <li>Depends on the user. If the user is good in JS, it would be understand the fundamentals of the smart contracts.
+ <li>Explaining fees & immutability.
+ <li>Biggest problem is they don't see the whole picture, just get 1 part of blockchain technology.
+<li><strong>What applications are you most excited about in the near term (ie. what do you think will be working soon)</strong> <ol>
+
+ <li>Excited about Golem. I really want to use it because I have a powerful GPU at home that is not mining. I want to do something useful, not just use my GPU for mining.
+ <li>Love Ethereum for proof of stake, that was my main interest in it at the beginning.
+<li><strong>Who are other people you think we should talk to?</strong> <ol>
+
+ <li>Jordi Baylina, James from Status, Luis Cuende from Aragon.</li> </ol>

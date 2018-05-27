@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="../styles/main.css">
+
+<h2>Alex Leverington</h2>
+
+
+<p>
+07/02/2018 - Robbie & Sina
+</p><ol>
+
+<li><strong>What type of apps do you build?</strong> <ol>
+
+ <li>Can't say what I've working on in a concrete way, but I am building a team and starting a new project.
+ <li>I'm advising some projects.
+ <li>Did some original stuff on the P2P system.
+<li><strong>What's painful about developing on Ethereum?</strong> <ol>
+
+ <li>Debugging Solidity and EVM ––
+ <li>Robust distributed system for content delivery.  <ol>
+
+  <li>Swarm and IPFS are both in Proof-of-Concept form.
+  <li>IPFS is minimally viable when you use gateways. But there's potential for improvement
+  <li>I haven't used either in a while –– but my understanding is:   <ol>
+
+   <li>Swarm is a little slow
+   <li>IPFS is ok –– but you need the client software to run multiple p2p nodes.
+  <li>All the demonstrations use HTTP gateways –– there aren't tools and packaging for having production software on the p2p protocol.
+  <li>Integration should be in the offchain code. 
+<li><strong>What about testing?</strong> <ol>
+
+ <li>Haven't come across any tools for game-theoretical stuff.
+ <li>For code: using scripts for testing.  <ol>
+
+  <li>Ideally there would be a testing env that can do "introspection" & which can evaluate the state of the memory –– should test the effect of code rather than the output of the code –– the tests all integrate with Solidity –– 
+  <li><span class="bounties">It's really hard to write unit test for the EVM state, as a result of some code executing. It would be good to have a test for this.</span>   <ol>
+
+   <li>Will be looking at tools in the next two weeks.
+   <li>Having a tool which exposes the EVM state – for this you need some code that understands how Solidity stores data in the EVM.
+   <li>For looking at EVM state:    <ol>
+
+    <li>Remix is ok.
+    <li>Aleph0?! Doesn't exist any more.
+   <li>Some cases where your code doesn't change, but the environment around your code changes –– having actual tests.
+<li><strong>What about audits?</strong> <ol>
+
+ <li>It would be nice if some of the audits were completely opened up – rather than some statement from the auditors. Could be a security issue.
+ <li>What we have right now for audits can be improved upon with better tools.  <ol>
+
+  <li>Audits and testing framework go hand in hand.
+  <li>Auditor should be able to write a test to demonstrate the problem at the EVM level.   <ol>
+
+   <li>Instead of the auditor suggesting some workaround or wrapper.
+  <li>Or auditor provides proof for something that works well.
+<li><strong>Any other developers we should talk to?</strong> <ol>
+
+ <li>Ambisafe - Olekseii.
+ <li>Lunyr - they've been kind've ahead of the curve in implementing things.  <ol>
+
+  <li>I advise them.
+  <li>They & cryptokitties have production code on mainnet.</li>  </ol>
