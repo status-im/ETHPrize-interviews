@@ -1,0 +1,66 @@
+﻿Clement Lesaege and Nico Wagner
+05/07/2018 - Andy
+
+
+1. Who are you and what are you working on?
+   1. Working on dispute resolution through smart contracts
+   2. Arbitration - process to decide who is right/wrong. Looks more like an arbitration DAO - system of incentives. 
+      1. Enforcement
+      2. Decision-making
+      3. Incentivising people
+1. What are the tools/libraries/frameworks you use?
+   1. Smart contracts - Remix
+      1. Being able to copy address directly is really cool now.
+      2. Stopped using remix core because writing tests in truffle is actually quicker than clicking everywhere through the `remix IDE.
+      3. Solidity - can’t do operations in bytes. Want to split bytecode into address and integer and there is no easy way to do that. Could write some assembly (difficult to understand) or some hacky workaround that uses a lot of gas.
+      4. Byte manipulation is really needed in Solidity.
+      5. Add a solidity linter to Remix (already exists in Atom at least, but would be nice for having a properly integrated environment).
+      6. We really need a light client to use a DApp on a smartphone.
+   1. Truffle to run tests
+      1. Relying on other random libraries sometimes breaks things. If you use a library for tests that is not being used by your contract. I.e. it is very difficult to customise tests in truffle and you have to know some (undocumented) tricks in order to get around some basic stuff.
+      2. Better testing is required, more extensible and adaptable. We don’t need over-engineer things, but a better debugger and a properly integrated environment is necessary.
+      3. Truffle doesn’t work with latest solc - keeping all the tools in sync and up to date is a tough task and it delays and blocks developers from using the latest tools if they have not yet been supported across the ecosystem.
+      4. No warnings for deprecation!!
+   1. Frontend - ethers.js to communicate due to instability of web3. React, redux and redux-saga. Architecture with an API that is used to share methods needed to use Kleros easily.
+      1. Ethers.js is not well-known and it would be better to standardise things and have a  common library for everyone to use.
+      2. Main issue with web3 lies in callbacks. They don’t use promises because the 1.0 version does not support them well.
+1. What tools don’t exist at the moment?
+   1. A tool to analyse security of smart contracts better, especially complex smart contract suites. Very excited to see formal verification, whenever that comes out.
+   2. Fuzz testing is super important!!
+   3. Great to use truffle boxes, but all of them are unstable and not well maintained. Would be great to see more effort put in there.
+   4. Trying to implement chain-view: a tool to share the workflow of the ethereum protocol with the clients. Mostly used to analyse transactions (i.e whether they are successfully included in a  block) Can be very useful for client-side devs and i.t.o providing end users with transparency.
+      1. Not open source currently.
+1. What are your biggest frustrations?
+   1. We REALLY need a very good web3 tool that is actually stable - the errors returned through the json-rpc are impossible to decode and find info on. Making this library more performant is a key issue.
+1. How do you handle smart contract verification and security?
+   1. Write our own functional tests - but don’t provide proper security against malicious actor (can’t simulate those kind of network conditions easily). This is where fuzzing would be really, really useful. Try to understand how contracts could be exploited in ways that the developers can’t directly specify in tests.
+1. What are the best educational resources?
+   1. Github and Reddit are the most useful.
+      1. r/ethereum sometimes has posts with a lot of documentation and that is almost always a great place to start.
+      2. Trawling through GH issues looking for the comment that leads you in the right direction.
+   1. Readthedocs is also super useful - esp for Truffle and Solidity.
+   2. Can be very fragmented - there are a lot of sources and some are out of date etc. Not necessarily too bad to have a lot of sources as Google can generally lead you to the right place.
+      1. GitHub should be the hub for developer documentation particularly.
+   1. When I can’t find a solution, just googling is always very helpful. Sounds cliched, but someone else has almost definitely had that problem before. This often leads to a gitter conversation and the dev channels there tend to be fairly responsible.
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Building safe smart contracts takes a lot of experience and understanding of game theory, cryptography, complexity skills and an insight into the edge cases that can be used to exploit certain patterns and implementations.
+   2. There is no single point to learn about all these domains, so it can be really challenging to get exposure to all of the required fields, and eve to realise that these fields are important to writing good SCs. 
+1. What are you most excited about in the short term?
+   1. Decentraland rocks!!
+   2. 0x
+   3. Truebit
+   4. Proof of Stake in general will be very important going forward. In fact, everything that allows for scalability and lower tx fees with higher tps is absolutely critical.
+   5. IPFS is interesting too - right now they are hosting some part of the website/DApp themselves and that constitutes a central point of failure, so easy-to-use and maintain decentralized storage would be really, really great.
+1. Other domain specific questions?
+   1. Pre-interview review from Nico:
+   2. It would be great to have a language like python, C to build smart contract to avoid learning a new syntax even if the syntax solidity language is good like the viper project (https://github.com/ethereum/vyper). The developers lose time to learn it.
+   3. To have a js tool to communicate with the node it is very stable and useful. We have encountered many problems with the web3 library. The library https://github.com/ethereum/web3.js/ (0.14.0):
+      1. dependencies installation sometimes broke
+      2. use callback (promise is much better)
+      3. callback to know if a tx is mined break sometimes
+   1. So we choose to use ethjs.js instead of this tool. Apparently this has been fixed recently in version 1.0. But I haven’t tested it yet.
+   2. An easy tool to make a hash with a salt. It’s very difficult (for me) to find a library/hash function with the same hash than ethereum even more when there is a salt (https://gist.github.com/f43d7807b69402060dd6e4c8db730afc.git)
+   3. A boilerplate to build a dapp like http://truffleframework.com/boxes/. The last time I tested this tool it was very unstable, so we prefer to build our own boilerplate .https://github.com/kleros/dapper.  A very good tool like this can be very useful for the developers to easily build a dapp with all tools to communicate with the ethereum protocol.
+   4. A tool to sync the front-end state with the ethereum state like drizzle http://truffleframework.com/docs/drizzle/getting-started 
+      1. I haven't tested this tool yet but I was told it was unstable.
+   1. Truffle doesn’t support the last solidity compiler (0.4.22)

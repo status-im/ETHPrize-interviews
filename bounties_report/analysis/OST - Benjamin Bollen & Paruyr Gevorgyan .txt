@@ -1,0 +1,40 @@
+﻿Benjamin Bollen & Paruyr Gevorgyan
+28/6/2018 - Mitch
+
+
+1. Who are you and what are you working on?
+   1. We are building a developer kit that builds a bridge from Web2 to Web3, nice interface so that people don’t need to have understand blockchain to use it.. Need to get users on the technology.
+   2. We have to be very pragmatic. 3 core regions to be make technology accessible by millions:
+      1. Management for users and development
+      2. Define a token for an application, how would you use it for your company?
+      3. Being pragmatic about scaling, a Layer 2 Solution. Not really sidechains, all value is only defined as value of ERC20.
+   1. Circumvent boundary of the bridge with a business solution.
+      1. We put quite a lot of effort into this, they had 2 main concerns. Auxiliary systems, have to be natively compatible with many chains. And want to be token compatible first as opposed to be block first. 
+      2. Had a bad experience with Ethereum Permission Client, had some incompatibilities on ABI level so had to do their own tooling.
+1. How do you handle testing?
+   1. Using Truffle. Have a setup where for local dev purposes are tested on one chain. At a later layer they are tested on a testnet.
+   2. One cool thing we would be interested in: very close adaption between local environment and staging. Having a seamless way of transitioning from local to go to staging on Ropstein/other testnet, flip a an environment variable and go from local to staging.
+1. What are the tools/libraries/frameworks you use?
+   1. From an IDE perspective: Tried to use Remix, but not so easy to set up locally. No finalized IDE. It’s powerful but not easy to set up, very complicated to set up and not so stable.
+Now the team is partially on Sublime and partially on Visual Code, but can’t mix tooling across this process. Can this be modularized? Can’t put Remix debugger into Visual Code.
+   2. Web3.js Intense users, but don’t like how they handle callbacks. New documentation is not yet complete. Want more examples on web3.js. Better documentation. 
+   3. OpenOSTBase- a bunch of wrappers around the websockets around web3, make these more reliable and redundant. In production, things tend to break but this helps with that. Happy to contribute back :)
+   4. Web3.js is a first level API. First layer access to the technology, but want to have a more user friendly second layer that caters to the community needs. More user friendly, without having to do the same thing several times. We want a second level API, a helper or utility level API.
+   1. What tools don’t exist at the moment?
+   1. Haven’t super explored Ganache but is interested in more things done via command line. Any type of automation that can be done from the command line is cool and greatly helps with efficiency.
+   2. Biggest thing we are missing is an IDE suited for the ecosystem. Something that could do a gas function on Remix done on runtime, you could see security things happening on runtime. Integrating Remix with a different IDE, it’s currently statically bound.
+   3. Clear explanation in Documentation.
+   4. General level: a big proponent of multiple chain universes. In OST users only really interact with Ethereum mainnet, only have tooling directed towards one chain.
+   5. Solidity perspective, have a diagram based solution to see all the connections. Solidity codebase diagram module would be very compelling.
+   1. How do you handle smart contract verification and security?
+   1. Guiding principles: observe standards and don’t invent funny ways of doing things. Trying to reduce code to smaller components and go from there. Had 3 security auditors. Cure53 reviewed contracts and all traditional architecture. Zeppelin did audit for smart contracts.
+   2. Now working on the hardcore protocol. TrailOfBits builds a lot of interesting tools examining the bytecode. This is not an easy task. Trying to take very small steps one at a time and then go from there is the philosophy. 
+   3. They are excited about ewasm. They respect work done with Solidity, but bytecode is the biggest thing. They have compiled with same Solidity on Mac and Linux for same thing and got different bytecode, this is a big concern.
+   4. Compiler, assembly tools, and debug tools are all major points of interest. Could be interesting if Solidity compiles to wasm, then you have portability.
+   1. What was the hardest part about learning to develop with Ethereum?
+   1. To set up the first private network was somewhat difficult. Didn’t use Truffle, just Geth. Geth is very powerful but is missing good documentation and had to Google. 
+   2. Solidity is good but needs better docs and better exampling. Very happy with CryptoZombies tutorials, want to see more things like this to help intro new users into the space. 
+   3. Hardest thing when you deploy something is deploying a smart contract that intends to have value but not having a way to walk it back. In the last weeks running up until their deployment, did 8 dry tests with a self-destruct button. Ran this 8 times on Ropstein testnest, and then mainnet. Very interested in smart tooling to help in this process!
+   4. More tooling for testing of deployment. Testing where deployment happened properly to avoid situations like Parity Wallet. Had Monex with EthPM like tool. Scripting the deployment. Testing the deployment, could be a part of an automation toolset. Like fastlane for ios and android deployment.
+   1. What are you most excited about in the short term?
+   1. Getting OST to version 1.0 :) But beyond that most excited about ewasm. Also excited about Whisper and Swarm.

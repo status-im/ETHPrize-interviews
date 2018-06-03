@@ -1,0 +1,46 @@
+﻿Fredrik Harrysson
+
+
+1. Who are you and what are you working on?
+   1. Been a core dev on Parity for a few months.
+   2. Making the Ethereum client itself nice to use by developers.
+   3. Also building a solidity parser and linter
+   4. Building some JS libraries for developers to actually write dapps
+   5. Talk about the enterprise company dapp -- how did we scope, what tools, etc
+      1. All at a proof-of-concept stage. Probably 10 years before they can actually make it work in their business.
+      2. I set up the docker containers for the nodes, did the documentation, and built the React App
+1. How do you handle testing?
+   1. Use truffle internally for testing some contracts
+   2. Also write own own testing tools using Rust because we don’t like javascript
+1. What are the tools/libraries/frameworks you use?
+   1. Everything, even in dev environment is containerized
+   2. IPFS, React, Parity, ParityJS
+   3. Have some internal tools that generate javascript ABI’s from the smart contract spec
+   4. Have an internal CLI for deployment
+      1. Deploys the contracts and then initializes some values
+      2. If you change your contract in development, re-running this tool takes a super long time, which is frustrating
+   1. If not already mentioned, are there any libraries you rely on regularly?
+      1. Main library they use for all dapp development is ParityJS, and their new library called Bonds/007 (React integrations)
+      2. Parity Ethereum node has pub/sub now
+1. What tools don’t exist at the moment?
+   1. Setting initial values after deploying a contract is important
+   2. Being able to roll back transactions would be really nice for dapps
+1. What are your biggest frustrations?
+   1. Lack of documentation is a big thing. The deploy/test/repeat cycle is unclear and kind of annoying. It’s a problem of the whole stack, not just certain libraries.
+   2. E.g. On top you have the React app, with hot reloading. Super easy.
+   3. One level below you have the middleware library. Auto-generated from the ABI, and there’s some other knowledge you need. E.g. Someone clicks and approve button, which changes a contract variable and updates the UI for the owner. The business logic is both in the contract and in the JS middleware, which is hard to deal with.
+   4. Layer below that is Node.
+   5. IPFS client server, so the client can upload a file.
+      1. Hash is stored on chain.
+      2. File is stored on IPFS.
+   1. Layer below that is the contract. Any changes in the contract bubble up, need to recompile the ABI, need to recompile the middleware from the ABI, need to recompile the React app because the underlying dependencies have changed.
+   2. Something that changes the level of abstraction for managing files would be great.
+1. How do you handle smart contract verification and security?
+   1. Internal audits.
+   2. We are introducing a checklist system for deployments.
+      1. Pre-, during, and post-deployment
+   1. Doing external audits on everything now. Even auditing Rust code right now.
+   2. External audits are great, but the average developer cannot afford that
+   3. ***Teams have grown super fast without having time to document company knowledge so that all engineers know it*** (documentation includes process as well as code)
+1. Are there any other questions we should be asking?
+   1. How do you codify the differences between a traditional app and a blockchain app. E.g. Waiting for transaction confirmations. How do you codify it to make a good UX?

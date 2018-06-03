@@ -1,0 +1,53 @@
+﻿Mark Beylin
+
+
+1. Who are you and what are you working on?
+   1. Creator of the Bounties Network. Bounties on any task in any Ethereum token. Frontend that relies on Infura and IPFS.
+      1. Infura doesn’t let you listen for events. They have websocket capabilities that may be in beta right now.
+   1. Users use metamask for calls and transactions on it
+   2. I am the only solidity developer throughout its life.
+1. What are the tools/libraries/frameworks you use?
+   1. I know and use the solium linter. 
+   2. Use truffle, testrpc. I love Remix. 
+   3. Use Remix for deployment. Feels like I can trust remix to work as it’s meant to.
+   4. Web3JS, BigNumber, site is built on React. 
+   5. IPFS JS library. 
+   6. Blockies react library.
+1. How do you handle testing? 
+   1. Mocha tests using Truffle and testrpc.
+   2. Also use Rinkeby for when deploying staging versions.
+1. What tools don’t exist at the moment?
+   1. Better querying possibilities on the state of contracts. Better indexing to do this. Even something that will just shoot results into a SQL table.
+   2. A good wiki that is endorsed by the foundation but curated by the community.
+      1. E.g. “How to do X”
+      2. E.g. “What is X”
+      3. People don’t know what they don’t know
+1. What are your biggest frustrations?
+   1. Not being able to upgrade my contracts easily.
+   2. Better ability to return data, specifically variable length data. Arrays of strings. Mappings of strings to data, etc.
+      1. Ability to just dump the whole state would be great.
+   1. Gas limit:
+      1. Gas costs are high. Gas limit was a problem very briefly when trying to deploy a contract. But if your contract is running into the gas limit, it’s probably too big.
+   1. Off-chain computation:
+      1. No. Smart contract doesn’t care about off chain. Stores stuff on IPFS and just stores the hash on-chain.
+   1. State Channels:
+      1. Only read about them and researched how they could be used.
+1. How do you handle smart contract verification and security?
+   1. Consensys diligence is an auditing team available for their teams.
+   2. Argus (Berkeley audits chain)
+      1. Didn’t find anything in our latest audit
+      2. Diligence at Consensys later found a re-entrancy vulnerability
+      3. Oyente also missed the re-entrancy bug(!!)
+   1. Having bug bounties in general is a good standard
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Didn’t understand the stack. People don’t understand what’s in between dapp and the blockchain.
+   2. Really solid boilerplates would be very helpful for new people to see how easy it could be.
+1. What are you most excited about in the short term?
+   1. Sharding. That’s all I want.
+   2. uPort is getting ready for mainnet, feeling excited about that.
+1. Who are the other people you think we should talk to?
+   1. Joseph Vander (learning the be a solidity developer right now)
+   2. Kevin Owocki from gitcoin
+1. Are there any other questions we should be asking?
+   1. Curious to know about developer incentives. Assuming you can make the same amount of money, would you prefer to build your own project or work on other people’s more established projects?
+      1. E.g. bounties for Augur vs building your own little dapp

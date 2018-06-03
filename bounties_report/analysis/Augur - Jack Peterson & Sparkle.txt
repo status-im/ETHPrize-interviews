@@ -1,0 +1,77 @@
+﻿Jack Peterson and Sparkle
+
+
+1. What are your biggest frustrations?
+   1. Lack of a debugger - by far the biggest issue. 
+   2. Need to print things from failing transactions and can’t do this
+      1. Right now, we just attempt the transaction until it doesn’t fail. We are often unsure why things fail, just keep going until it doesn’t. What’s missing is break points and executing code from that. That will shorten feedback cycles.  
+      2. Development environment is really bad right now…
+1. What are the tools/libraries/frameworks you use?
+   1. Back-end: Visual Studio Code with docker images that run pythereum for unit tests.
+      1. Solidity compiler - Solium linter everyday
+      2. Integration tests run against Geth/Parity nodes  
+      3. Custom libraries -- all their own RPC code.
+      4. No web3.js (ETH.js libraries are better) 
+      5. Can run locally or dockerized - have a CI pipeline (Travis)
+      6. Push to Github and deploy to Rinkeby
+   1. Custom deploy tools are a huge headache. Doing a full custom deploy is like launching a satellite into space. There is a huge chasm to cross and a lot of the stuff is non-obvious 
+   2. Truffle is used for this -- very challenging because it lacks deep modularity and customizability.
+      1. Failed at random on different networks after working reliably against testrpc. It won’t tell you why and is deeply opaque. There is no error messaging and it is hard to use in general. The dependency of contracts gets very complicated (because logic is complicated).
+      2. There is definitely more work to get Truffle smooth for everyone 
+   1. Actual contracts / delegate contracts -- build system is incredibly specific to their framework and difficult to adapt/customise.        
+      1. Use Geth / Parity  
+      2. UI -- react / redux.
+      3. Augur node is typescript .. 
+         1. Lots of small things -- middleware library called ethereumjs-blockstream.
+         2. Library for generating keys and key files -- keythereum.
+            1. Key management is tough -- self signing (so can leave unlocked Geth instance, which is not good either)
+1. What tools don’t exist at the moment?
+   1. Setting breakpoints in tests! 
+   2. Salesforce Development:  Public thing where you post your code to it and everybody works off of it (lots of bounties projects now up from Status Open Bounties to Gitcoin and bounties.network).
+   3. Having clean Dev Nth without 30 things to set up: 
+      1. React project will need to talk to Geth / IPFS / local = lot of setup is irritating.
+      2. If a transaction fails, the logs don’t get written. This needs to be in the EVM
+      3. Having many slacks is a big problem. We should have 1 slack with all developers.
+      4. Documentation is also terrible.
+         1. What documentation would you like to see?
+            1. Tooling / documentation / community takes like a decade to develop. (Check Kauri for a possible solution)
+            2. “How does Geth estimate Gas” - need to ask a bunch of people and it’s not written anywhere.
+            3. How much gas does a particular operation cost? Is this written down anywhere?  (People point you to yellow paper, but it’s very hard to understand.) 
+   1. Issues are not addressed so well by the Ethereum Foundation. We’re talking about normal software development issues and sometimes the Foundation seems unfamiliar with best practices.
+1. What are you most excited about in the short term?
+   1. Raiden is coming shortly and will be very cool.
+   2. Looking forward to Proof of Steak. 
+   3. UPort going live will be cool on Rinkeby. Is now integrated with Augur.
+   4. Nothing blocking Augur yet.
+1. How do you handle smart contract verification and security?
+   1. Pay others to think about it - no process yet.  We write a bunch of units tests, and we are going to run things through Oyente (Formal Verification).
+   2. Biggest problem - always has been - test thoroughly and comb through the code. Use static analysis tools. The biggest thing holding us back:
+      1. Maybe better standards for writing this stuff (NASA)
+      2. Create linting rules?  
+      3. Have people working on project exhaustively review the code is the only way to do it right now. Certain classes of errors can be caught with unit tests, but we don’t catch everything.
+1. What was the hardest part about learning to develop with Ethereum?
+   1. What steps do I need to follow to write these apps?  Isn’t anywhere here that helps you that much.
+      1. Development cycle for Augur has been roughly three years - and mostly not development stuff. We had first working version of Augur on testnet after 4 months (been iterating since then). 
+      2. It worked, but it didn’t scale and we found security problems. One can’t release software with bugs in it. So this weird balance needs to be kept as we cannot actually “move fast and break things”
+         1. Start with simple system and iterate on it.
+         2. Only way to do it is to do it on testnet first!  There, you inevitably encounter edge cases or developers notice something.
+1. Other domain specific questions?
+   1. Let’s talk specifically about UI issues / scaling?
+   2.   Stabilisation of contracts: we need clearly defined API’s against contracts.
+      1. When you change behaviours on a contract it has a multiplicative effect on the UI. One small change can have effect where you change 10 views. This lengthens dev cycles and having an API defined is important.
+      2. In general, it is hard to write business logic layer. Augur is writing a middleware node to overcome this.
+      3. Impractical to fetch large amounts of data from blockchain - it’s too slow. It takes a minute and half to get data (how do you manage that experience in the UI?). Running a remote geth node - fetching data from logs + contracts is not fast either. This can be improved.
+      4. Have an Augur node or SQL database -- pre-fetches and pre-processes Augur gnodes to make them available… But this also constitutes an annoying extra thing between ETH and client which can be slow / unusable.
+      5. Lookup mechanisms are primitive!
+   1. Size limit on contracts is really annoying -- can’t deploy to Ropsten because of it. It took significant engineering to put something on testnet (had to 51% attack it to increase block size).
+   2. Getting TestNet eth is hard ---  not a way to get a good amount of rinkeby (can only get a little bit from faucet -- don’t want people spamming it with transactions)
+   3. Really intense test suites running against Ropsten (Raiden…)
+      1. Would be great if we could easily spin up private chain to deal with that. Build a service to spin up private test nest that would have a certain amount of nodes.
+      2. Currently, this takes days of work -- what about standard service to do this?? People run these in different setting -- EC2 that is configured would be very useful..  Could store copies of Rinkeby and boot them up when people ask for them…  (Infura will evolve into this) 
+   1. What would be the hardest part of teaching your Mom how to use a dapp?
+      1. How ETH account is different than an account on a regular website. 
+         1. Few ways to login to Augur -- can create an account on the website, but you have to keep track of it (like creating an account on the website).
+         2. Airbit will create accounts for Augur that will behave like regular website. 
+      1. Had 2 bounties -- posted on Bounties Network -- and it worked
+         1. Linter rules -- portable debugger
+         2. Unit tests die and you attach a debugger to it -- nobody supports break points.

@@ -1,0 +1,30 @@
+﻿Brendan Chou 
+05/18/2018 - Andy, Parker
+
+
+1. Who are you and what are you working on?
+   1. On chain derivatives for erc-20 tokens
+   2. Open sourcing their code in next week or two
+   3. Only smart contracts protocol so far, no UX/Dapps
+1. What are the tools/libraries/frameworks you use?
+   1. Remix for smart contracts
+   2. Writing Javascript tests 
+   3. Truffle for compiling and test, NPM to manage packages, 
+   4. SolCoverage
+1. How do you handle testing?
+   1. Mocha, js unit tests on Truffle
+1. What are your biggest frustrations?
+   1. Running tests in Truffle doesn’t show you why/where it reverted
+   2. Must search through binary instead
+   3. TIME uncertainty (for interest rates). Given that time is discrete on chain, it’s hard to determine the interest rate at a given block, and it gets even harder when you think about how to do that in as decentralised and trustless a way as possible.
+   4. Not being able to run untrusted code. If a borrower goes to repay a lender, it would be nice if that borrower could call a function to notify the lender to run arbitrary code in a safe way - maybe an obscure design pattern though.
+   5. Sending ERC token allowances are annoying. 
+   6. Changing token standards is difficult but may be necessary (see ERC 233 and 277)
+   7. Creators and owners currently have control over smart contracts, not truly decentralized
+   8. >0 less efficient  than !== 0 due to Solidity handling of ints. These kind of edge cases in general are difficult to learn about and it is only really by writing contract yourself and testing them endlessly that you discover stuff like this.
+   9. Doing floating point arithmetic on chain, using Euler’s number, e, and other fun things (30,000 gas, not too expensive which is awesome). 
+1. What are the best educational resources?
+   1. Solidity readthedocs, stack overflow, google searches etc.
+1. What are you most excited about in the short term?
+   1. Anything that helps us iterate faster. Tests currently take ~20 min. Currently doesn’t run more than one ethereum node per computer. Could be cool to split up tests on different ethereum nodes.
+   2. If you modify contract that inherits from another, you have to tell truffle. End up recompiling often.

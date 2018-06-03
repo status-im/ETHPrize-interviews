@@ -1,0 +1,33 @@
+﻿Nick Johnson
+
+
+1. Who are you and what are you working on?
+   1. ENS: documentation, smart contracts, UI’s, 
+   2. Auditing other smart contracts
+   3. Other smart contracts
+   4. Ether cards
+   5. Offchain: dev tool, EVM static analysis tool, 
+1. How do you handle testing?
+   1. Truffle unit testing with mocha
+   2. Added built in testrpc
+   3. Testrpc still doesn’t have big number support for certain signatures so we have to fire up a geth node
+1. What are the tools/libraries/frameworks you use?
+   1. Open Zeppelin tools are increasingly good. But try to keep the smart contracts as small as possible
+   2. Just web3 itself in terms of javascript
+   3. ETH Gas station and etherscan are useful for different reasons
+1. What tools don’t exist at the moment?
+   1. Byzantium added return data size (prevents arbitrary return data size limits). Once solidity implements this, it will be possible to return strings and stuff.
+   2. Automated updatable smart contract?
+1. How do you handle smart contract verification and security?
+   1. Write a spec and define edge cases and corner cases
+   2. Lots of unit tests
+   3. Make a point of testing where you intentionally break
+   4. Ultimately get it audited
+   5. How will this get easier for beginners?
+      1. Open source solidity libraries so that less code needs to actually be written by beginners (just 10 lines of customization)
+      2. Build some of these best practices into static analysis tools (linterns on steroids)
+      3. Solicit crowdfunding to pay for the audits of projects that the mainstream is interested in
+   1. Open Zeppelin appears to be the best open source solidity library out there
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Becoming familiar with the execution model
+   2. You don’t store the results on the blockchain, you store the invocations (because the computer is entirely deterministic)

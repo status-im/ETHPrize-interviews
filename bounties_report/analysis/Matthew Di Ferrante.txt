@@ -1,0 +1,59 @@
+﻿Matthew Di Ferrante‏
+3/26/2018
+
+
+1. Who are you and what are you working on?
+   1. Audits 
+      1. Some clients have their own testnets. Or some chain state that needs to be initialized before you can run the code.
+   1. Smart contract dev –
+      1. Decentralized exchange project – 
+         1. Testing that is hard. You need to deploy on chain; there’s a vault, ownership, hierarchy. How does the moving average work? You gotta run a 1000 trades and they have to be from the same account, etc etc
+         2. I wish these tools had a dev mode – where you can deterministically generate accounts
+            1. Geth & Truffle & etc should have a 1000 accounts that always show up as the first 1000 accounts.
+            2. E.g. for testing signatures.
+            3. There should be a templated test environment; that you can use across environments, installations, etc.
+               1. I find himself editing this a lot.
+         1. People often give me tests which have addresses hard-coded in. I then  have to set it up again.
+         2. Consistency:
+            1. Getting projects to sync up; or a tool to initialize the setup for different projects.
+            2. Can use ganache or testrpc upto a certain point, but then, it doesn’t scale.
+            3. Something that takes one second to run in geth, takes 20-30s on ganache.
+         1. A tool that seeds the addresses, accounts – environment imaging.
+1. Other domain specific questions?
+   1. How long does it take to setup dev environment & tests.
+      1. On my own computer: I don’t use ‘npm install global’ or ‘npm’ at all –– I’ve created my own vagrant script, which specifies where I install stuff.
+      2. It takes a long time – 1, 2 hours – to update part of the environment.
+      3. It’s a huge barrier to entry
+      4. Also, a huge barrier to experimentation.
+      5. Making something where you can from idea to execution, would be great.
+      6. Remix doesn’t work for complex interactions, or with something that’s already onchain.
+   1. Things get truncated in Javascript.
+   2. I wrote my own Python stuff – for handling bignum calculations and submitting to the contract.
+   3. We need better support for interaction with contracts that have non-trivial inputs:
+      1. E.g. if you need to some pre-processing.
+   1. Common patterns across projects I’m auditing:
+      1. There’s limitations to the Solidity compiler – simple fixes could help the rest of the ecosystem make less mistakes:
+         1. E.g. imports: 
+            1. If you import an interface, then you have to link to a contract onchain. Or you can directly import a contract.
+            2. Having a pre-approved list of contracts –– there’s no reason to be redeploying things on the chain.
+            3. Ethpm does this – but worth adding support for this in the compiler itself?
+      1. People roll their own complex math:
+         1. Because Solidity doesn’t have floating point, people come up with binomial approximations etc.
+   1. Talk through a complex audit and how the process works:
+      1. First: site-read the code.
+         1. Notice small details: e.g. there’s an unbounded loop here.
+      1. Setup the environment
+      2. Actually execute the code.
+      3. Step through the code with a debugger:
+         1. I use EVMLab – shows opcode per line with the state.
+      1. Notes:
+         1. I have a lot of hack-ish tools I’ve built himself. Would be nice to standardize these.
+         2. For audits: I don’t look at the offchain stuff.
+   1. How do I get testnet eth?
+      1. On Ropsten: I have a server.
+      2. Some clients have their own testnets; I forward through their machines
+      3. If I need a lot of testnet eth (eg. testing a reverse dutch auction): I might spin up my own dev net.
+   1. Moar?
+      1. Having a setup tool, like truffle init, which initializes keystore and an initial chain state where each of those addresses have a balance
+         1. You’d run this after ‘npm install’, ‘truffle init’ in your workflow
+         2. Going from ‘truffle init’ to a working ethereum setup takes too long

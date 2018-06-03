@@ -1,0 +1,77 @@
+﻿Griff Green
+1/5/2018 - Sina.
+
+
+1. Who are you and what are you working on?
+   1. 3-tiered approach:
+      1. Blockchain smart contracts: liquid pledging; pledges that take control of authority and funds. Blockchain layer does the accounting.
+         1. Owner gets notified by email.
+      1. Bounty system: basically a chat room. Project discovery layer.
+      2. UI layer: reads off the blockchain, interacts with the blockchain.
+1. What are the tools/libraries/frameworks you use?
+   1. Use Feathers interface to do caching. Improves UX.
+   2. NPM. Etherscan. Metamask.
+   3. Set of tools that we made ourselves. We don’t use truffle because we were building smart contracts before truffle was a thing.
+   4. React. Remix.
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Lack of sharing and communication. I know other people are using React, building UI and that we could re-use that. 
+   2. How to go from web3 to the UI. Could do more research to re-use existing open-source tooling.
+      1. In the beginning we were purely running on the blockchain as a db. Then, their UX suffered due to slowness. Feathers helps alleviates this.
+   1. We are a holocratic org. We work in small teams, building the GivEth Galaxy.
+1. How do you handle testing?
+   1. We lean on the community a lot and give them “sneak previews”. We let them to go through the UX, and watch what happens. 
+   2. The same person does all the testing.
+   3. We do a lot of auditing for other projects. Audria does this. We have a lot of good auditors and always maintain 100% code coverage.
+      1. Use travis for CI.
+   1. Most bugs they see are about game theory & cryptoeconomics.
+      1. These come up in ad-hoc situations.
+      2. We try to isolate things into individuals. Clear interfaces.
+   1. We always wanted push to live mainnet right away, but...
+      1. Today we made the decision to go to testnet, because mainnet is so expensive.
+      2. Testnet is not real a test (since it’s not real money).
+         1. We’re going to have a testnet token that represents real Ether.
+         2. “Proof of Authority” using Rinkeby.
+            1. Using the Minime token controller. Multisig pays out based on what’s happening on testnet.
+      1. Ehter’s price has gone up, gas is high, so everything is super expensive.
+         1. BAD for our users.
+         2. This is game over for dApp developers.
+         3. If Ethereum cannot solve these issues, developers will leave.
+            1. RSA, Ubiq will have Solidity. But don’t have block explorers. White hat hacker group is looking into 
+            2. Open-source Etherscan. 
+1. Other domain specific questions?
+   1. What was the first thing you built related to Ethereum?
+   2. Built a Will contract. Got a Masters degree in Digital Currency.
+      1. Alex van de Sande took the time to correct his code on Reddit.
+   1. Talking about price makes people act like assholes.
+   2. The DAO!!
+1. Who are the other people you think we should talk to?
+   1. Taylor and Hendry from myetherwallet
+   2. Dave Appleton
+   3. Jack from Colony
+   4. District0x crew
+   5. Swarm City - Bernd Lapp
+   6. Khosla
+   7. Nick Johnson
+   8. Jorge Izquierdo
+   9. Jordi Baylina
+   10. Phil Dian 
+   11. Matthew Diafrante 
+   12. Karl Floersch
+   13. Emin Gun Surrer
+   14. MakerDAO - Andy
+   15. David Knott - Plasma 
+1. Are there any other questions we should be asking?
+   1. What other projects do you interact with the most? Building the Ethereum topology, who works with who and which projects? Where there are chasms, so you can get bridge them.  Maybe a bounty?
+   2. There’s so much good stuff on people’s githubs. 
+      1. How do you know where to find stuff. 
+      2. “Sort all Ethereum projects that are using React” -- aggregation of data. How can we get this data into searchable formats?
+1. Other bounties?
+   1. Scaling proof-of-authority.
+   2. Block explorer.
+   3. Ropsten testnet gas limit -> attacking with gas limit.
+   4. Open-ended: apply for a bounty with your own idea.
+   5. We need a 24/7 security team. The network is not being watched by anyone; because right now the network is being attacked in a weird way, through the estimate gas function and throwing txs in pools.
+1. What are your biggest frustrations?
+   1. Irregularity of gas price.
+   2. Key management - hands down stopping adoption. Need more people teaching about key management. Tutorial materials? Bounty? 
+   3. Ropsten testnet gas limit.

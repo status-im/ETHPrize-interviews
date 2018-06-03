@@ -1,0 +1,63 @@
+﻿Greg, Stu, David
+5/14/2018 - Andy and Mitch
+
+
+1. Who are you and what are you working on?
+   1. David: EVM layer stuff: interactions between opcodes, JS dev and web3 also comes into this at the other side
+   2. Greg: Reimplementation and adding functionality to the EVM and a lot of “bridge work”
+      1. Setting up bridges, working with parity bridge and other existing contracts
+      2. Added efficiencies for personal needs to types when blocks are getting written. Basically recreated in the EVM to get a sender.
+      3. Way blocks are written into the merkle tree.
+      4. Parity bridge is cumbersome because it is not well versionized and depends on the version of the EVM you are running/that you forked from. Often requires a ton of extra configuration.
+   1. Stu: solidity and PM (managing groups of people working at that layer of the stack), building smart contracts for clients
+1. What are the tools/libraries/frameworks you use?
+   1. JetBrains suite as an IDE. Remix comes in there for extra convenience but has it faults and is not totally integrated.
+      1. Biggest problem with Remix is that it is written in jQuery and it is monolithic. Don’t know when it compiling/rebuilding contracts. Spinner doesn’t spin more than once, no responsiveness, very frustrating. Well laid out for an MVP ;)
+      2. Pass in data as strings and not having it parsed as strings is frustrating.
+      3. Will meet with Remix team this week to advance development further. Seeing it as only 2 devs hammers home how under-resourced a lot of this software infrastructure is.
+      4. Debugger has not really been touched since the first version. Critical software lagging behind is not good. Still better than the truffle debugger though.
+   1. EVMLab - has an old school debugger that lets you step thru opcodes and examine what is happening in memory and storage. Has not been maintained recently, so you need to hack it together yourself.
+   2. Web3 and truffle sometimes, but not often. Often Remix and a couple RPC calls with console.log()s suffice.
+   3. Looking over Mithril and visualisation of the control flow seems really interesting. Handles all the low hanging fruit, as an automated system should.
+1. How do you handle testing?
+   1. Mostly unit tests in mocha and chai.
+   2. Mostly using Travis to automate the pipeline.
+   3. Projects are fairly young and PoC - so not necessarily a major concern at this point.
+   4. If not already mentioned, are there any libraries you rely on regularly?
+1. What are your biggest frustrations?
+   1. Up to date documentation!!
+   2. System dependence stuff would also be great to include (Mac OS/Windows/ Linux)
+   3. Thing s are fairly minimal, often have to hack together things yourself because the specific functionality you need is not implemented
+   4. When doing tests, get very unhelpful errors. Make them more specific! EVM errors in general are garbage.
+      1. Their error handling, geth specifically, basically used the same error in most cases to propagate it out. Go through subsections of EVM and write proper errors[a].
+   1. Are you going to be using revert with reason in that case?
+      1. Call contract that deploys another contract. If gas is too low, it will just revert with no clear error. Needed to raise the gas, and it took 3 days of trial and error to figure it out (not clear if they will be or not, answer was more general about past problems they have had)/
+1. What tools don’t exist at the moment?
+   1. EVMLab certainly has some of the features required, but they are very inaccessible
+   2. Directly execute arbitrary code and trace through it in nice fashion that is not just some JSON output.
+   3. Need to be able to step through those traces easily, which is also not possible there currently.
+   4. Go implementation of parity bridge (to make it leaner). Only one bridge that is open source, so having another one would be useful, especially seeing as Parity devs don’t document well, especially changes between versions.
+   5. Some level of standardisation around bridges and agreement about how they should be structured.
+      1. What does interoperability actually mean in this context?
+1. Was anything easier than expected?
+   1. Community! Going to EDCON was an eye-opening, validating experience. Impostor syndrome is real and the remote work can be very isolating, but you can also own that and it is inspirational to see.
+   2. Perfectly OK to make stuff up as you go.
+   3. Availability of people, and the amount of people who can and will answer your dumb questions.
+      1. Also, it’d be awesome to actually put computer science background to use.
+1. How do you handle smart contract verification and security?
+   1. Mythril, as mentioned above.
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Greg: Looked at web3 documentation (as it was more web based stuff at first).
+   2. Truffle pet shop worked well for a lot of people
+   3. David: Ethereum wiki was starting point, but you HAVE to talk to people about it.
+      1. Reinforcement comes through discussion and USE.
+   1. Stu: some limited solidity tutorials, go on to gitter and ask questions with code snippets nd other organic community involvement.
+1. Are there any other questions we should be asking?
+   1. Where do we actually find out more about all these tools? ← highlight top-mentioned tools in report.
+
+
+
+
+
+
+[a]possible bounty

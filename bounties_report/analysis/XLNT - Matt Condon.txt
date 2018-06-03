@@ -1,0 +1,53 @@
+﻿Matt Condon
+
+
+1. Who are you and what are you working on?
+   1. Built a raffle contract, but didn’t ship it because I didn’t want to deal with real money in early 2017
+   2. First thing I shipped was steak.network
+   3. Now building XLNT and gnarly
+   4. Solidity contracts. 
+   5. Off-chain clients. 
+   6. Frontend interfaces for blockchain-backed stuff.
+1. How do you handle testing?
+   1. Try not use truffle test. 
+   2. Never written a solidity test, but written a lot of JS tests. 
+   3. Also do some manual integration tests using Remix to deploy to Ganache or something. Using remix for this testing.
+1. What are the tools/libraries/frameworks you use?
+   1. Truffle, Infura, MetaMask, Etherscan, Remix, Solidity flattener.
+   2. If not already mentioned, are there any libraries you rely on regularly?
+      1. Web3, BigNum, moment, Numeral, Chai, Mocha
+1. What tools don’t exist at the moment?
+   1. Truffle has a lot of rough edges (documented elsewhere)
+   2. Gas profiling
+   3. Interactive debugger that works
+1. What are your biggest frustrations?
+   1. Iteration cycle is slow, especially compared to webdev
+   2. No visibility into errors in solidity. No error logging, no line numbers. Complete black box.
+      1. People end up commenting out lines, deploying testing, re-editing just to figure out bugs.
+      2. Needs to be fixed at the EVM level.
+   1. Logging is undefined. don’t really know how you’re supposed to log even though I have read all the docs.
+   2. The solidity inheritance interfaces are weird. Really likes Bamboo for this reason.
+   3. Ganache fixed a lot of testrpc issues. But it doesn’t support websockets so that’s annoying. But at least you can actually use geth in dev mode now.
+   4. Are you running into problems with any of the following:
+      1. Gas limit: Yes, in general.
+      2. Off-chain computation: Yes, open problem for TrueBit. There’s gotta be some best practices for setting up state machines and stuff like this.
+      3. State Channels: Haven’t used them.
+1. How do you handle smart contract verification and security?
+   1. Nothing, no real process besides following best practices.
+   2. Gets auditing. Should be running Mythril but hasn’t set it up yet. They have a great blogpost on finding unchecked self-destruct.
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Mental model of how blockchains work. Also mental model of how Ethereum works.
+   2. I wrote an article called “Getting up to Speed on Ethereum” that answers the vast majority of question I had when starting.
+   3. Tokens are just numbers in a database with an API to add and subtract. Not some native object or something.
+   4. Solidity the language, besides its quirks, is not hard to learn. The hard part is understanding the environment it’s executed in, and what that means for your program
+   5. What would be the hardest part of teaching a software engineer to build a dapp?
+      1. “Solidity is just like javascript” - THIS IS SO LOADED WITH WRONG IMPLICATIONS
+         1. People’s understanding of web development doesn’t really transfer
+         2. Software engineering principles transfer, but it’s not just web development.
+1. What are you most excited about in the short term?
+   1. Biggest hype tech is token-curated registries. Curate a set of things such that the resulting registry is more valuable than the sum of its parts. Use that to create economic incentives around rational behavior for the curation process.
+      1. E.g.: machine learning if you want to create public images for a dataset
+      2. E.g. structure government as a token curated registry where laws are curated into a constitution. If someone thinks their expertise will increase the value of the constitution they can become a curator
+   1. Mostly interested in 2nd layer projects that don’t exist for crypto’s sake
+1. Are there any other questions we should be asking?
+   1. All of the people in Cape Town that I just met.

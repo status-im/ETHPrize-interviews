@@ -1,0 +1,55 @@
+﻿Ricardo Guillerme Schmidt
+
+
+1. Who are you and what are you working on?
+   1. Development of smart contracts for Status. 
+   2. Can also do some web3 integration with javascript, but I have not really dug deeply into that. 
+   3. I want to work on DAO’s that have delegation proxies so that you can trust an expert to vote for you. 
+      1. Oraclize but too expensive. 
+      2. TrueBit but not available. 
+      3. Zokrates or some other solution also a possibility.
+1. How do you handle testing?
+   1. Automated testing?
+   2. First develop the smart contract. 
+   3. Manual test with Remix is the first step. 
+   4. Ethercamp IDE was really good, but now it’s too old. 
+   5. The new tool for Eclipse might be good but it’s only on Windows. 
+   6. When it looks like it’s working, write some truffle javascript unit tests. 
+   7. Usually spotting bugs happens in manual tests and truffle unit tests are just for making sure it’s good. 
+   8. Remix debugger is very useful, but it’s missing some features.
+1. What are the tools/libraries/frameworks you use?
+   1. Microsoft VS code, Git, Remix for manual tests, Truffle, Parity.chain for testing, Mist & Parity on Ropsten for development
+   2. I gave up on Ganache - too much variability between that and live environments.
+   3. If not already mentioned, are there any libraries you rely on regularly?
+      1. Not really, mostly backend.
+1. What tools don’t exist at the moment?
+   1. Would be very good if VScode had the same thing that remix had - i.e. an actually Integrated IDE. 
+   2. Would use only remix, but it’s horrible to use with multiple folders and things like that. Remix is only good at small projects but wants it for big projects. Connecting with RemixD can often mess up all your files.
+   3. Solidity can’t return arrays or variable length values. Knows there is some solution with assembly but it’s too ugly.
+1. What are your biggest frustrations?
+   1. Being unable to returns strings nicely. Regularly blocks me. 
+   2. My project GitPivot connects git to the blockchain and generates tokens for commits. Needs to store git usernames, but can’t. So instead has to store a hash. 
+   3. But that means he has to ask the user for their username each time so he can check the hash, which is a bad user experience.
+   4. Scaling!! Scaling is actually the biggest problem. If Ethereum nodes can’t handle the state it will all become useless.
+   5. Are you running into problems with any of the following:
+      1. Gas limit: 
+         1. Yes. Not for deploying, but when users are adding to big arrays it can get complicated. 
+      1. Off-chain computation
+         1. Yes, same problem with arrays, with on-chain computation. Sokrates? Not sure if zkSnarks will be able to solve this.
+      1. State Channels
+         1. Haven’t used them before.
+1. How do you handle smart contract verification and security?
+   1. No major process. “This function should do one thing. Only that. If it can be used to do anything else, that’s a problem.”
+   2. I saw that the Parity library didn’t have the owner set. But I think other developers should write the code so that this is impossible.
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Not sure, not actually difficult. If you understand decentralization, it’s easy. If you don’t, then there’s no reason to try it.
+   2. Immutability makes you more cautious when going to production.
+   3. What would be the hardest part of teaching somebody to build a dapp?
+      1. Depends on the user. If the user is good in JS, it would be understand the fundamentals of the smart contracts.
+      2. Explaining fees & immutability.
+      3. Biggest problem is they don’t see the whole picture, just get 1 part of blockchain technology.
+1. What are you most excited about in the short term?
+   1. Excited about Golem. I really want to use it because I have a powerful GPU at home that is not mining. I want to do something useful, not just use my GPU for mining.
+   2. Love Ethereum for proof of stake, that was my main interest in it at the beginning.
+1. Who are the other people you think we should talk to?
+   1. Jordi Baylina, James from Status, Luis Cuende from Aragon.

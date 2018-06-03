@@ -1,0 +1,47 @@
+﻿Harry Denley
+1/8/2018 - Sina & Robbie.
+
+
+1. Who are you and what are you working on?
+   1. EAL: Ethereum Address Lookup to prevent phishing.
+   2. Back in June: chrome extension as a mini block explorer. Hover over any address, shows how many transactions it has etc.
+      1. Couple weeks later, dedicated himself to finding phishing sites and black-listing them with Metamask and his chrome extension.
+      2. Recently – added service every midnight to do data gathering on each domain.
+         1. There is a group working on anti-phishing. We share information and data through an established channel.
+      1. We now have a bot to run ops on domains (whois data gathering, DNS records, SSL dumps, Shodan data on the server)
+      2. We have also deployed an archive bot on Twitter @EthereumBadList 
+   1. My main effort: to protect users.
+   2. In the start of 2017, I got into Ethereum development.
+   3. Met team at Myetherwallet (now MyCrypto). Introduced me to other people like Griff.
+1. What was the hardest part about learning to develop with Ethereum?
+   1. I have mostly used Web3.js. It has a great wiki. I haven’t had any real issues.
+      1. Then, I went to meetups where I heard of Truffle and Solidity. 
+      2. Documentation on setting up Testrpc and writing Solidity was not that great. Had trouble with Truffle documentation.
+            1. Some dependencies for Truffle and the build they were using were missing.
+   1. Integrating Ethereum with browser hasn’t been too troubling.
+      1. I look at Etherscan comments + MyCrypto support tickets comments.
+         1. Anti-phishing – Etherscan blacklists bad addresses, through their moderation queue and etherscamdb.info reports.
+      1. Most people don’t realize a Private Key should stay private
+      2. Airdrop sites require you to put in your private keys.
+   1. How to prevent phishing:
+      1. Metamask added domain blacklisting + my extension.
+      2. I plan to do analysis using PrestoDB, finding common outputs across Ethereum phishing addresses. E.g. If most addresses go through Shapeshift, then go through Monero, can then contact Shapeshift to add their blacklists.
+         1. Big data requires a beefy server to run it on.
+         2. Open-source for big data analysis of chains for fraud. I talked with Chainalysis (they do Bitcoin analysis) about the idea
+            1. I haven’t wanted to do this – mainly because of cost & security. I’m looking into servers which could handle rate-limited requests.
+            2. Could put this towards the anti-phishing group.
+            3. Making the reports public would be simpler and already helpful
+         1. Allows me to run Mysql-style queries.
+   1. Lack of reliable faucet on testnets.
+1. Who are the other people you think we should talk to?
+   1. Quiknode – selling managed Ethereum nodes that are in sync. Bit like Infura.
+      1. Adam or Paxon.
+1. Other bounties?
+   1. Building a platform / website to educate people on how to stay safe. MyCrypto has some stuff.
+      1. I have a Twitter poll that described this idea.
+      2. Create a bounty around this.
+1. What are your biggest frustrations?
+   1. People too focused on making money and not trying to evolve the society –– moons and lambos rather than lasting change.
+   2. What I’m passionate about right now: helping people who are not technologists to not lose their money.
+      1. Could make it harder for attackers to withdraw.
+      2. Talking to people from Changelly/etc re blacklisting addresses on exchanges.

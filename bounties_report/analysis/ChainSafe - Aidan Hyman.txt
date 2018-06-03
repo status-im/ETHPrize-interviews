@@ -1,0 +1,65 @@
+﻿Aidan Hyman
+05/10/2018 - Andy
+
+
+1. Who are you and what are you working on?
+   1. Working with parity and geth and parity-bridge. Optimising the EVM for bespoke needs - could be for clients, for enterprises. Lower level focus.
+   2. Create tools and mechanisms for people to utilise the tech as easily as possible.
+   3. Collaborating with Aion & Shyft on potential implementation of a bridge. 
+      1. Both on top of parity-bridge, which has some limitations:
+         1. Made only to work with POA.
+   1. Data availability for token information, following delegate_calls and not events.
+      1. Suggest work with Jay Rush and maybe add them into the team!!
+1. What are the tools/libraries/frameworks you use?
+   1. Truffle
+      1. Lack of modularity is the biggest problem (across all tools listed below). Building on top of, rather than within, the EVM you need to update the toolset you’re using and this becomes really difficult with the current tools. 
+      2. If you implement some different opcodes in solidity, you need to take them all the way up. Open source is great, but it needs to be easy to fork and re-implement it easily in order for it to be really powerful.
+      3. Talk to person who had to modularise Truffle internally (not just testing, but also the lack of modularity - if you want to change something and still talk to others in the space, the best solution is often to rewrite the whole tool yourself, which is less than ideal). Aidan to send intro to David about this.
+   1. Parity and Geth
+      1. Also speak with David and Greg. 
+      2. Use Parity due to responsiveness from the community and how good they are at answering questions!!! Great community - so NB!! Aidan’s biggest asset is his network of core community members, which really matters in decentralized communities - open channels of communication.
+      3. Rust is a more obscure language and people lack experience, hence geth is somewhat easier to use and troubleshoot.
+      4. Geth has a bigger community, but the actual people developing the client aren’t as readily available as Parity.
+   1. MetaMask for frontend development
+      1. Were tasked with making MM work for client and had to rebuild a lot of the stuff. Will also send an intro to the dev who handled. Greg is his name.
+   1. Mythril
+      1. Huge frustrations with this tool. Getting it running is a pain in the ass.
+      2. If it could be applied at the stack layer and not the smart contract layer. Build something like Mythril for an EVM implementation, trace things up the stack cleanly, add/remove opcodes, make new instructions. A stack explorer so to speak.
+         1. Could spawn so many things because we could understand the stack in a better way and grab a lot more logic. Pity to see focus on higher level tools, which has become somewhat of a hindrance. Why hyperledger went out and did it themselves (not just the licensing issues).
+         2. Educational tool for stupid web devs like me to learn about how opcodes actually work and are composed in the EVM.
+   1. Regular rust and node related stuff (also some go stuff).
+      1. Are there tools from these arenas that don’t exist in Ethereum which would be really cool?
+         1. We need to make these tools more closely aligned with the chain itself. With WASM coming online, this is already happening and we just need to be ready - i.e. teach everyone WASM. 
+         2. The end if here for really high-level development with WASM. What this will mean for the community and internet in general has yet to be discussed completely.
+   1. Try to use ethers.js as much as possible as opposed to web3
+      1. The person developing these tools (Richard) is totally accessible, responds to issues immediately (faster than a bot!!) - he is so collaborative and wants to make sure everyone is using the best tools possible, and this all makes such a difference.
+      2. Polymath people doing off-chain signing, which you couldn’t do at the time and 1 of the methods didn’t have a response variable they needed, and by the next morning it was updated. Tight feedback loops make it so much better to use tools.
+      3. You can create your own wallet in 4 LOC in your terminal - again the language and syntax is so much easier for a non-dev that this solution ought to win in the long time. Very relatable and understandable code base.
+   1. Gave solidity and parity/EVM workshops:
+      1. EVM workshop: took instructions, showed how it would be passed onto stack, where things go, how it gets passed on to memory. Questions were so relevant and knowledgeable.
+      2. Whereas in the solidity workshop, the questions were much more absurd and irrelevant. Talking about the stack, people from a dev background get it. It just makes sense. Take away: if we want devs who have been developing for 20 years, we need to actually show them how the stack works.
+      3. This is a community-wide failure that we need to focus on - for someone with a CompSci degree, solidity is crazy, but the stack is not!!
+      4. Bounty for cleaning up the yellow paper. Speak with David about this and his more in-depth version of the yellow paper.
+   1. Only ever hindered by delivering work because of MetaMask. Event and event monitoring between different networks was a fix that took a long time to be fixed. They have updated since and we haven’t done any more work there since.
+1. How do you handle testing?
+   1. Talk with Stu, who handles all the testing stuff.
+   2. Used to do what Mythril does: visualize the contracts as it does now, so once it is set up, it is very cool for us to use.
+   3. Such a focus on formal verification in Solidity (but who even knows if it really matters?).
+      1. Not doing fuzz testing for instance, and it seems like a lot of these requests are based on assumptions that have not been proven.
+      2. No-one knows what the optimal testing framework is, so more default templates in general that allow people to use what they need to use across different projects. 
+      3. Again, modularity is what matters most.
+      4. Both unit and functional test as necessary. Unit testing seems more standard. Mocha and chai within truffle for the most part.
+      5. Ethereum-js VM has really bad testing around it and could be really usefully improved. We need some kind of local implementation to do testing on! Write another test suite as a bounty here.
+1. What tools don’t exist at the moment?
+   1. Mythril for the EVM stack. Rewrite a complete stack visualizer for the whole EVM. Add opcodes to the stack and see how it looks programatically and logically would be awesome.
+   2. Even an overhauled IDE that is actually Integrated. Again, rewritten from scratch with a focus on modularity would be really nice to see. Even just clearing your cache properly and the way it physically looks is not good enough.
+1. What are the best educational resources?
+   1. Honestly just readthedocs, gitter channels and searching through GH issues.
+      1. Moved from slack and gitter, to riot and gitter, and also ethereum stackoverflow.
+      2. If there is an issue, go to those repos as it is so unlikely that you are the first person to experience an issue using Ethereum tools.
+      3. Hardest to learn about the stack and opcodes
+      4. Find the right local communities and get involved with them. Pair programming and being equally confused together is really helpful.
+1. What are you most excited about in the short term?
+   1. Two of our most exciting projects:
+      1. Shift - decentralized KYC/AML platform.
+      2. Bunz - a hyper-localized bartering solution. Started as FB group, grew to 60 000 users all bartering locally in Toronto. The people weren’t just bartering anymore, but using gift cards, subway tokens, beer bottles, anything that could be converted into transactable good. Crypto can be the main medium. Currently have 200 000 users on the app and website and over 1 000 000 items available.

@@ -1,0 +1,70 @@
+﻿Simon Jentzsch
+04/20/2018 Parker, Andy
+
+
+1. Who are you and what are you working on?
+   1. CTO of SlockIt.
+      1. Daily standups like any other startup, making sure all our tools work correctly
+      2. Part of day consists of update on new tools, libraries and their respective stability. Assessing trade-offs is difficult and time-consuming work.
+   1. Consulting work, experience with real customers
+      1. Connecting IOT devices to the blockchain
+         1. Energy Web foundation, smart meters
+         2. Smart contracts for data incoming from IOT
+         3. Determine what  type of hardware they should use
+   1. Building universal sharing network (USN) in-house. 
+      1. Connect IOT devices, access control, rental and sharing settings
+      2. Launched MVP on Testnet and inviting beta users. Planning on deploying to Mainnet.
+         1. Public repo containing architecture and contracts
+         2. All smart contracts will be publicly available after security audit
+      1. Use Kovan since its compatible with most clients. Also on Rinkeby.
+      2. Using Parity for tests, but interoperability between clients is lacking badly.
+   1. Gives and recieves audit
+      1. First, internal security audit
+      2. Then, number of experts from different teams.
+1. What are the tools/libraries/frameworks you use?
+   1. Start with Truffle - mainly for testing and setting up environment
+      1. Doesn’t produce/support typescript
+   1. Extended version we produced and use for
+      1. Typesafe contracts based on solidity contracts
+      2. Throws errors on incorrect smart contract types 
+   1. Usually write tests with Travis CI, for all three browsers (GETH, TestRPC, Parity)
+   2. Use Remix for debugging
+      1. Wish we had a more stable and easier to use debugger!!
+   1. Test RPC vs Ganache
+      1. Many tiny differences (output syntax, JSON RPC error messages, etc.)  between clients makes testing very hard between clients
+   1. RPC Specs need to be tightened up so that we can communicate with them from whichever framework, write tests easily and actually understand the error messages that come back.
+   2. Not specific enough, too much room for divergence
+   3. Web3 library is trying to limit this
+1. What are your biggest frustrations?
+   1. IDE integration
+      1. There are tools and plugins for different IDES. Being able to use Solidity just like any other language would be really nice
+         1. Do just the basic stuff right.
+      1. Checkers/linters exist but they’re all over the place. Integrated into IDE, not via CLI, would be helpful.
+         1. Package manager for existing libraries needed that could manage packages and bundle them in a secure way
+         2. Manage standards better
+         3. Not just syntax highlighting, but code-assist/completion and deep syntactical and structural understanding.
+   1. Web3 Libraries
+      1. Latest updates broke all our tests, so reverted to fixed versions
+1. Other domain specific questions?
+   1. IOT security challenges?
+   2. Use blockchain to enhance security by using smart contracts for access-control
+      1. Devices are dumb, smart contracts grant access
+      2. Downside if how to get a stable connection which is secure and able to run on low hardware specs
+      3. Clients that are able to run on small IOT devices is a big challenge. 
+   1. We’re developing light client IOT device, Incubed - not just light client but IoT client for microprocessors etc. Can do verification without even syncing with headers.
+      1. Devices that need to sync just a few times a day, in unstable WIFI env.
+      2. Network of full clients running on servers. Incube randomly choose nodes out of the networks. Send JSON RPC request, answered with signed block hash/header.
+      3. If you send wrong block hash, then they lose their deposit.
+   1. How do you store a private key on IOT device? 
+      1. IOT device pvt keys generated from unique aspects of that specific hardware so that each device can easily generate its own key without transporting it anywhere
+      2. Paying for gas from each device is a big challenge.
+   1. Trying to integrate with uPort and others for app key management
+1. What tools don’t exist at the moment?
+   1. Scalability is long-hoped for and looked forward to ;)
+      1. Mainnet as main authority,. For different devices, different chains.
+      2. Current work around could be  to use bridges (parity)
+      3. Micropayment, multiply party, state channel Solutions like Raiden up and coming, but not ready yet
+   1. Contracts that pay only for your devices from a certain account
+   2. They currently use libraries and packages to avoid security issues
+1. What are the best educational resources?
+   1. Having people around, trying new things, debugging existing ones. Most important is talking to and working with people who know more than you do - there is no substitute for that it seems.

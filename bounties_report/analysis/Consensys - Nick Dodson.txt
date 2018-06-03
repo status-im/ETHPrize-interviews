@@ -1,0 +1,60 @@
+﻿Nick Dodson
+4/6/2018 - Robbie & Andy
+
+
+1. Who are you and what are you working on?
+   1. Working on experimental infrastructure. ARES, GovernX.
+      1. Building off-chain stuff - in order to conduct governance in organizational structures, most of the work is off-chain.
+      2. Will also be doing on-chain governance, where they build DAPPs for ICO’s
+      3. Infrastructure level stuff: infura.
+1. Other domain specific questions?
+   1. Tell us more about TCRs and DAOs?
+   2. There are many groups that need it for protocol or token
+   3. Rendered basic systems and services that we really need
+      1. Notifications - if you’re in governing body, you need to be notified via normal devices to conduct governance
+         1. Working on notification systems for TCR’s, multi-sigs, Aragon DAO’s
+         2. Scraping chain data and issuing emails - databasing and emailing. Should be easy to do.
+      1. Verifiable chat system - most governance is about the conversation. 
+         1. Low level real time, high performance, contractually restricted chat. This is centralized, but data storage is decentralized and data content is verifiable.
+         2. Can be encrypted using RSA
+         3. Will spin out live chat for ecosystem - enhance dapps with real time live chat
+      1. Data / Statistical Analysis - Alethio (deep rich blockchain analysis system)
+         1. Lots of data coming in for governing structures - no reason to load from Infura
+         2. Reporting and data analysis on governance structures
+            1. What is participation like?
+            2. How well is a TCR performing?
+      1. Off-Chain verifiable polling - votes and data are verifiable
+         1. Coordination is only attack vector. 
+         2. Final tally is rendered sum of onchain and offchain sum
+   1. How can off-chain channels be made into a near-front end experience?
+      1. How are API’s made in a very simple manner
+1. What are the tools/libraries/frameworks you use?
+   1. Solidity Compiler 
+      1. The C version is very fast - but if you run the emscripten version, it’s painfully slow.  In transpiling process of C++ version, it drops down performance. The JS transpile needs to be improved. 
+         1. Solc compiler slows down development time. Ideal to stay in local JS (and not have to go back to solc), have it compiled super fast inline using a tagged template literal or something like it (using require(“solc-inline”) or equivalent). 
+         2. Could write `solidity` in backticks and have it compiled all in same file. 
+         3. Would make experimentation and testing much easier and faster. Could potentially provide some specs/API for this. Will provide further specs via email.
+         4. Trying to build complex systems with 20 contracts and everytime need to wait 20 minutes
+   1. TestRPC + Geth Client
+      1. Not well maintained - ask Truffle team.
+      2. People are trying to get away from it - people want to test on GETH / Parity and use them to run their own Geth nodes, but it’s a pain in the ass.
+         1. Was working on Geth library that allowed you to run in Mac / PC with JS
+         2. Used Geth like Testrpc - allowed you to test contract codes against all clients (Geth / RPC / Parity)
+            1. Never finished, but definitely needed.
+            2. If you’re running contract tests locally, TestRPC is only ETH JS VM. This is, however, not the VM most of miners are using, and that can be cause for concern.
+         1. Can we make testing contracts against Geth easier? NodeJS Wrapper against Geth (most people are using Truffle - would be happy if Truffle had a module for this)
+            1. Truffle uses Ganache which is ETH JS VM - this isn’t used in production.
+            2. Truffle involves hassle of having to download run and configure GETH 
+               1. Maybe a wrapper or easy install script - run Geth like TestRPC
+1. How do you handle smart contract verification and security?
+   1. Mythril will be useful when in full bloom - need more oversight on contracts in general
+1. What are your biggest frustrations?
+   1. Data verifiability problem - nobody is going to another source of data
+   2. Run your own local system and test whatever is run by Infura vs. your system -- should be able to test this against your own local Dapp
+      1. Not a lot of utility to compare -- would be great to have library and testing script 
+      2. Protection mechanism to keep an eye on infura -- ecosystem driven thinking to reduce amount of trust to test what they are giving us
+         1. Exchanges should be running internal nodes to make sure getting the right data - need something to compare their node to Infura
+   1. Build a Dual Provider. Make a little library, connect your own provider and Infura, and then compare that both are behaving the same. Verify yourself
+   2. ETH.JS Stuff - small items
+      1. Websocket support 
+      2. Moving ABI module to Richard’s module

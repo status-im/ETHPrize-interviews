@@ -1,0 +1,50 @@
+﻿David Wolever
+
+
+1. Who are you and what are you working on?
+   1. Been working with Spankchain team. Combination of state channels and smart contracts.
+   2. Also worked on smart contract for ICO auction.
+1. How do you handle testing?
+   1. First, use Truffle for unit testing.
+   2. Series of scripts for blockchain scraping. Call Truffle to send transactions to testrpc. Script connects to testrpc to make sure the state has been correctly changed.
+   3. Manual testing by running multiple test auctions. Just actually going through the process 40 or 50 times over the course of a week. Started on testrpc and then did it on a testnet with more test users. Even tested on the mainnet a few days before the real auction.
+      1. Tests on the mainnet actually revealed new problems that weren’t revealed on testnet
+      2. Because there were hundreds of logs per block on the mainnet, it was too many
+      3. Had to go through and make performance better on mainnet
+1. What are the tools/libraries/frameworks you use?
+   1. Vim editor, truffle. Metamask. 
+   2. Switching over to onenet, using something called Vinos. Under the radar.
+   3. Vinos going to support state channels natively. Will be a little bit less terrible than Metamask.
+   4. Trouble with metamask.
+      1. Interface not well documented.
+      2. Doesn’t have promises.
+      3. Had awful error reporting.
+      4. Don’t know when someone closes metamask transaction. Had to write logic that says if they’ve clicked the button 3 times and we haven’t heard back, give them a tooltip. No documentation for that kind of thing.
+   1. Vinos will be iframed, not chrome extension.
+1. What tools don’t exist at the moment?
+   1. Need a tool like metamask supporting state channels (Vinos will fix this)
+   2. So hard to get insights into what’s going on in solidity.
+      1. Debuggers are really hard to use.
+      2. Debugging tests is a matter of just guessing why assertions failed.
+   1. Solidity interpreter would be awesome without having to compile each time, would make development much faster.
+1. What are your biggest frustrations?
+   1. Gas limit: No problems with this really.
+      1. Metamask was giving absurd gas prices because another service was getting it wrong.
+   1. State Channels: Have had a pretty good experience there. Biggest time sync is blockchain to database synchronization. David wrote something for using state channels with SQL. Insert transactions from a block, insert signed messages, and get balance for account. 
+      1. Biggest frustration is getting block messages into the database. 
+      2. Wrote a tool called Chainsaw that does this. No mechanism for a reorg.
+1. How do you handle smart contract verification and security?
+   1. Front end: nothing really
+   2. Dapp: went through intense reviews.
+      1. 3-5 people on a call and would go line by line through the code
+      2. Also hired a couple external audits
+   1. Even after all that, found one bug right before launch (a few days before)
+1. What was the hardest part about learning to develop with Ethereum?
+   1. No real breakdown of how everything works together
+      1. Web3 talks to a geth node which has the blockchain state. What does the contract do? How do you deploy it?
+      2. General how stuff works.
+1. What are you most excited about in the short term?
+   1. Ours. Spankchain.
+1. Are there any other questions we should be asking?
+   1. Why are people building dapps instead of just building them with a normal database or something? 
+   2. What is your motivation for choosing a blockchain based project, instead of just a Postgres database?

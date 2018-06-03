@@ -1,0 +1,79 @@
+﻿Simon de la Rouviere
+23/05/2018 - Andy
+
+
+1. Who are you and what are you working on?
+   1. I have been in blockchain since 2013 working in BTC. I have always looked at this stuff as a tool to enable creators, so I built an app that let people sell digital goods for BTC.
+   2. Started building on Ethereum when it was announced in 2014, and then more actively late 2014, working in the stack.
+   3. Currently most time on: Ujo music - decentralized licensing platform for musicians.
+   4. 30% of time on Curation Markets - monetize new networks of value and coordinate toward shared goals.
+1. What are the tools/libraries/frameworks you use?
+   1. I am the smart contract lead at Ujo, so spend most of my time writing Solidity and tests.
+   2. Writing tests in Truffle and to deploy contracts.
+      1. Generates helpful build file with info about deployment that can then be ported into any frontend app through a simple JSON file that can have multiple networks and contracts specified in it.
+   1. Sometimes use Remix, mainly for catching syntax errors more quickly (than Atom at least, my other IDE). Works well for quick interaction (using MetaMask) with smart contracts.
+   2. Just truffle’s contract libraries to interact with frontend
+   3. Use Oraclize for on-chain price oracle for Ujo stores.
+   4. Strings library built by Nick Johnson that helps us parse strings in the registry more easily.
+   5. Wrote our own ERC-721 implementation as well.
+      1. After CK came out, there was no fully standardised implementation. The community was still iterating over the standard, OZ also wrote one. There were some stylistic changes that Consensys wanted over the OZ work, so we still needed our own implementation.
+      2. Also just helps with my own understanding to write this stuff myself.
+   1. Curation market specific tools?
+      1. Trent from Ocean Protocol is pioneering the engineering approach to analysing token systems using well known tools from his trade that I don’t understand as well as he does.
+      2. We use a lot of different curves for curved bonding markets, and there are some curves that are more easily visualized and assessed.
+      3. xkcd graphs makes some interesting and easy to understand stuff.
+1. How do you handle testing?
+   1. Mythril is very useful and we use it.
+   2. Writing extensive unit tests in Truffle covers a lot of the low hanging fruit and gives you a great understanding of your contracts and how they really work.
+   3. It really depends on the use case: i.e. checking for over- or underflow means you sometimes need to be really careful.
+   4. Best resources to learn about tests?
+      1. The EVM is notoriously bad at providing good error reports.
+         1. Revert with reason will be really helpful for this. But there might still be edge cases where it is not certain what transpired.
+            1. You used to require a lot of context in order to sense what
+      1. A lot of my knowledge comes from debugging myself and following the traces through the EVM. Sometimes you just have to vasbyt (an Afrikaans word meaning, roughly, grit your teeth and just hold on).
+         1. Solidity is moving more towards safer defaults in general, which allows more advanced devs to take the guard rails off when we know what we are doing:
+            1. Explicitly setting the constructor (to avoid some of the Parity hacks)
+            2. Addition of transfer function to automatically check for failure of sends (which was previously manual).
+      1. After DAO hack, I started collecting information and Smart Contract best practices repo, which is now maintained by the Consensys Diligence team. 
+      2. Infura uses a load balancer between multiple Eth clients, but these have different tx pools, so during the migration process, it is pinging infura, but it is shuffling the request to different node each time, which eventually cause the migration to fail.
+         1. However, the error reporting from the client claims that the nonce is too low, which is technically true, but not at all descriptive about why the migration actually failed.
+1. What are your biggest frustrations?
+   1. For me, it’s always been harder to evaluate this, because I come from building on BTC, which is orders better than the dev experience there.
+      1. It’s always been “good enough” for me, even though it is improving rapidly all the time.
+   1. Issues with Infura detailed above cost me quite a bit in failed deployments, and the only way I figured it out was by having direct access to the Infura team, which others obviously won’t and that is an issue.
+   2. How deployments work with different gasPrices - it’s not clear if you should worry about things like time outs during the process. What if you set a low price, end up waiting hours, and your internet suddenly drops? What if there is a time out on the request to an API somewhere that fails?
+      1. I always default to a higher gasPrice when deploying to make sure it actually passes and is including.
+      2. Better documentation around best practices and common pitfalls here is definitely needed.
+   1. Ganache has visual interface to their test explorer. Sometimes you want something with a more visible understanding of what transpired with certain transactions. Like etherscan displaying internal transactions and well-known contract events, but with visuals.
+      1. Visual analysis/element would really help developers understand what is happening in the network.
+      2. When you have multiple contracts for a DApp, you need an up-to-date document/visual interface that shows you latest deployed contract and its methods/interfaces.Auto-generating visual tools for SC that are meant for developer aid.
+      3. At Ujo, we have 4 contracts, a registry, a payment handler, badges (collectibles), oracle. Gets put into JSOn file in /build, but this is not visible or particularly useful for anyone but me. 
+         1. Take some info out into separate document so the rest of the team can easily see where they are deployed and what they do at a higher level.
+1. Other domain specific questions?
+   1. What are the biggest challenges for Ethereum right now?
+      1. It’s still uncertain to me how the development experience will change when scalability improvements start to get deployed.
+         1. Whether it is sharding, plasma, side channels etc, what changes from a development perspective?
+         2. How do we choose which shard to inject our contracts into? How does the network load balance this?
+         3. What does a dev need to change for Plasma, and what does it mean for UX? Does it need a separate MetaMask, or do we need to build our own in-browser wallets again?
+1. What tools don’t exist at the moment?
+   1. One thing that comes to mind is a mature, incentivized storage platform does not really exist, still. Swarm has never really answered my immediate needs, and I worry sometimes that it is a bit too similar to something like S3.
+   2. Wouldn’t need to solve all problems immediately, just needs to be better than what we have today. Infura provides access to the IPFS network, and then backs them up themselves so that they have guaranteed access to it. Which is good enough, for now.
+   3. In the future, if you’re going to have 1000’s of GB of media, this will need to be looked at much more closely.
+   4. Protocols labs multi-hashing scheme is very useful in addressing the content.
+1. Other bounties?
+   1. Autonomous artist blueprint has existed for more than a year. Someone just needs to copy-paste and build it: https://medium.com/@simondlr/lets-summon-an-autonomous-artist-a-bot-that-creates-owns-and-sells-its-own-art-ada1afad086a 
+   2. A lot of curation market stuff: usage, governance and management of the community.
+      1. There are different interesting ideas around this. Dmitry from Ocean proposed a model where a bounty is funded collectively, then it graduates to an NFT after a certain threshold. Will go back to him for more details on this.
+      2. The usage of curved bonding for network effects on bounties: let’s say Status wants to issue a bounty. The buy Status bounty tokens on a curved bond, backed by SNT or Eth. This is valuable because, over time, if Status only uses Status bounty tokens for their bounties, you slowly build up a network effect around that token. Can either sell out or hold the tokens if you believe more people will fund more bounties in the futures. This allows people to speculate on the work being done in Status - it is a really a super-powered donation though.
+      3. It’s kind of like network effects for investment or VC.
+1. What are the best educational resources?
+   1. Google, gitter, ETH stack exchange.
+   2. Some Consensus resources that we all use.
+   3. Most of Consensys’ internal stuff is moving toward being external-facing and most of his stuff should be open in the future.
+1. What are you most excited about in the short term?
+   1. Curation markets!
+   2. More collectible stuff. The art scene is finally catching on, which is great. The cypherfunks, which were four years too early, are being discovered again through no work of my own, which is awesome.
+   3. I just want more people to be able to do what they want to do, more often.
+1. Are there any other questions we should be asking?
+   1. Curious about how we plan on dispersing the money? How do we decide on spinning up new teams to work on stuff or find existing teams working on it and enabling them.
+   2. Wouldn't make sense to fund multiple implementations of something? Take the block explorer: what about etherscan, alethio etc?

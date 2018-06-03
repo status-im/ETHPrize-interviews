@@ -1,0 +1,54 @@
+﻿Evan Van Ness
+15/05/2018 - Andy
+
+
+1. Who are you and what are you working on?
+   1. Have only ever played around very early, but never built anything seriously
+   2. Personality isn’t suited to writing bug free software, which is what you have to write in this space, and not a serious enough developer
+      1. The idea of writing code with actual value attached to, direct value that you can never take back in the case of an error.
+      2. I’m glad others are developing, but I would lose too much sleep.  
+   1. I run the Week In Ethereum newsletter, and has become a full time job at Consensys.
+      1. Close to 40hrs a week to curate
+   1. Do a podcast as well.
+   2. Moderator of r/ethereum
+1. What are the best educational resources?
+   1. All the information used to be on Reddit, and there were some Skype channels for the people more deeply involved.
+   2. Part of the reason the newsletter takes so long to curate is that news has decentralized
+      1. Used to joke that the newsletter is just copying links on reddit
+      2. Spend a lot of time finding things in twitter. 
+      3. A lot of new projects don’t know that r/ethereum is the main gathering place for the community.
+      4. Doesn’t touch on East/West divide of the community.
+         1. I feel like I have low visibility into the Asian ecosystem.
+         2. One of the brilliant insights from Vitalik was to go and spend so much time in Asia to make it a global thing, but there is still a lot more work to be done on that and in connecting the communities in general.
+         3. Translations are always a big part of this.
+1. What are you most excited about in the short term?
+   1. NexusMutual - on chain smart contract coverage - risk coverage for your solidity code. It’s very necessary for the ecosystem right now. Goal is to become a thing that is seen as as necessary as a security audit and a bug bounty program.
+   2. Scaling is getting closer! FFG is pretty exciting.
+   3. Prediction markets are still exciting (but we all keep saying that).
+   4. We definitely need to keep iterating through compensation and incentivisation for working on public infrastructure, And making it such that people can open source their stuff in such a way that they don’t then forever need to spend the rest of their time maintaining.
+1. Other domain specific questions?
+   1. Let’s talk a little about why you’re skeptical of fat protocols?
+      1. Never met Joel Monegro - hear even he doesn’t agree with the way people interpret his article.
+      2. Same day as his “there’s no such thing as fat protocols,” Jake Brukhman wrote Fat Protocols is Not an Investment Strategy.
+      3. In the very long run, this is a kind of database that will get commoditised. There will be parts that are decentralized, parts that will be centralized, public, private.  No reason to think the protocol will always be where value accrual occurs
+   1. What opportunities exist or others to get involved in the community?
+      1. Transcribing calls - core dev, plasma, sharding, etc
+      2. do actual UX reports and write them up well.
+      3. Monthly and daily newsletter that are out there and could also be improved.
+      4. Plenty of technical builders are frustrated because their projects don’t get the attention they deserve. Helping those teams with marketing is really necessary and could be bountified.
+      5. There are other projects have developed languages that compile to the EVM that are more safety focus and not entirely clear on open sourcing them because they are worried about maintenance.
+         1. More general problem of people open sourcing tools that they don’t really want to maintain - so bountifying those important projects is a possibility.
+            1. Having a financial reward can actually hinder people if the work is creative. Only really helps when there are pretty clear guidelines and it is more a problem with motivation.
+   1. What is your general strategy to getting involved in the Ethereum community?
+      1. Anybody can start a podcast and there are A LOT of interesting stories to tell in this space because we’re all a little weird.
+         1. Especially if you put a bit of effort into the editing part!
+      1. Considers the newsletter a “tool that helps people be more productive”.        
+         1. It’s really interesting that there are non-coding things that can achieve this effect and figuring out others would be really great community-based work for non-technical people to do.
+         2. Same thing for writing simplified versions of some of the technical papers and research that is being produced, a la Beige Paper
+      1. There are lots of different lists of info, sometimes up-to-date, sometimes not. People at Consensys have put together a list of all the developer tools, which should be opened up at some stage soon.
+         1. A lot of this stuff is ephemeral. If you don’t see the announcements and use things within a few weeks, they can often slip off your radar.
+1. What are your biggest frustrations?
+   1. It’s tough for everybody in this space to balance the “Wow, this will change the world” with the “Wow, this is really nascent tech”. 
+1. Are there any other questions we should be asking?
+   1. There are a lot of people with tools for themselves that are not well maintained.
+      1. There is some solution space out there where that gets solved and we need to find it.

@@ -1,0 +1,51 @@
+﻿Dave Appleton
+2/8/2018 - Robbie & Sina
+
+
+1. Who are you and what are you working on?
+   1. Lead blockchain dev @ HelloGold.
+   2. Token backed by gold.
+   3. Does consulting as well – writing smart contracts & backend for blockchain projects
+1. What are your biggest frustrations?
+   1. About a year ago, it was ok running blockchain on your machine.
+   2. Switched from geth ropsten to Parity.
+   3. It’s hard to run a Parity node now – the toll it takes on your machine.
+      1. Both on mainnet and testnet.
+   1. You can’t do serious stuff with Infura:
+      1. e.g. getting events reliably
+      2. In Geth or Parity you can do some event filtering, but is tough to get right and maintain
+         1. Infura limits the number of logging or block calls -> to limit server complexity or costs.
+   1. Debugger
+      1. Ethercamp
+         1. Promote hackathons.
+         2. Ethereum Studio - what happened to it?
+            1. Gave you break points in Solidity code (?!)
+               1. You’re running in a simulated VM. You’re in your own dev environment.
+            1. Let you see all the state and local variables & methods
+         1. Came up with a node that EF took over and turned into EthereumJ
+         2. Ethercamp code is open-source -> Look into this…
+      1. I use Remix for prototyping something.
+      2. Will probably be a niche product.. Because not many developers are getting that low level.
+   1. Web3.js is another pain point:
+      1. Getting up to speed trying to do Web3.js is quite hard. There’s a lot of conflicting information. The examples don’t work. This is where you find that the node you’re using doesn’t support features.
+      2. Go-ethereum wrapper: abigen. This is my favorite tool.
+1. How do you handle smart contract verification and security?
+   1. Helps that I’ve been coding for a helluva long time.
+   2. The hardest thing for new devs is getting to contact the people they need.
+      1. It’s also hard to find non-expensive auditors.
+   1. Gitter community is the key
+   2. Best dev communities or Gitter channels:
+      1. Go-ethereum
+      2. Solidity
+      3. Parity
+   1. I go to the specific one I need at the time.
+1. Other domain specific questions?
+   1. Programming languages: Go
+      1. Compiled program with strong type checking, before the code even runs.
+      2. Enforces code standards, meaning your code is maintainable.
+         1. The linter formats the code in a certain way. This makes it very easy to understand.
+      1. I choose readability over speed; Go over Rust.
+1. Who are the other people you think we should talk to?
+   1. Talk to Andreas to get to people in Singapore.
+   2. Rick Bale @ The team at Endorse.io
+      1. Or also talk to the CTO.

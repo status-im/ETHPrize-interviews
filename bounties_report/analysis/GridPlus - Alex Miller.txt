@@ -1,0 +1,55 @@
+﻿Alex Miller 
+2/1/2018 - Sina & Robbie.
+
+
+1. Who are you and what are you working on?
+   1. Started ETH development back in 2015. Shortly after launch; there was nothing. I remember booting up private chains from shell scripts. We’ve come a long way in terms of dev tools. Problem isn’t that there aren’t tools, but not knowing where to look.
+   2. The problem here is sourcing a centralized repository for information[a][b].
+      1. EF website doesn’t do that.
+      2. Wouldn’t know where to point people from intro documentation.
+      3. Truffle & Solidity have good docs e.g.
+1. What are your biggest frustrations?
+   1. Biggest pain points: a place where all these tools get published that isn’t just Github.
+   2. Is the solution to hire / pay people to manage a wiki?
+   3. Maybe a better solution would be to fork NpmJS.com, source that data, curate that list for Ethereum dev tools
+      1. Would check that deployment to node packages happened & EthereumPM setup correctly.
+      2. Can see how many people have downloaded. It’s a good method of discovery.
+      3. Could have different subsections e.g. Merkle tools, hashing tools, ABI encoders.
+         1. I use Ethereumjs-util – but I know there are others.
+   1. What about EthPM?
+      1. It’s only on Ropsten. What is the link between EthPM and the actual blockchain? I like that there is an actual package manager. Good thing is that you can install packages with Truffle. 
+      2. I don’t get where the data is stored –– is it on IPFS? Is it linked to Ropsten? Why?!
+      3. Still, it’s great. But recently it stopped working.
+      4. I wanted to deploy a trustless-relay – but had issues.
+   1. Could make one of these Awesome-Ethereum Github repos?
+   2. Also knowing what you need to discover is important: wiki would help here.
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Truffle
+      1. The fact that you don’t really get errors, or more specifically stack traces. Whenever you run into an error, it gives you a line number[c].
+         1. In JS files.
+   1. How to match up hashes of data with what you get in Solidity.
+      1. e.g. When you’re tightly packing arguments, they need to be left-padded to 32 bytes. But not always, e.g. different for addresses and numbers.
+   1. A little app like this for Solidity would be amazing, which gives you all the Solidity hashes: https://emn178.github.io/online-tools/md4.html
+            1. Emulate what’s happening in Solidity in the browser.
+1. What are the tools/libraries/frameworks you use?
+   1. Truffle
+   2. Configure parity instance https://github.com/GridPlus/trustless-relay/blob/master/parity/boot.js
+      1. Infrastructure tool to spin up local instances of Parity or Geth
+1. How do you handle testing?
+   1. Use Mocha; plain old truffle tests.
+   2. I don’t do contract unit tests.
+1. How do you handle smart contract verification and security?
+   1. Hasn’t had any novel code that needed security audits before
+   2. There are common patterns that could be detected. E.g. reentrancy attacks, etc
+1. Other bounties?
+   1. Collecting logs & events used to be hard. Web3 1.0 made this a lot easier. It is quite good, even-though it’s in beta.
+   2. People should be using websocket calls more. Maybe more education around this. Serious efficiency gains to be had here.
+1. Who are the other people you think we should talk to?
+   1. Sean Pollock.
+   2. Mark Beylin.
+   3. Goncalo (from Consensys audit) -> has a great library for dealing with bytes (byteslib).
+
+
+[a]Another +1 on centralized source of truth for info
+[b]Review thoughts on forking NPM.JS
+[c]Stack traces in Truffle and idea for Solidity which gives you all Solidity hashes -- both nice

@@ -1,0 +1,52 @@
+﻿Javier Franco
+1/16/2018 - Sina, Robbie.
+
+
+1. Who are you and what are you working on?
+   1. VirtuePoker –– making the migration to the new problem.
+      1. We have a Proof-of-Concept on Python; implementing in Electron.
+      2. Talking to Plasma, to use for scaling and also gas costs. This is a big problem.
+         1. The poker game actions are all done off-chain; the money stuff is on-chain. The winner reports the results. This is on-chain and expensive. Even reporting on the results costs $1.
+      1. Offchain stuff:
+         1. P2P network between all the peers – just a centralized API right now. Later want to be p2p without a server, but could have attack vectors with people listening in.
+      1. Building the backend – regulatory process – if you lose a hand, but thought you won, you should be able to call in. Also to prevent collision. View patterns.
+1. What are your biggest frustrations?
+   1. Gas costs:
+      1. Ethereum price increased, gas priced also increased, then CryptoKitties launched –– gas cost of $1. We think the only solution is Plasma.
+         1. In the beginning, it’ll be only a chain for payout. Won’t have the EVM. The first Plasma implementation won’t be a EVM – will be only for sending payments.
+         2. We’ll be moving from this to a payment-only architecture.
+   1. Documentation is very weak – Plasma especially.
+      1. New joiners, suffer when learning. Compared with, say, Javascript.
+      2. Especially since we’re all in a phase where new developers are entering.
+      3. Ethereum Foundation examples has not changed in a long time.
+   1. There’s no rollback when you deploy a contract.
+      1. Deployment costs of a contract is expensive – the Dutch Auction for their ICO costs 1 ETH to deploy.
+      2. We were using Truffle to test. Achieved 97% code coverage.
+         1. Testrpc. Mining a lot of blocks.
+   1. Testing code based on temporal logic, number of blocks, e.g. you want to protect funds for 90 days or so.
+      1. Can achieve same result with 20/30 minutes of blocks.
+      2. This kind of testing is really slow.
+1. Other bounties?
+   1. How to simplify the way to calculate the gasPrice.
+      1. Having an estimateGasCost when you send a transaction?
+   1. A lot of people have trouble when sending a transaction with a low gas cost, doesn’t get accepted – but you can replay the same tx with the same nonce with higher gas price and overwrite
+      1. Wallets need to implement this, it would help a lot of people.
+1. How do you handle testing?
+   1. Testing our Dutch Auction ICO contract:
+      1. We were targeting 100% code coverage.
+      2. The contract allowed ICO to stop in two ways:
+         1. By hitting the market cap
+         2. By calling stop (?)
+      1. The time between the auction being finished, and the tokens being claimed, you want 7 days.
+         1. This is equivalent to 30k blocks.
+         2. How to test? You hardcode lower numbers, test (which is slow), then switch in the real numbers.
+      1. What a solution for this would look like:
+         1. These tools could have a way to mine the number of blocks you want, instead of block-by-block.
+   1. Stress-testing the economics & game theory of ICO contract:
+      1. To be able to bid, you need to be whitelisted. Then, the amount you bid is also limited.
+   1. Solidity:
+      1. It’s a simple language. Not very complex. Problem is you have to be very strict about testing everything; not even leaving a single line of code without coverage.
+         1. E.g. Parity bug. All contracts where using the same contract.
+         2. E.g. if you want to use an external function of a contract, and that person kills the contract, you are screwed. Kinda like someone deleting an NPM package you depend on. But there’s no roll back.
+         3. We are moving towards factory or library-driven contracts.
+            1. We will have a proxy contract.

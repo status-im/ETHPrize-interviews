@@ -1,0 +1,45 @@
+﻿Peter Czaban
+
+
+1. Who are you and what are you working on?
+   1. I started out building some trading algorithm.
+   2. During the early foundation days, there were workshops in London, and during one of those workshops I was writing a dapp using Mist.
+   3. Then, later, I deployed a token contract for fun, and then basically started straight away with client development.
+   4. Been working on the core Parity client on the consensus algorithms. Consensus contracts in solidity. Proof of stake.
+1. How do you handle testing?
+   1. Mostly truffle for testing. Also have some of my own custom tooling that works on RPC.
+1. What are the tools/libraries/frameworks you use?
+   1. Truffle, solidity syntax highlighter for VIM, Jupiter notebook for testing stuff
+   2. If not already mentioned, are there any libraries you rely on regularly?
+      1. EtherJS 
+      2. In Rust similar libraries like @crypto and @key
+1. What tools don’t exist at the moment?
+   1. Being able to run things in exactly the same environment as the deployment environment (for me, it was necessary to have a custom client that I ran code against)
+      1. Parity / Truffle sometimes behave in different ways
+      2. Built a custom thing that had partial functionality to give a more consistent testing environment
+   1. Being able to track versioning of contracts from dev to deployment. Requires a lot of back and forth.
+   2. Pain points working with the language. I want a better type system!
+1. What are your biggest frustrations?
+   1. Definitely the language and tooling. Testing frameworks.
+      1. Truffle can be weird and does some asynchronous things that cause tests to randomly fail.
+      2. Linking contracts together is still kind of bad.
+   1. Are you running into problems with any of the following:
+      1. Off-chain computation: Yeah, this can be somewhat difficult. I have seen others not being able to use it, so it clearly needs to be easier. 
+      2. Could detect patterns in a contract and recommend that something could be done off-chain.
+         1. Sometimes you want to have privacy. Solidity and compiler could figure out for you how to make particular mappings anonymous.
+      1. State Channels: Played around with a simple one but no serious problems or anything.
+1. How do you handle smart contract verification and security?
+   1. First contracts were usually for prototypes.
+      1. I would write contract, write tests, then integration tests.
+      2. Then would go through a review process.
+      3. Sometimes would go to an external audit.
+         1. This only happened for a few projects.
+1. What was the hardest part about learning to develop with Ethereum?
+   1. For building the client, it was high-level architecture, but that was resolved just by having lots of conversations with people.
+      1. Would be useful to have more documentation around here.
+   1. For building with Ethereum, it was Javascript and Truffle, because I already had good understanding of Ethereum at that point.
+1. What are you most excited about in the short term?
+   1. From experimental projects, I am interested in prediction markets and how they will work and how good the price discovery is.
+   2. A very good application is something that doesn’t require too much throughput. Something around supply chains could be really interesting. Many parties, don’t necessarily trust each other.
+1. Are there any other questions we should be asking?
+   1. Parity guys that work on the UI.

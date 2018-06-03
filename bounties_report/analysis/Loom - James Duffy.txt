@@ -1,0 +1,71 @@
+﻿James Duffy
+
+
+1. Who are you and what are you working on?
+   1. Hybrid online marketing + developer
+   2. Invested in Bitcoin since 2013, huge fan of the philosophy of crypto. I forgot about it during the 3-year bear market, then interest resurged in 2017 when I discovered Ethereum
+   3. My co-founder Luke was working as lead developer at crypto company called Block Mason
+   4. I wanted to build new project because I was running into scalability issues on Ethereum. Matt was running into same issues -- things were too expensive and some really bad UI in general.
+   5. The project evolved a lot: the initial idea was called ETHDeploy. We were giving people a way to spin up EVM-based side chains on private test networks for demo’ing and user trials.
+   6. Digital Ocean style way to spin up ETH-based blockchains.
+   7. To get adoption, we needed to build up our own applications. When we started doing that, we realized it didn’t make sense to build EVM stuff in Solidity and built in Go.
+   8. Need developers building on platform - so built CryptoZombies
+   9. First, we built ETHFiddle which is Fiddle for Solidity -- like JSFiddle (inbrowser IDE for Ethereum to share code. Like Remix, but you can quickly share code snippets.)
+1. What are your biggest frustrations?
+   1. Deployment is “tough” - initial problem we set out to solve
+   2. When first building DAPP, testnets are a mess:
+      1. Just don’t work at all - people eating up all the transaction bandwidth or DDOS them.
+      2. Faucet to get ETH on testnet is hard to find and use at scale.
+      3. Setup local development with Truffle / Ganache, which is fine, but once you want to get it live to demo or do anything really useful, it is quite a headache.
+      4. Our CTO just deployed it to testnet, which was less of a headache. However, deployment to mainent itself is quite difficult
+      5. ETHDeploy: auto populate wallet with huge amount of Ether; test things without having multiple steps; blockchain clone.
+         1. Became less of a focus for us. Doing something with Loom had potentially a much bigger audience and more use cases.
+      1. Still need transaction costs on main-net down!
+         1. Our argument is that not everything involves high storage of value / sensitive data (doesn’t need full decentralization), but we still want important parts on main-net (character data, owning items)
+         2. Delegate Call (first app): users earn karma and tokenized karma they can transfer to mainnet for contributing to site.
+            1. Could load cryptokitty into platform (ERC-20 + ERC721)
+            2. Storing hashes of large amount of data verifiable on side chain. Mostly using relay to transfer tokenized assets
+      1. Limited experience on mobile, which limits user adoption. Steep learning curve there
+         1. Metamask is most straightforward thing, but not sure how to improve.  
+1. How do you handle testing?
+   1. Truffle / Ganache. When it’s time to test on a real network, sometimes just deployed to mainnet .
+   2. In-House guy out of NYC that does contract audits
+      1. Open Zeppelin stuff is awesome
+   1. Use own ETHFiddle to hack on code in the browser and share things with other people
+      1. Compiler output not good: just does a diff check.
+      2. Tried embedding Solidity Compiler, but errors weren’t descriptive enough 
+1. Other bounties?
+   1. Some type of tool that would take ETH Smart contracts, pack them up and automatically deploy them to mainnet. 
+   2. Heroku style CLI deployment tool or in-browser version.
+   3. Making deployment easier for testing and production.
+      1. Solidity is really “bare bones”
+         1. Hard to manipulate strings -- not present in Solidity
+         2. When trying to give examples in CryptoZombies -- couldn’t do much
+            1. Comparing strings -- no substring function  
+      1. Would be nice to have more “Utils”
+      2. Started Solidity X 
+         1. Superset of Solidity that compiles to Solidity (intelligent defaults and prevents security issues)
+         2. Think coffee-script for Solidity -- plan to continue development in the future
+1. Other domain specific questions?
+   1. Loom - tell us more about games on the blockchain
+   2. Lots of people working on games and some early successes inspired lots of people.
+      1. Games will be first real use case outside of financial payments 
+   1. In-game assets that you physically own and can trade; real digital scarcity and users running nodes with the power of forking (nodes can reject changes to games) means an entirely new frontier of possibilities. Developers can’t shut down the game!
+      1. Shared game worlds because data is open on blockchain
+      2. Think it’s going to be easy to gain user adoption with in-house game studio and building three games.
+      3. Loom is developing an SDK to the point where it can be packaged and used by public
+         1. Games and social apps -- anything could run on these sidechains
+         2. Need constant feedback of teams trying to use it, so we can iteratively improve it
+         3. Pluggable consensus mechanism.
+         4. DPOS that we built in-house (like Steemit type) social sites
+         5. We plan to support Casper / Tendermint. Not usable version that’s public, the byzantine fault tolerant mechanism specifically. 
+   1. Core developers are close 20. Cofounder has done projects at Bloomberg, Digital Ocean, spoke at 20 Go conferences over past couple of years. Friend out of India runs team of senior developers, have had a team there from the get-go.
+      1. Not being based in US means cost is much lower
+      2. A lot of: senior back-end developers that had worked with distributed systems
+      3. 1 SDK building in-house; games to demonstrate platform, onboarding game companies (Unity) 
+      4. Make it easy for normal devs to make the jump into building blockchain dapps!
+   1. Core developers at Loom are close 20. Cofounder has done projects at Bloomberg, Digital Ocean, spoke at 20 Go conferences over past couple of years. Friend out of India runs team of senior developers, have had a team there from the get-go.
+      1. Not being based in US means cost is much lower
+      2. A lot of: senior back-end developers that had worked with distributed systems
+      3. 1 SDK building in-house; games to demonstrate platform, onboarding game companies (Unity) 
+      4. Make it easy for normal devs to make the jump into building blockchain dapps!

@@ -1,0 +1,107 @@
+﻿Alex Beregszazzi & Pawel Bylica
+3/14/2018
+
+
+1. Who are you and what are you working on?
+   1. Pawel - focused on VM in general, spent a lot of time designing / optimizing the EVM for the future.
+      1. Experimenting with new ways to make the VM faster for future upgrades
+         1. Classic code optimization - added some small features to EVM (like Revert / Return Data Buffer / Shift Operators)
+      1. Works mostly with Alex -- changes in Byzantium were with Christian
+      2. Joined 2-3 months ago 
+      3. Maintained C++ code base for Ethereum client -- experience with EVM
+   1. Alex 
+      1. Started with building dApps, contracts, UIs – everything was broken in 2015.
+      2. Then jumped into proposing things and fixing things;
+         1. Solidity
+            1. Testing
+         1. Javascript
+            1. Led to working on testrpc & ganache-core
+            2. Worked on Trezor, and build a dApp for it.
+      1. Ended up with all these other issues: cpp-ethereum; testrpc; RPC methods.
+         1. Tried to raise issues, and sometimes they end up in improvements.
+      1. Spends most of his time in Solidity design.
+      2. eWASM – started 3 years ago for 6 months – then took a big break – then now working on it for 3-4 months (really started in Jan).
+1. What are your biggest frustrations?
+   1. Communication is bad within EF and within ecosystem in general
+   2. People aren’t aware of existing products / solutions
+   3. Duplicate effort solving the same problems
+   4. Not everyone agrees on the same communication channels –
+      1. People use different tools
+      2. Seems to be fixed now with Gitter.
+   1. Lack of resources
+      1. People jumping across projects
+   1. Workflow on EVM / eWASM – problems (below):
+
+   2. Axic: Review process
+   1. On Solidity – we’ve grown 200%
+   2. Some people are remote; a lot are part-time
+   3. There’s a lot of onboarding
+   4. Because of onboarding – not everyone’s review is equal, takes some people with experience and insight. 
+   5. It’s very easy to block people
+   6. Github Projects kinda helped this process:
+   1. Organize features into versions.
+   2. They had a label for breaking changes;
+   1. Should be clear from the PR list.
+   2. Backlog is really large and growing. There’s too much that we don’t have enough time to get setup project management process.
+   3. For every PR, someone has to learn all the subsystems that are involved. Solidity is a big codebase.
+   1. It’s a complicated codebase; needs refactoring
+   1. Three ways of generating bytecode from AST:
+   1. Way 1: cpp stream of instructions, values, and comments
+   2. Way 2: append inline assembly
+   3. Way 3: compile Julia into bytecode
+   4. Our focus is moving to Julia, and using that to generate bytecode.
+   1. We’ve planned a full rewrite of the “code generator” subsection.
+   1. But they found a way to do it without a full rewrite.
+   1. Julia:
+   1. Has an internal AST, a parser, a syntax for the parser.
+   2. Backends: which generate bytecode from the AST->EVM, EVM15, eWASM.
+   3. Transformation steps: things that happen on the AST; could be built independently.
+   1. These exist for EVM and EVM15.
+   2. Building these for eWASM could be a task.
+   1. But they’re good on-boarding work for new contributors.
+   1. The external static analyzer:
+   1. Written in Javascript.
+   2. Currently part of Remix.
+   3. Try to use a number of options that the compiler gives you.
+   1. There’s no option to turn off warnings.
+   1. Therefore: anything there is a warning, you should fix it.
+   1. Delegating warning generation for things that are conventions to this external static analyzer.
+   2. Two major things to be done for bounties re the static analyzer:
+   1. Bounty #1) Separate it from Remix, and make it independent.
+   2. Bounty #2) It uses the old AST format, that the compiler used to generate.
+   1. In other words: the compiler parses, creates an AST (which is a big JSON object), which is then passed to the static analyzer
+   2. The new AST JSON is much more compact –– but means that the static analyzer should be written.
+   3. This could be more iterative.
+   1. Mist has this notion that it has Solidity compilation built-in.
+   1. Considers “warnings” and “errors” the same –– so throws.
+   2. The homepage has 1) old Solidity examples (which has errors), 2) recommends Mist (which throws errors for warnings).
+
+      1. Pawel:
+      2. Making cpp-ethereum more modular.
+      1. Started removing some parts, and moving it to different repos.
+      2. Two things:
+      1. A Proxy for JSON RPC.
+      1. Maybe should write the Proxy in Go.
+      2. What it is:
+      1. Previously, we had 1) an HTTP server to handle the requests, and 2) some Unix sockets to handle other incoming requests.
+      2. The HTTP server is replaced by a simple Python script. Replaced the HTTP requests with a Unix socket requests, so same underlying system can be used.
+      3. There’s no reason for implementing all the transport layers in each client.
+      1. This Python script only exists in cpp-ethereum, but should be included in other clients.
+      2. Only complaint about Python: it’s hard to ship an executable object of code.
+      1. A proxy for the p2p network stack
+      1. Same as above, but for the networking layer.
+      2. E.g. devp2p or libp2p protocols.
+      3. Your application protocol (e.g. Ethereum or Swarm) connects to a new p2p layer.
+      4. We should instead use the same p2p layer.
+      5. Problem: duplicated effort of implementing the same things.
+      6. Need a nice interface for inter-process communication.
+      1. Can combine different parts of the stack in different languages.
+      1. EVM-C: C interface for EVM.
+      1. Should stay under Pawel’s control.
+      2. Potential bounties: create EVM-C bindings for different languages.
+      1. E.g. Python, Go.
+      1. Could be useful to have a fast EVM implementation;
+      2. Same idea for eWASM:
+      1. Use the same interface within go-ethereum to hook in eWASM.
+      1. Other bounties?
+      1. Research for opcode gas costs

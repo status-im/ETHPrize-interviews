@@ -1,0 +1,99 @@
+﻿Christian Reitwiessner
+2/26/2018
+
+
+1. Who are you and what are you working on?
+   1. 90% of my time: design of Solidity language and its implementation
+   2. Formal verification part of the language –
+      1. Deprioritized over the last 2 months. Will take on again in April.
+   1. Other projects:
+      1. General research
+         1. Less research re sharding or plasma – More research on computational scalability of SNARKs, STARKs, Truebit
+   1. Handed off cpp-ethereum to Pavel – not working on it as much.
+1. Other bounties?
+   1. Gas profiling:
+      1. Solidity does some upper-bound gas cost estimation – but its not very useful because it’s just an upper bound.
+      2. How to calculate: run the EVM with specific inputs?
+      3. Or: run the function with larger and larger arrays; and find a “gas function” as a function of input size. But this also depends on state.
+   1. Solidity – 16 stack slots issue:
+      1. Soon: we’ll have structs, and this will be less of an issue.
+      2. When we have IULIA, this requirement will go away.
+         1. When IULIA compiles to EVM, it can move variables from stack to memory, after analyzing which is used or not.
+         2. Interesting: IULIA will compile to eWASM.
+   1. Inlining common function calls:
+      1. We’re conservative when it comes to adding new features in the code generation flow.
+      2. We already have an optimizer for IULIA which does inlining; so that will resolve this.
+   1. The optimizer (in solc) has a switch which decides what to optimize for: code size, execution cost.
+      1. This exists, but is rather crude – it assumes every opcode is only run once and this assumption breaks down if you have a loop.
+      2. Have Remco share his 0x example with Christian – and how it could be improved in terms of gas estimation.
+   1. Constant delegation.
+      1. Have Remco to share example of hash not being calculated at compile-time.
+      2. Having a good technical writer – who can understand the technical details of Ethereum, and improve the documentation.
+      3. Another model could be to create bounties for improving the documentation. Won’t be bounties for a specific issue; but general rewards for improvements to the documentation.
+   1. Improving the documentation for Solidity
+      1. They’re too deep inside this. Having an external viewpoint would be helpful.
+   1. In the research area: due to the way research funding works – people publish the work, but do no maintain the software or integrate with other tools.
+      1. Integrating research software with development tooling & keeping them up to date.
+      2. Big example: Formal Verification software
+         1. Five or six tools that similar to Oyente.
+      1. Remix has a plugin architecture – possibly supports Oyente.
+   1. Idea for tool: being able to test very quickly if a contract implements an interface.
+      1. The problem is that you cannot enumerate the functions of a contract.
+      2. There’s a way to resolve this.
+1. Other domain specific questions?
+   1. Tell us more about computational scalability on SNARKs, STARKs, Truebit?
+      1. Research on SNARKs implementation – ZoKrates project. Only a PhD student right now – Jacob.
+         1. A toolchain for creating ZkSNARK-enabled smart contract
+         2. Need help there, and can pay $ for it.
+            1. Why they haven’t focused on getting more people, is the project management burden there.
+            2. What kind of help we need:
+               1. Implementation.
+               2. The project is a compiler that takes a high-level language, turns it into an arithmetic circuit. It’s PoC stage right now. Also needs help with the direction the project needs to go. Needs an evaluation of use-cases.
+               3. Also needs people with cryptography backgrounds who can implement efficient arithmetic circuit gadgets.
+               4. Someone who can deal with Rust as a language; finite-fields.
+               5. Open-source on Github.
+               6. Potential help: university research partners –– Dan Boneh?
+         1. It’s early, PoC stage. –– currently the elliptic curve pre-compiles are too pricy.
+            1. The first step is to see how much it costs, and if it’s feasible because of this.
+            2. Analyze use-cases, and see whether its not too expensive.
+            3. Improve the trusted setup experience.
+   1. Solidity?
+      1. Development resources: we’re pretty much good right now.
+      2. We have issues marked: “good first task” or “help needed” – these are good to pick up by external contributors. They’re small in scope, so maybe doesn’t make sense for large bounties.
+         1. Usually someone creates a PR, we have comments, they update the PR, we make comments, then the contributor loses interest.
+         2. Maybe: could have a person who is responsible for external contribution across all projects?
+         3. Another project: analyze external contributions, and understand why they weren’t completed. What was missing in the description / what was the issue? If you’re creating an issue for external contributors, what is the detail / info you need so it gets picked up.
+      1. Where we need help:
+         1. External people to translate the documentation.
+            1. This is a big effort. Requires management. Need to keep translation up to date.
+            2. This doesn’t really exist right now. Only have a Russian / Spanish translation that are old and rudimentary.
+            3. There’s people to do the translation –– need someone to do the project management.
+         1. More feedback from people who try out the most recent version of Solidity before it is released.
+            1. Before – Remix was set to the most recent development snapshot. Now it’s set to latest stable, so don’t get immediate feedback.
+            2. Truffle and etc only upgrade manually – so its more stable – but slows down the feedback / dev cycle.
+            3. How would this work:
+               1. “Reminder: people please try out new versions.”
+               2. Way to give feedback exists: creating an issue on Github OR their Gitter channel.
+            1. Most people can’t use the latest the version – because the toolset doesn’t allow it.
+               1. As part of the CI, we’re running some tests with specific libraries.
+            1. Possible solution:
+               1. People submit their contracts to Solidity team.
+               2. They get integrated into their CI pipeline – every time a new version is pushed, their contract tests are run.
+               3. We get contacted if tests pass re new version working.
+         1. Tools for developing Solidity
+            1. It’s written in cpp, we usually cmake toolchain for building, cpp-ethereum for semantic tests; thinking about switching to their own interpreter to speed up tests.
+            2. Uses cpp-ethereum with a few extra RPC endpoints. Let’s you rewind the blockchain to a particular block. It’s also allows you to modify the timestamp in the next block.
+               1. They’re standardizing these API endpoints. -> include ganache-cli in these discussions?
+               2. Ganache needs to have this ability.
+            1. Having a testing only Ethereum blockchain
+               1. Has a memory-only blockchain; is mainly meant to run tests on smart contracts.
+               2. Similar to ganache; but performance could be improved?
+                  1. Ganache has a UI
+                  2. To improve: high-throughput, many txes at once.
+   1. Notes on IULIA:
+   2. Compilation from IULIA to EVM is finished.
+   3. Optimizer is 90% finished.
+      1. This is why the ABIcoder isn’t out yet, because it depends on the optimizer.
+   1. Big remaining chunk of work:
+      1. Writing code generator to go from Solidity to IULIA – this is in solc.
+   1. A year away.

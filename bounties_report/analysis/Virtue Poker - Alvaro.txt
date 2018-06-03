@@ -1,0 +1,40 @@
+﻿Alvaro 
+1/23/2018 - Robbie, Sina, Vivek
+
+
+1. Who are you and what are you working on?
+   1. VirtuePoker – offchain game, smart contracts to represent state of a poker game – offchain consensus of consensus, and submit to onchain. 
+         1. Building poker with Ether, that can be played without an intermediary.
+         2. When you leave the table, you cash out with the stake which you have left
+1. What are your biggest frustrations?
+   1. Whisper
+      1. Building a p2p game. We tried using Whisper for real-time communication – does not have receipts; we have discarded it right now.
+      2. Read a Stackoverflow about Status’ problems building on top of Whisper.
+      3. The P2P is tough – need to be direct peers –– need to run neighbor nodes yourself.
+         1. Connecting the mesh is tough.
+         2. SO post said that Whisper doesn’t acknowledge receipt of messages.
+      1. Running whisper on a geth node is optional.
+      2. PROBLEM: whisper has low adoption.
+      3. As a result, the game cannot be decentralized. All messages that are passed to each other between clients, are going through a centralized center.
+      4. People use WebRTC with direct connections. But won’t work for them because they don’t want to reveal people’s IP addresses.
+      5. There’s also a protocol called Telehash.
+      6. DHT.
+   1. Web3
+      1. Switching to new release soon – interface change is coming.
+      2. Callbacks are annoying; should use promises.
+      3. We promisify the functions themselves.
+      4. We’ve only used web3.
+         1. A web3 alternative, ether.js (from L4) 
+   1. Solidity
+      1. Why doesn’t it have common data structures? e.g. a simple array; if you delete one item, you get a hole in the array.
+         1. Need a way to store data that is indexed and where it can be safely deleted. Manually doing this stuff is bad..
+            1. There are many implementations of this; but having a standard implementation would be really helpful.
+         1. A lot of these things should be built into the language.
+      1. SafeMath. I don’t use a lot of libraries otherwise.
+      2. EthPM? -> It worked, kinda?
+         1. Creating more low level libraries[a]?
+      1. I like Remix. It has improved a lot.
+         1. I had no problem with the UI.
+         2. Like testing in Remix – though the debugger could be improved.
+      1. Truffle is good, as well. 
+[a]What low level libraries would be interesting

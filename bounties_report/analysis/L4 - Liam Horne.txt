@@ -1,0 +1,80 @@
+﻿Liam Horne
+23/05/2018 - Andy
+
+
+1. Who are you and what are you working on?
+   1. Co-founder of L4 and Counterfactual.
+   2. Two main things:
+      1. Leading the development of counterfactual: a generalised state channels framework and protocol. It’s a simple, intuitive framework for developing DApps using state channels - so we do a lot of work on Solidity code and general work around EVM interactions.
+      2. Co-founders of ETHGlobal - so I spend a bunch of time talking to hackers and making sure that these events represent genuine progress and that people aren’t just stuck on bugs. The output to time ratio needs to be as high possible.
+1. What are the tools/libraries/frameworks you use?
+   1. Truffle suite.
+      1. Highest level comment: nice for specific use cases, but our use case does not match this. It’s built for writing a bunch of contracts, deploying them and interacting.
+      2. Our whole framework is based around off-chain interactions, for which Truffle is not well suited.
+      3. The whole Truffle networks thing is kind of annoying. If you want to ship a simple build that you put in your browser and run, it doesn’t work locally. You need to set up your own test environment.
+         1. Would be great to have a tool that could put together a super minified version of your ganache DB so that we could test across the same data. 
+         2. We did some of this, but it’s not well known and not the default across the ecosystem.
+   1. Use ethers.js a lot
+   2. ABI encoder v2
+      1. Not supported by truffle.
+   1. Ganache
+      1. Can be very unreliable for a lot of important things.
+      2. E.g. bug in ecrecover on bytes (even if signed correctly) it will not return the correct address, It is just not implemented correctly, so we had to port over to Parity.
+      3. However, the parity dev client doesn’t throw errors on revert, it just logs them, and there is no option to change this.
+      4. The fact that the behaviours are different between these two things is concerning and frustrating.
+   1. Parity and Geth
+      1. I don’t understand why there isn’t just one-click Ganache replacement. If I just went to parity.heroku.app with a big button to launch an instance, that’d be awesome. Seems like low hanging fruit that could really be quite easily worked on.
+      2. Getting around all the configuration details is such a headache.
+      3. I just want to launch testnets, and even do so locally in a way that actually works in practice.
+   1. Anything to do with solidity at all really.
+      1. Libraries and tools
+      2. Remix
+   1. Playing with rust for its ability to write once, run everywhere.
+   2. Tonne of JS tools to quickly iterate
+   3. Typescript  - state channels need to run in the client, you want to be able to have code client side to decide what to sign and whether it is safe, and this is easiest in typescript. Would be better in WASM, but it’s not there yet.
+1. What are your biggest frustrations?
+   1. Better UI testing. Would be awesome to have am MetaMask mock - wanna launch Chrome Canary, Safari, Moz and ganache will auto inject into the page some provider that could be used to test the full flow. We have also started work on this.
+   2. We need more to more people working on ethers.js!!
+      1. It is the best library out there, especially for quick operations, and we need like 5 more people at least working on it,
+      2. Web3 is too opinionated about exact use cases, whereas ethers is much more generic and simple and can have a lot of tools built on top of it.
+      3. We have been hesitant to develop non JS stuff, and haven’t yet because there is no ether.js equivalent. If there were an ethers equivalent in Rust that would be awesome.
+   1. In terms of solidity: ABI encode and decode (not written well yet, but will be super useful) are really game changing! It should be 0.3 or 0.4 or something! 
+      1. Really bad documentation, especially around nuances to do with memory or storage objects etc.
+   1. When things happen in solidity, what you can do with it is not explained well.
+      1. For instance, one thing you can do is now use returndatasize to get the output bytes from some call you make. The minimum amount of code you need is a few lines of assembly.
+         1. However, this is not well known or used. 
+         2. Our whole system is based on off-chain contract, and the rules in there need to be enforced by on-chain contracts. So I need to be able to interpret arbitrary function calls based on arbitrary logic/user input. This is very hard…
+         3. We do conditional payments, and these ensure that a bunch of things  are true, and then interpret the results of a bunch of functions and then take those outputs and pay people. All of these inputs, not contracts, and it gets complicated.
+   1. There is a specific error called unimplemented_error which comes up in a few cases. The only way to figure this out is to google it and there are 3 or 4 options to pick from, which seems sloppy. 
+      1. Error messages could be much more specific about WHAT is unimplemented.
+      2. Would be great to see also in the docs WHY certain things are not yet implemented.
+   1. There’s some subtleties around exactly how libraries work in solidity. Will send through more details when editing.
+   2. Would be nice to have a debug mode for events, so that they will trigger regardless of whether or not there was an error so that we can use that as a console.og
+      1. Also, there should just be a console.log ;)
+   1. If you emit an event with a dynamic struct and pass it a dynamic struct, the whole thing doesn’t make it back in the logs: it only shows the top of the event. It certainly doesn’t show the whole thing.
+   2. Whenever you hit gasLimits, you should be able to find out easily where it stopped and what line it is stopping at. 
+   3. Better documentation on the assembly command sand specific example usage of them would be really good.
+   4. Breakpoints with context - these are the variables and scope etc. I will sometimes play around with delegatecall and then I don’t even know which context I am in anymore and this can block me for extended periods of time.
+   5. There’s a bunch of sneaky tactics: like keyless signatures. There is a way to generate a sig for an exact and specific kind of tx from an account whose nonce is 0, because then the create opcode gives back a deterministic address.
+      1. Please can we document this!? There should be a person on stuff who just plays around with this stuff and then documents it.
+      2. This is very serious stuff, if there were a keyless-sig library, so many other things would also be available.
+   1. Better google results for Ethereum!
+   2. More literature on how Ethereum can be used to do the things people think other blockchains are better at.
+      1. Highlight ethresear.ch and some post sthere, like one from Vitalik about businesses paying gas fees for their uses, which is EOS’ biggest argument.
+      2. Even worse, explaining plasma, where it should be feasible to have no fees at all.
+1. What tools don’t exist at the moment?
+   1. WASM is likely most useful for us medium term. 
+   2. State channels are very light in terms of the actual contract code. But the off-chain contract code is a lot more complicated. It would be nice if all of the things we’re doing were easily runnable in the browser.
+   3. We have this concept of a module, which is some software that wraps a particular state channel application. We need code running in the client that determines whether or not it is safe to sign the next transaction, and where you store it, if you show it to the user at all etc.
+   4. We then have to implement a copy of what the contract does in JS and it would be way nicer if we just had a local environment to run some eWASM code because then we wouldn’t need to worry about the node at all. We wanna have it work in any random browser and WASm enables that.
+   5. Plasma and state channels require stripped and straight forward teams to work on this stuff that can build out all the tools we need.
+   6. Truebit is exciting.
+1. What are the best educational resources?
+   1. I just read the code, man. What is the latest commit by ChrisEth on solidity? That is the best source.
+   2. Otherwise, Richard Moore knows everything. Literally.
+1. Was anything easier than expected?
+   1. Ethers.js. Really, it is super simple to use.
+1. Are there any other questions we should be asking?
+   1. It would be interesting to have a meta bounty for the most valuable stack overflow answers and that person gets a 1ETH reward.
+   2. If that became a really legit place that people in the community took seriously, that would be really great and of high value.
+   3. Getting a good mod on staff to manage this and then put it out!

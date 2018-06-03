@@ -1,0 +1,62 @@
+﻿Truffle Team
+4/2/2018 - Andy, Sina, Robbie 
+
+
+1. What are the tools/libraries/frameworks you use?
+   1. Chris:
+      1. The closer you are the foundation of the stack, the less pain you feel.
+      2. We probably cause the pain.
+      3. There’s a disparity between demand for infrastructure, and supply of engineers working on it.
+      4. I love web3 & Solidity – good open-source projects, fantastic engineers.
+      5. What I do day-to-day: development of Truffle.
+   1. Nick:
+      1. Disparity between engineers using the tools & engineers using them.
+      2. The demand for mature projects has stepped up
+      3. These tools, Truffle included, are struggling to handle mature projects, mature teams, mature practices. It’s great when people are building proofs of concept though.
+      4. The requirements are coming in pretty fast
+      5. What I do day-to-day: Truffle debugger; development of Truffle
+1. What are your biggest frustrations?
+   1. It’s downstream on Etheruem and Web 3js; upstream from developers
+      1. Needs to act reactively with what comes down the pipe from web3
+      2. Needs to act proactively to help developers
+   1. Solidity develops faster than we can go through their process & do their QA.
+      1. Need to bump the version –– but solidity sometimes introduces breaking changes –– 4.11, 4.12 – e.g. visibility modifiers; but hasn’t happened in a while.
+      2. A range of projects: sophisticated projects (Aragon) but also people who don’t know how to use npm.
+      3. We’ve been conservative about how we upgrade
+      4. We’re making solidity stricter and stricter; but we don’t know what kind of crazy stuff people have written.
+      5. Solution: try to make the tool configurable; based on plugins; users can make it into their own thing.
+         1. Making the compiler configurable.
+1. What are the best educational resources?
+      1. Currently we use Gitter. Every Truffle member spends time in there.
+      2. But we don’t think Gitter is the right tool for Truffle’s entire community support
+         1. Need to see what messages were missed.
+         2. People find bugs or issues that just don’t get serviced, we fall through the cracks
+      1. Need a better way to announce to our community
+         1. We have a mailing list
+         2. We can message on Gitter – but people miss the messages
+      1. There’s some first-class moderators on there.
+         1. Detailed answers are so helpful and seem to come through often in places other than our docs, which is hard to manage.
+      1. Stackoverflow is a great resource – look at questions on stackexchange to find what things are creating the most problems for users – where the anger is.
+1. Other domain specific questions?
+   1. Integration between truffle & ganache?
+      1. We’d like their tools to provide a cohesive set of tools.
+      2. Takes time to build and just figure out what the requirements are.
+1. Other bounties?
+   1. Set of tools: linters & coverage tools
+      1. Critical, have mostly been worked on volunteer basis.
+      2. Needs ongoing support; needs to adapt to changes in the stack (Solidity, Web3, …)
+      3. Should be platform agnostic, should not assume that people are using Truffle, should work with dapphub.
+      4. Leonid Logvinov wrote a 0x code coverage tool.
+         1. bounty: making a next-gen coverage tool, that can be consumed by any platform or into your tooling.
+      1. Code coverage is absolutely critical from a security point of view.
+         1. The existing system is fragile, and only has two devs working on it part-time (?)
+            1. People to talk to: Christopher Gewecke, Alex Rea (works on Solidity coverage), Leonid Logvinov (0x coverage tool)
+            2. Chris wrote the code coverage tool before joining Consensys, it’s a volunteer project.
+      1. There are also more sophisticated audit tools: Mythril by Consensys (Bernard Mueler), Oyente maintained by MelonPort is another one.
+   1. Tracing / gas-profiling?
+      1. We would like to add this kind of stuff to ganache.
+      2. Remco Bloemen working on gas-profiling.
+   1. Bounty: support for hardware wallets in Metamask
+      1. Web3 has their provider engine.
+      2. Better key management support on the web3 level.
+      3. Metamask also wants to have Ledger support.

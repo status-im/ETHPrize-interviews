@@ -1,0 +1,56 @@
+﻿Alex van de Sande
+1/10/2018 - Sina & Robbie.
+
+
+1. Who are you and what are you working on?
+   1. Working on Mist, the Ethereum browser.
+      1. Developers contributing open-source.
+      2. There’s a wall between core team & open-source team.
+         1. Would love for people to be paid reliably for features.
+      1. 3 Developers. Talk on Discord.
+      2. Current experimentations in paying open-source developers:
+         1. Colony
+         2. Commit F
+         3. We want beter Github integration. Now possible with Status Open Bounties and Gitcoin etc.
+1. What was the hardest part about learning to develop with Ethereum?
+      1. One dev working on a backend integration – I stopped working on this to work on one issue – “password wasn’t working for user” – couldn’t reproduce the bug. Could put a bounty for someone to recreate the bug & solve it.
+      2. Different systems: Gitter, Github issues, different wallets 
+      3. How we solved: created a single issue with all comments from other issues. Created google form for anyone who had an issue, to see if there’s a pattern amongst problems.
+      4. What type of expertise is needed for this: we don’t have enough security oriented people on our team. We passed the bug reports to the Foundation security person, who tests them.[a]
+         1. Single case: serious bug report came in and was fixed. But couldn’t test the fix, because they would have run exploit on their machines. They don’t have pen testers.
+         2. Wanted – less of a wall between their team and the outside.
+         3. Need:  Recurring open source developers --- that are working for bounties -- 
+            1. They haven’t tried bounties yet.
+            2. Is the problem: dev awareness or payment?
+            3. They’re making app more modular.
+1. How do you handle testing?
+   1. People build new features, we check, and then approve it.
+   2. We’ve had issues – 
+   3. Meteor.js migrating to React.
+1. Who are the other people you think we should talk to?
+   1. Nick Johnson 
+   2. Ryan Zurrer
+1. Other bounties?
+   1. Finding talented people is very hard. They are in such high demand. Trying to get people out of school. Online courses in Solidity.
+      1. Web developers, software engineers.
+      2. Separate recruiting approaches for the Foundation.
+1. What are your biggest frustrations?
+   1. Securing Electron (desktop JS) was hard. (JS in website can take over your system - happens with chrome)
+   2. Integrating with other technologies: IPFS, Swarm, etc. Frustrating that they are all in their early days.
+   3. Information overlap - this is a major problem - e.g. in keeping up-to-date with Solidity developments, even though I’m on the Foundation.
+      1. A lot of people have been trying to integrate this information without success 
+      2. I like two things from the Foundation:
+         1. Daily standup for Geth team.
+         2. Every quarter Vitalik and Ming post an update on what happened in the Foundation.
+      1. To be improved at the Foundation:
+         1. On the operational side:
+            1. Make the foundation more open, more modular with their finances. Each team should have more autonomy, with their finances transparent on the blockchain.
+         1. On the technical side:
+            1. Autonomy would play into this as well.
+      1. What are you excited about:
+         1. Casper.
+         2. Sharding.
+         3. Applications: Aragon, MakerDAO.
+
+
+[a]Security service of group from foundation -- bounty for group where bugs are passed to??

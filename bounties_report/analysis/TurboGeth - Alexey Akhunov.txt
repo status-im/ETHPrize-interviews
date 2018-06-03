@@ -1,0 +1,72 @@
+﻿Alexey Akhunov
+Sina on 1/11/2018.
+
+
+1. Who are you and what are you working on?
+   1. Been in Ethereum since the beginning. Was following the PoC. Mined few blocks on his home computer. 
+   2. Initially ran geth, then parity, then geth again. 
+      1. Geth said it would be more like a library.
+   1. 6 months ago, moved to doing Ethereum dev full time.
+      1. Did security audits – gets tedious – smart contract are usually short. But comes with more stuff – server-side, etc
+      2. Now: playing with the go-ethereum code, trying to optimize it.
+         1. People talk about sharding, Casper, etc will fix everything; but that won’t solve everything without optimizing everything.
+1. What are the tools/libraries/frameworks you use?
+   1. Geth.
+      1. Can pass in --cpu-profile
+      2. Uses basic stuff that comes with Go: PProf.
+      3. Go has in-built tool to open this file.
+      4. Can generate dominator tree -> whole graph of traces vs times. Shows which nodes are dominating.
+   1. My workflow:
+      1. Change code.
+      2. Run geth with --cpu-prof
+      3. Generate graph from .prof file.
+      4. Run on cloud overnight.
+1. Who are the other people you think we should talk to?
+   1. Nick Johnson
+   2. Peter from Geth.
+   3. Quickblocks founder – Jay Rush – quick access to blockchain data. Working on the problem of quick state download.
+1. Other bounties?
+   1. Unification of testnets[a].
+      1. Rinkeby & Kovan are still incompatible.
+         1. I wanted to write this myself, write Kovan implementation in Geth?
+   1. I hate that everything in the smart-contract ecosystem is written in Javascript – e.g. Truffle. People then use truffle bindings in production.
+      1. Native go tooling. Native go contracts.
+      2. I tried to do javascript auditing. And it is virtually impossible without safety of types. There’s a lot of dependencies; it’s really hard to check everything.
+      3. Specific: where the web-server is written, not in JS, but in a compiled language: should bind directly to the smart contracts, instead of going through JS bindings. Use go-bindings.
+1. What are your biggest frustrations?
+   1. Yesterday – spent 3 hours!!! – fixing compiler errors. The codebase is large.
+      1. Added an extra flag to switch db to another from LevelDB. Compiling errors in fast-sync and light-client.
+      2. Codebase has a lot of baggage: Geth has Whisper, Swarm, and light-client.
+         1. Do geth developers want to separate these out?
+         2. Potential concurrencies & SSD improvements.
+1. Other domain specific questions?
+   1. Optimizing Geth:
+      1. It all started with a rough kinda experiment – in November network became congested –
+         1. Started doing profiling in Go. Learned to do it then.
+            1. Saw that geth was mostly talking with LevelDB database.
+      1. The process:
+         1. 1) look at the profile
+         2. 2) ask questions – why is it slow?
+         3. 3) then look at code, edit, experiment to improve.
+      1. The system is complex – hundreds of goroutines running at the same time.
+         1. Trying to optimize the state management. State is constantly growing. Things will have to be written on disk; fetching it again will be slow. Can have cache, but what if it’s outside of the cache.
+            1. Problem 1) speed of processing.
+            2. Problem 2) if you’re running a full node – 
+               1. Fast-sync: download all the headers + download enough state objects from other peers to only verify randomly selected blocks.
+                  1. Then, after this, you become a full sync node.
+                  2. Whole state from beginning is ~ 600GB.
+               1. It needs to be compressed.
+      1. How do you test your optimizations:
+         1. Peter from Geth told him: you can export the blocks, run through your node without being connected to network, and process.
+      1. Jameson Lopp:
+         1. His criteria for a blockchain: how quickly it syncs.
+      1. Idea for bounties:
+         1. Shared resource: have block data sliced up into pieces (e.g. first 100k blocks, second 100k blocks etc.), give it a Github branch, spin up the image, it does a git pull, launches an instance of the client without p2p mode, imports this part of the blockchain, does comparison across different parts (e.g. when there was a spam attack in ~2.4m block)
+            1. My goal: to go through spam blocks really quickly. Every sync should be very fast.
+      1. People complaining (e.g. exchanges) that they can’t keep up with the blockchain – e.g. Etherscan – falling behind. The clients are becoming inefficient. Instability problems. “When quantitative changes become qualitative” – breaking points are hit.
+      2. Go-ethereum developers are also working on this – I do the same – but I like not having the responsibility and just hacking around.
+      3. Collaborations between different clients: Parity & Geth
+         1. Parity had a great breakthrough – how to tune parameters of database – can sync on HDD. I’m hoping that collaborations will grow. State management across clients is important.
+
+
+[a]Can be added to testnet stuff --

@@ -1,0 +1,45 @@
+﻿Marcus Molchany
+
+
+1. Who are you and what are you working on?
+   1. Made a few standalone contracts for fun. 
+   2. More full-fledged projects are web frontend with blockchain backend. 
+   3. Web apps use Metamask to interact with blockchain. Infura as provider if MetaMask not installed.
+   4. We built www.hashheroes.com as our first dive into Ethereum
+1. What are your biggest frustrations?
+   1. In general project setup for the first time is difficult. 
+   2. Didn’t know if I needed geth or testrpc.
+   3. Didn’t know if I needed to download the entire blockchain.
+   4. Also had problems with the documentation for solidity.
+1. What are the tools/libraries/frameworks you use?
+   1. Ethereum: Remix solidity, testrpc, truffle, web3 JS, Infura, Etherscan
+   2. Web: React / redux, create-react-app
+1. How do you handle testing?
+   1. For contracts, I use Remix Solidity with the Javascript VM. For unit tests, I write JS unit tests using truffle. Tried to write unit tests in solidity but it was difficult. Testrpc behaves strangely sometimes.
+   2. When developing a contract, I will write extra events just to make sure the right thing happened, and then will delete the events when contract is in production.
+   3. Automated testing?
+      1. Included above. Automated is unit tests with truffle. Manual is event logging, usually in Remix.
+1. What tools don’t exist at the moment?
+   1. I really want a richer debugger. The one in remix is too hard to figure out[a].
+1. What are you most excited about in the short term?
+   1. More 0x relays!
+1. How do you handle smart contract verification and security?
+   1. Warning messages from Remix or solc. 
+   2. Reading through Consensys best practices and making sure I use them in my contracts. 
+   3. Asking for code review in subreddits.
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Slight paradigm shift about waiting for code to be run while transactions are mined. 
+   2. Understanding how state was preserved in a contract. 
+   3. Finding good teaching resources on Youtube and elsewhere.
+   4. What would be the hardest part of teaching somebody to build a dapp?
+      1. The paradigm itself. 
+         1. The idea that when your code runs, it’s running when a block is mined. 
+         2. Calls to your contract don’t execute instantly like in a normal web app. 
+         3. Combination of needing to use different test nets while testing. 
+1. Are there any other questions we should be asking?
+   1. Fabio Berger from the 0x team
+
+
+
+
+[a]Better spec for a debugger combining Nadav, Jack Peterson, Richard Moore, Marcus, Martin Swende comment for spec for bounty
