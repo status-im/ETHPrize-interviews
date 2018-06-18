@@ -1,0 +1,28 @@
+﻿Fernando G
+06/07/2018 Mitch
+
+
+1. Who are you and what are you working on?
+   1. I am a developer, working in London for the last 4 years, I love coding in general, but also security. I am joining ConsenSys next week and I am working in several side-personal projects, including the solidity-graph-debugger
+1. What are the tools/libraries/frameworks you use?
+   1. Well, it depends, when I build tools related to Ethereum, I tend to use the Java ecosystem (Java8, Maven/Gradle, Spring if it is a web application, etc).
+   2. When I am writing Smart Contracts, I use truffle for building and testing, intellij with Solidity plugin as IDE, Ganache, Mythril for formal verification, etc.
+1. What are your biggest frustrations?
+   1. Maybe it is my fault, but I would like to see more tooling around other languages (especially Java, that is the one I am more comfortable with), but I know some people who are working on it at the moment, like Conor and his team from blk.io, they are doing a great Job.
+   2. I am not a huge fan of JavaScript, and most of the modules are more maintained in JS (which does not mean better code!), so sometimes I have to adapt and use them. Anyway that's not a huge deal, I am not that extreme and I am fine with using any tool that can help me to achieve whatever I have to do
+1. How do you handle testing?
+   1. For unit testing I use truffle, I write JavaScript tests, it works great. I use Mythril if I am auditing my contracts, I identify some really important invariant and I write a little script to formally verify it, and Mythril is great for that. Manticore can also do that, but didn't have the time to test their scripting APIs (something I have pending)
+1. How do you handle smart contract verification and security?
+   1. I always try to keep myself on top of existing known vulnerabilities and the new ones. I have a repository with proof of concepts of most of them, and I run unit tests demonstrating the bug and the fix, in that way I have a practical view of the known security bugs. Then I try to audit my contracts using the knowledge I acquired and the tools available, mythril formal verification, mythril analysis, manticore, porosity
+1. What tools don’t exist at the moment?
+   1. Good question, there is a lot of ecosystem that has to be created. The most obvious thing, would be a graphical debugger that is what I am building, but also dependency management tools, good IDEs (intellij solidity plugin is cool, but like everything right now, it's a bit green), better documentation tools, clients for pretty much everything, an easier way to interact with contracts for the average non technical user...
+1. What are the best educational resources?
+   1. I would say no books, because they get outdated 1 week after the release, read the official documentation and start straight away to test things by themselves. Fight and fight more, then read again the documentation to grasp things that were missed the first time, then keep practising and do that in a loop until things start to make sense. Then I would try something like Cryptozombies, to learn a practical point of view, and solve Capture The Flag challendes, like OpenZeppelin Ethernaut or capturetheether. With those you will learn basic (and complex) security issues which are absolutely essential to be able to deploy anything in the mainnet
+1. Other bounties?
+   1. I think anything related to ease the whole lifecycle of developing Smart Contracts is a good candidate. A good IDE (or plugins for existing matures IDEs), with integrations to common services and tools like embedded 1 click debugger, 1 click deployment with builtin interaction with on chain contracts would be a game changer.
+   2. And like I said, a good project that can make average users to use Smart Contracts without the need of handling the private key, secure it, go to an exchange and verify their identities to get ether, then use complicated processes to do a simple thing would help a lot to gain adoption, which is very important (even if the network and technology is not completely ready at the moment for that)
+1. What are you most excited about in the short term?
+   1. Scalability improvements. I want sharding and PoS (if you can call that short term, maybe I am an optimistic person)
+1. Who are the other people you think we should talk to?
+   1. Hmm not sure if you spoke to Bernhard Mueller, seems a pretty interesting person to talk to. 
+   2. Security people in general. Also Conor Svensson, interesting to see what he is trying to do regarding with tooling in general and adoption of different ecosystems

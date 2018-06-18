@@ -1,0 +1,42 @@
+﻿João Gabriel Carvalho
+13/06/2018 - Mitch
+
+
+1. Who are you and what are you working on?
+   1. Contributed to OpenZeppelin and Aragon about 1.5 years ago, met an audit company called Solidify. Worked with them as a developer, and also have done a lot of audits securing smart contracts, now back to development. Things happening that will be public soon, stay tuned!
+1. What are the tools/libraries/frameworks you use?
+   1. Truffle. 
+   2. Used a little bit of Embark but not a ton. 
+   3. Use Mythril, Remix, TestRPC -> Ganache, Geth, also used a few Solidity flatteners. 
+   4. Infura. 
+   5. Web3.js.
+1. What are your biggest frustrations?
+   1. A really good IDE. The integration between Truffle and Remix is not good at all. Remix debugger is better than Truffle but painful to upload a bunch of stuff to Remix just to check. Wish there was a way to integrate both tools.
+   2. A more robust testing framework for Truffle, it’s very basic and dumb if you think about it. A lot of room for improving testing tools. 
+   3. The issue is that I don’t have functions to hit a contract with 1000 transactions, I have to do it manually. Create me 200 tokens and send to this contract and see how it behaves. Tests are small scale. Testing suite at scale could be interesting.
+   4. More state management in testing. Want to save specific states and fork it and compare it to the fork. A lot easier and automatic.
+   5. 10 accounts are provided with 100 ETH. That’s not enough to test an ICO like condition. If he wants to test 100 accounts with 1 million Ether, it’s not easy.
+1. How do you handle testing?
+   1. Do it manually, 1000 accounts with 1000 Ether. A big loop and keep sending transactions
+   2. Do this multiple times with multiple states. A lot of handwork for not a lot of results.
+   3. Large scale testing is not really worth it.
+   4. Was testing an interactive ICO, very complicated process. State management was very hard, multiple states at same time. Made a loop to do it manually but was quite difficult.
+1. How do you handle smart contract verification and security?
+   1. Every project I’ve done will go through an external audit. As a developer, usually run Mythril and Remix (uses Oyente?). But these only find basic bugs, are years away from more complex stuff. These are just the most basic checks.
+   2. For Auditing, use a lot of Remix with manual testing as opposed to JavaScript tests. This is easier and less fake. 
+   3. The harder thing is flattening files. People use OpenZeppelin, other frameworks. Have to go through a lot of different files to understand the logic. Tool to make understanding this easier.
+1. What tools don’t exist at the moment?
+   1. Love to see a premium version of Infura. Infura is public nodes. Has to sign tx’s offline, has to sync my own Geth. I wans to have an Infura account. Infura is pretty good here but could be a bit better.
+   2. Lacking resources for other languages other than Solidity. Doing anything with any other language, there is not enough material and you can’t find the answers. Creating a gigantic gap between Solidity and other languages. Usually use Solidity because it’s way faster.
+1. What are the best educational resources?
+   1. CryptoZombies is pretty good for a beginner. Capture the Ether is a bit more focused on security and hacks. The best thing to learn more is to read contracts. You can understand a lot of how big projects work and it’s very good for learning. 
+   2. OpenZeppelin is a good place to start, has day 1 level stuff. Gnosis has a lot of well-written contracts, a bit more advanced. Same for Aragon, complex but it’s well-done. These are the ones I’m more familiar with. 
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Hidden barrier for understanding blockchain in general. Could be a decent developer, but to understand Ethereum you have to understand what is a blockchain, how does it work. And you can’t learn this in a day, there are complicated concepts that you have to learn with time. Have to really know what a blockchain is to develop a contract that makes sense.
+   2. Have to do a lot of handwork that you don’t do in other languages. There are no error messages. Have to comment your code and run it a thousand times to see how it’s failing.
+1. Other bounties?
+   1. A really good IDE.Not a plug-in, but a full IDE. Best elements of Truffle, best elements of Remix. Could connect to Geth. More refined deployment options. Make compiling easy, knowing the gas prices easier. Debugging, deploying. Everything in one place.
+1. What are you most excited about in the short term?
+   1. Excited to see where all the scaling is going. Plasma, Casper. Starting to get implemented and finalized, can see demos. That’s awesome.
+   2. Excited for proof of stake. To see how the ecosystem changes.
+   3. Interested to see how average user interacts with Ethereum. UI/UX.
