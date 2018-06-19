@@ -1,0 +1,75 @@
+﻿Leo Logvinov
+4/24/2018 - Robbie, Parker, Andy
+
+
+1. Who are you and what are you working on?
+   1. Started in blockchain 2 years ago in Berlin, working on Ethereum devtools, building solidity plugin for IntelliJ, built by him and an Australian.
+   2. Working on truffle, did some PRs, improving speed, usability, error handling.
+   3. Started working on 0x, primary role: devtools team. 
+1. What are your biggest frustrations?
+   1. Event watching - unreliable, no support for backfills etc.
+   2. Build tool for statically typed contract (ABI gen that generates contracts), build out the statically typed libraries
+   3. Negative experience with web3js team - unresponsive.
+   4. Frustrated with truffle because it is hard to contribute with so many packages these days.
+      1. Hard to debug and understand it all - so needed a smaller truffle for the specific use cases.
+      2. Need to standardise their artifact format (currently in talks about it).
+   1. Solidity coverage tool: built at hackathon (at least the profiler which is not super useful), standardise on artifacts format so that it works across tools.
+      1. Which line of solidity is covered by tests?
+   1. EIP712 - standardised signing for structured data, also helped finalise 721 at ETHDenver.
+   2. Solidity plugin for IntelliJ IDE
+      1. One did not exist at the time. Did not have too much stuff in it really: simple formatting, definitions, highlighting. Not “a super interesting” project, but has 36 000 users (some duplicates).
+   1. VMs
+      1. Been wanting to speed up tests recently. Bottleneck is code execution in Ganache VM (90%). We want to get down to 1-10s test runs.
+      2. GAS PRICES ARE NOT THE SAME!!!! Arghhhhh!
+      3. We need JIT compilation in more performant language (currently just executed in JS).
+      4. Project called EthJIT VM, transpiles to LLL, then optimizes contract so that it is precompiled and then runs much faster.
+         1. Would be great to see the integrated in ganache (snapshots and time travel make this a nice tool than geth to use currently).
+         2. Even better to have pluggable VMs, have spoken to the Foundation about this too.
+1. What tools don’t exist at the moment?
+   1. Prettier type plugin for solidity. I don’t have time to write it but Prettier has a good API.
+1. Other bounties?
+   1. There is a limit on local variable numbers (have a limit of 16, which influences how you write the code).
+      1. Solidity doesn’t push variables down the stack, so you can’t go more than 16 deep. This is an implementation detail in current compiler that needs to be improved.
+   1. ABIv2 - experimental feature for half a year or so - return structures and bus structures as parameters. 0x are planning to use it to make their code easier to audit especially.
+      1. C++ devs needed
+1. Other domain specific questions?
+   1. What has your experience been like working on EIPS? 
+      1. Working on EIP 712 - signing structured and typed data 
+      2. Quite hard with monetary prospects and no established legislation process - need better ways of governing and enforcing the process.
+         1. Really helped to have everyone in one room at ETHDenver and align on angles of attack.
+         2. Room at ETHDenver from commenting on a thread in GH. Started unstructured and moved into structured discussion by defining the interface, which helped identify all the different parties’ motivations. This revealed some inertia on some teams’ behalf, which was interesting to see.
+         3. Lot of discussions about metadata (of tokens, which is also important for other parts of tokens)
+         4. GH PRs are one single wall of text and the comments need to be better moderated, especially for trolls or tangential discussions/ideas (especially tangential ideas need to be collapsed).
+         5. Creators need to moderate/create a TL;DR section to help people better and more easily grasp what they are working on. 
+   1. Solidity code coverage - how does that work?
+      1. Before each line calling eval, and modifying Eth and ganache code to read the events, much below the current block gas limit and working through everything that comes through.
+      2. Take debug transaction with list of opcodes. Also have the source maps, which map back from opcodes to lines of solidity code, and can use that the work backwards from opcodes to understand exactly which line used how much gas.
+      3. How do you get the trace after each tx? 
+         1. We wrote our own provider, whenever call to eth_sendTransaction gone through provider it sends it and then gets the trace.
+      1. Calls don’t have traces though, so need to do a snapshot and then send the call as a tx, which gives you the trace back and then you can look at what happened in the call.
+      2. Did look at other tools, but felt the performance and reliability of those tools just kinda sucked.
+   1. Can you tell us more about Event Watching? 
+      1. Lacking good open source project[a]
+      2. People don’t have stateful nodes, you need to handle events client side
+      3. Ethereum-js blockstream enables us to use stateless nodes after installing all filters. Still not a part of web3.
+         1. Working on something called order-watcher: track when the order becomes invalid. Which happens when the user manipulates things. You can validate reactively by watching for events, but you want to actually watch balance changes and events are just an imperfect proxy for this.
+         2. People can mint and burn tokens and change balance without emitting events.
+         3. Want to track changes in balances, not events. balanceOf() is view function that returns the balance, so we want to track the result of calling that.
+         4. Might be inefficient to look at that directly, or we can register callbacks and recompute only when the state used by that function changes.
+         5. But how do we know when state changes?
+         6. Cannot rely on solidity, but can run function, get trace, see which storage slots the function is reading, and then you for sure know that this function will only change its value when one of those storage slots changes.
+         7. Use Patricia tries somehow to watch these storage slots and state changes - allow you to watch efficiently changes on view and pure functions.
+         8. Check out EIP 781: https://github.com/ethereum/EIPs/issues/781 
+   1. Can you tell us more about ABI gen for statically typed contracts?
+      1. Contracts need to be checked at compile times to ensure parameters etc (strong instead of number or something like that) and being statically typed is much easier to check this.
+      2. Inspired by geth tooling, and there are also some JS ones (salt-size etc) but were all very opinionated and made all sorts of assumptions about how you wanted to use your contracts.
+      3. With 0x tool: Consensys is using it, Sybil (journalism tools, also with typescript contracts).
+      4. Using ethers.js for backend of contracts due to issues with web3 versions (classic).
+   1. Best ideas to have in a debugger?
+      1. Not writing solidity actively at the moment and I haven’t used one yet because it is such a high level tool (haha).
+      2. I feel that this is quite a long way away right now.
+      3. Need bytecode, source code, source maps, traces, interruptable VM etc.
+   1. Can you tell us more about signing data in Ethereum?
+      1. Arbitrary string that people were supposed to sign, but then people figured that you could use it to send ETH, hence the weird prefix that got implemented - not an EIP, it is just a bugfix.
+      2. If there is a way to display user data and get them to understand the transaction fully, then they would surely not sign. Prefix doesn’t solve anything, it just postpones the problem.
+[a]WE can do more research here -- this is a big bounty

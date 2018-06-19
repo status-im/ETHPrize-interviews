@@ -1,0 +1,70 @@
+﻿Oleksii
+5/17/2018 - Sina, Robbie, Andy
+
+
+1. Who are you and what are you working on?
+   1. Started working with smart contracts in early 2016.
+      1. Started by writing tests using Truffle for other people’s contracts.
+      2. Then, started educating himself on Solidity, became a smart contract developer.
+   1. What do you do at Ambisafe?
+      1. Do custom development for clients.
+      2. Our own products: e.g. webhooks for contract calls.
+      3. Scalable supernode solution – logic to make the node robust, etc
+      4. Platform to issue tokens. Fixed set of contracts, but for every new token, they deploy a new contract as a gateway.
+         1. Gateway token contract – implements specific logic of different tokens. Fees, etc.
+      1. + Toolkit for DevOps / deployment:
+         1. Javascript functions to solve common problems, tx propagation issues, …
+            1. Tx propagation issues: sometimes your node gets a tx, but doesn’t propagate to any other ones. Mostly seen in Parity.
+         1. Deployment scripts
+            1. Checking that the gas that’s going to be spent; if enough gas is provided.
+            2. Scripts to collect info from the blockchain, doing sanity checks to make sure it’s all good before proceeding, then collecting data after, …
+            3. COULD THIS BE A BOUNTY TOOL?
+      1. Cloning of contracts.
+      2. Most of their contracts don’t copy any code anymore.
+1. What are your biggest frustrations?
+   1. Our original vision was to do everything – testing, deployment, etc - through Truffle.
+   2. But, in reality, we’ve only used for testing.
+   3. First version of truffle was using the testrpc snapshots for reverting – good for unit testing.
+      1. In second, third versions this was removed.
+   1. Most companies use truffle for testing, on testrpc.
+   2. We made our own helper to make snapshots and do reverts on testrpc before/after tests.
+   3. Now, you can deploy the contracts from inside the tests; you’ll have a freshly deployed contract.
+   4. Truffle’s designed to be used by a single project –– a fixed set of contracts that doesn’t change much.
+   5. But most of our projects have different platforms, so we end up deploying different versions of our contracts over and over again.
+   6. When Ethereum started being regularly congested
+      1. Built functions to overcome this – tool for: re-submitting transactions with higher gas prices when they don’t get accepted.
+   1. People don’t track nonces correctly:
+   2. Tool for: figuring which nonces were skipped, and creating transactions for them.
+   3. We check for compiler errors + static warnings in Remix.
+   4. I haven’t used automated tools like Securify.
+   5. I just read the contract for as long as possible, so that I understand the contract as if I wrote it myself.
+1. How do you handle smart contract verification and security?
+   1. We have written our own tools which tell us, for instance, that “this variable is never used.”
+   2. Also includes optimizations to improve gas usage –– e.g. read address value and store in memory before loop, then call into it.
+   3. For contract address, for state variables, etc.
+1. Other domain specific questions?
+   1. What are other great tools you have used?
+      1. Ethercamp – a smart blockchain explorer:
+      2. Heuristics while parsing and indexing the chain.
+      3. Had a convenient interface to explore the storage of the contract; even without an ABI, the heuristics allowed you to see that e.g. “this key is this address”. And then showed this stuff in a human-readable way.
+      4. Then, they kind of stopped their resources.
+   1. More details on you data collection & devops tools?
+      1. For it to be useful, it requires time for refactoring.
+         1. It’s usable right now, but code could be improved.
+      1. Making complex deployments possible.
+      2. It won’t be too complicated to build.
+      3. Tool for: pulling balances of some tokens of some addresses
+      4. Tool for: making airdrops cheaper to do. E.g. 20k addresses with batch deposits happening through a smart contract.
+   1. LLL language?
+      1. If you’re using Solidity, you can’t have the maximum optimization in your contract.
+      2. Convenient way to write contracts in Assembly?
+      3. He wrote bytecode by hand, for the contract they deployed a million times.
+      4. Having a better low-level language that compiles to bytecode.
+   1. The call trace in Ethereum?
+      1. It doesn’t currently provide you with any help.
+      2. Using 4byte.io, you have the ABI of all the functions in the trace.
+      3. You can build a human-readable layer above it, and see what’s going on.
+      4. Can have a real stack trace for function calls between contracts, with what values.
+   1. Action items?
+      1. Oleksii to outline needed features / requirements for smart deployment tool.
+      2. Us: intro him to others interested in in collaborating on above & scoping out requirements.

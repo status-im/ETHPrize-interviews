@@ -1,0 +1,42 @@
+﻿James Prestwich
+2/13/2018 
+
+
+1. Who are you and what are you working on?
+   1. Simple contracts to manage cross-chain swaps and contracts.
+1. How do you handle testing?
+   1. Wrote tests with James on Integral stuff
+1. What are the best educational resources?
+   1. Did all the Ethereum tutorials -- set up the token
+   2. Integral: written in Solidity with Truffle -- derivatives platform
+1. What are the tools/libraries/frameworks you use?
+   1. Python ETH Library - ABI Parsing expects events to be in two different formats neither of which you expect - ecosystem standardizes on hex strings 
+   2. RLP is a hot mess - why use a non-standard serialization format for everything
+   3. Ensures nobody understands what’s going on and things aren’t readable - serialization format for everything ETH - includes transaction data
+   4. As a human - can’t reason very well about those blobs or what those structures will have
+   5. Developing contracts on Bitcoin first - Solidity, Script, Snark tidbits, IVY (compiles to bitcoin script)
+1. What are your biggest frustrations?
+   1. Solidity is the wrong tool. Imperative language and everything on blockchain is declarative. Solidity should be declarative. 
+   2. IVY is best example of for blockchain language. On blockchain control logic is impossible: blockchain never decides how or when a function is called. No such thing as on-chain control logic: off-chain controls how humans can manipulate state.
+   3. All lies: completely wrong tool for blockchain. This is what causes render mistakes: trying to write on-chain what happens, but should be defining what can/can not happen (Bitcoin: whether you can or cannot spend a UTXO). 
+   4. Require statements example of Solidity becoming declarative language is not a good way to fix this and modifiers are an anti-pattern:
+      1. Either happens as atomic single unit at will of human or it doesn’t?
+   1. Configurable constraints on-chain: we should still define them as constraints -- no math happens on-chain (not actually adding 2+2 on chain). 
+   2. Weird that tests are control logic for your code. Control logic is whether human makes a transaction. 
+      1. Idea that we are writing things that add variables on-chain is wrong.
+      2. Reality of state, state root and blockheader is what causes a lot of the bugs 
+   1. IVY: really heavy modification to write on ETH -- more easy to write languages for the EVM. A declarative language for EVM. Tooling for Solidity only recently got workable.
+   2. Onchain systems should define constraints around what cser can / cannot do -- they are the control logic of the program.
+   3. Cross chain contracts for integral is what users can and cannot do at what time and on what chain (declarative programming again). 
+   4. Checks, Effect, Interactions to write code. We need more good programming to prevent race conditions, re-entrancy, double spend etc:  
+      1. Transactions happen atomically, cant have overlap in state changes
+      2. Can shoe horn ETH into this by using Require / IF Statements (??)
+      3. Avoid modifiers as a pattern
+      4. That’s always the effect of the Solidity you’re writing - puts more pressure on the client 
+         1. Makes testing more intuitive -- specified tests you’re testing against
+   1. Very interesting miner attack on EtherDelta: they front-run; make tx throw; collect the fees.
+   2. The problem with Solidity isn’t expressiveness; it is shared state. Other transactions can get ahead of you and modify state that you rely on.
+1. Other domain specific questions?
+   1. Proof of Stake 
+   2. Getting someone slashed decreases supply, increasing value of ETH. Does this mean every ETH holder is incentivized to getting stakers slashed?
+   3. In the Blockchain/cryptography in general, there is attack-defense asymmetry with defence being stronger. As soon as you move towards servers, attack-defence asymmetry leans towards the attacker.

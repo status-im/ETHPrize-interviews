@@ -1,0 +1,34 @@
+﻿Joey Krug
+01/06//2018 - Mitch
+
+
+1. Who are you and what are you working on?
+   1. Co-Chief Investment Officer at Pantera Capital and Co-Founder @ Augur. 
+1. What are the tools/libraries/frameworks you use?
+   1. At Augur, stack is different as it’s a bit older. 
+   2. IDE: if you’re doing something simple you can use something like Remix. Remix has all the kind of stuff you need, automatic static analysis to detect bugs and very visual and easy to run.
+   3. More than 5-10 smart contracts, beyond ERC20 and ERC-721, now Remix will fall apart
+      1. UI is a big clunky as you add more contracts
+      2. It’s hard to write a complicated test suite with continuous integration. Instead use Sublime with terminal or EMACS and VIM. Augur primarily uses a Visual Studio Code syntax highlighting.
+1. What are your biggest frustrations?
+   1. At the end of the day, it all comes down to the tech side. Biggest frustrations are that it’s hard to write scalable software on something on Ethereum. State of scalability is very nascent. Product he’s advising for payments, they look at state channels. But when you try to use MVP’s, it doesn’t work. But it’s really a comment on scalability not on the individual company. L4 working on generalizable state channels, excited about that.
+   2. From a business standpoint, you want to build on Ethereum. People come to them and say they want to build EOS. Reason Ethereum doesn’t scale is that they’re trying to scale and not make a huge compromise. But there isn’t a lot of marketing. We want to articulate why Ethereum is a good platform to build, not just look at TPS.
+   3. Would be cool if Ethereum Foundation put some posts on the blog for what’s in the works for everything.
+1. How do you handle testing?
+   1. Run against pyethereum. Test suite is written in Python. As an investor, most companies are in JS environment with Truffle. Like Python a bit more. Truffle complaints are it has a lot of quirks. Default instructions for setting up tests in Truffle you get a weird nested stack of tests.
+   2. UX blockflow IDEO for Truffle, doesn’t need to be rewritten but needs to be improved.
+1. How do you handle smart contract verification and security?
+   1. Yeah, encourage everyone to use auditors. Lots of multisig tools out there that don’t have CI builtin. Oyente, Mythril, but one problem is that no one else really uses them. Lots of bugs they found.
+   2. Tools are very well optimized to run for one smart contract. But not to run on suites of smart contracts. But if you fast forward a few years this will be relevant.
+1. What tools don’t exist at the moment?
+   1. My answers changed over a time, 1 year ago it was static analysis. These tools exist now, but they need to be improved. The tools themselves don’t have test suites, for example and they need more firepower in general.
+   2. From an investor standpoint these dev tools need to be improved.
+1. What are the best educational resources?
+   1. Back then documentation was very sparse, blogs posts or Reddit posts written by Vitalik or other people. Try stuff and see what works, back then everything was on Skype. Now it’s quite a bit easier, Solidity docs are much better.
+   2. What about for people getting into the space now? Google + original docs + Stack Overflow. If you’re stuck go to one of the Gitter channel and ask the question.
+1. What are you most excited about in the short term?
+   1. In the short term, he’s most excited about Maker DAO in the wild. A good stable coin.
+   2. Scalability for mid-to-long term focus. 4 years ago it was just discussing what the block size is, but that’s an improvement for just one time. Interested in sharding implementations.
+1. Other domain specific questions?
+   1. Would be useful if the Ethereum project could add more firepower to underlying network. Propagating a block and you have a certain amount of time to do it otherwise you could fork;. More low hanging fruit at the network level.
+   2. A really simple idea is when blocks are propagated, just propagate the tx ordering. Then have clients gossip for missing tx’s. A concrete example is for Bitcoin Bip152. Could this work Ethereum? Make something like this for Ethereum. Implement in Geth in Parity

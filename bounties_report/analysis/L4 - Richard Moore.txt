@@ -1,0 +1,53 @@
+﻿RICHARD MOORE
+
+
+1. What are your biggest frustrations?
+      1. Documentation is a huge problem
+         1. A lot of documentation is simply missing, or its not good
+         2. It’s all outdated! It seems authoritative, but then I find it’s wrong. People don’t always do a good job of this. Ethers is only non-solidity implementation of solidity’s S3 that works correctly. 
+         3. If you read the docs, it’s just wrong!!
+
+
+1. What are the tools/libraries/frameworks you use?
+      1. I use all my own stuff, mainly
+      2. Ethers.js
+      3. ethers.cli
+      4. Ethers.build
+      5. Parity
+      6. Node.js
+
+
+1. How do you handle testing?
+      1. Automated testing? How do the facilitate manual testing?
+      2. Ethers.build
+         1. Automated
+         2. Also facilitates manual testing
+         3. Rudimentary debugging
+1. What tools don’t exist at the moment?
+   1. Events!! 
+      1. There’s definitely missing features of what ethereum actually stores in its DB. 
+      2. I would love if infura enabled the trace API, which is hugely expensive, that’s probably why they haven’t, but for now there is no way to give it an address and find all the transaction (or even a transaction) from that address. 
+      3. Would be great if you could just tell me the first tx hash that a given address ever made. Obviously this vastly increases cost of an ethereum node to run, but would be useful.
+   1. Events are just wildly unreliable. This is why ENS stores things on chain. Events don’t work well enough to do what you need to do. If I need to look this up, I can’t.
+      1. The main reason is if you indexed all that stuff all the time, it would constitute a huge load. So most people aren’t doing that. Scarce details of how they aren’t is the problem...
+      2. [Greg is working on something that will do this] 
+1. What are you most excited about in the short term?
+   1. 0x is cool. Rufflet is neat! I like the idea of having introspection tools in the system. 
+   2. Also: https://www.withpragma.com/logging/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d 
+   3. Debuggers are super important and I want them! Martin Swende demoed one, but needs some other stuff… his thing focuses on monitoring the EVM code and state changes its performing, as opposed to solidity. I want to be able to step through my solidity code line by line and see the changes that it is making on the blockchain. 
+   4. The sourcemap is not super reliable. Because once you compile, it might reorder operations, and certain ops span lines, it starts becoming non-obvious what the correct thing to point to is.
+1. How do you handle smart contract verification and security?
+   1. Extensive testing! 
+      1. Using ethers.build etc. code audits are usually from Yuet. 
+      2. Usually just have someone else look it over. 
+      3. More careful with blockchain-things esp once my money is in there. 
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Install and setup and configure and run and sync your own chain is ridiculous. 
+   2. Libraries like web3 which have big problems. 
+   3. Web3 feels weird given how javascript is used and behaves. 
+   4. What would be the hardest part of teaching somebody to build a dapp?
+   5. Mainly just the idea of how blockchains work. People tend to misunderstand what the blockchain part can and should do.
+   6. It’s very easy for a person to write a terrible contract. Even if you write a terrible MVP, it’s easy to release the non-terrible version later. But with this, if you make a bad mistake, it’s a huge problem - more like hardware, you can’t always change it on the fly. 
+   7. And the documentation sucks.
+1. Who are the other people you think we should talk to?
+   1. Yuet Loo

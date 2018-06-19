@@ -1,0 +1,42 @@
+﻿Nate Murray
+
+
+1. Who are you and what are you working on?
+   1. I started by creating my own token using the tutorial on Ethereum.org. 
+   2. I also did some of the other tutorials on the Ethereum.org page.
+   3. Rich user-facing Dapps using a modern JS web tech stack. 
+   4. Solidity for writing smart contracts and web3 for the connection to the blockchain. 
+   5. Next thing I'm working on: solidity, truffle, javascript, ipfs.
+1. How do you handle testing?
+   1. At first, getting contract working use Remix or testing framework built into truffle. 
+   2. I don't use Ganache. 
+   3. I really like connecting my contracts a real instance, and I like using console to connect to node.
+   4. I do it in layers. First start developing against testrpc because its faster. Then use geth.
+1. What are the tools/libraries/frameworks you use?
+   1. I use python for numeric analytics (not really around dapps). 
+   2. For desktop apps I'll use Electron. 
+   3. For contract development I use solidity, and web3.js for a connection to the blockchain. 
+   4. Zeppelin's libraries for solidity. 
+   5. 0x has excellent repo for js.
+1. What tools don’t exist at the moment?
+   1. Logging within solidity is hard, you can emit an event. 
+   2. Tools around gas are hard, its so opaque. 
+   3. Remix and gas is maddening, different gas limits, might have contract call that works in one env that doesn't work in another.
+   4. Formal verification; we need something better than solidity. Bamboo seems cool.
+   5. interested in the successor to serpent - vyper.
+1. What are your biggest frustrations?
+   1. Everything seems super easy getting started, especially once you understand how the blockchain works. 
+   2. Then you learn about security vulnerabilities like re-entrancy, other well known hacks, etc. Developers don't think about that when doing web dev.
+   3. Newline's third class is "Hack smart contracts", and it covers DAO hack. The goal is to teach folks about security.
+1. How do you handle smart contract verification and security? 
+   1. Wish i knew better how to do audits. Would love to know list of auditors. However, even if I could get in touch with auditors it sounds expensive.
+   2. Use solc linter when developing. 
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Tutorials are out of date. 
+   2. API totally changed in web3 beta. 
+   3. Understanding the Ethereum blockchain & program execution model. 
+   4. What it means to "call" and get (for free) or "send" and updating the blockchain for a fee. What it means for you transaction to be mined. This is covered in newline. 
+   5. If high performance computing today is extremely parallel, then blockchain computing is embarrassingly serial.
+1. Who are the other people you think we should talk to?
+   1. Interesting smart contract platforms coming out. 
+   2. LISK dapps in eos web assembly.

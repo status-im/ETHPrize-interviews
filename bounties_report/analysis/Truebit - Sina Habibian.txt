@@ -1,0 +1,49 @@
+﻿Sina Habibian
+
+
+1. Who are you and what are you working on?
+   1. I started in January or February of this year, and used a tutorial on Medium for creating a voting system.
+   2. Interesting because the tutorial was already out of date by that point.
+   3. Working on TrueBit. A few smart contracts:
+      1. TrueBit core incentive layer: tasks workers who do computation off-chain
+      2. Web-assembly interpreter in solidity
+      3. Building a bridge between dogecoin and Ethereum
+   1. Haven’t really started on any front-end stuff for these things.
+   2. Interactive Coin Offering protocol that TrueBit did
+1. How do you handle testing?
+   1. Truffle and Javascript unit tests
+   2. First person to build the contract didn’t use truffle, so built his own complete testing system.
+      1. Built own testsuite because truffle wasn’t configurable enough for my needs: it was running into issues as the complexity of the smart contracts grow
+   1. Deploy things to testnet. Though it’s true that there is a limited amount of benefit from deploying to testnet. It that doesn’t really test stuff like vulnerable attack vectors or incentive misalignments
+      1. Better to do real testing on the mainnet under a public Beta, using real ETH
+1. What are the tools/libraries/frameworks you use?
+   1. Vim with solidity syntax highlighter, truffle and travis for tests
+      1. Running into problems with truffle on the current project
+   1. Zeppelin’s libraries for safe math and tokens. Using some JS state machine libraries for the client.
+1. What tools don’t exist at the moment?
+   1. Testing is so important in this space, but testing is so painful and so slow.
+   2. No good debugger!!
+   3. Slow testing and debugging slow down your whole cycle.
+1. What are your biggest frustrations?
+   1. Super slow cycle due to testing.
+   2. Are you running into problems with any of the following:
+      1. Gas limit: Yes, for local testing enforcing gas limit.
+      2. Off-chain computation: Yeah.
+1. How do you handle smart contract verification and security?
+   1. A bunch of upfront discussions and security analysis.
+   2. Then writing tests.
+   3. Security audit, bug bounties
+   4. Then, we will run a beta on the mainnet
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Wrapping my head around potential attacks and edge cases in smart contracts.
+   2. What would be the hardest part of teaching a software engineer to build a dapp?
+      1. Incentives and economics angle is the hardest part to teach people, but likely the most important.
+1. What are you most excited about in the short term?
+   1. TrueBit because it gives you the ability to run any piece of code and get the result back no matter how long it takes
+   2. ArtDAO
+      1. Smart contracts are self owning but don’t have any intelligence.
+      2. AI’s are evolving and learning, but they don’t have any resources.
+      3. AI creates 5 pieces of art and puts them up for auction. Sees the prices.
+         1. Keeps making better and better art, and the goal is to maximize how much money it has
+1. Are there any other questions we should be asking?
+   1. Dan Finlay

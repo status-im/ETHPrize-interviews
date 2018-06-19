@@ -1,0 +1,42 @@
+﻿Axel Ericsson
+
+
+1. Who are you and what are you working on?
+   1. I have built 1Protocol
+   2. It lets smart contracts sign up as miners on different proof of stake protocols
+      1. Let users provide the contract with the stake
+      2. It’s like a mining pool, but for staking
+   1. Three things
+      1. Interface for signing signatures (like MEW) and sending tokens to mediators
+      2. Building actual contracts that accept tokens and are signed up in Raiden as a mediator
+      3. Actually running the mediating machine on Raiden.
+         1. Eventually, anyone can send tokens and anyone can run the machine
+         2. For this, simply writing software around the Raiden node client. Raiden has published a python client. When you run it, it exposes an API on your computer, and 1Protocol is writing software that interacts with that API.
+1. What are the tools/libraries/frameworks you use?
+      1. Just web3JS and the python raiden client
+1. How do you handle testing?
+   1. Truffle suite. Before that, built our own unit testing system.
+1. What tools don’t exist at the moment?
+   1. There is no tooling or anything related to state channels that is trusted yet.
+   2. Need the MEW of state channels.
+1. Was anything easier than expected?
+   1. Writing smart contracts is surprisingly neat. Not actually as hard as it seems. You can have a mental model of all the moving pieces in your head, which is actually harder with other kinds of software.
+1. How do you handle smart contract verification and security?
+   1. Human thinking and auditing.
+   2. Will find some external team to do a professional audit.
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Solidity is changing so quickly that, as an example, 
+      1. changes to visibility modifiers (public / private etc.) has gone through a view iterations.
+      2. It would be great if there was a resource that combined solidity read the docs with the github releases[a][b]
+   2. Needing to resolve problems like how to setup web3, talk to contracts, remote vs constant transactions. Lots of re-implementing solutions.
+1. What are you most excited about in the short term?
+   1. Raiden is the golden egg in the space. The experience of actually using Ethereum will improve a ton.
+   2. “Counterfactual” team building some general purpose state channels.
+   3. Less bullish on actual applications on Ethereum right now.
+1. Other bounties?
+   1. Breaking out a javascript library for web pages that are accepting payments, which allows you to accept any kind of wallet mechanisms: Ledger, Metamask, Priv key, encrypted keystore, etc.
+   2. Same thing needs to exist for desktop software. Need a simple desktop wallet that accepts any kind of access to payments.
+
+
+[a]This sounds like an easy bounty / fix
+[b]If that is of any help: The documentation is actually versioned, you can switch back to older versions and they are coupled with the releases. What might be bounty-worth (not sure if that was meant here): Expand the release changelog to make it easier to understand for people not too deep into solidity and add links to the documentation. We could even add that to the official documentation as an expanded changelog.

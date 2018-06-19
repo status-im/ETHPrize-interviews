@@ -1,0 +1,49 @@
+﻿Ramon Recuero
+1/11/2018 - Sina
+
+
+1. Who are you and what are you working on?
+   1. Last summer, developed Redis on Ethereum. Simple to read & write data. 
+1. What are your biggest frustrations?
+   1. Was pleasantly surprised with Truffle - testing was easier than expected.
+   2. What was hard:
+      1. Debugging. Solidity compiler error messages could be better. 
+      2. There’s no console.log, can click and step into the code.
+      3. Google and Stack Overflow are often the best resources when running into bugs.
+      4. Trial & error, until you get through it.
+      5. It’s difficult to communicate this to other people.
+   1. Getting the mindset for developing for the blockchain is hard.
+   2. Hard to remember,even harder to explain to other people.
+   3. Deploying to testnets and mainnets was hard.
+      1. Had trouble with gas.
+      2. Getting Ether on the testnet. No faucet.
+         1. Found developer on Reddit Ethereum thread.
+      1. No chance to update the contract. Just pushed new contracts.
+   1. Eth npm in the beginning.
+   2. Different ES6 configurations in front and backend
+1. Was anything easier than expected?
+   1. Testing in Truffle.
+      1. Is simple if you come from the Javascript world.
+   1. Metamask.
+1. How do you handle testing?
+   1. Redis had the smart contract. Made an npm library; had Truffle tests + npm tests.
+1. How do you handle smart contract verification and security?
+   1. Found a list of the top 10 security vulnerabilities; reentrancy, math overflow, ...
+   2. You don’t know what you don’t know.
+   3. How to find info:
+      1. Google / reading about the DAO hack / Reddit.
+1. Who are the other people you think we should talk to?
+   1. Blockchain Berkeley Lab – professor – working with students learning blockchains.
+1. Are there any other questions we should be asking?
+   1. Share your learnings, get the community back in, and do another iteration.
+1. Other bounties?
+   1. Having difficulty in hiring people – most engineers don’t understand blockchain.
+      1. Don’t have much to show for it right now.
+         1. SoV
+      1. Infrastructure needs to get exist first.
+      2. Lack of use-case, to be honest.
+   1. Explaining the data model for blockchains:
+      1. E.g. similar to: Dan Abramov: Redux devtools on the right.
+      2. Making an interactive demo of data flowing through.
+1. What are the best educational resources?
+   1. Did Coursera course to implement blockchain, but it’s likely not the best.

@@ -1,0 +1,47 @@
+﻿JOHN PALMER
+
+
+1. Who are you and what are you working on?
+   1. Web applications that interact with smart contracts, usually through MetaMask or Infura.
+      1. We built www.hashheroes.com as our first dive into Ethereum.
+      2. We built www.withpragma.com to make Ethereum development easier.
+   1. We built www.onhexel.com to make it easier for anyone to experiment with tokens and try new ideas.
+1. What are the tools/libraries/frameworks you use?
+   1. Web3.js 
+   2. 0x.js
+   3. Truffle
+   4. Testrpc
+   5. Infura
+   6. Remix Solidity
+   7. Etherscan
+1. What are your biggest frustrations?
+   1. The smoothest user experience happens with MetaMask, but MetaMask has tons of bugs. Regularly need to disable/re-enable MetaMask. Causes a lot of headaches because there is a lot unexpected behavior.
+1. How do you handle testing?
+   1. First of all, I write unit tests in javascript and run those locally.
+   2. Interact with smart contract through remix solidity or Pragma.
+   3. Test my app in my own UI. Check etherscan to make sure that happened.
+1. What tools don’t exist at the moment?
+   1. It’s not possible to bundle two different transactions together and pay with them at the same time with MetaMask.
+   2. I wish errors in contracts were surfaced better. Generally, it is hard to know when things go wrong in contracts[a].
+   3. Gas limit
+      1. Wish I could do more within the fallback function. I know it’s limited purposefully, but I would like a secure way to execute code in it.
+1. What are you most excited about in the short term?
+   1. Would be really excited to have a mobile metamask. Wallet Connect seems promising on that front.
+   2. Seeing Dapps do live token swaps using 0x (functionally exchanging coins in an application). For example, being able to swap tokens in a game.
+1. How do you handle smart contract verification and security?
+   1. Linting
+   2. Code review on my own and with other people. Check best practices from Consensys
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Biggest pain point was learning Solidity. Not knowing how everything executed. 
+   2. Not as easy to write something and test it right away, longer feedback loop. 
+   3. Solidity documentation was out of date.
+   4. What would be the hardest part of teaching somebody to build a dapp?
+      1. Explaining the difference between wallets and contracts, and explaining to them the concept of Gas and how that dictates what they can store in their contract. Explaining how computation works on the network.
+1. Are there any other questions we should be asking?
+   1. Antonio Juliano
+   2. Nick Johnson
+
+
+
+
+[a]This is consistent message -- Maybe we list the top 7-8 problems at the end and then think through how they can be solved

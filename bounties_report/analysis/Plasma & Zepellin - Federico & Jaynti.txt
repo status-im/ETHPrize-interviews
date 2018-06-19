@@ -1,0 +1,60 @@
+﻿Federico & Jaynti
+1/23/2018 - Sina & Robbie
+
+
+1. Who are you and what are you working on?
+   1. Trying to work on Plasma – white paper is unspecified; it is not clear yet.
+   2. Started Dagger project – to get events for our UI or backend.
+      1. Use cases:
+         1. If you want to send an email or notification to users.
+         2. If your multisig wallet has incoming or outgoing transaction.
+         3. UI for the front-end; a multisig wallet: sent a tx and see it real-time. Make UI/UX better in Ethereum.
+1. What are your biggest frustrations?
+   1. Websocket isn’t there. It’s not customized. Interface is not that good in geth or parity.
+   2. I used to have my own servers running – my own laptop as a node – very painful, switched to Infura.
+      1. Crawling Infura.
+      2. Infura is unreliable – sometimes they miss the blockhash.
+   1. Why not run my own node?
+      1. Too costly to run Digital Ocean.
+   1. Web3.js – nobody can use it well; very flaky. Talked to Fabian about it and offered help.
+      1. People are using, but not contributing.
+   1. UI/UX:
+      1. Everything takes time; 15 seconds; 1 minute for confirmation. People are impatient.
+         1. Wait for notifications using Dagger.
+      1. How to improve:
+         1. PoS will improve this finality. Still too long for users.
+         2. Provide a notification to users; or email if it’s about security. If you’re buying cryptokitties, can send a follow-up email.
+            1. EthAlarm used by Decentraland –
+            2. Status building decentralized notification system.
+   1. Fede has been contributing to Solidity compiler itself for over a year now:
+      1. Mostly making the experience of working with Solidity more pleasant. Life is too short.
+      2. Solidity is quite understaffed –– only two people who are committing, who can merge PRs.
+         1. Fund more developers?
+         2. I’ve contributed, but would love to get paid for it[a][b].
+      1. Not many people have the availability to take part-time or full-time work at EF (Solidity, Truffle, etc etc). But are available for several hours a week to contribute.
+   1. Promote the people contributing -> funding.
+      1. EF has Dev Grants. Mostly geared towards bigger projects. E.g. porting Ethereum to mobile devices and wearables.
+         1. Also Scalability grants.
+         2. Ongoing funding to ongoing contributor would be interesting.
+   1. Better communications -> what different teams are building right now. e.g. with Plasma; there’s different people around the world pushing forward different implementations.
+      1. Weekly core developers meeting – where one can participate. But how to scale that? Need different structure. There’s multiple different teams. There’s also the Gitter channels. There’s ethereum.research forums; that’s helped communications in research and fundamental infra problems.
+      2. There’s an issue of time; the valuable people don’t have the time to work on these things.
+      3. Someone watching all sources and compiles them into one place: so more people know what to work on. Proof of Work newsletter (WeekInEthereum?).
+      4. The fragility of Solidity tools – lack of proper tooling; e.g. comparing language ecosystem between Java and Solidity: 
+         1. Linters, refactoring code, working with modules, ...
+         2. Debugging
+            1. This improved recently:
+               1. Latest truffle version includes an embedded debugger.
+               2. Daphubb working on new EVM with debugger built in.
+   1. Gas issues: we sent multiple wrong calls to wrong deployed functions – wasted lot of money
+      1. It doesn’t tell you why your gas is so high – it doesn’t say that you have a weird opcode
+      2. People don’t understand what is gasPrice and gasLimit properly.
+         1. Allow people to set one value – and set gasPrice and gasLimit interactively in the backend.
+1. Are there any other questions we should be asking?
+   1. Patricio Paladino from Zeppelin.
+
+
+
+
+[a]Funding developers on the Solidity team is a must -- more so the external collaborators --
+[b]Foundation should fund all external contributors that are helping out -- low hanging fruit!

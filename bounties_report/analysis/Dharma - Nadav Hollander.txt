@@ -1,0 +1,34 @@
+﻿Nadav Hollander
+
+
+1. Who are you and what are you working on?
+   1. Building Dharma - open protocol for tokenized debt
+   2. Pretty much exclusively at the contract level, sometimes using stuff like libraries that wrap around contracts.
+1. How do you handle testing?
+   1. Truffle to write JS unit tests.
+   2. ** There are not good mocking libraries for solidity **
+      1. Had to roll my own mocking contracts for testing
+   1. A better native solidity testing framework with mocking would be awesome
+   2. No manual testing.
+      1. It’s still pretty painful to do this too
+1. What are the tools/libraries/frameworks you use?
+   1. I like to use Typescript for testing.
+   2. 0x team built a great tool for generating typescript tests from ABI’s
+   3. Using truffle to test.
+1. What tools don’t exist at the moment?
+   1. Good logging and debugging
+   2. Setting up your own side chain easily to test things on because it would be way faster
+1. How do you handle smart contract verification and security?
+   1. Write down in plain text documents what the invariants are for the contracts. Just very clear human speak for how the contract should behave.
+   2. Then write unit tests relentlessly.
+   3. Ideally, there would be code review, but he is coding solo in his stuff write now.
+   4. Finding an audit is a crappy process. No information on who is doing it, what prices look like, which auditors are good / have good reputations.
+      1. Talked to zeppelin
+      2. Talked to Consensys diligence
+      3. Talked to Quantstamp
+1. Are there any other questions we should be asking?
+   1. “What is the thing that makes debugging solidity code the hardest?” (for me, it’s that you can’t log anything at all, and no working debuggers)
+1. Other bounties?
+   1. A GREAT SOLIDITY DEBUGGER
+   2. A turnkey solution to the “trusted relay chain” thing. Just make it easy for people to spin up a side chain, run their programs on it, rewind history to a specific point in time, etc.
+   3. Also let you set up rules on it like locking up deposits for a week between the side chain and the main chain.

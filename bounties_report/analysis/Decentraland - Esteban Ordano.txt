@@ -1,0 +1,59 @@
+﻿Esteban Ordano
+1/16/2018 - Sina & Robbie
+
+
+1. Who are you and what are you working on?
+   1. I’m hiring two or three people – excellent engineers – to build tooling. 
+         1. We’re calling the project Voltaire Labs, after the Voltaire house. Trying to get Sergio Lerner to help with that. Getting people I know from Google. Maybe we should join efforts? Will intro to Federico Bond.
+      1. Our infra:
+         1. MANA token which is an ERC20.
+         2. Auction of Land.
+         3. Land smart contract which is an NFT token standard.
+            1. Got tired of not hearing back re ERC non-fungibles improvements. Proposed alternative ERC.
+            2. Land registry of who owns which land parcel.
+            3. These link to IPFS or IPNS for content of land.
+         1. Decentralized exchange of land parcels.
+         2. Small tool for sending emails whenever an event is triggered on your contract. EthAlarm: takes address of contract, ABI, pick events that you’re interested in.
+      1. We run the land auction off-chain, we had a period of registration where you’d send the MANA you wanted to use in the auction. At the end of the auction, we distributed the NFT tokens and returned MANA.
+         1. Auction was mostly an independent application – better UX, less fees
+      1. Why the auction was off-chain:
+         1. We processed around 115k bids. The UX for the auction was great. We managed to provide the user with an experience that was way better, because it wasn’t blockchain-based.
+            1. Both on the browser and the server, we exchanged cryptographic receipts –– “I’d like to bid for the following parcel (x,y), (x,y) – at the end you’d receive a signed receipt” – the server would receive that message, and say back “I’ve received a bid, and here’s your receipt”. All these receipts are public.
+               1. Anyone in the auction everyone could act as an independent verifier of the auction.
+            1. We returned a receipt had a nonce –– 
+            2. We can audit the whole auction. Can prove every bid that we received.
+      1. How we’ve been running auditing
+         1. We sold $16m worth of parcels of land.
+         2. We wanted to make sure that they weren’t messing up.
+         3. Not many people were checking – but a few did and even reported back some issues; community trusted them.
+         4. Would be best if this was run on a decentralized protocol so people didn’t have to trust these guys.
+      1. We’re building a voting scheme with MANA:
+         1. “How tall should this building be?”
+         2. We are repeating the same pattern as the auction.
+         3. Our voting scheme is offchain and non-binding, because the project is early enough that people can back out.
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Pains:
+      1. The gas issues – the expensiveness of the whole process.
+      2. We are subsidizing the whole process of deploying the land.
+         1. We are also subsidizing the second transaction after the ERC is assigned.
+      1. This whole process will take 12 million, 150 ETH.
+   1. We also had to make the contract upgradable – with the delegate proxy pattern
+      1. We are worried that Solidity will change, and the structure of storage will change.
+      2. Our thinking: we’re doing some engineering on how to sell the next batch of land – we came up with a better system to sell that land – it’s going to be pretty neat. We’re not going to have this issue.
+   1. Decentralized exchanges:
+      1. Looking forward to 0x adding a version of their protocol for non-fungibles. Which has now happened! https://blog.0xproject.com/introducing-0x-protocol-v2-9f5bda04d38d
+   1. State channels:
+      1. Looking forward for Raiden
+      2. Was thinking of funding Lightning Network for ERC20 network
+         1. Simulating a UTXO model on ERC20 tokens
+         2. Wants for interoperability between Bitcoin and Ethereum.
+            1. Olaoluwa (from Lightning) is the best coder in the world.
+            2. Bitcoin world is more secure.
+               1. Lightning code is written like poetry.
+1. Who are the other people you think we should talk to?
+   1. Should speak with Fede –– should collaborate together –– they’re interested in throwing money at sidechain & Plasma chain.
+1. Other bounties?
+   1. Biggest request: have ERC20 upgraded to ERC223.
+      1. We have troubles with small re-orgs – transferring immediately upon approvals causes issues.
+         1. This was a problem with our code; hard to develop.
+      1. Have watchers on the Blockchain, and sending transaction to make correct transfer, e.g. for MANA token.

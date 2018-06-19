@@ -1,0 +1,48 @@
+﻿ANDREY PETROV
+
+
+1. What are the tools/libraries/frameworks you use?
+   1. Truffle - not his favourite, but best thing out there right now
+   2. Vim for everything
+   3. Etherscan a lot
+   4. Remix IDE - trying this out sometimes, but also my own editor
+   5. Truffle 
+   6. Also my own runner, written in go.
+1. Who are you and what are you working on?
+   1. https://thousandetherhomepage.com/ 
+1. What are your biggest frustrations?
+   1. Dapps: web3js stuff sucks. In the doc, it’s in a weird halfway state where its deprecated but there’s nothing superseding it. Its pretty broken in many ways. At least 4 solutions that are about 80% done.
+         1. (ethers.js, but it doesn’t speak well to metamask. Fixed now 11/05/2018)
+   1. UX stuff?
+      1. CryptoKitties situation - lot of people want a basic way to swap a transaction with one with higher fees. That’s kind of an ethereum specific thing.
+   1. Scaling?
+      1. Lightmode thing with Geth -  a lot of users use the lightmode. In terms of scaling user base, that’s relevant. Eventually most users use lightmode, and right now its broken. [Related update: https://vipnode.org/]
+      2. Spinning up more nodes is useful!
+      3. (Campaign to show selfies with your nodes, every office should have a node or many, etc.)
+   1. Are you running into problems with any of the following:
+      1. Gas limit
+         1. Probably a truffle problem: it returns a lot of errors related to the gas limit, but they are not actually errors. Error messages are probably just not great. 
+         2. Better errors on the gas limit would be useful to address underlying problem. 
+      1. Off-chain computation
+         1. Been thinking about some game ideas, and a lot of them require off-chain computation.
+1. What tools don’t exist at the moment?
+   1. Things I want improved with truffle: it has a lot of moving pieces. Reliant on the nodejs ecosystem and all that. Would like to see a binary runner - want to be able to have a binary, give it some solidity, and it knows how to run it in a simulated environment. Really useful for deploying continuous integration and stuff.
+1. What are you most excited about in the short term?
+   1. What dev tools on near horizon that would change things?        
+      1. Web 3 stuff is almost there but not quite
+      2. Need to look more into the ZK stuff which is cool, but needs more researchers on it.
+      3. Tons of room improvement for wallets
+      4. Mobile dapps are in the VERY early stage. Mobile wallets that can run dapps are just reaching market. 
+         1. Status
+         2. Ethers wallet has it
+         3. Metamask for brave mobile
+         4. Cipher
+1. How do you handle smart contract verification and security?
+   1. Write a lot of tests myself. Get other people to read it. Keep it as simple as I humanly can. 
+1. What was the hardest part about learning to develop with Ethereum?
+   1. A lot of tooling that isn’t there. Ecosystem is “bursty”: there was a big burst of dev for web3, but then it stopped, it’s not done, and it’s not advancing. Truffle seems to be same thing. Why? Well people build the stuff they need, and then they stop building. 
+   2. Operational security of the thing. Easiest way to use it right now is to install metamask, which is not great. If you install ina browser with other extensions, its as secure as other extensions. Installing mist is not happening. Sure it says write down seed so it’s safe, but doesn’t explain full meaning or ramifications of that. 
+   3. Do better about default backup practices. There could be automatic backup processes. 
+   4. Biggest risk is loss, not theft
+1. Who are the other people you think we should talk to?
+   1. Max Veytsman

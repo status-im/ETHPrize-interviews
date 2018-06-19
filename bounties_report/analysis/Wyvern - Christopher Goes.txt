@@ -1,0 +1,56 @@
+﻿Christopher Goes
+05/18/2018 - Andy, Parker
+
+
+1. Who are you and what are you working on?
+   1. Wyvern is an application agnostic protocol for exchange of transactions, not tokens
+      1. Parameterisable orders - kitties with blue eyes, discovery mechanism
+      2. NFT, bonds, collateralized debt obligations, pools of cats, where people care more about the  parameters of the asset
+      3. Buying and selling of smart contracts. Use case- rental of smart contracts in exchange for fees
+   1. Like the 0x for transactions, ethereum assets
+   2. Proxy account system where users create DEX orders that execute transactions under specified conditions. 
+   3. Abstracting over Ethereum bytecode - anything you can send over eth transaction you can buy/sell
+   4. Mostly written in January 2018
+1. What are the tools/libraries/frameworks you use?
+   1. Solidity, Typescript, Truffle for deployment, JS front end
+   2. Bytecode checking handled by libraries 
+      1. Bytecode of your order (constructed in UI) is checked vs orderbook
+   1. How are you building the front-end to construct bytecode?
+      1. https://exchange.projectwyvern.com/
+      2. Wyvern schemas library maps bytecode to visual representations
+1. What are your biggest frustrations?
+   1. Solidity - I find it difficult to write complex, high-assurance code vs Rust/Ocaml etc.
+   2. Wyvern uses large exchange core contract
+   3. System of several contracts (delegate calls) needed to validate order
+   4. I wish there were easier ways to use typescript rather than javascript with solidity. Calls to the contract (from javascript) are mostly untyped. I definitely want better statically typed testing tools that are clear and easy to use.
+1. How do you handle testing?
+   1. Oyente
+   2. SolCoverage is super useful
+   3. Javascript tests
+      1. Current experience writing tests in solidity is terrible. Could be better with a better interpreter.
+      2. Current static analysis tools focused too heavily on reentry bugs, post-DAO
+      3. Security audit on Wyvern revealed that a non-zero contract balance tool
+      4. More edge cases needed between Solidity and EVM gotchas
+1. What tools don’t exist at the moment?
+   1. Local, easy Solidity interpreter
+      1. Currently, tests are done on EVM through a blockchain
+      2. Most things you’re testing don’t rely on blockchain features (timestamps, block # etc.)
+      3. Easy interpreter that runs locally on computer not through ganache
+   1. Also, Better gas measurement- line by line gas cost analysis
+      1. His workaround was using solidity assembly code (well documented)
+   1. User account experience would be better if people used contracts instead of standard accounts
+      1. Wyvern already uses user-owned smart contracts as their user account
+      2. Instead of ERC-721 way (smart contract approved to spend your funds). If users had proxy accounts, they could create global limits on spending of tokens. Wouldn’t need to track approvals via various individual contracts.
+      3. Custom rules for fraud detection/reversal could be set up (i.e. double confirmation/ time period required for transactions > $xxxxx)
+1. What are the best educational resources?
+   1. Introduction to Ethereum Medium post: https://medium.com/@preethikasireddy/how-does-ethereum-work-anyway-22d1df506369 
+   2. EVM yellow paper, Solidity documentation
+   3. Edge cases can be super technical - go look at the hardcore docs if you really want to know. There are no easy answers for some things, after all.
+1. Other domain specific questions?
+   1. What are the barriers to Wyvern usability (by relayers) and liquidity?
+      1. Wyvern is an exchange contract, not a platform
+      2. Platforms will diverge in their purpose
+      3. Openseas could use Wyvern
+      4. Economic model set up which they could take fees. Can be used by relayers to take fees in Wyvern orders
+      5. Would more expect relayers in different verticals, more
+      6. Wyvern makes it easier to share liquidity (between relayers)

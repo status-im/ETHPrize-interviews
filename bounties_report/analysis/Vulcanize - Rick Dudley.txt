@@ -1,0 +1,59 @@
+﻿Rick Dudley
+4/5/2018
+
+
+1. Who are you and what are you working on?
+   1. I worked on EthPM briefly.
+      1. I gave up in frustration 
+      2. I was working at Monax at the same time with RJ and Jan.
+      3. This is a good bounty that we’re going after.
+      4. Bigger problems within EthPM:
+      5. Fundamentally, in Ethereum, we have contract immutability.
+         1. If I take the same bytecode and deploy it to two different networks, it’s going to have different hashes. So how do I reference the code across my local, testnet, and mainnet environments? How do I reference that in my dev environment? -> the contract address won’t be the same.
+   1. Working on at the moment?
+      1. VulcanizeDB with Maker as their client.
+      2. Steps:
+         1. Take IPFS (the content-address allows you to verify the content is correct) and retrieve the data
+         2. SQL query – you do a search given parameters and you get back a result set.
+            1. Because you trust the database is free of faults.
+         1. Vulcanize: our result-sets contain content-addressable data.
+            1. ETL system for blockchains.
+            2. Pull blockchain data into a Postgres database – load all blocks, transactions, tx receipts.
+            3. You as an engineer write a transformation – which also generates a GraphQL endpoint.
+            4. Your dapp can then pull that data on an ongoing basis live –– pubsub, polling, … The data is also content-addressable.
+            5. e.g. you put the events for a contract into a table, you have a block range, a contract, in this table
+            6. Then, you take that table, do a pg_dump, and put it into IPFS.
+            7. You can then verify that using your own client.
+      1. Github / vulcanize / vulcanize.db
+         1. Will be released soon.
+      1. Will eventually write a DSL for those transform.
+      2. Standalone vulcanize db reads from one node, but can gossip the transformed to other nodes.
+      3. Interactions with IPFS, Tendermint, Lightning, …
+      4. Federated exchange – decentralized exchange
+         1. Once you have that system; then the Tendermint validators can have a system marketing
+         2. Tendermint validators can be bonded on Ethereum AND they promise to route the Bitcoin HTLCs
+1. What are your biggest frustrations?
+   1. Lack of people over 40 – naivete.
+   2. Trust and guarantees – which crypto gives you which guarantees?
+   3. The claims of Ethereum – what features are worth preserving.
+      1. Contracts are immutable; but state is mutable –– contract code being mutable doesn’t give you any security. -> immutability.
+      2. Is the RChain application model (not Turing complete) better than having a Turing complete VM?
+   1. We haven’t been super happy with ganache in particular.
+1. How do you handle testing?
+   1. I like the DappHub stuff; but it’s not fully integrated. 
+   2. There isn’t a full testing suite; no way to go from the Solidity integration tests, to full-stack integration tests.
+   3. Casey Detrio worked on testing & fuzzing within Ethereum Foundation codebases.
+      1. But they don’t run simulation networks on updates, so there could be consensus breaks.
+         1. For instance, the airline industry does this. Airlines use BFT within fly-by-wire systems.
+   1. Check out: videos from SQLite author explaining how they did testing.
+   2. Our testing:
+      1. We use both Zeppelin and Dapphub. 
+      2. Phantom-js test of something that uses IPFS and Ethereum.
+   1. Monax had a lot of great tools, that didn’t get the attention they deserved in the community:
+      1. Counterintuitively, the federated context has higher security requirements. Your clients ask tougher questions than ICO token buyers.
+1. Other domain specific questions?
+   1. Bottom-up sharding scheme
+      1. An app-sharding model.
+      2. Put a market-based order based on parameters on what validators you want.
+   1. Active bounty is a hybrid between a consulting contract & a bounty?
+      1. With Github, you have the opportunity to watch source code writing (commits) to deployment on mainnet –– the whole process cryptographically held together

@@ -1,0 +1,80 @@
+﻿Piper Merriam
+2/13/2018 - Sina 
+
+
+1. Who are you and what are you working on?
+   1. Trinity: new Python-based Ethereum node.
+      1. Py-EVM: python implementation of EVM in python.
+         1. Sharding & Casper research team are building on this.
+   1. Web3.py: python equivalent of web3.js
+      1. V4 is coming along nicely and is fairly solid right now.
+      2. Under the above – there are a myriad of base libraries that I’m the developer –– i.e. side-effects of the work.
+   1. Package management 
+      1. Similar to Populus –– but actually the underlying core package-management structure. The solution is ready, it just needs to be built.
+      2. It is project that I had to cut off, but wants to pick up again –– immediately came to mind for bounties.
+1. Other domain specific questions?
+   1. Package management:
+      1. First piece: the spec
+         1. ERC whatever that defines the spec –– this is v1.
+            1. https://github.com/ethpm/ethpm-spec 
+            2. There is very minor adoption of this.
+         1. There is a v2 of this spec –– couple of tweaks to fix stuff that was wrong in the first one. This is mostly written up, needs PRs to be written and merged.
+      1. Second piece: the implementation.
+         1. There is an early Python implementation – 
+            1. https://github.com/pipermerriam/py-ethpm 
+            2. but you need this in every language.
+         1. Needs various abstractions, for how to get deployed contracts –– returns language-specific object to you.
+      1. Third piece: a standard –– an ERC for package registries.
+         1. https://github.com/ethpm/ethpm-spec/issues/75 
+         2. Standard methods for looking up what versions of the package exist, what is the hash / IPFS / HTTP URI.
+      1. Fourth piece: implementation of the registry as a smart contract.
+         1. There’s an already implementation of this in the EthPM github.  Needs to be simplified.
+            1. https://github.com/ethpm/escape/blob/master/contracts/PackageIndex.sol 
+         1. Having this in Zeppelin or Dapphub.
+      1. The fifth piece: can have tooling + ENS nicencess to automatically deploy to registry for you.
+         1. Web3.js and Web3.py can implement methods to talk to packages –– can find the packages, pull them, use the right abstractions.
+            1. e.g. you load up the Gnosis package, pull the latest version, pull it out of your web3.py, and query for your contract balance.
+               1. Theoretical API: `web3.packaging.registry(‘packages.gnosis.eth’).loadPackage(‘gnt>=1.2.3’).contracts.gnt`
+         1. You get a really secure way of accessing contracts
+            1. Each company can create their own registry.
+   1. What do you need?
+      1. Two moderately skilled Python devs who know about Ethereum.
+         1. Two can keep each other in check – it’s healthier.
+      1. Could have MVP for this in Web3.py in 2-3 months. For the full thing. Could have an alpha release.
+   1. What does wider adoption look like?
+      1. Every etherscan contract can be wrapped up in a package.
+         1. At this point Etherscan becomes a package registry.
+      1. Verifying package source on Etherscan becomes trivial –– you upload a package to Etherscan.
+         1. No more need for janky copy-pasting source code.
+      1. Wallet interfaces:
+         1. MyEtherWallet –– instead of having address or ABI, you can upload the package or let you browse the registry and pick a package to interact with it.
+         2. Mist Ethereum wallet –– “track this contract” –– can show you a thing on the top that says you’re not using the latest version of this package. You get a security bonus –– to notice if you’re using an old package.
+   1. Development framework use-case for packaging!
+      1. Is the one that’s most talked about, but is probably the last one that will happen.  It requires complex integration between compiler and on-chain assets that might be stateful.  
+      2. The base libraries however are needed as a stepping stone to build these features on top of.
+      3. NOTE:
+         1. Piper can lead defining this as a bounty and setting the milestones.
+         2. $50k/$60k feels like enough to attract attention. Can potentially get ETH foundation to fund part of the bounty.
+   1. Web3.py
+      1. Been using Gitcoin pretty heavily –– has been highly effective. Any task that they can define well, they can get done through Gitcoin reliably.
+   1. Trinity –– Python Ethereum node
+      1. Some use-cases will be greatly improved by third-party libraries 
+      2. There is a solid abstraction around the database.
+         1. Generating a SQL backed chain db would hugely help research.
+            1. Take an existing chain db and migrate it into a SQL db. Or just sync the chain into SQL.
+            2. Maybe you only move the transaction and block data into the SQL db.
+      1. Another use-case for Trinity:
+         1. Spin it up on Heroku – it’s an ephemeral environment – for that to be a viable way to run your own Ethereum node.
+            1. Issue: how long does it take to initialize. In its lightest light-client mode, should be ready in sub-1 minute timeline.
+      1. Trinity and PyEVM have the most resources available out of the things they’re working on.
+1. Other bounties?
+   1. The Hive tests –
+      1. Framework that black-box tests EVM implementation.
+      2. Has had multiple conversations with cdetrio on Github.
+      3. Bounty: needs clear documentation: “for your EVM to be included in the Hive tests, you need this stuff.”
+         1. Maybe it’s not super high impact and not crisply defined
+   1. Bounty: need a formal spec for the Json RPC api.
+      1. Have integrations tests in Web 3. Subtle differences across nodes, which make things confusing.
+      2. Somebody needs to shepherd the ERC spec through –– most of the work is done. Dan Finlay already hammered out most of the work.
+         1. Someone needs to write the schema for all Json RPC endpoints.
+      1. This is super well defined.

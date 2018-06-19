@@ -1,0 +1,60 @@
+﻿Richard Ma & Don Ho
+Sina on 1/11/2018.
+
+
+1. Who are you and what are you working on?
+   1. Focused on the security aspect of Ethereum. 3 main challenges for going mainstream:
+      1. 1) security, 2) scalability, 3) usability.
+   1. Too many projects; audit talent is in low supply; 
+      1. System to allow anyone to get a high-quality audit for teams.
+   1. Components:
+      1. Payment smart contract: deals w upgrades; governance
+      2. Verification node: software to verify smart contracts
+      3. Software library: formal verification, static analysis checks
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Running the client:
+      1. Language support across different clients is problematic. We’ve been focused on the software verification libraries for now.
+1. Other bounties?
+   1. IDEs:
+      1. Remix is probably the best one. No support for quick-fixes (like you have in IDEs).
+      2. Better support for projects.
+         1. Manage dependencies.
+      1. Code coverage tools, to see how good your tests are. Integration would be good.
+         1. Existing tool: run this as a separate command & get results in a web ui.
+            1. Solidity-coverage.
+      1. Has some static analysis tools – more would be better.
+      2. Notes:
+         1. Web UI is weird. We don’t use it, because of lack of project support.
+            1. We use sublime text / IntelliJ.
+         1. Better syntax coloring like Remix would be good.
+            1. Bounty for solidity support in Vim and/or Sublime.
+   1. Debugging
+      1. Half the time is always spent debugging.
+      2. Debugging with truffle & node-js is horrible.
+         1. Have to debug the JS and contract parts separately.
+            1. Different environments.
+      1. We do iterative development; somewhat test-driven; We’re aiming for very good coverage.
+      2. What I’m envisioning: putting a breakpoint into the smart contract or Javascript. Ideally, one breakpoint can step through all code.
+   1. Testrpc
+      1. Usable blockchain explorer for testrpc – to explore local data.
+      2. Would be great for learning as well.
+   1. Streamlining code export for Etherscan verification during contract deployment
+      1. Typically, you have to flatten all your imported contracts, it’s a pain in the ass.
+      2. Would be good to have a place to do this. Assures that the version is consistent.
+   1. Sometimes you need update your contract –
+      1. Tools to evolve your old contract into your new one. Only deploy the additions.
+      2. We had this issue in their ICO: we wanted to change the end-date for the ICO.
+      3. There’s a valuable data in the old contract.
+      4. Could run into problems with consistency.
+      5. More than “library driven development”, would be good to have tools that generate this for you.
+      6. My vision: refactorings like in Eclipse; pick refactorings (e.g. can split the class, etc). This would tie into the IDE.
+   1. Developer education programs
+      1. Lesson plans. Get each company to do one session
+      2. We went to a meetup for people who like to learn Ethereum. It was way oversubscribed.
+      3. Could be good for recruiting / onboarding.
+   1. We’re putting together a “minimum security standard” after interviewing all auditing teams.
+      1. Existing auditing tools for Solidity are poor.
+      2. Read our Solidity analyzer: https://github.com/quantstamp/solidity-analyzer 
+1. Who are the other people you think we should talk to?
+   1. NuCypher.
+   2. Keep network.

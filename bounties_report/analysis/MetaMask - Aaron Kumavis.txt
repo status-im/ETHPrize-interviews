@@ -1,0 +1,76 @@
+﻿Aaron Kumavis
+5/17/2018 - Andy, Robbie, Sina
+
+
+1. Other bounties?
+   1. We’ve had good experience with bounties – Gitcoin,
+   2. One issue: bounties denominated in ETH or tokens, which leaves them open to volatility and potentially unhappy contributors.
+   3. Gitcoin, has ERC20 support, so you can use DAI now, which should help significantly.
+   4. People sometimes do crappy jobs, then get angry that they’re bounty wasn’t accepted. This is, in a general, a problem between intrinsic and extrinsic motivation which still needs to be solved.
+   5. Internally requirements change sometimes, leading us to not wanting to accept the solution even it abides by the initial spec, because we’d need to do a refactor around it.
+1. Who are you and what are you working on?
+   1. Whymarrh: contracting in the space, working on Metamask UI, working at Kyokan.
+   2. Kumavis: co-founder of MetaMask.
+      1. wallet functionality; 
+      2. not losing your private keys; 
+      3. showing you what you’re signing, and what the side-effects of that are; 
+      4. choosing a good gas price
+   1. Using Ethereum.js, Eth.js.
+   2. One thing we don’t do well – conveying on-chain errors that happen during tx execution.
+      1. Want to be able to go deeper.
+         1. Source map tooling. Here’s where it exactly went wrong.
+   1. Want: an API to get source maps for published contracts.
+   2. Source mapping tool already exists.
+      1. Give it the trace information. They can generate this themselves using the json rpc.
+      2. Find where it reverted.
+      3. Throw that into the source maps.
+      4. That’ll give you the original line it was on.
+   1. Could do more fancy analysis: find what values in the state are.
+   2. Not sure how useful this would be the average user.
+1. What are your biggest frustrations?
+   1. Usability
+   2. Challenging because there’s a large range of users.
+      1. E.g. Kenny at MakerDao who’s now at RChain. Hiss job was to manage the multisig for their funds. He’s sent a 1000 transactions on Metamask, he’s always signing, approving, etc.
+      2. E.g. other people have no idea what’s going on, want to participate in an ICO. Any extra information you give them confuses them.
+   1. Toyed around with the idea of presenting two different ideas. Advanced mode.
+   2. We have a whole support team.
+   3. Some tickets are sophisticated bug reports. Some are “hey, you stole my money”.
+   4. We’re trying to build general education resources.
+   5. Bounty: Ethereum for dummies.
+      1. In Metamask support –
+         1. What is a private key, what is a seed phrase (most important!)
+         2. Tokens are initially straightforward. But looking at a block explorer, it says my tx was sent somewhere else.
+         3. Why do I need to pay ETH to send a token to someone?
+         4. Gas prices.
+   1. Metamask can share learnings from their support team.
+   2. Whymarrh is introduced in contributing few hours.
+      1. Thinks videos or walk-through could be the best medium for explaining complex things.
+   1. Kauri can have specific documentation for technical stuff.
+
+
+   2. Transaction confirmations
+   3. We need to explain what is happening to our users. The DApp could be lying about what’s happening, which makes it extra complicated/interesting.
+   4. Metamask receives a tx from the DApp, but no more info.
+   1. How do you convert that into a message to the user?
+   2. “It looks like its talking to a token contract; or sending a random blob of data...”
+   1. Take that low-level data and have to convey to the user what’s happening.
+   2. We have special cases – e.g. a token transfer, this is an ERC721, this is a DAO proposal, etc.
+   3. There’s non-normal stuff – e.g. what’s it like for a sidechain?
+   4. Multi-network –– how would it work for non-Ethereum stuff?
+   1. E.g. secure scuttlebutt.
+   2. E.g. Filecoin, Dfinity, etc.
+   3. E.g. Plasma chains inside of Ethereum.
+   1. Standardization of transactions, blocks, signatures, etc.  –– not bounty-able right now. Need to build an architecture around it.
+   1. Then, you need plugins, which could be a good fit bounties.
+
+
+      1. Scaling. We have 1m users...
+      2. A lot of the work for scaling has happened inside of Infura.
+      1. Part of it is just throwing money on the fire.
+      1. They developed a REST api for json rpc. So now they can put a CDN in front of it, and get caching.
+      1. But now, a standard provider can’t point at the REST interface.
+      1. Seems like the big need is for standardization.
+      1. E.g. Maker’s ERC20 version doesn’t match the standard.
+      1. That’s not because we don’t have enough conversation, it’s that we don’t have real governance.
+      2. Infura is an existential risk for Metamask, because it’s expensive and we’re a non-profit.
+      1. We’ve been working for a while on their light-client. We’re blocked by some libp2p internals.

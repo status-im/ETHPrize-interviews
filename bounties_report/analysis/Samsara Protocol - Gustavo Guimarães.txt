@@ -1,0 +1,59 @@
+﻿Gustavo Guimarães
+31/05/2018 - Andy and Mitch
+
+
+1. Who are you and what are you working on?
+   1. Blockchain engineer, working in the space since 2016. Mostly as a freelancer, helping companies solve business problems using blockchains.
+   2. Middle of this year, started Samsara Protocol. Started with idea of selling real estate on chain, and decided to use a raffle based system to do this.
+   3. Abstract idea from property to raffling all kinds of assets.
+   4. Smart contract developer in general.
+1. What are the tools/libraries/frameworks you use?
+   1. Use Truffle heavily.
+      1. Still a long way away from good debugging tools.
+      2. Using Remix out of habit, especially to check and step through opcodes.
+   1. Remix to dig deeper into what is going on with my solidity code. Especially the debugger there to dive into the EVM.
+      1. Have got used to the debugger here, but it is still so obscure when something throws an exception and difficult to find out why.
+      2. I have developed some intuition for this, but it’s really, really difficult for people just beginning.
+      3. No break points!
+   1. Use open zeppelin as reference for smart contracts - have worked on some educational projects with the Zeppelin team.
+      1. No issues with this. Haven’t looked into zeppelin_os yet.
+      2. But the idea is quite interesting - upgradeability and on chain libraries are cool.
+   1. Truffle-flattener library - make all your modules into one file. Use this to deploy, rather than doing it file by file.
+   2. React for frontend stuff.
+   3. Web3 to hook it all together.
+      1. Websockets (wss) are tough to work with. Having difficulty connecting to them through the infura nodes.
+      2. Overall, really happy with the new version - it solves a lot of problems, particularly around signing transactions safely.
+1. What are your biggest frustrations?
+   1. Syncing my node to the chain has become really difficult. I used to do this a lot last year, but now I use Infura because the node is so heavy/hard to maintain and it is just easier to do it this way.
+   2. Not at all good for fast development cycles.
+   3. I have learned to embrace how slow testing can be because everything is async there.
+   4. For the raffle system I need to draw a random number, and right now this is kind of impossible in the EVM. The holy grail would be to produce a really random number at compilation time that cannot be tampered with by miners etc.
+      1. Right now I am just using an oracle to do this.
+1. How do you handle testing?
+   1. I test in JS - unit tests mostly.
+   2. On average the ratio is 15:1 testing to smart contract lines of code and this can cause things to be quite slow, but it’s still good practice and seems necessary for immutable contracts.
+   3. Overall, quite happy with what comes out of the box with Truffle.
+   4. Have only added await async calls to make things easier to read. Have some Mocha extensions added for the same reason.
+   5. Prefer readable code, rather than fast code, especially when it comes to testing.
+1. How do you handle smart contract verification and security?
+   1. Here in Berlin I have worked with solidity,berlin and they are amazing. Do really comprehensive audits.
+   2. Have also used formal verification tools: most often Mythril, sometimes Oyente.
+      1. I am also aware that the invariance checks etc. are also created by humans, so might not be entirely comprehensive.
+      2. 3 levels of checks: write code, write tests for the code, pass to another engineer to check, then formal verification tools, lastly do the audit.
+1. What tools don’t exist at the moment?
+   1. Would be nice to have a tool that could get bytecode and re-engineer it into solidity code.
+      1. Sometimes I want to check if a function or some functionality and, if the contract has been deployed but not verified, it’s not really possible.
+   1. Open source block explorer.
+1. What are the best educational resources?
+   1. What I love about Ethereum is that most of the code is out there in th open - so I go and read it.
+   2. I often go to the Aragon repos and check out what they are doing and how they do it.
+   3. Already mentioned the open zeppelin library.
+   4. This is how I learn - just keep up-to-date with the best teams and the latest features the Solidity team is rolling out. 
+   5. The solidity readthedocs is pretty good.
+   6. I have written some blog posts myself about how to do things in the Ethereum ecosystem. I sometimes go back to these and they are often very helpful.
+1. Was anything easier than expected?
+   1. I was pleasantly surprised the first time I connected to a node using Infura, to the point that I decided then and there to not use my own node.
+1. What are you most excited about in the short term?
+   1. Really excited about the research around scaling Ethereum. I am myself working on side project to do state channels.
+   2. There was an awesome lecture at EDCON, and was super inspired by David to try it out myself.
+   3. Not necessarily in the next 3 months, but there are so many ideas out there that it is bound to be exciting for anyone getting exposed to it.

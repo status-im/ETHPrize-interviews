@@ -1,0 +1,42 @@
+﻿Quazia & RJ
+1/26/2018 - Sina & Robbie.
+
+
+1. Who are you and what are you working on?
+   1. Giveth - Charity platform with three layers
+   2. Fairly complex contracts on-chain. Pushes the limits of gas limit. Making transactions is relatively expensive.
+      1. Off-chain stuff. We cache everything; we store images and profiles offchain, will eventually be on IPFS.
+      2. Some actions are not on-chain: “reviewing a milestone”.
+1. How do you handle testing?
+   1. Offchain stuff is not dispute related.
+   2. Gas limit issues:
+      1. Jordi wrote contracts to begin with – so WE had a good start.
+      2. Multiple DELEGATE calls to the same contract are the same price each time; but this doesn’t make sense. You’ve already loaded the contract in memory, so should be cheaper in consequent calls.
+         1. Abstracting – one key-value contract that stores pointers to data.
+         2. Rest of data – stores all data. Mappings of hashes to boolean to structs / addresses / etc.
+         3. Leads to upgradability of contracts. To the parameters used in the logic.
+         4. Separate data from the application; let’s you iterate. The data contract is owned by the business logic, ETC.
+      1. Estimating gas / optimizing code:
+         1. To get gas limit: run it on testrpc. Easy.
+         2. Debugging is hard, after you start adding assembly in there.
+            1. Remix is hard for large contracts. Multiple contracts.
+   1. Testing flow:
+         1. We use Mocha + wrappers to generate contracts in Js.
+         2. Needed: better errors. e.g. if testrpc spit out more useful messages.
+      1. Deployment & CI:
+         1. We have Node scripts to do this. Async await. Pretty simple contract.
+            1. Jordi’s tool compiles everything into a single file; makes verification on Etherscan simpler.
+1. What are the tools/libraries/frameworks you use?
+   1. Remix vs. your local dev environment:
+         1. Can write code, deploy, and debug in Remix.
+         2. EVM Lab: written by Martin Swende; give it a tx hash; spits out opcodes, storage, memory.
+            1. RJ wrote source code mapping – doesn’t work for complex contracts. Show your contract code along with the opcodes.
+            2. We use it often. Simple CLI tools. Just need Web3 and a tx hash. Sounds AMAZING.
+            3. To be improved: bugs with reproducing certain transactions.
+               1. E.g. couldn’t recreate contract creations.
+               2. Source mappings.
+1. Other bounties?
+      1. A solid debugger – needs a rare breed of dev to build.
+      2. Scaffolding tool for prototyping things –
+         1. To test a small contract before integrating with everything else.
+         2. Think this will standardize over time.

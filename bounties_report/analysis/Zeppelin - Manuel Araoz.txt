@@ -1,0 +1,48 @@
+﻿Manuel Araoz
+
+
+1. Who are you and what are you working on?
+   1. Open Zeppelin: open source smart contract framework
+   2. Currently working on building web app
+      1. On chain libraries with upgradability
+      2. Contract interaction
+      3. Marketplace
+      4. Scheduler for asynchronous execution.
+1. How do you handle testing?
+   1. Truffle automated testing with javascript unit tests
+   2. Migrated to async/await style of tests
+   3. Mocha, Chai
+   4. Onchain bug bounties for finding implementation bugs.
+1. What are the tools/libraries/frameworks you use?
+   1. Use the truffle toolkit the entire way. Truffle for testing.
+   2. Publish on npm for users to use open zeppelin.
+   3. One of the first to try ethpm.
+      1. It was super buggy with IPFS errors and it couldn’t find the resources and stuff
+1. What tools don’t exist at the moment?
+   1. Upgradability
+   2. We’re going to build an upgradable library, for the most used kinds of contracts. So that you can just use the library and it will be an upgradable form[a].
+      1. Upgradability requires governance mechanisms though, and these are more difficult to figure out, as it is not just about code.
+   1. We are not working on debugging, but would love to see someone solve it
+      1. We use the truffle debugger but it’s not covering all their needs
+      2. Remix is good, but we would rather not use the web UI.
+   1. Better tools for deploying and managing contracts on the blockchain
+      1. We’re building this (John & Marcus)
+   1. Tools to replay past transactions
+      1. E.g. for historical testing of upgrades.. replaying transactions from previous versions and making sure they don’t break.
+   1. Stress-testing cryptoeconomic system: we only really do human analysis now. 
+   2. Better tools – like simulations of the mechanism design to prevent game theoretic problems – would be cool. This can be a bounty[b].
+1. How do you handle smart contract verification and security?
+   1. We design first then develop. 
+   2. Sometimes they see other teams mix these two phases.
+      1. This is bad, because you can break your assumptions in nuanced ways..
+1. Who are the other people you think we should talk to?
+   1. Jorge from Aragon.
+   2. Kevin Owocki from Gitcoin.
+   3. Other Zeppelin devs: he will make intro.
+   4. Esteban from Decentraland.
+1. Other domain specific questions?
+   1. Interesting: Solidity compiler team runs OpenZeppelin tests when they update & other projects tests to make sure they’re not breaking.
+
+
+[a]Would like to know more about this.  Mark Beylin mentioned same thing
+[b]I think this would be better as a challenge for researchers -- Mechanism put out and whoever can break it, get rewarded.....  should be positioned as a challenge with prestige similar to how hacker sites work.

@@ -1,0 +1,56 @@
+﻿Fabiano, Jordan, Nick
+5/14/2018 - Andy, Mitch
+
+
+1. Who are you and what are you working on?
+   1. Cryptokitties! Goals they have are to get multiple millions of users, the sooner the better. Ethereum sharding would be very nice, but even then there are scalability problems. Looking into other chains, EOS, Neo, Cardano  Looking at things from a scalability perspective.
+   2. Back-end stuff reconciling state of the world between blockchain and their stuff
+1. Other domain specific questions?
+   1. Have you written any open source tools for scaling? 
+   2. Looked into side chains and micropayments. 
+      1. Side chains as implemented in something like Raiden don’t allow people to build off what they build. On side chains kitty hats would not be possible.
+      2. Cryptokitties run son chain. Sidechains aren’t the option, but Plasma is really interesting to us.
+   1. Are you writing your own Plasma stuff? 
+      1. We’re looking for options that allow them to scale. 
+      2. Plasma seems possible in theory. 
+      3. We chose Ethereum in the first place because infrastructure is good, Metamask, Infura, etc.
+1. How do you handle testing?
+   1. Standard testing and using community to audit contracts
+1. What are the tools/libraries/frameworks you use?
+   1. Been a while since we have done smart contract development, haven’t done any since we deployed. Truffle framework, TestRPC (now Ganache). The standards at the time.
+1. What tools don’t exist at the moment?
+   1. 2 main areas with significant problems: 
+      1. Data analytics and reconciliation btw on-chain and off-chain data. 
+      2. Our first MVP didn’t have a back-end at all but we had to develop a back-end as we scaled. Reconciling these quickly and correctly is key.
+   1. Analytics is difficult. Web3 and Geth, have to hook into data. But there are too many hurdles to jump to get these. 
+      1. In particular, the biggest problem is when we want to deal with analytics where some of the data is implicit, like a series of transactions. One tx doesnt give enough data. When someone bids on a sale option in cryptokitties, bidder, price, and catId. Have those 3 pieces of information. But when you ask how many cats has this person sold? This info is implicit in a wider set of tx’s, all of which you have to fetch and then compare.. 
+   1. Part of this is not them including this info in advance. A common problem in the ecosystem is that once you deploy something you need more info after deploying a smart contract and it’s hard to get this 
+1. What was the hardest part about learning to develop with Ethereum?
+   1. The real problems come into play when you are very dependent on 3rd party apps, in their case MetaMask. Memory problems in Metamask. Can’t really detect the state of Metamask. Stuck in a situation where they can’t provide the relevant info to their users
+   2. When a user does something, it’s kind of a hope for the best situation. May take a long time. If a user buys something on Amazon, they get a confirmation in 30 seconds. In blockchain, we can’t guarantee that info. Spent a lot of time educating users. Less with the libraries and more with the user communication and understanding of blockchain.
+1. How do you handle smart contract verification and security?
+   1. Audit code: bounty hunt program, found one major one via community. Ran our own repo specifically for this on Github.
+   2. Community auditing through bounty programs. 
+1. What are the best educational resources?
+   1. Solidity documentation was quite good. Had all the jumping off points. 
+   2. Random mishmash of articles and whatnot :)
+1. What are you most excited about in the short term?
+   1. The thing we are excited about most in the next 3-6 months is whatever ends up being the scaling solution
+1. What are your biggest frustrations?
+   1. The lack of proper debugging support. That caused us to lose so much time. Even more than the slow compiles. 
+   2. Biggest pain points: 
+      1. When we were using Solidity, some safety features were added later, especially visibility modifiers on functions. 
+      2. The compiler is very slow. Recompiling took ~30 seconds slow. T
+      3. ests were slow as well. 
+      4. No easy way to debug.
+   1. Debugging tool for Solidity, what would it look like? 
+      1. Write “debugger” and it stops there. 
+      2. Breakpoints, step through code. 
+      3. Quite difficult to log something through a function. It would revert if it failed, even logging was failing. If a require failed it would be tough to find error.
+   1. Planning on working on contracts soon? Or moving on? 
+      1. Have plans for a MetaData extensions, push kitty images to IPFS, and have kitty image as a piece of metadata for the cat. That’s the big one. 
+   1. Front-end: 
+      1. web3 is the only library required. The web3 works as any wallet solution has the implementation web3. 
+      2. Web3 1.0 beta, 0.26. On webapp they are on web3 1.0 beta, seems stable for the browser. 
+      3. Read and write functions for the contract, nothing crazy. 
+      4. The problem with web3 0.2: docs are not great at all.

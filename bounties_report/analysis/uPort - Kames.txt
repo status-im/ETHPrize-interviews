@@ -1,0 +1,46 @@
+﻿Kames
+06/16/2018 - Mitch
+
+
+1. Who are you and what are you working on?
+   1. I am working on uPort as a community a manager. The primary role is basically discovering how to empower developers to use uPort. uPort is a decentralized identity system.
+   2.  Getting developers to understand how to implement this in the front-end environment, get people that are not used to Ethereum to understand this
+   3. Ask the right questions to get people thinking about this
+1. What are the tools/libraries/frameworks you use?
+   1. Eth.js, we use Nick Dodson’s stuff. Inject web3js, but use more of the lightweight stuff for internal requirements. We use Truffle for tests. For the Buidlbox project, we use React-Redux. Mobile app is all react-native. Use React/redux everywhere, React sagas.
+   2. Use IPFS, use Infura. New spec puts us on IPFS, before we were just on Ethereum but this cost too much. Introduced IPFS to help with this, but it’s a bottleneck point.
+1. What are your biggest frustrations?
+   1. Personally, I don’t have that many frustrations. However, Solidity has a lot of updates every time and has a lot of breaking changes. It’s difficult to manage this. EthPM will help this.
+   2. As a team, working distributed on a lot of systems that are new is pretty tough. But have a pretty knowledgeable team.
+   3. Still deal a lot with the JavaScript ecosystem. Heard web3js was garbage, not having promises and heard it wasn’t great. Heard Ethers.js was good, supported by Richard Moore of the Ethereum Foundation. Would be great to have education that there are other options out there beyond the most popular projects
+   4. Eth.js from Nick Dodson is super bare bones and super modular, Ethers.js is a bit more built out by Richard Moore.
+   5. I dibble dabble in smart contracts, I do a few demos with things like token staking for events. But I am mainly in the web 2 stuff. Not necessarily building out infrastructure or production ready contracts, more of showing the general web3 flow.
+   6. Would recommend to redo Remix, want to share code from Remix. From Remix, be able to push GitHub. More of a collaborative Remix, better UI.
+1. How do you handle testing?
+   1. We run a lot of unit tests on the JavaScript, but don’t do enough testing right now. For smart contracts, reach out internally at Consensys. But not baked out process. Could use a better audit process.
+   2. Could use a better audit tool. Can test smart contracts at a code level, formal verification but haven’t researched this.
+1. How do you handle smart contract verification and security?
+   1. The mainnet launch was very minimal. Using segregated accounts in uPort app, use proxy contracts that have been around like a year. These went through formal verification a while ago. We were confident with putting them on mainnet. Switching up in the future how we handle it.
+   2. Had them audited by Consensys internally, possibly by the diligence group.
+   3. Getting away from smart contracts, looking at a different identity protocol layer. If uPort was continuing in smart contracts  upgradeability via smart contracts (ZeppelinOS) would be interesting.
+   4. Deprecating our smart contracts, but using ether-did (decentralization identity). Just need a private key and a public key, so don’t need a smart contract. Etherdid registry is a smart contract, but smart contracts are not the core protocol any more.
+1. What tools don’t exist at the moment?
+   1. Drag and drop website builder for dApps, I’m working on this. Product people are not able to prototype the user experience is very detrimental to the long term growth of the ecosystem
+   2. Need tools that enable quick validation in the real world. Need better prototyping
+   3. Design systems, design patterns, how to handle long transaction times. New thinking in this regard.
+1. What are the best educational resources?
+   1. Loom’s CryptoZombies and their general onboarding process, this is very approachable with good design and good practices. They’ve taken a big focus on not just focusing on the code but focusing on the experience. Not good to throw encyclopedias at people. Truffle sits in the middle, they have good docs. Ethereum itself is pretty difficult to parse their docs.
+   2. Designing for intermediate JavaScript developers could be very interesting. Catering this education experience better.
+   3. Just looked at smart contracts long enough, wasn’t super intimidating as they are designed to be simple. Looking at Zeppelin, looking at best practices, understanding this stuff. But now want to get more into bytecode stuff.
+   4. Lack lower level knowledge of how to super optimize a smart contract. Want more code to look at to get at optimizing bytecode.
+   5. uPort will be focusing on education, more videos to help these intermediate programmers.
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Wrapping the head around everything in the ecosystem. Because Consensys is such a big force it’s easy to focus only on Consensys spokes, but there are a lot of other solutions out there. Yesterday someone posted an alternative to Truffle but hadn’t seen that before. Having a clear understanding of people in the ecosystem.
+   2. A library of all smart contracts, background of these smart contracts along with user stories. A better understanding of existing tools. Search and get 5 different options for events smart contracts, or a decentralized exchange. See instantly these.
+1. Other bounties?
+   1. Education platform that is not focused on a business model. Loom is doing a fantastic job of educating people, but it’s a business. A great general education source that is not leading to some business. Online university or online education center would be fantastic.
+   2. Better UI/UX, thinking about this next layer. Get product people, designers, etc. involved. A Material design for dApps.
+1. What are you most excited about in the short term?
+   1. The overwhelming amount of events. ETHGlobal is doing a great job with hackathons worldwide, short term and long term benefit. More and more outreach and pulling more and more people in.
+1. Who are the other people you think we should talk to?
+   1. Linnia, they are doing market dataplaces for your data. Figuring out how they can build this out in Ethereum.

@@ -1,0 +1,59 @@
+﻿Matias Bargas
+26/05/2018 - Andy
+
+
+1. Who are you and what are you working on?
+   1. I used to be an investor, but came to crypto and Decentraland at the same time.
+   2. I used to work with Juan and 2 other guys who all joined the team at the same time. I really wanted to leave enterprise companies and loved the team already there.
+   3. It’s about the open philosophy, and break down the walls around the 1% of the 1% and diffuse power into the hands of everyone.
+   4. I was working on an online IDE for an in-house language at MuleSoft. Now the engineering manager at Decentraland.
+1. What are the tools/libraries/frameworks you use?
+   1. The whole Ethereum stack, basically.
+   2. Truffle
+      1. Integration with common developer tools is not fantastic. We need to start thinking about and building our tools in such a way that is easier for the guy/girl who comes after me to fix the issues that come up.
+      2. If we are changing the world, why are we still thinking in narrow ways about how our tools should be used and by whom?
+   1. VS Code
+   2. React, typescript, nodejs
+   3. Bablyon.js as an engine for VR
+   4. Web3
+      1. One of team members rewrote web3 into typescript for EthBuenosAires and all the tests are passing! Will post a link here after the hackathon.
+      2. There were typos there!
+      3. There was functionality not working (and there are billions of $’s running on top of it!) 
+   1. IPFS for decentralized deployments.
+      1. Scalability is a concern here. If we want to deploy the whole metaverse in IPFS, we actually can’t. We need to replicate data in, I don’t know, Amazon or something because we can’t supply the level of connection we need to (just 100,000 users or so, not even in the millions). And even this will require bootstrapping nodes like crazy.
+      2. The IPFS cluster is still in alpha and not as stable as we need it to be.
+      3. We are waiting for scalability, but we don’t have the tools to monitor and handle that amount of information anyway, and this is a concern for us.
+   1. I haven’t used this yet, but this seems to be an interesting tool: https://github.com/nomiclabs/buidler 
+1. What are your biggest frustrations?
+   1. Real monitoring information is tough to come by. I come from enterprise where this stuff just exists and the ability to fetch the data you want to fetch is never really in question.
+      1. Browsing through a node that has a huge list of unindexed transactions without all the information you need in an easily accessible place is hard.
+   1. With our own tools, we are building our own framework in order to move tx information from the blockchain to the db and from the db to the app.
+      1. We need transformations between each layer (which wasn’t that hard to build). But now we need a really generic way to do this and to publish it for people building DApps and using our SDK. And with a centralised DB, this is not possible.
+   1. We are failing with dev tools in general.
+      1. Let’s think about Java a bit. You have the JVM, a mature language and a complete set of IDEs. You also have a tonne of framework for building Java applications. There are also great monitoring tools.
+      2. Logging systems are a great and practical example of this. How can I log failures from Solidity without using events in a way which they weren’t really intended to be used? We need a Splunk equivalent.
+      3. Terraform, AppDynamics, etc - these things don’t exist for blockchains and really need to be built.
+      4. We need to focus more on tech and shipping things and less on the people with money or how our token is performing.
+         1. We care about nothing but the tech we ship. We encourage others toward similar feelings ;) 
+1. What tools don’t exist at the moment?
+   1. Starting from the infrastructure stuff: we need a new language to describe all the set of things that you need to do in order to deploy one or more contracts.
+      1. You have you application made up of a set of contracts that are all talking to each other: we need a decentralized logging system to make sure they are all still working properly and the events that are being dispatched by the nodes are correct.
+   1. A complete set of tools for testing. Truffle is not adaptable enough.
+   2. The work being done by Zeppelin on securing contracts and providing best practices around how to use audited contracts is great.
+1. What are the best educational resources?
+   1. I came from a strange backend doing tooling for languages for the last 6 years, so I don’t have the right approach to learning for most, I think.
+      1. Should be readable, reliable and consistent. E.g. I prefer typescript over js because it behaves as expected and has been validated by the communicated. Java > python because it also behaves better and more in line with your expectations. I need a language with only one way to do things.
+      2. If Solidity fulfilled this, why do we need to test it with javascript?
+   1. I never did any course, I just read contracts and code that seemed interesting.
+      1. Started with Zeppelin’s ERC20 and went from there through GitHub and started writing little tweaks and commits myself.
+   1. I had also had some experience with React, so that set me up well for DApps.
+   2. Having awesome and intelligent colleagues is such a bonus too!
+1. Was anything easier than expected?
+   1. No, not really.
+   2. Actually, extending the open zeppelin stuff was pretty easy.
+   3. Someone tried to exploit Decentraland and because we validate with open zeppelin it was safe, and we got that for free!
+      1. It’s great to see that security is taken seriously (though I still have a tonne of concerns about managing funds on public networks).
+1. What are you most excited about in the short term?
+   1. The Decentraland client!! Woot woot.
+   2. Something that helps me to generalised solve side channels.
+   3. Status.

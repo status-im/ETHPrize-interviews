@@ -1,0 +1,97 @@
+﻿Taylor Monahan
+1/13/2018 - Sina & Robbie.
+
+
+1. Who are you and what are you working on?
+   1. Chaos. 2017 in one word.
+   2. Started off as a fun side project –– cofounder is Kosla – they were both working part-time.
+   3. Then it exploded –– the Ethereum price chart is a perfect representation of MEW growth. Kosla stopped being involved after it got chaotic, because it was no longer just a fun side project.
+      1. Ecosystem started going crazy –– she started leaning in.
+      2. Team growth – hired 2 devs in April/May. Hired Jordan in June. Hired a person / week in the summer. Hiring a ton of support people. Got a director of security. Trying to hire Harry in full-time. Team of ~ 20.
+      3. Growing a remote crypto team. How to incentivize them & keep them happy. Raises don’t work in this space.
+1. Other bounties?
+   1. Money is not their constraining resource. People, hiring, management are constraining.
+   2. Best thing for ecosystem right now is: educational, marketing, videos, tutorials, write-ups, explaining how things work.
+      1. E.g. when your mother hears about an ICO, and they google it, there’s good resources available to educate them.
+      2. In the beginning, MEW was a stepping stone for people who already owned cryptocurrencies, before they started using geth or parity or etc.
+         1. Now, this is no longer the case, there’s new people who don’t know anything about cryptocurrencies at all..
+      1. Biggest phishing attacks they’re seeing are airdrop sites. “Free money??” Typing your private key is not a good idea.
+      2. How does a project responsible onboard people onto Ethereum?
+         1. How does the experience look as dApps become more of a thing? How do people use this?
+            1. In a dApp, the wallet functionality should be completely abstracted away. The user shouldn’t even know that there is a wallet.
+   1. If I had extra money, I would give 100% of it to educational resources, people designing infographics, videos, etc.
+1. Other domain specific questions?
+   1. Silo’s – Slack silos aren’t healthy.
+      1. Mentioned “community of communities” 
+      2. Skype – “exchange work-group” – public infrastructure and the nodes – w/ the geth team and the nodes.
+      3. Skype – “anti-phishing group” – setup on a whim when they saw phishing stuff come about.
+         1. 3 days ago – Ethereum blue team found MyEtherWallet clone
+         2. Even if she’s sleeping – people are looking out for the community
+   1. Did team retreat in Columbia / met with design firm in Chicago / they have partners in SF (week / month regularly)
+   2. Harry Denley was the first to respond to Swarm.city multisig hack.
+   3. Was reactionary – putting out fires.
+   4. PROBLEMS: Security
+      1. Internal security processes.
+      2. At two people you can trust each other; access is limited. At team of 20 it’s different; have to revamp internal policies; reminding people of things.
+         1. Found 2 Slack admins not have 2fa on.
+      1. We are bigger target; we get password resets. 
+         1. Someone stole her number in October but they were prepared for it. They handled everything really well.
+      1. DNS and internal security on infrastructure.
+         1. Hired ex-director of security for Coinbase & Facebook. Works on board of Hackerrank.
+         2. How we hired: people who use MEW want to keep Ethereum & MEW safe. We connected on security. We had a call that afternoon.
+         3. He does amazing security incident response & red-teaming.
+      1. FEW DIFFERENT SECURITY CONCERNS:
+         1. How we serve their code: a commit is pushed to a specific branch; that is served to github.io; then AWS pulls that code, caches the hell out of it, and that serves MEW.com.
+            1. All keys are rotated, and ssh private keys are kept very secret.
+            2. multi-stage pipeline (Github + AWS); both have multi-factor security, need Ubikey, etc.
+            3. It’s kind of a staging pipeline.
+            4. Prevents bad commits or bad UI changes from getting into the website.
+            5. How do you QA things, how do you test things? 
+               1. We wait 24 hours from creating a release and getting it on a live domain.
+            1. We have a series of tests – check that everything compiled correctly, check that all links have a rel=no-opener on them, ..
+         1. DNS
+            1. After EtherDelta and ClassicEtherWallet.
+            2. We have a custom thing: three services to monitor the site.
+            3. We serve through a CDN
+               1. Diff the code – diffs the new website with the previous version of them.
+               2. Gets the hash of the Javascript and CSS with previous versions.
+         1. Blockchain security
+            1. Ensuring the user makes good decisions –– how do you alert or notify a user when is doing something wrong –– e.g. notifies you when an Ethereum address is not formatted correctly?
+               1. How do you build this: check the balance? 
+               2. Have microservices that have micro-databases of the blockchain.
+                  1. Caching token balances.
+                  2. On MEW: pulls everything from Parity or Geth directly.
+            1. Can run their infra through Cloud Formation –– 
+               1. Geth falls out of sync.
+               2. CryptoKitties destroyed their infrastructure.
+                  1. Intel chip thing then took them 120% CPU usage, took them offline.
+                     1. Fixes for Spectre and Meltdown.
+   1. PROBLEM: phishing & supporting after the fact.
+   2. PROBLEM: infrastructure:
+      1. Keeping nodes Parity & Geth up all the time.
+         1. Additional issue: Blockchain naturally re-writes itself if you’re on a microfork. If you’re also distributing this across your own database, then you need to write code to also rewrite this. Etherscan just gave up and booted up from the blockchain from scratch.
+            1. This is what Infura is trying to do. They are in the same situation as MEW and Etherscan. They are under Consensys so have more financial freedom.
+            2. Shapeshift sysadmin stole money. If they had the problem, then this is a big problem.
+            3. What is the cost of security in this space? How much a malicious people could stand to gain…
+               1. With a debit card, it’s not the same –– there is risk of getting caught, the original person gets the money back etc.
+               2. Traditional security systems won’t work for this.
+               3. When I worked at AT&T, I asked people how they trained people to not steal simcard numbers. The real cost is not cost of buying a phone.
+   1. UNEXPECTED PROBLEM: building remote team culture
+      1. I work well remotely; but building culture while remote is really important.
+      2. In-person hangouts – all devs will be at EthDenver.
+      3. Make them talk about personal stuff on calls.
+      4. Big question is to: how to make remote team work.
+      5. Danielle leads the dev team.
+         1. Over the summer, they did a hire fast fire fast mentality. Sink or swim type of game. People need to be able to orient themselves.
+         2. People in the beginning need to be able to make sense of the chaos.
+         3. Random people contributing on Slack or Github.
+         4. For support, hire top Reddit commenters.
+         5. Give people 30 days and see how it goes.
+   1. Ethereum Blue: anonymous team, with a token. Promoted themselves as Metamask Blue. Scam.
+   2. Teams that are dealing with public crypto token world:
+      1. Swarmcity. Super resilient team. First fight against Arcadecity. Then theyy got their funds stolen out of their multisig.
+      2. 0x. Did an amazing job about education around ICO. Each blog post had a full section on how to protect yourself + custom tools.
+      3. Griff
+         1. Griff + Hudson Jameson from EF are the people to call. They know everyone and who to get involved. Like a connective tissue. Response to Parity hack.
+            1. Griff had learned a lot from the DAO hack.
+            2. Hudson was at Cornell with entire EF security – just happened to all be in the same room.

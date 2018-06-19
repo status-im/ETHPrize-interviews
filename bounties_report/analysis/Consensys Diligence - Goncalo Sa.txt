@@ -1,0 +1,61 @@
+﻿Goncalo Sa
+06/16/2018 - Andy
+
+
+1. Who are you and what are you working on?
+   1. I work at Consensys Diligence - focus on security of the ecosystem. Everything that is related to security: it’s on our roadmap to tackle it.
+   2. 95% of our work today consists in doing security audits on smart contracts - any EVM-compatible or “compilable” code. That accounts for building security tools that do the checks automatically, or that assist on manual inspection.
+   3. The goal is to eventually encompass everything related to Ethereum security.
+   4. I have always been hacking - a grey hat of sorts. 
+   5. Built an ad tech startup, which had a built from scratch ad server that I did the architecture for.
+   6. Had a mobile app to tell Portuguese people what was happening in their city.
+1. What are the tools/libraries/frameworks you use?
+   1. I used to use Remix a lot more than I do today (though I still use it heavily).
+      1. Use it as a text editor, in fact, but mostly for debugger when I am auditing, especially when trying to prove/disprove an attack I have thought up.
+      2. Visual debugging feature helps me a lot. It’s not perfect, though.
+   1. We’re fans of dogfooding, so I use Mythril a lot, which was initially created by Bernard, but is now being developed by a bunch of people we hired.
+      1. Used mostly for automatic detection of errors.
+   1. Oyente is falling behind a bit, so I haven’t used it in a long time.
+   2. Manticore is not built by us and does the same thing as Mythril (we have compared it). Though the inner workings are very different, the result is largely similar.
+      1. Have played with, but never tried to integrate, Enchidna into my workflow, as it is difficult to work with due largely to deadlines.
+      2. Rattle is closed source, so haven’t yet got around to playing with it.
+   1. I extended a tool from Federico, who has an ANTLR parser for solidity, that is basically a viz and query tool for solidity contracts. Everything from inheritance trees to function call graphs and querying function paths in the function call graph. It is a tool to help with manual inspection particularly.
+1. What are your biggest frustrations?
+   1. I really, really want a good visual debugger. I don’t think I’m alone on this one either, but I also don’t think people are as passionate about this as I am.
+      1. My main motivation behind this is that I really like visual debugging and it is just so much easier, when debugging a very low level program, to have a visual aide. 
+      2. It requires real experience to reason about things at a very low level and see the effect of each line of code. 
+      3. Remix, right now, has a very steep learning curve and we are missing the opportunity to make sure that every developer coming in gets clear insight into the nitty gritty details, the fine print, of the EVM that actually gives them full control over what they are doing and what they want to do.
+      4. I feel that very contained environments are usually more appealing to people just entering the world of computers and programming. 
+      5. When Apple started with Swift playgrounds and lots of integrations, I saw a bunch of people just flocking into iOS development. It was just so easy to understand what is happening - it’s all very visual and easy to grok.
+1. How do you handle testing?
+   1. Remix, Surya and Mythril as above.
+   2. Very small number of instances where I need to do something off chain, for which I will then use Truffle.
+1. What tools don’t exist at the moment?
+   1. A proper, local dummy client. I love the Truffle team and I love Ganache, which I use a lot.
+   2. I run a lot of tesst on Ganache, which are not seamless to run on other machines, so I would love a super seamless cross-platform client that has a great block explorer in it.
+   3. Using the visual version of Ganache about a month ago, I couldn’t see events being fired, or various important details on transactions happening there. We need a more full-fledged local client.
+   4. We haven’t really prepared for how to handle contracts across shards (coming months to years, who knows?). 
+   5. We are looking mostly at tools to support the WASM architecture. This is likely the problem that will take the most of our time, I think. I have talked to Johan Barbie about this and I’m not sure anyone has a very good solution for what a tool that would help scheme the interactions out actually looks like.
+   6. I am personally more worried about language design stuff, and languages in general, than I am about the consensus layer, or anything below the language and application layer.
+   7. We are also working hard on updating our tools to support, for instance, Vyper. John has been doing a terrific job there, doing contract translations from Solidity to Vyper, built a plugin for Truffle.
+   8. Mythril will also eWASM at some point before it goes into production.
+1. What are the best educational resources?
+   1. I do this less frequently now, but I basically watch every interesting repo to know what they are doing next before any announcement or anything.
+   2. I also spend a lot of time reading the docs in that repo. In fact, a couple years back, I would spend most of my time reading those kind of docs.
+   3. Also, the Ethereum wiki has a lot of super involved stuff that is not easy to grasp and there should be somewhere where those things are explained far more simply.
+   4. Again, I’m a very visual guy, and that wiki really lacks graphics and images that could be really helpful in terms of giving a wider group of people insight into the innards of the systems.
+   5. Things like RLP encoding, Patricia-Merkle tries, or the ABI sender (which I went back to over and over again until eventually getting to a sort of Eureka moment re encoding reference types). I feel like the tries, in particular, are very visual things.
+   6. RLP graphic resources would really help because it is such a specific thing.
+   7. The Beige Paper is awesome, but it’s still not the end game - it’s too technical still with almost no visual guidance still requires a very big leap for people dealing with blockchain for the first time.
+1. Other bounties?
+   1. None come to mind right now. Let’s keep the focus on EthPM here - we need to make sure as many people use it as possible! We should have done this a long time ago and we need to dogfood it as a community!
+1. Who are the other people you think we should talk to?
+   1. Bernard Miller from our team, focussed entirely on Mythril.
+1. Other domain specific questions?
+   1. What are the details/patterns in smart contract audits you see often that people should not be writing?
+      1. People are lacking the granular insight that is required - along with the right mindset/philosophy/paradigmatic approach to writing smart contracts. This goes back to the need for better visual tools, in my opinion.
+      2. A lot of contracts do not acknowledge that they are operating in a resource-constrained environment. For instance, I see lots of loops - which is not a desirable thing when operating on top of Ethereum.
+      3. People also don’t have that “asynchronous mindset”, unless you have been working with a very strange stack indeed. Even people coming from JS and pure node backgrounds - it’s not quite the same thing. 
+      4. They keep favouring push mechanism when there should be a pull one (or vice versa). 
+      5. In reality, this is a very hard question. I do have a collection of very specific stuff I have seen people do wrong, but - in a very general manner - the biggest problem is bringing synchronous patterns into smart contracts.
+      6. Thinking of a way to have them do otherwise, this whole thing is promoted by people not getting what is actually happening beneath their code. They know it is “distributed”, but what does that mean to them? Hence the need for something like a Swift playground in order to make it easier to grasp the use of resources on the network

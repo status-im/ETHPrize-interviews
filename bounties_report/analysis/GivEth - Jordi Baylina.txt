@@ -1,0 +1,79 @@
+﻿Jordi Baylina
+16/05/2018 - Robbie, Sina
+
+
+1. Who are you and what are you working on?
+   1. Experience: 35 years of programming; 3 years in blockchains.
+   2. Learning more everyday; exciting from a global perspective.
+      1. This tech can change society over time. We’ll see centralised power disappear, the world will become more trustless, people will take responsibility for themselves.
+   1. One of my first smart contracts was liquid democracy for the DAO.
+   2. Smart contracts for the white-hat group that originated from the DAO.
+   3. Wrote the Minime contract – maybe not the best time now because of gas costs, but it is an interesting smart contract.
+   4. Did the Status ICO.
+   5. Liquid pledging for Giveth.
+   6. Pushing DappNode - should be released soon and is really important for true decentralization.
+   7. Audits – for MakerDao and Aragon.
+   8. 777 standard.
+   9. Working a lot on an identity project.
+1. How do you handle smart contract verification and security?
+   1. It’s important to communicate to everyone that whatever you do will help, but will never give a warranty that there won’t be an error.
+   2. I’m a bit skeptical of formal verification stuff, but I think it’s important to keep pushing it forward.
+   3. Do more audits.
+   4. Write defensive code. Don’t try to do crazy things.
+   5. For the first time, we’re mixing two things that haven’t been mixed together:
+      1. The two:
+         1. Critical code – contracts holds money.
+         2. Open-source – everyone can see how it works.
+      1. E.g. you don’t have this in planes – critical program but not open-source.
+      2. E.g. in a website – it could be open-source but not critical.
+      3. So you realize you need to write perfect code, but that’s not possible. Because code is written by humans.
+   1. It’s important to improve: 
+      1. Do not take risks.
+         1. Try to isolate the critical part. E.g. if you’re doing an ICO, don’t hold the ETH in the contract, instead put it directly into the multisig.
+         2. Minimize the box, with its known security vectors.
+      1. On one side, you have a blockchain that by definition that is immutable. On the other side, immutable is not compatible with making mistakes.
+         1. Humans make mistakes. We are building things on top of that immutable base that could have mistakes.
+         2. But we need to keep blockchains immutable, because if don’t, we lose their power.
+         3. How do we solve this?
+            1. Possible approach is having a second layer –– instead of ETH, we use an ETHToken. ETHToken has governance built in and can be modified. You build it in a more centralized manner, it can be changed; and then overtime, you soften the centralization rules, and make it decentralized (take away the authority, make it operated by a DAO, etc).
+               1. E.g. having an escape hatch would be super helpful. If there is a hack, it could be sent to the EF or whitehat group. And then you can decide what to do. Better than it going directly to a hacker.
+            1. And then you can build the smart contract applications on this second layer.
+            2. Want to make decentralization linear; so you don’t have to take the risks from the beginning.
+            3. All contracts in Giveth have escape hatches built in.
+            4. STANDARD LIBRARY for using ETHToken in your contract, layer for security, escape hatches => I think it might be a bit too early though since we’re still figuring it all out. Other teams working on this include Zeppelin, Aragon.
+   1. Better compilers. Better testers. Better formal verification. All the tooling helps.
+   2. There are some errors that are not due to programming – they’re conceptual, due to economics, etc.
+1. Other domain specific questions?
+   1. Where do you think improvements can be made?
+      1. before we can really go mainstream:
+         1. Scalability.
+         2. Security.
+         3. Usability
+   1. Seems like security is as much an education problem, as tooling. Any ideas how we should approach this?
+      1. Documentation helps.
+      2. Realize that you will spend proportion of 40-to-1 on testing/auditing your contract vs writing.
+      3. Team audits
+         1. Doing an audit within your team.
+         2. Once you’ve done your personal work on the smart contract, and you’ve done your own audit; then get together with your team, and start talking about your concerns, and you’ll see that one idea leads to another, and you discover issues.
+      1. Audits
+         1. Write some small bugs in the code, and see if the code reviewers find that bug.
+         2. Even if the auditor knows that there are bugs, they will be forced to go deeper into the code.
+      1. Bug bounties.
+         1. I was skeptical of these at first. Why would people review this code?
+         2. But I have seen personally over the last year that big security holes have been discovered in bug bounties.
+         3. Bug bounties force you to write very good code.
+            1. You need to choose the right names for variables, document it, it needs to be understandable.
+      1. Good resource: Consensys, on the history of all bugs. https://github.com/ConsenSys/smart-contract-best-practices
+      2. This wiki could be complemented with these more generic ideas – around bug bounties, reference smart contracts etc.
+         1. Maybe even write a book around it. An open-source book.
+      1. Smart contract developers could do an annual event – to categorize all the new bugs, new patterns – and consolidate them into the knowledge base.
+1. What are your biggest frustrations?
+   1. Debugger
+      1. The debugger is still hard –– you have to learn crazy tricks to be able to do it faster.
+   1. Return codes
+      1. When a function reverts, you want to know why it reverted.
+   1. Code coverage
+      1. Truffle has something, but it’s specific to truffle.
+      2. I’d like these tools to be more generic.
+   1. Truffle that works for larger projects
+      1. Across multiple repositories. You want the contract repo to be able to publish it’s interface, and another repo can use that to interact with it, etc.

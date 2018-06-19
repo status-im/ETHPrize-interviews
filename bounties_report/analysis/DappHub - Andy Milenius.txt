@@ -1,0 +1,72 @@
+﻿Andy Milenius
+3/14/2018 - Robbie, Andy
+
+
+1. Who are you and what are you working on?
+   1. DappHub:
+   2. Working on dev tools since I got into the space in 2015. There were no tools at all; we wanted to create them in a holistic way from first principles.
+   3. Made tools to make use of Solidity compiler & make Ethereum API & EVM simpler in general.
+   4. Formal verifications & contract safety.
+1. What are your biggest frustrations?
+   1. Ethereum relies heavily on Javascript dev tools; “that node modules way of life”.
+   2. Javascript: its polarizing; you either love it or hate it.
+      1. The fact that there’s a JS tool for something doesn’t mean that it doesn’t need to exist otherwise.
+   1. Examples:
+      1. Piper’s python tools 
+      2. (would like to see C++)
+      3. Maker’s bash tools
+      4. Some dapphub Haskell tools
+   1. EF should put money into language ecosystems; replicate what we have (more front-end library systems!)
+      1. Second layer tools - the Ethereum API is a huge pain point. 
+      2. RPC - if you’re on the command line, it’s a pain in the ass.
+      3. High-level access into the Ethereum API; more granular than the REST API
+      4. In JS this is: Web3.py; in python its web3.js
+         1. Small drop in solutions for talking to a client
+   1. Why is there not a good robust solution for caching the blockchain in a normal database?
+      1. Maker has funded this.
+      2. VulcanizeDB done by Rick Dudley; Maker is funding
+      3. When you talk to Infura, the Ethereum API, is mostly via HTTP. Need sockets.
+         1. If you want to query events, it’ll probably time out.
+      1. It will be cool if EF runs archive nodes, cached data.
+      2. Feels bad about Metamask: 
+         1. If you only used them to write to blockchain, then it would be so much simpler for them.
+         2. Metamask just pipes all the requests to Infura; costs around 100k a month.
+      1. The reason why everyone uses Metamask, is because there’s no other robust solution. If EF funded a solution, it’ll be helpful
+         1. Metamask is customer support for the entire Ethereum ecosystem.
+   1. Event querying
+      1. Make it so that it’s not scanning for the whole blockchain.
+   1. Light clients
+      1. Everyone’s trying to build the perfect architecture. Metamask is trying to build something that works.
+      2. Metamask’s version:
+         1. An awesome intermediate step: 
+            1. Infura publishes a block onto IPFS using pubsub
+            2. All the metamask nodes gossip it to each other.
+         1. Could EF support this.
+      1. There is someone publishing all blocks from all blockchains on IPFS, into a meta-blockchain, called Braid.
+   1. Whisper & Swarm:
+      1. There’s other people still working on these outside of ETH
+      2. Swarm is similar to IPFS.
+      3. Does ETH need p2p messaging 
+      4. There’s systems that work:
+         1. DAT protocol / secure scuttlebut (1,000s of people on these networks)
+         2. Ask the Secure Scuttlebut ecosystem what their issues are
+         3. Dfinity gave a grant to secure scuttlebut
+      1. It would improve the Ethereum community image if we’re working with others.
+   1. Identify other projects that are good; trim the fat from our ecosystem; and then build a relationship with them.
+      1. “Living life on hard mode” – people who don’t do ICOs.
+   1. Other ecosystems that are good: show commitment to Protocol Labs
+      1. Libp2p
+      2. IPLD
+         1. More formal partnership -- integrating properly 
+   1. Devp2p is bad
+      1. Less than 1% of requests you make are Ethereum mainnet.
+      2. You contact other nodes without knowing if they’re on Kovan, Mainnet etc
+         1. Super inefficient; all these handshakes.
+      1. Main bottleneck in Geth -- every ETH node talks on Devp2p
+      2. Gotta switch to libp2p!
+   1. Are Geth team dynamics good?
+   2. Idea: a parallel IPFS pinning service; as a hedge against Filecoin not working.
+1. Are there any other questions we should be asking?
+   1. How can Ethereum create more cultural norms and lead by example? 
+   2. Take a more leadership role to say nice things about other ecosystems, languages etc. 
+   3. Ethereum Comm’s department.

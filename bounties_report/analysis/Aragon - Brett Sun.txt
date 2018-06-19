@@ -1,0 +1,82 @@
+﻿Brett Sun
+14/06/2018 Andy
+
+
+1. Who are you and what are you working on?
+   1. Working on Aragon entirely.
+      1. The end goal is to create a network between organisations that live on Ethereum (and potentially other platforms in the future).
+      2. This required a lot of foundational features.
+      3. A network of organisations requires organisations in the first place! So we have been working for the last year to build these.
+      4. We are now switching gears to think about what a network between the orgs will really look like.
+   1. We build aragon_os: an OS for organizations. We tend to think about resources (i.e. people and money), and structure the OS according to well-known principles. Instead of people and money, normal OSes manage CPU and RAM etc. 
+   2. Two key pieces to this sort of work:
+      1. Controlling money.
+      2. Controlling permissions.
+   1. We also provide a lot of UI components on top of the contracts that we are writing.
+      1. The entire goal of 0.5 (live on Rinkeby now) is to allow people to easily create and manage their own organisation, along with granular permission and financial management.
+      2. Should be able to create their own application to live in their organisations: and this is where we imagine the network of organisations will emerge from.
+      3. Hooking up your own apps, and designing your own interfaces to handle certain complex behaviour
+1. What are the tools/libraries/frameworks you use?
+   1. Four categories:
+      1. EVM and lower level stuff:
+         1. A lot of our problems have been solved by solidity 0.5 pragma
+            1. Revert with reason! Should be better for error logging.
+            2. Dynamically-sized parameters inside the EVM. We did not have an opcode before Byzantium that could have handled returndatasize with dynamically-sized stuff. 
+            3. We play a lot with assembly and ABIEncoding has really bugged us before inside Solidity. So when, for eg, we want to stuff dynamic arrays with mock call data sent through delegatecalls. We have to do some funny business to properly encode them, and 0.5 exposes tooling to do this automatically.
+      1. Smart contracts:
+         1. Not a lot of great tools here yet, especially around testing. This seems to be a fairly obvious hole.
+         2. Not a big fan of Truffle, even though everyone seems to use it. It is especially slow when compiling.
+         3. Solc can be installed directly on most distros, and does stuff in less than 1s, whereas solcjs will take 20s, so why would you go for the latter?
+         4. Dapphub has their own set of nix-based tools that I haven’t tried yet, and really want to. But the barrier to understanding here if you don’t come from the right programming background is very high.
+         5. We use a bunch of standard libraries like Open Zeppelin, and the MiniMeToken and some other cool code that tends to fly around on GitHub or Reddit in the right places. However, this is a tricky place right now, because Package Management is unclear and no-one is yet sure if they want to use ETHPM.
+            1. There is a lot of people copy-paste contracts into their own repos, which isn’t great. It would be better to see them moved between repos with commit hashes and proper referencing.
+            2. We do this, as it is especially helpful for auditiability.
+      1. Dev tooling that allows people to easily build aragon applications:
+         1. It’s tough to develop Ethereum applications right because there are a lot of things you need to spin up yourself.
+            1. Deploy a local chain, deploy your contracts onto it, and then only with that done can you start building a UI linked to that chain.
+            2. Not too bad if you have just a few contracts, but with the way that Aragon has been designed (esp in term of flexibility) there are a lot of components that need to be deployed on chain before it all begins to work.
+            3. ENS on local chain, APM, base logic contracts, factories to extend the proxies on top of those basic contracts, and then only do we have a good chain state for people to hook up a UI against.
+            4. This produces a lot of friction, both internally and externally, so we have this goal to simplify it all.
+            5. Ganache has a snapshotting feature where it will dump the entire chain state (the whole patricia trie into a bunch of JSON files) that can then be used to start up your own chain from that state.
+               1. However, when you tell Ganache to run from the snapshot, if you do anything on the chain, it overwrites everything.
+               2. So you actually need two snapshots and some patience to get things right.
+            1. We also need to deploy things onto IPFS, which adds another barrier for users wanting to get going with local development.
+            2. So, we have tried to build this command into aragon-cli, called “aragon run” that handles everything for you. 
+            3. Based on the brittleness of tooling though, it’s very difficult to make this reliable, and get it to error gracefully and debug why it isn’t working when it fails.
+      1. UI:
+         1. Not too much in terms of Ethereum-related tooling - a lot is just normal, front-end javascript.
+         2. Major frustration is web3.js. There are just so many things wrong with that package… “Every day is new adventure when using web3”.
+            1. Pretty much every time we have had to do something for a deadline, we have run into issue with it that have delayed us.
+            2. i.e. in Buenos Aires, we wanted a mainnet launch for our Survey App, for which we need websockets and https.
+            3. We set Parity up with secure websockets on our own node and launched our UI and web3 just doesn’t connect to secure websockets. So what was the problem?
+            4. Took some hours to play with all the different settings before realising that the latest version of web3 doesn’t support websockets. Downgrading then works, but the previous package didn’t have some other functions we needed.
+            5. Relied on getting events to process changed information in the UI. However, the event handler in one particular version of the package would send some events in the error callback as opposed to the actual one and we were totally baffled how that could even be.
+1. What are your biggest frustrations?
+   1. My biggest general frustration comes with the relative youth of the whole industry, which underlies a lot of our collective frustration, including both security and development.
+      1. It feels like we sometimes have our hands and feet tied when we are trying to make something. When you make a typical web app, there is a lot of freedom in tooling and the tooling is robust.
+      2. You can make changes easily, watch these changes propagate, feel productive, and get feedback immediately.
+      3. This is not the case on Ethereum - things that should take a day actually take a week or a month.
+      4. Estimation of time is really difficult, but especially in Ethereum given how many unknown unknown there are.
+      5. It’s really easy to get started, but it gets harder and harder to maintain.
+         1. Now that we have a lot of stuff built out, we now have to maintain it, and that decreases the rate at which we can ship new features as there is a lot of old architecture you need to deal with. 
+         2. Feels like we’re playing a lot more defense than offence. Was first introduced to this by Jon Choi: you should be proactively pursuing offense and limiting defense (i.e. innovation over optimization).
+         3. All of these tools that are “not quite robust” tend to waterfall a lot, which means we are consistently on the defense, even against the tools we’re using.
+   1. No teams are really at the level of engineering that we need to be at. It’s all shooting from the hip right now, which we fall into too because we want to ship things quickly.
+   2. There are no really great patterns or best practices or frameworks to follow just yet, or at least a shortage of them in the ecosystem. 
+   3. Every year in traditional ecosystems, a new testing framework will come out, which is really great and I would love to see a similar situation beginning to happen in the Ethereum world.
+1. How do you handle testing?
+   1. In addition to the above we also use solidity-coverage, which can be super painful too. Not sure if the most recent version has fixed some of the issues, as we haven’t yet upgraded (we pin our contracts to an older version of solc for security reasons after they have been audited with a specific compiler version).
+   2. All of the tools are tightly coupled to the solc versions they use, and this becomes an issue in general for updating tools for coverage and testing. This should take 30 mins to set up, and yet, our CI is still broken today because solidity-coverage just does not want to work.
+1. How do you handle smart contract verification and security?
+   1. Human audits only right now.
+   2. Trailofbits is really interesting, been wanting to play with Enchidna. These guys come from a traditional infosec background and it really shows, because their professionalism is on another level from anyone else we’ve been exposed to.
+   3. A lot of the actual code can be checked fairly automatically, especially with the more hardcore tools now coming out. You can’t really automate some of the creative, game theoretic attacks, but there are people who are very good at this now.
+   4. Tried Oyente a while ago and did not have a good impression. It didn’t really provide that much and the things it could identify were pretty easy to spot anyway.
+1. What tools don’t exist at the moment?
+   1. A nice debugger! Please…
+   2. More infrastructure to easily set up your own node, and second layer tools on top of that to help cache data, because Dapps in 10 years are never going to work with just events...
+1. What are the best educational resources?
+   1. Google + Github is my go to.
+   2. Not enough has been written on effective workflows for building decentralized products with new and largely untested tools. We need more developers writing about their experiences. Even if it is just a simple Tip & Tricks list or Awesome List.
+   3. For instance, I consider the Consensys Smart Contract Best Practices repo to be really helpful, especially for people coming in. Something like this would be great for general workflows:
+      1. How to debug transactions, for instance.

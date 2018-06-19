@@ -1,0 +1,37 @@
+﻿Hudson Jameson
+
+
+1. Who are you and what are you working on?
+   1. Mainly focused on solidity smart contracts. A little node JS and Java but not very good at it.
+1. How do you handle testing?
+   1. Have been using Truffle more lately but was mostly just using Remix before.
+   2. Write the contracts in Remix, deploy them in Remix. Usually do it all through Remix and MetaMask. Used to connect metamask to a ropsten node run locally, but now metamask is more reliable.
+1. What are the tools/libraries/frameworks you use?
+   1. Remix, MyEtherWallet, MetaMask
+1. What tools don’t exist at the moment?
+   1. Remix combines an editor with a deployment mechanism and that’s what I like about it.
+   2. EthMix was like a full IDE with better syntax highlighting and better debugging. And it was a native app instead of web-based. Pity that it has not been maintained.
+   3. Something that automatically uploads the contract to ENS.
+1. What are your biggest frustrations?
+   1. Hard to read error messages. Solidity and EVM might fix this with error messages.
+   2. Are you running into problems with any of the following:
+      1. Gas limit: Totally. If you don’t properly separate your contracts or import too many, the gas limit blocks you. Especially on Ropsten with a dynamic gas limit, this doesn’t work.
+      2. Off-chain computation: Many things can’t be done until TrueBit becomes a real thing. Biggest one being stuff like Plasma and side chains aren’t possible until TrueBit is ready.
+      3. State Channels: Haven’t worked with them personally but understand them and think they’re cool.
+1. How do you handle smart contract verification and security?
+   1. Use the Remix tool to just scan for general bugs.
+   2. Wanted to use Oyente, but don’t know how to use it
+      1. Remix is thinking about being modular to the point where you can just plug in your own about module - that would be awesome to see.
+1. What was the hardest part about learning to develop with Ethereum?
+   1. The resources are pretty spread out, and everything moves so fast it’s hard to keep up today. If you’re using resources from 6 months ago they might be wildly out of date.
+   2. Andreas Olafson had the only videos and tutorials on solidity, so I just watched those to learn.
+1. What are you most excited about in the short term?
+   1. Casper. It’s already kind of going into testing.
+   2. TrueBit near the top of the list because it has so much potential.
+1. Who are the other people you think we should talk to?
+   1. Raine Revere from ShapeShift
+1. Other bounties?
+   1. Dev Grants from the Foundation
+      1. Ethereum foundation had 2 iterations of this program
+      2. Get some money to build something at the protocol-level
+      3. The foundation is looking into revising the process.

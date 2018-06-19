@@ -1,0 +1,43 @@
+﻿James Childs-Maidment
+
+
+1. Who are you and what are you working on?
+   1. Been building social apps on Ethereum. Leeroy.
+   2. Storing all posts and likes on-chain, syncing that with a centralized database and frontend.
+   3. I started with some little smart contract that saved a string to variable.
+   4. After that, just dove in on making Leroy over the next few months.
+      1. After getting a feel for solidity by playing with Remix.
+      2. Didn’t really understand how expensive it would be to save everything on the blockchain. Solution was to store the hash of all the inputs.
+      3. From there, had to learn how to make things as cheap as possible.
+   1. Quite a bit of smart contract work on Leroy. Multiple versions of the contract along the way.
+   2. Because it’s as cheap as possible, Leroy doesn’t even fire events.
+1. How do you handle testing?
+   1. Truffle for testing (JS unit tests).
+      1. Really enjoying writing async await tests with Truffle.
+   1. Automated testing? How do you facilitate manual testing?
+      1. Play with the contracts in Remix. Deploy the contracts to testrpc and then test manually using the UI.
+1. What are the tools/libraries/frameworks you use?
+   1. React / Redux app, with a firebase backend
+   2. Truffle. Just deployed using Remix, and uses it for playing with the contracts in general.
+   3. If not already mentioned, are there any libraries you rely on regularly?
+      1. Web3JS
+   1. In a toy project, used MetaMask just for signing transactions. Had a separate web3 using Infura for other stuff.
+1. What tools don’t exist at the moment?
+   1. When you use Web3 library with Metamask, it’s really crappy getting events coming through.
+      1. Maybe will get fixed when moving to websockets with 1.0
+1. What are your biggest frustrations?
+   1. The tools are pretty early. Constantly running into a ton of bugs.
+      1. On Leeroy, had to install packages and fix stuff from other projects that were broken so he could use them.
+      2. Yesterday was playing around with a new app, and was using Ganache, and it would just lock up and crash. Then you need to redeploy the local smart contracts, which takes about a minute to get up and running again.
+   1. A really stable local chain would be cool.
+   2. With solidity, it would be great if you could get a better view of what went wrong when a transaction fails.
+1. How do you handle smart contract verification and security?
+   1. No process, but would love to have it.
+   2. Apart from testing, would be cool to have tools that analyze what you’ve written and make sure you’re not doing anything dumb.
+   3. Right now, using Remix is helpful for getting warnings and stuff.
+   4. Hasn’t used Oyente
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Only started in June or so.
+   2. Just reading through github and reddit instead of an actual source for education. Having really good docs in one place is a big thing.
+1. What are you most excited about in the short term?
+   1. Aragon.

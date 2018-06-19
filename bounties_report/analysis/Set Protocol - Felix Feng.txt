@@ -1,0 +1,55 @@
+﻿Felix Feng
+06/06/2018 - Parker
+
+
+1. Who are you and what are you working on?
+   1. Founder of Set Protocol, wrote all the smart contract code/unit tests
+   2. Aims to build collateralized baskets of tokens. Bundle the world. In a tokenized world where tokens lie behind everything, we need to create abstractions that remove mental overload, improve transaction efficiency, and handle large amounts of tokens in general. 
+   3. Just released token sets dapp for bundling/unbundling token sets. First use case- investment vehicle/product. Javascript library similar to 0x for interfacing with their smart contract code. 
+1. What are the tools/libraries/frameworks you use?   
+   1. Internal javascript library in Typescript for UI  interfacing with their protocol (bundle/unbundle)
+   2. Uses 0x ABI gen for automatically generating typed objects
+   3. Truffle for testing/ compiling
+   4. TruffleHD wallet provider repo
+   5. Infura for deploying code to Ropsten testnet, hitting services all the time. Easier to deploy to testnet. 
+   6. For deploying to mainnet, they use Remix.
+1. What are your biggest frustrations? 
+   1. Truffle migrate on main net
+      1. Weird configuration where generated code doesn’t match source code. 
+      2. Returns error on Etherscan that the code doesn’t match. 
+      3. Has to do with Truffle compiler...
+   1. Therefore I have to concatenate code myself and deploy using remix. 
+   2. Revert/invalid opcodes don’t tell you much, logging is pretty much ineffective, code must be recompiled every time.
+1. How do you handle testing?
+   1. Started with truffle tests
+   2. Then converted tests to typescript for type safety (avoids host of potential errors, useful for building FE library as well) and used 0x ABI gen
+   3. Aim for 100% test coverage (~95%)
+1. How do you handle smart contract verification and security?    
+   1. Contracted security auditing firm before launching to mainnet and did it internally.
+      1. Introduced to firm through investors
+      2. Zeppelin and Consensys security etc. are super backlogged and can be highly expensive.
+   1. Tried automated tests for quantstamp but their compiler solidity version (4.2.3) wasn’t supported.
+1. What tools don’t exist at the moment? 
+   1. Debugger. Especially as contracts start linking to each other, stack trace gets more important.
+   2. Open source block explorer for any chain. 
+   3. Lot more typescript tooling. 0x started the movement and built tooling around it. 
+   4. People are building their own deployers/compilers. More standardization need here. 
+1. What are you most excited about in the short term?
+   1. Ethereum proof of stake
+   2. 0x open source tools.
+   3. Metamask replacement by Toshi- needs to be more tools than just metamask.
+   4. Zeppelin OS. Upgradeable proxy contracts infrastructure.
+   5. Token curated registries, oracle problem, bringing data from off the blockchain to on the blockchain. Token rebalancing from winners to losers could use TCR’s. 
+1. Other bounties? 
+   1. Debugger
+   2. More free automated formal verification
+   3. List i.e. Aggregated “Awesome Ethereum” for security (blog posts, tools, etc.) 
+1. What are the best educational resources? 
+   1. Consensys Academy
+   2. Truffle/Solidity documentation and source code.
+   3. Stack overflow
+1. What was the hardest part about learning to develop with Ethereum? 
+   1. Truffle needs to be easier for beginners. Tough for first-time hackathoners...
+   2. Going into source code. Things are early and not handed to you on a platter.   
+1. Was anything easier than expected?
+   1. MVP versions of product are easy. Handling all the vulnerabilities/optimizations/edge cases take 90% of the time.

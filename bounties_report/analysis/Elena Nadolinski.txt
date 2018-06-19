@@ -1,0 +1,45 @@
+﻿Elena Nadolinski
+06/09/2018 - Mitch
+
+
+1. Who are you and what are you working on? 
+   1. Last 6 months have been working on Solidity, Ethmoji (like Gravitar for Ethereum). 
+   2. Went to ETHWaterloo, have done talk at Hackathons about NFT’s. Make your own NFT from scratch at ETHDenver. With tools that we have, things are not as hard as people think they are. Can write something in 20 minutes with tests! 
+   3. OpenZeppelin came up to her and invited to talk at ETHBA. 
+   4. With EthMoji wanted to make it the best smart contract as possible, wanted to make it upgradeable. 
+1. What are the tools/libraries/frameworks you use?
+   1. Use Truffle because it’s by far the best framework for testing. Used Embark and Biddler, used Remix a bit for debugging things in memory. Memory explorer would be fascinating. In Solidity everything is a hash table. No case at all for catching hash collisions.
+   2. OpenZeppelin, played around with ZeppelinOS but would use it more in the future.
+   3. VSCode with Solidity plug-in, almost never have problems.
+   4. Eth-gas-reporter is amazing :)
+   5. Command line tool for code coverage, Solidity-coverage is a mocha plug-in
+1. What are your biggest frustrations?
+   1. Lack of error messages, since Solidity 24 you can add messages. But it’s not backwards compatible. More visibility on what failed and where, that would be extremely helpful.
+   2. Do your own Metamask. As your client you don’t have to run your own Node, but want a way to abstract that. Don’t have to rely heavily on Metamask. People get confused on why you need Metamask.
+1. How do you handle testing?
+   1. Truffle for testing. Force people to do TTD in events!
+   2. Truffle is not efficient in deploying things, can have a deployer contract that handles with more gas efficiency.
+1. What tools don’t exist at the moment?
+   1. A lot of tools exist but aren’t being utilized here. There’s no reason that Travis can’t run with Truffle. But this pattern doesn’t exist. Now that we have upgradeable contracts we can think of smart contracts like regular development.
+   2. Documentation, for a beginner starting out it’s extremely difficult. Not that many good tutorials on how to use technologies together.
+   3. Index of good tutorials. For IPFS in a smart contract. Want more deeper tutorials. Want to understand the why.
+1. What are the best educational resources?
+   1. Personally found a couple Medium articles here and there, Medium article on how to do your own ERC20 coin in 60 minutes or so. Had to Google a lot.
+   2. Good article on NFT’s, read the docs website for Solidity. For a beginner it’s hard
+   3. Various projects have good resources, Dharma has a good walkthrough. Collateralize an NFT, you have a loan on a CryptoKitty. Walks a beginner through step-by-step.
+   4. CryptoZombies is really good. They do a really good job. They move very quickly into advanced topics.
+1. What was the hardest part about learning to develop with Ethereum?
+   1. It’s a myth for how hard it is. “I’m a Solidity developer” is associated with something difficult, but a smart contract is just a piece of code. Once that clicks it’s easier.
+1. Other bounties?
+   1. Documentation
+   2. Debugging, so helpful. A debugger with a memory view but without using Remix. Online IDE is not great UX for a developer. Coding in a website not a great pattern
+   3. Something that abstracts away MetaMask. An Open Source core. They are using a Chrome plugin because they are storing your private keys on your browser's local storage. If you could provide a core of this is how you talk to Infura.
+   4. Design system patterns. They really stick blockchain in your face. Want to sacrifice accuracy for a better UX. Design system. Very interested in participating in this.
+   5. Figma does a preliminary case study on design in the Bay. The crypto teams that do design use Figma. Corporate Design system, open source Figma file.
+1. What are you most excited about in the short term?
+   1. Quitting her job to start her own project so very excited about that. Excited to explore privacy in tech. Crypto is binary, either it fades aways or takes over the world!
+   2. Scalability and stability are covered. But not a lot of people are focusing on privacy. Monero and Zcash and explore others, but they’re pretty slow.
+1. Who are the other people you think we should talk to?
+   1. Christopher Gewecke, Wyvern team
+1. Are there any other questions we should be asking?
+   1. Real world companies that are not tech savvy could benefit from blockchain. Want to sell art to the blockchain, that’s a day project. Squarespace or Wix for dApps. Patterns are so common. If we want to make blockchain more widely used, make this drag and drop and easy. Abstract that away.

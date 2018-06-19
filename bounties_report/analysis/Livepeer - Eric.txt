@@ -1,0 +1,46 @@
+﻿Eric
+06/07/2018 - Mitch
+
+1. Who are you and what are you working on?           
+   1. Been working on Livepeer for 2 years, before this was an entrepreneur. Was interested in Bitcoin in 2015 and saw Ethereum launch in the same summer as Steemit. Those two things got my attention. 
+   2. One of the things we found in web2 is that video facilitates transactions. Companies make a lot of money by charging a big premium for this transaction. 30-80%.  
+   3. Started to get more familiar with decentralization, wanted to build a video protocol that is cryptonative. Crypto payment by the packet. No payment channel so needed a decentralized video infrastructure. 
+1. What are the tools/libraries/frameworks you use?    
+   1. Use web3js a lot, we use a lot of peer-to-peer networking in addition. First version of livepeer was a fork of Geth codebase and adding video streaming, since then we have a brand new code base.
+   2. Delegated proof-of-stake system for electing service providers in the network. All built in Solidity, use Truffle for this.
+   3. Use some Trail of Bits for security stuff
+   4. Use IPFS for storage
+   5. Truebit for decentralized computation verification
+   6. Collaborate with Swarm team for video distributions
+   7. The way our tech works is we depend on Ethereum for protocol but our own peer2peer network for delivering video. We create our own network while every node talks to Ethereum, can get complicated.
+1. What are your biggest frustrations?    
+   1. When we first started was still pretty hard to write code in Solidity, Truffle was just launched. That was a big hurdle. We operate our own Ethereum test network which has its headaches. 
+   2. There are quirks in the Ethereum network that are not documented.
+   3. The Ethereum network in general does not do event subscription, notifications don’t work great here. Most popular tool is in Infura but their websockets are pretty flaky
+   4. We ask people to run Geth lightnodes, these have less overhead than full nodes but are still a bit of overhead.
+   5. We found a bug in the code and then did a smart contract upgrade process  using a proxy contract pattern which saved us. Upgradeability doesn’t work super well. Doing the upgrade, communicating with the community, etc. was a big undertaking.
+1. How do you handle testing?    
+   1. Do a lot of unit testing. Try to cover as many cases as possible to make sure the code quality is high. There is not a lot of guarantee in terms of testing for security.
+1. How do you handle smart contract verification and security?    
+   1. Internal security audits. Taking time to do thorough code reviews.
+   2. Trail of Bits did a security audit
+   3. Launch has been great, it’s been a month and they’ve learned a ton. Bigger and bigger community call, can test economic assumptions on the Mainnet.
+1. What tools don’t exist at the moment?    
+   1. Better Debugger comes to mind. Monitoring systems and alerting systems. Metrics gathering systems. No one has figured a great solution for this. 
+   2. Where do all the data live? Can use IPFS but you have run IPFS yourself and the solution doesn’t perform well. One big research question is data availability problem. A lot of protocols work because they depend on punishment for bad behavior. But to prove the punishment requires data. For Casper that’s fine, but or other protocols that doesn’t work. If you rely on off-chain data can make this data unavailable for an attack vector.
+   3. Transaction Attestation Platform (TAP). Different interfaces on a smart contract. How can people trust that the smart contract underneath is the thing that they’re thinking about. Kind of anti-phishing. Give a reputation to a smart contract. Show this to a user in a standardized way. It is a decentralized platform that users can use to attest to the trustworthiness of smart contract functions that other users will have to invoke in order to interact with DApps. http://dappbench.com
+1. What are you most excited about in the short term?  
+   1. Really excited about Casper, gonna be cool to see. Proof of stake at scale. How it affects the economics in the ecosystem.
+   2. Some layer 2 solutions that become fully usable. Past theoretics. For POA Network, the explorer is currently not there.
+   3. Plasma is longer term. Cosmos is coming online, Ethermint afterwards. Loom network, etc.
+1. Other bounties?    
+   1. Identity solution. ENS exists but like a great solution that’s built on top of ENS doesn’t exist yet. Some solution around there is interesting
+   2. Reputation system on addresses. Addresses are participating in all these protocols. The network effect you have, the behavior of the one address in one protocol can predict in others. TrustDavis is an interesting paper on this.
+   3. Truebit is something that a lot of projects hope will exist. They are collaborating with them closely. They already have a prototype that’s working and are excited about this
+1. What are the best educational resources?    
+   1. Tutorials on Ethereum home page. He always tell people to start working on a pet project and that’s the best way to learn. Instead of going through a tutorial you should think about something cool and that’s simple enough that you can build your own thing.
+1. What was the hardest part about learning to develop with Ethereum? 
+   1. The amount of technologies you have to be familiar with is much larger than other tech stacks. Security, new programming language, JavaScript to interact with the contracts, game theory, sheer amount of knowledge that you need to get started is quite high.
+1. Who are the other people you think we should talk to?
+   1. SuperMax Project, protocol explorer for protocols that are living on top of Ethereum. Build for Aragon, CryptoKitties, etc.
+   2. Connecting dApp developers to protocol developers. A lot of projects building on top of Ethereum that he knows need both. As of yet unnamed project but will connect.

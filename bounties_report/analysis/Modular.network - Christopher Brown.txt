@@ -1,0 +1,84 @@
+﻿Christopher Brown
+05/11/2018 - Andy
+
+
+1. Who are you and what are you working on?
+   1. Full stack web dev, working in finance and some other industries. Started in Eth after reading WSJ after Frontiers release.
+   2. VM was interesting - run code in the blockchain is really interesting.
+   3. Modular.network - working on a hybrid solution with Blossom.
+      1. Several microservices in AWS that are coordinating with SCs on the blockchains - all that talk to a frontend dashboard
+      2. Token contracts
+      3. More extensive libraries now - we have an open source repository for ETH contracts.
+         1. Math
+         2. Token
+         3. Crowdsale
+         4. Array handlers
+         5. Linked lists handlers
+      1. Landed on Status repos first when looking at this stuff :)
+      2. Looking at zeppelin’s libraries and they didn’t seem as organised as other strong OSS libraries.
+         1. All about documentation!! Seemed lacking and this is the focus at modular.network.
+         2. Not deployed libraries you can link to.
+         3. Modular deploys on all networks and you can link to them specifically using delegatecall.
+         4. Take ERC20 - no reason to have 10000 Full implementations out there, just need contracts to hold their own storage and implement the right interface.
+   1. Bridging tech is most important for foreseeable future due to efficiency concerns on chain.
+   2. ETHPM required for graceful handling of libraries and packages, easily, securely etc. Really need to focus on that. 
+      1. Have some thoughts about using on chain tests for upgradeability.
+1. What are the tools/libraries/frameworks you use?
+   1. Truffle for building, testing and compiling
+      1. Can be sketchy on deployments, though this has improved recently. Built our own deployment script to get around it though.
+         1. Test, compiling and running are cool, but none of them are linked very well.
+         2. Being the devs of both ganache and truffle -putting the scripts together that would run the whole suite would be awesome.
+      1. Needs easier integration with CI tools.
+   1. Test scripts from zeppelin (in the sol libraries that pulls up testrpc, gives it a bunch of accounts and then executes whatever you have written).
+   2. Dive into lower level Ethereum libraries a lot - ethjs-utils especially.
+      1. You have to understand what is going on and WHY you’re doing it. This context is tough to get across and the libraries here are just not as well advertised, which is a pity.
+      2. It’s a maturity thing: early on you’re just trying to attract people and get them to get their hands dirty. As the community matures, you need more forward-facing, lower-level libraries that are well documented available is absolutely key. You can only do so much with vanilla web3..
+      3. One of their new implementations is a new multisig wallet, picking up some stuff from ERC 191, added some things to address security concerns.
+         1. None of that stuff is in web3, so using ecsign method from utils in order to avoid going onchain all the time to get info that is available elsewhere.
+         2. More attention around lower level components is useful as we mature.
+   1. Ethereumjs-tx, ethereumjs-wallet, solidity-sha3, to get identical hashes
+      1. Little bit more control to JS devs.
+   1. Web3 1 looks good
+      1. Biggest mistake: made it default installer when web3 v1-beta came out and this is a crucial error!! 
+      2. But scrypt is such a heavy package to deal with. We use that for local encryption/decryption now. Can it even be compiled into an Electron app for instance?
+      3. Necessary because everyone running full nodes is never gonna happen.
+1. How do you handle testing?
+   1. Just Truffle for tests
+      1. Mocha for unit and functional tests. Use mocha across the whole application base.
+   1. Have run Mythril on some mission critical contracts
+      1. Was a pretty good experience
+   1. Stay away from monolithic code bases, iterate and test as regularly as possible!
+      1. Applies especially to smart contracts
+      2. Use event logging to debug contracts if possible
+   1. Getting invalid opcodes as feedback when your code doesn’t run is the single most frustrating thing in the world!
+      1. This has now improved a lot, which is awesome! Not just OOG errors in solidity anymore.
+      2. Finished contracts a few months ago and now don’t really want to touch them too much. However, solc moves on a lot and there is a tension there (especially after audits)
+         1. SC dev is much more like traditional application dev, not web dev. Updates are months apart and very purposeful, bundle a bunch of things etc.
+   1. We like solidity, and most problems are related to VM not being as capable as people currently want.
+      1. There’s a language called Jelly with very purposeful functions that are then linked together to create compound functions.
+      2. Someone wanted trailing and leading 0’s from contracts return data - seemed very easy to do in Jelly. Specifically, bytes are so valuable on the blockchain and we use more bytes than we need to.
+      3. Room for optimisation with bytecode there.
+1. What tools don’t exist at the moment?
+   1. The community is doing a good job and a lot of the stuff we need is already being worked on by someone.
+   2. ETHDenver and the gas visualisation tool that came out of that.
+      1. Became apparent that there are places where you see red and you can’t change that and these sorts of insights are useful - do I really, really need to put this piece of data on chain etc.
+   1. More visual tools that you could wrap around smart contract code (that doesn’t get compiled).
+      1. Has there been any thought around wrapper code for SCs for developer-specific tools or libraries that give you the visuals you need to understand more of what is going in.
+      2. Having a logger that works well and you get outputs similar to solidity-coverage and doesn’t only point out errors, but also information - showing scope and which state variable it has access to etc.
+      3. Think about in context of Parity issues we had: the fact they tried to structure a lib as a contract could have been picked up by something like this. 
+      4. Or, in Ownable contracts, specifically printing out a report that says “The owner of this contract is the only one who can access this specific state, as opposed to other users” etc. Point out how to establish an owner (if not already set in initialisation function).
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Having a sequential getting started stuff on ethereum.org is totally, absolutely necessary. 
+   2. List of tools and resources and even an appendix-like structure of what things like Distributed Applications even mean.
+   3. Defining use cases for those don’t wanna be in blockchain is still really hard today.
+   4. Solidity readthedocs is very good though. Web3 v1 is much better documented too.
+      1. There is a disconnect between web3 v1 and latest geth: the way we were fetching tx receipts were not syncing correctly
+      2. v1 websockets are still kinda screwy and not handled as well as they need to be.
+      3. Ended up putting the service using the node in the same container and just ipc
+   1. Resources themselves, you really need to dig for.
+   2. Geth has resources that are very outdated and fragmented - please can we fix this!
+      1. Not having definitive resources and docs is a big problem in general.
+   1. Search github and Reddit to find random answers that I need.
+1. What are you most excited about in the short term?
+   1. Proof of Stake overlays will be really interesting! Bring on the FFG!!
+   2. Getting WASM out there will be really important (and finding a use case ;) )

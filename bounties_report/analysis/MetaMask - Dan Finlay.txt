@@ -1,0 +1,64 @@
+﻿Dan Finlay 
+
+
+1. Who are you and what are you working on?
+   1. User interface platform apps - Apps that enable other apps. 
+   2. A few gateway apps. 
+   3. First layer of education making it easier for users to interact with other apps.
+   4. I started with the original “Hello, World” Greeter contract from ethereum.org. 
+   5. I liked it so much I forked it. 
+   6. Originally they had 3 tutorials: Greeter, Voting, and Crowd-funding - would be great to see that kept more up-to-date...
+1. How do you handle testing?
+   1. Test network, mainchain, local test rpc, mocked user interface.
+1. What are the tools/libraries/frameworks you use? 
+   1. React, gulp, javascript, browserify.
+   2. Mocha for testing, build live reloading. 
+   3. web3 api and rpc api. 
+   4. sinon mocks. 
+   5. Create a UI for smart contracts, run testrpc, deploy contracts, and query it.
+   6. If not already mentioned, are there any libraries you rely on regularly?
+      1. web3, eth-js, provider engine deprecating for json rpc engine, react.
+      2. bip-39, web crypto libraries. 
+      3. Currently developing eth-keyring-controller
+1. What tools don’t exist at the moment? 
+   1. The ability to make really lightweight user interfaces that subscribe to blockchain state. 
+   2. Would prefer that json-rpc return promises. 
+   3. json-rpc is unperformant, wish it was easier to contribute to.
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Ultimately these things are not usable yet, because blockchain isn't scalable, and blockchain hasn't scaled. This is not a pleasant way to build applications. 
+   2. Also, a lot of patterns aren't defined yet. 
+      1. For example, in CryptoKitties when you lock a kitty, another user might retry kitty. 
+   1. In general, conveying to the user [who is interacting with a smart contract] what's happening under the hood is frustrating. 
+   2. There is a big chasm between what people are used to with current application and blockchain applications, i.e. things like gas.
+   3. Cryptokitties is great example of what developers are capable of creating on the blockchain. Established web design firm. What decisions did they make based on docs? 
+   4. We need to address what constitutes a production grade app.
+   5. Scaling is eventually a part of that. Plasma chain interaction might look like in a web app.
+1. How do you handle smart contract verification and security?
+   1. Regularly TDD. Write a lot of tests. Truffle, dapphub etc. 
+   2. eth-js or web3 to deploy contracts and write tests over to that. 
+   3. Low-level js test. Thin wrapper around json-rpc, compile with solc, deploy straight to rpc. Used truffle v1 and they changed api, so truffle was behind. Switched to remix.
+   4. On metamask we use tests and QA. Automated tests and user tests.
+   5. Understanding the blockchain in the first place. 
+   6. What’s happening under the hood and why I would care. 
+   7. A big challenge people hit the first time is reading from blockchain versus proposing a change.
+1. What are you most excited about in the short term?
+   1. Looking forward to helping people access funding for opportunity they didn't have before. 
+   2. Non-profit to voluntary social infrastructure, small businesses that would have. 
+   3. Social token launches. Make it more accessible to launch and sell coins for small businesses. 
+   4. WeTrust, Bancor, Circles, Curve token issuance, Puddle, Ripple’s trust lines which is getting adopted by Raiden, Open Baazar Trusted, Keyva, Geo, Sherpal, Building Societies. 
+   5. Also excited about remote keys stored as a service, i.e. some service to store consumer keys.
+1. Other domain specific questions?
+   1. EIP-719 would make a great bounty to make this. Contracts exposing a way to request a human readable. render approval screen. 
+   2. Could make transaction process human readable. 
+   3. Moonlay by Mist team[a] is interesting and deserves more attention.
+   4. Browser permissions. These require browser vendor cooperation. The only way to expose web3 is to require read/write access to all websites. But we actually only want to expose to a few participating websites.
+   5. Web3 api
+1. Other bounties?
+   1. https://ethereum-magicians.org/t/strange-loop-an-ethereum-governance-framework-proposal/268/24 
+   2. There’s a road map that needs to be executed for this to work. If I had to guess, here’s how it might unfold:
+   3. A client team with incentive to encourage a hard fork might implement “accepting on-chain hard fork proposals with client parameters” as a way to make it easier to develop the hard fork, in a community-focused way that gives users the power of choosing future forks in general, not merely supporting their own interests.
+   4. Once one client has implemented this, they should advertise their client as the client that gives the user the most control over the fork policy that their client uses, in hopes to either steal users to that client, or pressure other client developers to relinquish their own privileged decision making position by implementing support for the same.
+   5. There will probably be a friction period, either where some client devs don’t want to support this feature (either out of conviction or seeing it as a waste of time, since they may not want or need any hard forks), and so it might come down to people who have the most at stake (for example, people hoping for a funds recovery) to fund the development of this general feature for all clients.
+   6. If core client developers aren’t interested in supporting user-chosen hard fork policies, and refuse to review/merge these PRs, that might be a good reason to fork those clients, with hopes to merge after the changed version is proven stable.
+   7. IMO, any client not favorable to a user configured fork choice rule is entrenching their own power, and informed users should flock away from those clients as other alternatives emerge.
+[a]All three of these deserve some research --

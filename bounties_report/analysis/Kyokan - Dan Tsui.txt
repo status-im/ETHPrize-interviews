@@ -1,0 +1,25 @@
+﻿Dan Tsui
+3/14/2018
+
+
+1. Who are you and what are you working on?
+   1. LLC that does consulting and builds projects
+      1. Their first crypto client was Metamask.
+      2. Other examples: build UI on top of the smart contracts; how to integrate with scaling solutions.
+      3. Working with state channels on wallet. Should be live on 1st or 2nd week of April
+         1. First: “productionizing” their library for micro payments.
+   1. Got into this space contributing to the EthereumJS ecosystem.
+   2. Within the team, I function as PM and do code reviews.
+1. What are your biggest frustrations?
+   1. There’s the inner crew of devs; then there’s other teams who are trying to build stuff, but who don’t have the same access. There’s also language barriers etc. 
+   2. We don’t quite know the lay of the land: e.g. “should we integrate with Metamask or build our own things”?
+   3. Knowledge of tooling and documentation –– very fragmented / scattered across ecosystem.
+   4. How to incorporate layer 2 solutions?
+   5. People’s roadmaps are defined based on their analysis of tech at the time of their ICO, even though new stuff is becoming possible nearly every day. Staying up to date with this is challenging.
+   6. When we were starting work on Ethereum stuff we needed to learn. In order to do that well, we needed to talk to different projects as this is ultimately the best way to learn and the Ethereum community can be very welcoming if you just find the right channels.
+   7. But how do people know what to use who aren’t in the community: e.g. Metamask vs Mist?
+   8. Dfinity asked them to go through all the Ethereum dev tools
+      1. They use truffle, ganache, Remix - all the usual stuff. 
+1. Who are the other people you think we should talk to?
+   1. GK Chan - jchan@kyokan.io
+   2. Matt Slipper - mslipper@kyokan.io - wrote UI’s integrating with Metamask & leading Spankchain wallet project

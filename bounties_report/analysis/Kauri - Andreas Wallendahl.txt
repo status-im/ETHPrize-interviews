@@ -1,0 +1,59 @@
+﻿Andreas Wallendahl
+12/06/2018 - Mitch, Parker
+
+
+1. Who are you and what are you working on?
+   1. Kauri
+   2. Decentralized knowledge base built on Ethereum and IPFS
+   3. Github is for code, Kauri is for how to use it. Built in incentivization layer enabled by Ethereum, enables bounties for new content. No token, uses Ether/ERC-20 token.
+   4. Most popular tutorial is new content from Maker. 
+1. What are the tools/libraries/frameworks you use?
+   1. Truffle
+   2. Geth nodes on Google Cloud
+   3. Eth.js 
+   4. React
+1. What are your biggest frustrations?
+   1. Helping a user know what to sign and what it actually means at the blockchain level. 
+      1. If new user comes to your website without Metamask, they can’t interact with any web3 on your page. 
+      2. Gitcoin uses a faucet to get around this
+   1. Onboarding experience 
+      1. Most users are devs so they understand it better than most
+      2. Internal Consensys initiative started to onboard new users
+1. How do you handle testing?
+   1. Needs to ask teammate (Josh Cassidy)
+1. How do you handle smart contract verification and security?
+   1. Also Josh Cassidy
+1. What tools don’t exist at the moment?
+   1. Simple spin up of side-chain or scaling solution kind of like Heroku
+      1. Spankcard for counterfactual state channels is a good attempt at this
+      2. Omisego and Plasma team 
+      3. Rapidly spin up and set criteria for Plasma chain
+   1. Gas costs
+   2. In web signing capability- I could preload Eth or fund with credit card. But, if users are used to this behavior there might be man in the middle attacks. 
+1. What are the best educational resources?
+   1. Cryptozombies - the more modules the better
+   2. Chainshot - like codecademy, checks with unit tests
+   3. https://github.com/ConsenSysLabs/ethereum-developer-tools-list/pulls
+   4. https://medium.com/covee-network/here-are-the-best-courses-and-resources-for-learning-solidity-ethereum-dapps-600e18287381
+   5. https://medium.com/bcgdv-engineering/getting-started-with-ethereum-as-a-developer-af20d78c49f
+   6. https://medium.com/@wslyvh/getting-started-with-ethereum-solidity-geth-part-2-d195144fe6c7
+   7. Cryptomechanics.info
+   8. Consensysacademy for a full course
+   9. https://t.co/aRO7B8z50h 
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Hardest part was not knowing where to go in the beginning. Watching videos to understand concepts of blockchain. From there, Truffle and its intro tutorials.
+   2. Everyone was rebuilding the same stuff/components for public apps and enterprise use case. 
+1. Other bounties? 
+   1.  In-browser signing. Would make new user onboarding much, much easier. Metamask works on it but a bounty might drive it through. 
+   2. A lot of people have built interaction with IPFS, that’s why we built IPFS-store and eventium. 
+   3. Blockchaimulator for testing that runs through 100,000 blocks, somewhat instantly. We had to wait for blocks to be produced. 
+1. What are you most excited about in the short term?
+   1. Anything people can experiment with, and that can prove interest/demand.
+   2. NFT’s, Ujo and Cryptokitties. 
+   3. Blockchain’s version of single sign on. Store user information in some way (IPFS or UPort contract)
+   4. How do we get to 1,000,000 daily users
+1. Who are the other people you think we should talk to?
+   1. Sam Smith, reputation AI at Consensys
+   2. Josh Cassidy
+   3. Michael Cena
+   4. Sarah Baker Mills (designer)

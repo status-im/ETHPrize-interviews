@@ -1,0 +1,47 @@
+﻿Jorge Izquierdo
+1/30/2018 - Sina, Robbie, Matt.
+
+
+1. Who are you and what are you working on?
+   1. Aragon - Decentralized Governance platform
+      1. We had a feeling that they had to go deeper into the stack to launch Aragon.
+      2. What we’ve built:
+         1. We’ve built two different interpreters:
+            1. Language for ACLs
+            2. Language for tx descriptions, similar to Natspec.
+               1. Allows you to do calls to smart contracts; but really basic stuff; 
+         1. Built generic framework for interacting with their contracts. Our dApp changes; needs to integrate with 3rd party apps without allowing dApp developer to touch the database.
+            1. Ruby on Rails abstraction on-top of the data layer.
+            2. Problem here: we don’t have any servers, we are a real dApp. Every single user has to compute entire state of the dApp.
+               1. Backend protocol / caching protocol / event-processing.
+         1. Upgradability stack.
+            1. Tooling to update storage etc correctly.
+         1. Trustless signer: help people understand their tx before sending the tx.
+            1. Working with metamask on this.
+         1. Our own CLI tooling
+         2. We have a package manager – backend to our app store
+1. Other bounties?
+   1. Infura that is more decentralized. A full-node infrastructure[a].
+   2. An open-source explorer.
+1. Other domain specific questions?
+   1. Tell us more about getting deep into the EVM?
+      1. Natspec lets you evaluate functions within call – this is problematic security wise.
+         1. It’s not turing complete at this moment
+         2. No one describes what transactions are going to do; Radspec is the answer to this! Everyone use it, please. 
+         3. Standard around commenting exactly what a transaction does.
+            1. Documenting what the source code does
+            2. Solidity puts a hash of the code, at the end of bytecode.
+               1. This process of automating the comments could be automated; pulls comments from Solidity source code, add them as comments for devs
+   1. Integrating dApps with blockchain?
+      1. Local caching in the browser; what are the block numbers; do a Reduce to see how an event impacts the state.
+      2. Problem with the caching layer: the info not only comes from the Event, but data you get back from contract depends on the block number
+      3. Performance is an issue: 
+         1. Augur: ethereumjs-blockstream.
+   1. Library-driven development & upgradability?
+      1. If Solidity changes how variables to storage blocks, if it changes this, there’ll be problems. They want to build a tool that does a sanity check that checks still works[b]
+         1. Tool to do a sanity check over the storage layout
+         2. If new contract uses different version of Solidity, could get that directly through proper use of interfaces. 
+
+
+[a]Great bounty -- but really large
+[b]This is a good bounty - mentioned multiple times, if solidity changes, can cause problems with storage
