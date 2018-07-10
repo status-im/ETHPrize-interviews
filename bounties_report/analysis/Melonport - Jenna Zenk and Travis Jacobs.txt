@@ -1,0 +1,38 @@
+﻿Jenna Zenk, Travis Jacobs
+22/06/2018 - Parker 
+
+
+1. Who are you and what are you working on?
+   1. Decentralized asset management system. Smart contract that allows you to set up and manage digital assets. 
+   2. Feature complete protocol going up to mainnet for short period of time for testing. 
+1. What are the tools/libraries/frameworks you use?
+   1. Smart contract: Dapp by Dapphub. We manage packages with git modules. Includes Solidity compiler. 
+   2. Subpackages delivered as git submodules i.e. safemath.
+   3. Used truffle in the past. When you make a large project of truffle it becomes too complex. Not a fan of the migrations script. Record migrations on blockchain with an actual contract. Can’t run specific migration scripts, must run sequence of them. Need to recompile every time you do migrations even if contract code hasn’t changed.
+   4. Parity.js used for testing and deployment. Doesn’t have much error handling beyond what we’ve requested. Uses parity specific JSON RPC calls- can’t deploy to Geth or Ganache nodes. Looking to switch. 
+   5. Didn’t use metamask because idea was to have mobile compatibility- therefore didn’t see the value of metamask and were less feature complete. Internally developed in-browser wallet with Ethers.js works on all devices
+   6. Ethers.js library- really great. Only used in front end stack. Great because it’s not dependent on Metamask. More tools needed like Ethers.js that are maintained well. 
+1. What are your biggest frustrations?
+   1. Coverage tool with truffle worked okay, but nothing available for DApp. 
+   2. Solidity’s lack of error handling.
+   3. Web3.js is far from mature, Eth.js looks okay but not to many people using it. Ethers.js is good for wallet management but a bit monolithic. JS library that will emerge as a standard is the one that maintains it. More functional JS approach from someone who loves Javascript. Event watching, querying blocks. 
+1. How do you handle testing?
+   1. Use Parity.js for deployment on test network
+   2. For testing- use Ava javascript framework
+1. How do you handle smart contract verification and security?
+   1. Continuous integration with tests and Oyente integration
+   2. Use Oyente.js - Melonport has sponsored the development of. Knows certain set of issues that have occured in smart contracts. 
+   3. Regular code audits (4). Before they go live next February, planning for 2 more audits. Audit from Nick Johnson and Martin Swende. Audit from Deja Vu. Last audit from bug bounty- Nick Munroz from Solidify. Also running a main net bug bounty. 
+   4. Thinking about formal verification but costs associated with it is really high. 
+1. What tools don’t exist at the moment?
+   1. Really good .js library, better standard. Our front-end would love to help with ideation/funding. 
+   2. We almost have to ask users to run full parity node to not affect our Node, force downtime. More community-available Nodes or otherwise light clients. Infura is completely owned and limitations such as querying limits and looking far back into history. 
+1. What are the best educational resources?
+   1. Stack Overflow is best for practical development issues
+1. Other bounties?
+   1. Javascript library and
+   2. Light client
+1. What are you most excited about in the short term?
+   1. Light clients
+   2. Graph protocol - create a data layer that caches the blockchain that sits between in SQl database. 
+   3. IPFS, OrbitDB.

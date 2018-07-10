@@ -1,0 +1,37 @@
+﻿Ilan Benbrith
+18/06/2018 - Parker
+
+1. Who are you and what are you working on?
+   1. I’m the Technical PM at Consensys Academy working on an 11-week developer program. I’m responsible for maintaining the course and making sure people reach their development goals.
+   2. The course is for experienced developers - experience with languages/git required.
+   3. Overall objective is to attract people to and grow the Ethereum community
+   4. Content creation, assignments, course, customer/student support, external resources, connection with Consensys mentors
+   5. The course starts with intro to blockchain in general, so that students don’t have to know too much about blockchain. Historical context/ timeline, technical underpinnings of blockchain, technical underpinnings of Ethereum. Difference in mindset between traditional development vs DApp development. 
+   6. Teaching them the setup and tools they’ll need for the program (Truffle, Ganache, Remix, etc.)
+   7. Then EVM, Solidity/smart contracts, connecting a front end with React Native
+   8. Security smart contracting and auditing with help from ConsenSys Diligence
+   9. Finally, different integrations (IPFS, Oracalize, etc.) and design patterns of different teams.
+   10. LLL, Assembly language for the EVM, Vyper.
+   11. Ethereum Improvement proposals/ Ethereum Request for Comments processes
+1. What are the tools/libraries/frameworks you use?
+   1. Truffle, Ganache, Remix, Metamask etc.
+   2. Front end
+      1. React Native
+   1. LLL, Front end libraries
+   2. We give wide exposure 
+1. What are your biggest frustrations?
+   1. Gas and fees is a common frustration, given that they are an extra consideration that must be taken into account. Test Ether required. 
+   2. Speed, once launched on mainnet latency is frustrating.
+1. How do you handle testing?
+   1. Truffle testing
+   2. Best practices resources
+1. How do you handle smart contract verification and security?
+   1. Consensys Diligence provides some of the best resources and best practices online
+1. What tools don’t exist at the moment?
+   1. Drizzle is a really cool idea for front-end development 
+1. What are the best educational resources?
+   1. Youtube videos
+   2. Conferences and Meetups - putting names to faces, seeing others’ pain points 
+   3. Watching someone build out an application
+1. Was anything easier than expected?
+   1. We’re still so early on but we hope to incorporate feedback for now.

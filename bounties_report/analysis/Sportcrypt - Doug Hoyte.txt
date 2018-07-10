@@ -1,0 +1,34 @@
+﻿Doug Hoyte
+19/06/2018 - Written
+
+
+1. Who are you and what are you working on?
+   1. Doug Hoyte, working on sportcrypt.com, a sports betting exchange. I've also consulted on a few other ethereum projects.
+1. What are the tools/libraries/frameworks you use?
+   1. web3.js, ethereumjs-util, solc, testrpc, parity --dev, metamask
+   2. Overall it's pretty easy to get started, which is nice. For dislikes see next question.
+1. What are your biggest frustrations?
+   1. Docs are usually out-of-date, plain wrong, or both.
+   2. All libraries, docs, interfaces, etc have ossified around the web3 API, which is basically a wrapper around a trusted RPC interface to a node, so it may as well be a client to a centralised system
+   3. Very difficult to provide good UX with ethereum "nonce" system: having multiple transactions in flight at once doesn't work the way people expect them to ("nonce" is a misnomer anyway -- only way to cancel a transaction or resend with a higher gas price is to reuse a nonce, something you should never do with cryptographic nonces)
+   4. Everything is built with polling in mind, even when a push notification system would be superior. Need to poll infura constantly since you can't subscribe to events. Inefficient (wasted bandwidth/CPU) and bad UI (users aren't notified as soon as possible when something happens)
+   5. Off-chain signature APIs are inconsistent across implementations, in multiple different ways
+   6. When signing data in metamask, users see a bunch of gibberish unicode characters. Proposed solution was to make a "good enough" schema instead of, for example, re-using the solidity ABI
+   7. Things not directly related to consensus don't seem to be well designed: The "sandwich" model of complexity (where you assume someone else will come and do the hard-work of integration so you don't have to) hasn't worked great so far
+   8. Metamask silently pushes down updates to users without their consent, occasionally breaking things (and of course they could steal all your eth if they ever wanted to). They also have a built-in censorship infrastructure now (supposedly only to use against phishing sites, but potential is there for anything)
+   9. Testnets like rinkeby make you sign up with your facebook account or something to get coins
+   10. Solidity compiler misses some trivial optimisations, has odd limitations like max number of local variables, and handles memory vs. storage qualification in subtle ways
+1.  How do you handle testing?
+   1. Custom test harness, could never figure out how to get truffle to do what I needed
+1. How do you handle smart contract verification and security?
+   1. Trying to keep everything as simple as possible, reduce attack surface, minimise dependencies, the usual. We have a pretty comprehensive test-suite, and perform white-box invariant tests after every interaction.
+1. What tools don’t exist at the moment?
+   1. Hmmm, a good light client implementation so everyone doesn't centralise around infura/etherscan, although that ship has probably already sailed
+1. What are the best educational resources?
+   1. Not sure. Solidity docs are OK if you are technical
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Working around web3/metamask bugs
+1. Was anything easier than expected?
+   1. Solidity is supposed to be completely awful so it came as a surprise to me that it was actually fairly reasonable
+1. What are you most excited about in the short term?
+   1. Building out our product, watching adoption grow. In terms of ethereum itself I think there is a lot of legacy stuff and bureaucracy that will impede improvement, so I'm not holding out much hope there. Time will tell of course.

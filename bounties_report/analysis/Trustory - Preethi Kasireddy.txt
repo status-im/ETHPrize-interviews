@@ -1,0 +1,41 @@
+﻿Preethi Kasireddy
+18/06/2018 - Mitch
+
+
+1. Who are you and what are you working on?
+   1. I’m the founder and CEO of Trustory, an app that’s built on the blockchain. App for users to create stories, and stories get validated using a cryptoeconomic game. Stories are claims that people are making!
+   2. Before that, I was doing independent development and was an engineer at Coinbase for a while.
+1. What are the tools/libraries/frameworks you use?
+   1. With Ethereum, for Trustory, we will write smart contracts in Solidity but maybe also make extensive use of Go. 
+   2. Tendermint Consensus engine to build our sidechain with. 
+   3. Other Cryptolibs TBD. 
+1. What are your biggest frustrations?
+   1. Not enough standard libs. Creating a dApp, the stack is not well-defined. The ecosystem is very early with a lot of breaking changes and versioning problems.
+   2. Scalability, privacy. People are still figuring it out. Very few people are working on sidechains.
+   3. Not great documentation.
+1. How do you handle testing?
+   1. For JS, Mocha/Chai. In the past, used py-ethereum. For now, TBD.
+1. How do you handle smart contract verification and security?
+   1. In the past, OpenZeppelin. Don’t think we’ll use them again because they are a bit pricey.
+1. What tools don’t exist at the moment?
+   1. Debugging. We don’t use Truffle, and if you’re not using Truffle, it’s kind of impossible to debug your contracts. Truffle is not the future, it feels very restrictive. If you’re not using Truffle it’s difficult.
+   2. Testing. Surprised that there is no native tester for Solidity yet. Good examples to test using pyethereum or some other library.
+   3. Key management and key generation, for people that are not security experts. Right now, some people are using BIP39, some people are using other stuff. It’s a mess. We need to decide what the standard is and make the examples around it.
+1. What are the best educational resources?
+   1. Read the Ethereum source code, read the Solidity documentation. 
+   2. I learned by reading source code. Read Ethereum for depth, and then read Solidity docs. Looked at as many contracts as Solidity contracts as possible. 
+   3. Top projects: 0x contracts, Gnosis contracts, Augur contracts. Looked through top projects.
+   4. Some people look at Consensys tutorials, but I personally don’t like them because they lock you into their ecosystem.
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Everything. Nothing follows a standard. 
+   2. Biggest thing was debugging and testing. You don’t have a proper debugger, life is hard. Deployed the contract every time, had to fix it every time, very manual.
+1. Other bounties?
+   1. Testing and debugging!
+   2. Key management stuff.
+1. What are you most excited about in the short term?
+   1. For my app to launch!
+   2. Excited for Casper, for Proof-of-Stake
+1. Who are the other people you think we should talk to?
+   1. Head of Tendermint, Zaki . 
+   2. Antonio Juliano CEO of dydx (have previously spoken to Brendan Chou). 
+   3. Nadav of Dharma (interview #19)

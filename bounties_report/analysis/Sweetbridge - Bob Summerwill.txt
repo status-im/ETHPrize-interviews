@@ -1,0 +1,40 @@
+﻿Bob Summerwill
+19/06/2018 - Mitch
+
+
+1. Who are you and what are you working on?
+   1. Been involved with the Ethereum community since 2015. Worked for Foundation, and then for Consensys, then at Sweetbridge. Bootstrapping current efforts.
+1. What are the tools/libraries/frameworks you use?
+   1. Most of his work has been on the platform work itself or on the community side. Truffle and Remix are the leading things. Embark and Populus, a little bit. Metamask, very important. Mist not so much, it really needs a bullet in the head. Was a good idea 4 years ago. No one wants a desktop browser.
+   2. Mist was meant to have a dapp store and everything, and was meant to configure it. Brave killed it. MyCrypto and Metamask were really underestimated at the start.
+   3. Infura is absolutely essential, that’s just fabulous. 
+   4. Looking forward to in-browser client. Parity bridge that pushes block data into IPFS, JavaScript for IPFS. In-browser client, lightest of light client. Don’t reconstruct the whole thing locally. Primarily Metamask driving this. Ride on top of libp2p instead of devp2p.
+1. What are your biggest frustrations?
+   1. Where we are at now is a transition between amateur and pro. Needed for a long time but starting to see now. We’ve got so far in research and development stuff and volunteer time. But we really need to get professionals in. Software engineering side, community, and business side. And a million other things. UX is a chasm between where we need for mainstream clients. Unusably terrible for end users!        
+   2. Same on the development side. We’re not even in 1993 in the web, we’re in 1986 and a core dump could happen at any time. Swinging samurai swords around, do not give these swords to normal people!
+   3. Even on the developer side, layers and layers of shit. Far get to where we need normal development. As we’ve seen through hacks and flaws. Can’t write backbone of the banking industry.
+   4. Formal verification is not done for normal software. To get to mainstream, we need to be composing pieces more. If you’re an iPhone developer, think of all of the tooling you have available. Everyone is building their own bricks still in the space.
+   5. But this has happened before, we want this to be as simple as writing a web app. IDE single stepping. Automated builds and quality checks. We need to be it as simple.
+1. How do you handle smart contract verification and security?
+   1. As good as that gets right now, there are various guides to best practices. Consensys has a really good one. Leaning on Zeppelin, Consensys Diligence, zklabs. Fairly small amount of people that have expertise, real dearth of people.
+   2. Consensys Diligence was super swamped for requests right at the start. Pay someone to stop working on their project. 
+1. What tools don’t exist at the moment?
+   1. Interactive debugging. Truffle and Remix have started to have little bits for that. What you really need is a nice GUI debugger. VSCode or Sublime, you need step-in debugging. Visual Studio would be ideal, step in and step out.
+   2. Profiling, gas counting. Doesn’t exist. Anything with performance or gas counting, metrics and analysis stuff.
+   3. On FIFA, what was so incredibly involved was doing instrumented builds and then delta. Seeing memory use go up by this amount, objective before and after measurements. Having this instrumented data to go in. Automated builds is like “Whoa, what the fuck happened to the gas count there?” Some change was made. Costs are a huge consideration for smart contracts.
+   4. Standard libraries and frameworks. Need to not have people writing low level stuff, it should be common and it’s hard and easy to fuck up. People shouldn’t be writing this. The primary innovation for mature languages are the standard libraries, don’t write a string class or math class.
+1. What are the best educational resources?
+   1. Some universities starting to teach, Consensys Academy, have to cross-train.
+   2. Get involved in a local meet-up, it’s all about the people. Find people near you that are already involved. Nothing else is mature enough. Hardly any books, just got Mastering Ethereum coming out at some point. This will be legitimately useful at some point.
+   3. IC3 are doing a bunch of stuff. An increasing number of people in the community are starting to do more technical blogs. Demonstrating legitimacy by demonstrating value.
+   4. Ric Burton has been fantastic recently, great blog posts.
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Where are the tools? There’s nothing, going back 30 years ago.
+1. Other bounties?
+   1. Work for GUI’s, development tools for GUI’s. Can we get to a level where Visual Studio/Visual Studio Code/ Atom? Interactive debuggers is absolutely #1. Single stepping through it.
+   2. On Truffle, you can do with smart contract debugging. Because you don’t have external inputs, you’re not reading from inputs, no keyboard. The path is completely deterministic. Scrubbing backwards is quite simple, rewind is entirely possible. That kind of tooling could work.
+   3. Back in the day, there was Mix. Was a sort of debugger, but their own IDE really. But how much maintenance was this? But this is where Remix came in. With Truffle it’s all low-level, command liney stuff. Need to add value for normal developers.
+1. What are you most excited about in the short term?
+   1. I am excited about preaching about the end of tribalism which seems to be working a bit. Don’t have to argue about blokchchain being a thing any more. But how can we ship? But need to get a version where people can build real things.
+   2. Supply and demand are starting to marry up. Central banks have done their proof of concepts, great for stock markets. Getting to answers for scalability, privacy, and useability. We’re at the state where we interview people on what do we need? For the last few years, if you solved scaling then maybe we’d be interested. We need money! Now we have it. We’ve got people pairing this together to get stuff done.
+   1. On the enterprise side, loads of blockchain jobs. If you like the area you can get in and have that stability. Becoming another part of technology. Success is when blockchain becomes boring. Then we’ve won.

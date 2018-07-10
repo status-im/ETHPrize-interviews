@@ -1,0 +1,50 @@
+﻿Peter Kieltyka
+20/06/2018 - Mitch
+
+
+1. Who are you and what are you working on?
+   1. Started Horizon Blockchain games, building decentralized multiplayer games. What we’re excited about is a new class of video games, in which players truly own in game items. Own them, and can trade them. They can even compete cryptographically to earn/unlock new items.
+   2. One of the core areas of work that is started immediately: how can we make high fidelity games that are scalable, low-cost, and provably fair. Video games with a decentralized economy. Can mine new items as part of the economy.
+   3. Love building new models on blockchain. What is most excited to do is to create utility through video games via blockchain.
+1. What are the tools/libraries/frameworks you use?
+   1. We’ve built a blockchain gaming architecture with a low fungibility token, similar to ERC 721. We built our own state channels. We’ve also created offchain game logic, and can verify the game in a single state. Skyweaver.net was our very first game. All work will be open source, won’t do an ICO.
+   2. Game is offchain, persist the awards on chain. Based on a finite state design. 
+   3. Use Truffle, Ganache-cli, write the infrastructure in Go. Geth is written in Go, that’s very nice. 
+   4. Client side application, standardize on Ethers.js (Richard Moore). Without Metamask you lack adoption. Ethers.js is being ported to Typescript, excited about that!
+   5. Web3.js has a lot of dependencies, large in filesize, and the API is not as compelling as Ethers or productive. Just too bloaty. Was great that it exists, but want very very lean tools. Ethers is just so active and very tight. Following newest standards and practices. Back the guy with the deepest knowledge.
+   6. Truffle is really cool. Helps with Developer workflow, but we spin up own testRPC service with Ganache. Truffle helps with deployment of contracts as well as package management. Truffle is now a monorepo, I pushed them to become a monorepo.
+1. What are your biggest frustrations?
+   1. Need more example of really great dApps, more high quality examples. Zeppelin is doing a great job of making a standard library, but more interested in end-to-end. Don’t know of great examples of these high quality dApps.
+   2. Scalability is super important, when state channels and plasma channels arrive the whole game changes. Want to see good convergence in state channels, need off-chain computation. Want to see good collaboration here.
+   3. Focus more on end-user. Improve onboarding to Crypto.
+   4. When people think about scalability, people think about throughput and performance. But cost is integral to this. But what is the transaction cost. Optimizing for cost is a form of scalability.
+1. How do you handle testing?
+   1. Do it in Typescript with Ethers.js and Chai and Mocha. Use Remix Solidity IDE. Amazing IDE for testing little blocks of code. Testing would be another great things to see more examples of Ethers.js
+1. How do you handle smart contract verification and security?
+   1. Obviously security audits, looking through network and past experienced colleagues. Don’t see us using formal verification unless that process is made easy, but I don’t think that will happen. We will stick to security audits. Thoughtful in how things fit together and are secure.
+1. What tools don’t exist at the moment?
+   1. Profiler at ETHDenver, to see gas costs.
+   2. eWasm will be game changing. Potential for having other languages target the EVM will create a more productive developer experience.
+   3. Vyper will be great. Their goals are twofold, improved security through usage of the language. Learning from Solidity. Security + productivity.
+   4. Really happy with seeing progression of Solidity. As cool as ewasm is, who knows when it will be ready.
+1. What are the best educational resources?
+   1. Point them at Blockgeeks, all about Blockchain development education on Ethereum. Plus searching Twitter and Github, look for those great open source dApps out there. Look for examples of end-to-end dApps
+   2. CryptoZombies created a rad Ethereum tutorial.
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Wrapping your head around the architecture. Very multidisciplinary. And the tooling is in flux. Lack of examples. Architectural issues. Costs are fundamental thing.
+   2. Ethereum coding is really like developing for an embedded system with little memory, storage, and cpu power. Unfortunately don't encourage beginner to be writing this stuff. But getting better.
+   3. Try to map existing architectures to existing things that people knew about. Realizing how everything fits.
+1. Other bounties?
+   1. Gas profiler 100%.
+   2. Would love to see an Ethereum Virtual Machine written in JavaScript. The Ethereum JS VM written but it’s a little bit bulky. Important to offchain application, important for state channel applications. Richard Moore is writing this.
+1. What are you most excited about in the short term?
+   1. Blockchain video games. 
+   2. Very excited about Casper+sharding. The team is doing incredible work.
+1. Who are the other people you think we should talk to?
+   1. Richard Moore, 
+   2. CTO of Dencentraland. Esteban Ordano. Great guy, very knowledgeable. 
+   3. Liam Horn, should pick his brain. Very hands on in Solidity.
+1. Are there any other questions we should be asking?
+   1. AwesomeList, community curated high quality tools. Ethereum website needs to be completely redone. Here are the awesome projects, here are the awesome tools, here’s how to get started. Same with website work.
+   2. Exactly Ethereum Foundations problem, do not want to make any opinions that aren’t in community consensus. People voting for what they want worked on. People can vote on things. Certain weight to reputation. Consensus machine to conduct this type of thing. 
+   3. With a footnote, don’t need to perfect this system. Don’t need a perfect design to start.

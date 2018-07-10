@@ -1,0 +1,44 @@
+﻿Alex Leishman
+19/06/2018 - Parker and Mitch
+
+
+1. Who are you and what are you working on?
+   1. I am an engineer on the Polychain team, but come from the Bitcoin world. Used to work at a brokerage. Went back to grad school. Decent amount of experience in Bitcoin and Ethereum stuff over the years. I also have a cryptography background.
+   2. Doing a lot of lightning stuff right now, payment channels. Spending a lot of time investing companies in the space, doing due diligence. 
+   3. Been deeper into the bitcoin world, a bit of an outsider in Ethereum. 
+   4. I built a blockchain analytics tool called blockseer for bitcoin and Ethereum
+   5. Taught Bitcoin/Ethereum class at Stanford in 2015
+   6. Am really proud of the exchange and brokerage that I built in Taiwan.
+1. What are the tools/libraries/frameworks you use?
+   1. I don’t do much eth-dev right now.
+1. What are your biggest frustrations?
+   1. Expenses when running contracts
+1. How do you handle testing?
+   1. CI pipeline needed. 
+   2. Testing and security audits are one and the same since you’re deploying it once. 
+   3. Few contracts are heavily audited, and ecosystem is built around those smart contracts.  
+1. How do you handle smart contract verification and security?
+   1. We refer companies to trail of bits/ other. 
+   2. Formal verification handled by specialized firms. Important contracts will/should be audited by people.
+1. What tools don’t exist at the moment?
+   1. Native chain improvements
+      1. Casper
+      2. Generalized staking system where you can sell your stake via a new token via smart contracts. Bond for staking.
+   1. Programming tool chains for web assembly. Being able to take advantage of multiple languages like C++ and Rust and have it compiled down to WA. 
+   2. LLVM - any LL language could compile to web assembly.
+1. What are the best educational resources?
+   1. Andreas’ books
+   2. Ethereum wiki on Github
+1. What was the hardest part about learning to develop with Ethereum?
+   1. How to apply Ethereum tech and what makes sense.
+1. Was anything easier than expected?
+   1. Wallets UX has improved. 
+1. Other bounties?
+   1. Large players funding bug bounties for public smart contracts.
+   2. Multisig is a pain in Ethereum. Multiparty signature with a single key from an account.
+1. What are you most excited about in the short term?
+   1. Lightning - cheap, fast micropayments even though it’s not out of beta.
+   2. Ethereum bindings for lightning network?
+   3. Cross-chain stuff in general.
+1. Who are the other people you think we should talk to?
+   1. Trail of Bits

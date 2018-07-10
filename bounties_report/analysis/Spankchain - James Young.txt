@@ -1,0 +1,52 @@
+﻿James Young
+21/06/2018  - Mitch
+
+
+1. Who are you and what are you working on?
+   1. Work primarily with Spankchain, doing state channel research/implementation. Also worked on Adtoken, first production release of TCR.
+   2. I can preface this by saying this was all informed initially by experience with online ads. In online advertising, I had to deal with scalability and scale. Helping run a video advertising exchange on the supply side, on a slow day did 4-5 billion events a day. In online advertising, had to start at scale.
+   3. Before online advertising was in gaming, needed to be 100% in uptime. Game used AWS/EC2 at the time. 
+   4. Looked at Ethereum, had scaling problems. Looked at all these initial options early on. In Adtoken, for the TCR did the groundwork for serving ads. Had concept of verifiability.
+   5. Knew about the concept about state channels, was waiting for them. Ethereum community does a great job at being able to explain things and have docs, but lack of production projects.
+   6. Opportunity with Spank chain to hit the ground running and implement into production, learn by doing. Alternative approach with state channels and dove right in. So much invaluable info you learn when you have contact with reality.
+   7. Coming tools for layer 2 tooling. Need to have these standards, but don’t quite exist yet.  This is all informed by practical implementation.
+   8. Also work on a DAO that helps multiple projects that need state channels.
+1. What are the tools/libraries/frameworks you use?
+   1. We use Truffle, and Ganache on the web3 blockchain side of things. On traditional web2, use node, Kubernetes, Docker (traditional scaling pipeline). 
+   2. Etherscan to verify transactions
+   3. It’s a lot of looking at Github issues. Have to support multisig contracts.
+   4. On the front-end React/Redux.
+   5. Rely heavily on Infura, Metamask. Have their own state channel wallet, users fund SpankWallet with Metamask and then they open these other state channel with card.
+1. What are your biggest frustrations?
+   1. When I’m doing unit tests in Truffle, not knowing where the revert came from. Have been talking to the Mattis network, they focus on plasma. If the contract throws or reverts, it will tell you the line number.
+   2. Writing the smart contracts is 20% of it, testing is more like 80%. Being able to have better clarity and visibility on the tests would be great.
+   3. My biggest fear or anxiety would be knowing if there are any bugs are in the smart contracts. Trail Of Bits has been working on a Fuzzer, having tools like that is would easy a lot of frustration.
+1. How do you handle testing?
+   1. I test and retest. Wrote the auction contract in Spankchain, the only payment channel auction ever. The contract itself was 150-170 lines (including comments). Had to document well and had 3 audits, but tests were over 2200 lines long. 
+   2. This became a distraction. Had to create a testing DSL. Had to test for success and for failure. Had to test for strange modifier behavior. Had to lock myself in a room for a few weeks and think of every possible scenario and test for itself.
+1. How do you handle smart contract verification and security?
+   1. We had multiple audits at multiple periods of time. Had to just to make sure that to have a semblance of security, had a bug bounty. Left a subtle bug to make sure audit was legit.
+1. What tools don’t exist at the moment?
+   1. I wish and a hope there is bachelor’s in blockchain. In blockchain, you have to know legal, economics, game theory, some coding, etc. Here‘s the best curriculum so you can understand for yourself, is this mechanism design good. Some cryptography. Need to be able to give people the fundamentals. Need a broader view, not just technical. 
+   2. This is why it’s so fascinating, you can go down so many rabbitholes. It’s intimidating, if you had a set course curriculum with the basics. Here it is, it’s starting to happen. Cryptoeconomic primitives. Teach people beyond the code. Allow people to draw their own conclusions. 
+1. What are the best educational resources?
+   1. Depending on the background, a lot of it is hard because the docs get stale so quickly. Hard pointing them to the right version of things. When people ask, they just train themselves. They build their own blockchain developers, he teaches Solidity classes.
+   2. Don’t point people to any one example, his tactic is to give them a couple of books like Radical Markets and 5,000 Years of Debt. If they are willing to read that he is willing to spend his time with them.
+1. What was the hardest part about learning to develop with Ethereum?
+   1. Knowing what Gitter channels, Slack channels, places to go. And Online identities. Knowing who to trust. Being in the Consensys Slack channel, that’s so great as there’s lots of sharing of knowledge there.
+1. Other bounties?
+   1. Getting mainstream users onboarded. Informed by practical problems, just getting ETH. Cold start problems. Ways of getting around this, using Gas Relay. What would be interesting iswhere dApps, applications have pre-funded. EIP-186 where you can have the dApp pay for gas. 
+   2. It’s going to delve more into identity based solutions. That’s what really needs to be worked on, that first-time UX down so a mainstream user can use this. We need to figure out the UI/UX. One click Amazon shopping is the standard. We have to solve the problem.
+   3. This breaks down into two things, part of it is a multisig wallet solution. It’s very scary and you have 0 Eth and you’re interested in Ethereum, don’t lose your private key! This is like Internet cash, but I’m used to forgetting my password. Fund recovery for a new user. Once you have value, you can learn about private key, about mnemonic. Funding something that makes multisig easy to use.
+   4. The cold start problem, not having them to pay the initial gas costs when they don’t have value. If you can solve those two things, mainstream adoption.
+   5. I think having a dedicated layer 2 talks specifically could be interesting. Layer 2 solutions are the solutions that scale. Get more Layer 2 solution widespread. And then a lot more collaboration between projects. Projects that need Layer 2 solutions could invest into a fund that is a common platform so not everyone does their own solution. To keep it very practical, want to incentivize everyone to share the knowledge. Could start a DAO to automate this, could get some funding via token inflation. They are working on this DAO on the side but there is still some aftermath for the DAO,. Providing this structure to have people come together on projects as opposed to one project.
+1. What are you most excited about in the short term?
+   1. Actually having micropayments be a thing and scalability be a thing. Everyone talks about Floppening, where Ethereum overcomes Bitcoin. But that floppening fo me is if that txs offchain are more than the onchain transactions. That is what is really exciting. Now we won’t have a limit, we busted through that limit. Hope to happen this year.
+1. Who are the other people you think we should talk to?
+   1. I would actually talk to operators that have successful startups. There is interest there. Learning how to run and operate a businesses. This is what is also really needed in the space. There are analogies to the beginnings of the Internet. How DNS became DNS. This would inform, this history you don’t really hear about. How did social games become mainstream? Was FB leveraging off of Myspace? What were those key learnings there? Ethereum as a technology, getting a healthy mix of people that have been there and drawing analogies and lessons at a higher level can be extremely useful
+   2. List of successful operators that have done 2-3 exits in companies before. The space can move very fast. Needs to be rounded out by successful operators and implementers. Instead of writing papers, let’s implement it. You get the real life pain points.
+   3. State channels don’t matter if you are still like, “How do you begin?” Can be more open about failure, be more honest about this. Harder to learn from success than to learn from failure, good to have a safe environment to learn from failure.
+1. Are there any other questions we should be asking?
+   1. Human behavioral things, what holds your feet to the fire? What is that motivates you? What keeps you on track? What are you doing now and how do you hold onto this track? It’s sometimes better to have these constraints, so when you don’t have these things what makes you sure that you’re on the right track? 
+   2. See a lot of projects waiting to see, but have to implement. Have to have the real-world conversation instead of academics. Need to get this feedback and keep going. People wanted to play Farmville just because it was up, this is what informs him now. For Spankchain just gotta launch, then you know what you really need to solve. 
+   3. So ask why are you doing what you are doing!

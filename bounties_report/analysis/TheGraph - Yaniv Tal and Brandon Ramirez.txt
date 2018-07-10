@@ -1,0 +1,54 @@
+﻿Yaniv Tal and Brandon Ramirez
+22/06/2018 - Andy, Mitch
+
+
+1. Who are you and what are you working on?
+   1. Yaniv and Brandon from The Graph, query protocol for getting data off blockchains and storage networks
+   2. Focused on research and protocol design
+   3. The issue is that Ethereum nodes do not maintain a lot of indexes, if you’re using the JSON RPC you can’t run queries on smart contract state. A lot of time, people need to transform the data. The way they’re storing data onchain is not how to they want to pull that data out 
+   4. The Graph is a Layer 2 protocol that sits on top of Ethereum that builds those indexes that makes all that data available via GraphQL.
+   5. GraphQL has become really popular in the web and mobile community, substantial improvement over REST API’s. Gives you flexibility so you can make changes to UI so you don’t have to make changes to the back-end. Having this query language on Ethereum is great. 
+   6. GraphQL is a natural fit for blockchain. If you don’t have a centralized infrastructure in the mix, GraphQL can make a lot of sense for this.
+1. What are the tools/libraries/frameworks you use?
+   1. Been using Truffle for Solidity. Remix on occasion. Etherscan on occasion. Looking at already polished contracts.
+   2. Use Parity and Geth, use Parity a lot as a Rust shop.
+   3. All over the place with IDE, Atom, Visual Studio Code. Atom not good for writing a lot of Solidity code, only one guy is maintaining the linter for Solidity for Atom.
+   4. Haven’t been doing so much dapp development recently. Are looking into ZeppelinOS contracts, started using Aragon for contract codes.
+   5. Struggled with Aragon at ETHBA hackathon, they made a lot of changes before the Hackathon that threw them off a lot. Overall like APM, spins up IPFS node, like the upgradeability.
+   6. APM (Aragon Package Manager) is not just for Aragon contracts, is statically linked to contracts on the blockchain.
+1. What are your biggest frustrations?
+   1. Artificial limitations in Solidity, number of parameters in a function call, or variable length for things that you are returning. In 2018, really? I think this is the Solidity Compiler, don’t think this is the limitation in the EVM. The stack limit is the other thing, you can’t write good code that is abstracted well, you have to write stuff around the compiler.
+   2. Getting data out of blockchain is hard. Our project is trying to solve this for the community.
+   3. For Ethereum, lots of parts of the engine are getting swapped out. Move to Vyper, will this be the preferred language? Area has a lot of churn. With move to eWasm, will there be a move away from EVM? Need clear guidance on how things are going to be upgraded. For eWasm, have a development environment for this so people can experiment on this. Giving people a way to experiment and to run on things.
+   4. Solidity events are just sugar on top of low-level logging capabilities that EVM provides. Solidity events are just a convention that is built on top, but unclear how this breaks abstractions on top of the EVM that isn’t part of the EVM itself. But this might not be able to be represented across different languages as they move to them. How much will break when people move off Solidity?
+1. How do you handle testing?
+   1. Write a lot of tests, try to make them as comprehensive as we can.
+   2. Think we use Truffle for writing the tests, all in JavaScript. Home rolled their own utilities. Don’t have anything for test coverage.
+   3. For end-to-end testing, would be nice for good tooling for this. Kind of pain in the ass to test other systems that interact with the blockchain.
+1. How do you handle smart contract verification and security?
+   1. Instead of statically linking contracts, you find the library that already has what you want and you call functions on this blockchain. This is pragmatic from the gas standpoint but raises security questions on the dependency.
+   2. So far still statically including everything, would like to do more including things dynamically. But not comfortable with existing solutions.
+   3. But stuff we include statically we have to audit ourselves.
+   4. Haven’t deployed anything on Mainnet for The Graph, but are talking to firms that specialize in auditing. Want to do a full rigorous auditing.
+   5. Do a little bit of social proof, use things widely used by the community.
+   6. For dependencies, still just in development so have been pretty loose with it. Have been using OpenZeppelin, widely used 3rd party libraries.
+1. What tools don’t exist at the moment?
+   1. Pretty common for people to develop contracts locally but don’t really know what gas costs are, and then they deploy to testnet and Mainnet and are surprised. Compile time tool for estimating gas. Embark 3.1 has a Profiler :)
+   2. I know people are working on different types of debuggers, that’s a big one. It works well in Remix, but if someone integrated this in Atom that would be pretty great. 
+1. What are the best educational resources?
+   1. CryptoZombies, used to send people to Zasterin which had some good courses. But not sure if this was updated in a while
+   2. Looked at a bunch of Truffle tutorials.
+   3. Big picture stuff, podcasts like Unenumerated. Preethi has some really nice high-level Medium posts.
+1. Other domain specific questions?
+   1. How have you found working on Aragon, esp. APM?
+      1. Overall, I like the direction of APM, with a registry that also spins up the IPFS node with artifacts auto-deployed on it.
+      2. The devil is in the details and it can be quite complex, but it’s a promising direction.
+1. Other bounties?
+   1. We need to ask, what are the barriers to dapps going to mainstream? Scalability, and how to make transactions fast and cheaper.
+   2. Useability around things like wallets, like Metamask, is also a problem. As people have to approve things, it’s not a good UX. Not designed for microtransactions or to handle cases where a bunch of transactions only go to 5 dollars worth of ETH. This would be tooling. Plugins that would support payment channels (like Next) and state channels with the recent L4 paper. This needs to be integrated into the UI/UX. Set the budget, authenticate in an easy way (finger print), and in a secure way to have it do a payment channel and eventually state channels.
+   3. LastPass or OnePass, weird to me that they haven’t moved into this space yet. Status could solve this on mobile. 99% of mainstream people won’t use Metamask.
+   4. For Open Source Block Explorer, the big problem is around collaboration. Problem is how to solve the problem around the nodes and to incentivize this.
+1. What are you most excited about in the short term?
+   1. Plasma stuff. Obviously early days, but we want to see Plasma stuff ship. 
+   2. State channel stuff is still interesting. Obviously sharding and eWasm. All scaling stuff.
+   3. We like Vyper, which is a more functional, formally proven language.
